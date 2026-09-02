@@ -1,0 +1,22 @@
+{
+  "scripts": {
+    "dev": "vite",
+    "dev:routes": "tsr watch",
+    "generate:routes": "tsr generate",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.170.32",
+    "@tanstack/react-router-devtools": "^1.167.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@tanstack/router-plugin": "^1.168.35",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^6.1.1",
+    "typescript": "^7.0.2",
+    "vite": "^8.2.2"
+  }
+}
