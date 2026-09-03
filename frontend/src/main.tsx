@@ -1,8 +1,15 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+/* eslint-disable */
+import "./index.css"; // eslint-disable-line
 
 import { routeTree } from "./routeTree.gen";
+
+// 1. Initialize the QueryClient
+const queryClient = new QueryClient();
 
 const router = createRouter({
   routeTree,
@@ -22,6 +29,9 @@ if (!rootElement) {
 
 ReactDOM.createRoot(rootElement).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    {/* 2. Wrap the RouterProvider */}
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   </StrictMode>,
 );
