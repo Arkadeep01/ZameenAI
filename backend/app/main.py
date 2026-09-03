@@ -1,26 +1,41 @@
-from fastapi import FastAPI
-from app.core.config import settings
-from app.core.database import engine
-from app.core.security import setup_security
-from app.api.api_v1.api import api_router
+from fastapi import FastAPI, UploadFile, File
+from fastapi.responses import JSONResponse
+import uuid
+import os
+from pathlib import Path
 
 app = FastAPI(
-    title=settings.PROJECT_NAME,
-    description="ZameenAI - National Intelligent Land Acquisition and Land Records Management System",
+    title="ZameenAI",
+    description="National Intelligent Land Acquisition and Land Records Management System",
     version="1.0.0",
-    openapi_url=f"{settings.API_V1_STR}/openapi.json"
 )
 
-# Include API router
-app.include_router(api_router, prefix=settings.API_V1_STR)
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
+UPLOAD_DIR = BASE_DIR / "data" / "uploads"
 
-@app.on_event("startup")
-async def startup():
-    """Initialize database extension and connections."""
-    async with engine.begin() as conn:
-        await conn.execute("CREATE EXTENSION IF NOT EXISTS postgis;")
-    setup_security()
+@app.post("/api/upload")
+async def upload_file(file: UploadFile = File(...)):
+    """Handle file uploads for land records"""
+    # Ensure upload directory exists
+    UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+    
+    # Generate unique filename
+    filename = file.filename or ""
+    file_ext = os.path.splitext(filename)[1].lower()
+    unique_filename = f"{uuid.uuid4()}{file_ext}"
+    file_path = UPLOAD_DIR / unique_filename
+    
+    # Save the file
+    with open(file_path, "wb") as f:
+        content = await file.read()
+        f.write(content)
+    
+    return {
+        "message": "File uploaded successfully",
+        "filename": unique_filename,
+        "path": str(file_path)
+    }
 
 @app.get("/")
 async def root():
-    {"message": "ZameenAI API - Land Acquisition & Digitization Platform"}
+    return JSONResponse({"message": "ZameenAI API - Land Acquisition & Digitization Platform"})
