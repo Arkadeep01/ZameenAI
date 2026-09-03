@@ -1,18 +1,19 @@
 # 📁 ZameenAI - Project Structure
 
-*Generated on: 9/3/2026, 12:06:10 AM*
+*Generated on: 9/3/2026, 8:27:14 PM*
 
 ## 📋 Quick Overview
 
 | Metric | Value |
 |--------|-------|
-| 📄 Total Files | 6839 |
-| 📁 Total Folders | 3082 |
+| 📄 Total Files | 6849 |
+| 📁 Total Folders | 3123 |
 | 🌳 Max Depth | 11 levels |
 | 🛠️ Tech Stack | React, TypeScript, CSS, Node.js |
 
 ## ⭐ Important Files
 
+- 🟡 🚫 **.gitignore** - Git ignore rules
 - 🟡 🚫 **.gitignore** - Git ignore rules
 - 🟡 🚫 **.gitignore** - Git ignore rules
 - 🟡 🔒 **package-lock.json** - Dependency lock
@@ -22,12 +23,12 @@
 
 ### By File Type
 
-- 📄 **.py** (Other files): 2682 files (39.2%)
+- 📄 **.py** (Other files): 2685 files (39.2%)
 - 📄 **.mo** (Other files): 1355 files (19.8%)
-- 📄 **.po** (Other files): 1277 files (18.7%)
-- 📄 **.** (Other files): 955 files (14.0%)
-- 🌐 **.html** (HTML files): 221 files (3.2%)
-- 📄 **.txt** (Text files): 74 files (1.1%)
+- 📄 **.po** (Other files): 1277 files (18.6%)
+- 📄 **.** (Other files): 955 files (13.9%)
+- 🌐 **.html** (HTML files): 222 files (3.2%)
+- 📄 **.txt** (Text files): 75 files (1.1%)
 - 📄 **.typed** (Other files): 44 files (0.6%)
 - 📜 **.js** (JavaScript files): 31 files (0.5%)
 - 🎨 **.svg** (SVG images): 29 files (0.4%)
@@ -37,16 +38,16 @@
 - ⚙️ **.json** (JSON files): 17 files (0.2%)
 - 📄 **.py-tpl** (Other files): 13 files (0.2%)
 - 📄 **.pyd** (Other files): 11 files (0.2%)
+- 📖 **.md** (Markdown files): 7 files (0.1%)
 - 🖼️ **.png** (PNG images): 4 files (0.1%)
-- 📖 **.md** (Markdown files): 4 files (0.1%)
 - 📄 **.apache** (Other files): 4 files (0.1%)
 - 📄 **.bsd** (Other files): 4 files (0.1%)
 - 📄 **.tab** (Other files): 4 files (0.1%)
+- 🚫 **.gitignore** (Git ignore): 3 files (0.0%)
 - ⚙️ **.xml** (XML files): 3 files (0.0%)
 - 📄 **.rst** (Other files): 3 files (0.0%)
 - 📄 **.dll** (Other files): 3 files (0.0%)
 - ⚛️ **.tsx** (React TypeScript files): 3 files (0.0%)
-- 🚫 **.gitignore** (Git ignore): 2 files (0.0%)
 - 📄 **.gz** (Other files): 2 files (0.0%)
 - 📄 **.kml** (Other files): 2 files (0.0%)
 - 📄 **.map** (Other files): 2 files (0.0%)
@@ -55,6 +56,7 @@
 - 🔤 **.woff** (Web fonts): 2 files (0.0%)
 - 📄 **.tmpl** (Other files): 2 files (0.0%)
 - 📄 **.bat** (Other files): 2 files (0.0%)
+- 🔷 **.ts** (TypeScript files): 2 files (0.0%)
 - 📄 **.example** (Other files): 1 files (0.0%)
 - 📄 **.pth** (Other files): 1 files (0.0%)
 - 📄 **.python** (Other files): 1 files (0.0%)
@@ -65,25 +67,24 @@
 - 📄 **.cfg** (Other files): 1 files (0.0%)
 - 📄 **.fish** (Other files): 1 files (0.0%)
 - 📄 **.ps1** (Other files): 1 files (0.0%)
-- 🔷 **.ts** (TypeScript files): 1 files (0.0%)
 
 ### By Category
 
-- **Other**: 6425 files (93.9%)
-- **Web**: 221 files (3.2%)
-- **Docs**: 78 files (1.1%)
+- **Other**: 6428 files (93.9%)
+- **Web**: 222 files (3.2%)
+- **Docs**: 82 files (1.2%)
 - **Assets**: 38 files (0.6%)
 - **JavaScript**: 31 files (0.5%)
 - **Styles**: 20 files (0.3%)
 - **Config**: 20 files (0.3%)
+- **DevOps**: 3 files (0.0%)
 - **React**: 3 files (0.0%)
-- **DevOps**: 2 files (0.0%)
-- **TypeScript**: 1 files (0.0%)
+- **TypeScript**: 2 files (0.0%)
 
 ### 📁 Largest Directories
 
-- **root**: 6839 files
-- **backend**: 6832 files
+- **root**: 6849 files
+- **backend**: 6835 files
 - **backend\.venv**: 6818 files
 - **backend\.venv\Lib\site-packages**: 6800 files
 - **backend\.venv\Lib**: 6800 files
@@ -9989,6 +9990,23 @@ ZameenAI/
 │   │   │   ├── 📄 pythonw.exe
 │   │   │   ├── 📄 sqlformat.exe
 │   │   │   └── 📄 wheel.exe
+│   ├── 🚀 app/
+│   │   ├── 📂 ai/
+│   │   ├── 🔌 api/
+│   │   ├── 📂 core/
+│   │   │   ├── 📄 config.py
+│   │   │   └── 📄 database.py
+│   │   ├── 📂 decision_support/
+│   │   ├── 📂 gis/
+│   │   ├── 📄 main.py
+│   │   ├── 📂 models/
+│   │   ├── 📂 notifications/
+│   │   ├── 📂 ocr/
+│   │   │   └── 📂 reports/
+│   │   ├── 📂 repositories/
+│   │   ├── 📂 schemas/
+│   │   ├── 📂 services/
+│   │   └── 📂 workflow/
 │   ├── ⚙️ config/
 │   │   ├── 📄 __init__.py
 │   │   ├── 📄 asgi.py
@@ -10002,15 +10020,49 @@ ZameenAI/
 │   │   ├── 📄 urls.py
 │   │   └── 📄 wsgi.py
 │   ├── 📄 manage.py
+│   ├── 📂 migrations/
 │   └── 📄 requirements.txt
+├── 📖 docs/
+│   ├── 📖 AGENTS.md
+│   ├── 📖 PRD.md
+│   ├── 📄 TASKLIST.txt
+│   └── 📖 TECHSPEC.md
 ├── 📂 frontend/
+│   ├── 🟡 🚫 **.gitignore**
+│   ├── 📂 .tanstack/
+│   ├── 🌐 index.html
 │   ├── 🟡 🔒 **package-lock.json**
 │   ├── 🔴 📦 **package.json**
 │   ├── 📁 src/
+│   │   ├── 🧩 components/
+│   │   │   ├── 📂 common/
+│   │   │   ├── 📂 forms/
+│   │   │   ├── 📂 modals/
+│   │   │   ├── 📂 tables/
+│   │   │   └── 🎨 ui/
+│   │   ├── 📂 features/
+│   │   │   ├── 📂 acquisition/
+│   │   │   ├── 📂 auth/
+│   │   │   ├── 📂 dashboard/
+│   │   │   ├── 📂 decision-support/
+│   │   │   ├── 📂 digitization/
+│   │   │   ├── 📂 documents/
+│   │   │   ├── 📂 gis/
+│   │   │   ├── 📂 notifications/
+│   │   │   ├── 📂 reports/
+│   │   │   ├── 📂 timeline/
+│   │   │   ├── 📂 users/
+│   │   │   ├── 📂 validation/
+│   │   │   └── 📂 verification/
+│   │   ├── 📚 lib/
 │   │   ├── ⚛️ main.tsx
-│   │   └── 📂 routes/
+│   │   ├── 📂 routes/
 │   │   │   ├── ⚛️ __root.tsx
 │   │   │   └── ⚛️ index.tsx
+│   │   ├── 🔷 routeTree.gen.ts
+│   │   ├── 📂 services/
+│   │   ├── 📂 types/
+│   │   └── 🔧 utils/
 │   └── 🔷 vite.config.ts
 └── 📖 project_structure.md
 ```

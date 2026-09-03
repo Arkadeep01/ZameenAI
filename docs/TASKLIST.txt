@@ -1,0 +1,160 @@
+# ZameenAI — Complete Development Task List
+
+## Project Foundation
+- Finalize PRD/SRS requirements and scope
+- Frontend React + TypeScript + Vite setup
+- TanStack Router setup and route generation
+- Django REST backend setup
+- Database, environment, API and shared-type foundations
+
+## FR-01 — User & Role Management
+- User creation, login/logout, authentication, JWT/session
+- Roles, RBAC permissions, module/action-level access
+- Role-based dashboards and data restrictions
+- Approval hierarchy, user activation/deactivation
+- Security controls and activity logging
+
+## FR-02 — Land Record Document Upload
+- PDF/image/scanned upload, drag-drop, multi-file upload
+- File/type/size validation and duplicate detection
+- Metadata, categorization, progress/status
+- Secure storage, permissions, preview and upload history
+
+## FR-03 — AI Land Record Digitization
+- Processing job creation and preprocessing
+- Classification, land-record type detection, language detection
+- Structured field extraction and digital-record mapping
+- Processing status/failure handling and human-review handoff
+
+## FR-04 — OCR + Document Intelligence
+- OCR and multilingual text extraction
+- Layout/table detection
+- Key-value/entity/field extraction
+- Document structure reconstruction
+- OCR/extraction storage and visualization
+- Mock AI/OCR service with production-pluggable architecture
+
+## FR-05 — Confidence Scoring
+- Field/document/OCR/extraction/validation confidence
+- Confidence thresholds and high/medium/low classification
+- Low-confidence flags and review prioritization
+- Confidence visualization/history
+- Human-review triggers
+
+## FR-06 — Human-in-the-Loop Verification
+- Verification queue and reviewer assignment
+- Side-by-side document/result viewer
+- Field editing, acceptance/rejection and correction
+- Reviewer remarks, escalation and resubmission
+- Verification status, user/timestamp/history
+- Final verified digital record
+
+## FR-07 — Automated Validation
+- Required-field, type, format and range validation
+- Cross-field and land-area consistency checks
+- Survey/plot identifier and duplicate checks
+- Document consistency checks
+- Rule-based validation engine
+- Errors/warnings, issue generation and re-validation
+
+## FR-08 — GIS Land Parcel Visualization
+- Interactive GIS map and layers
+- Parcel/cadastral integration and land-record linking
+- Geo-tagging and GPS capture
+- Parcel search/selection and information popup
+- Project/notified/acquired/possession visualization
+- Field-verification locations and spatial filters
+- Mock GIS data and government GIS API abstraction
+
+## FR-09 — Land Acquisition Workflow
+- Proposal creation/draft/submission
+- Document attachment and automated pre-check
+- Officer assignment, land/field verification and review
+- Query/objection, resubmission and approvals
+- Notification, compensation, affected/displaced family tracking
+- R&R, possession and completion tracking
+- Workflow state machine, approval hierarchy and history
+- SLA/deadline tracking and escalation
+
+## FR-10 — Acquisition Dashboard
+- Executive, role-based and national dashboards
+- State/district/project views
+- KPIs: area notified/acquired, compensation assessed/paid
+- Affected/displaced families, R&R, project progress
+- Possession status and timeline adherence
+- Charts, GIS integration, filters, drill-down
+- Customizable dashboard widgets
+
+## FR-11 — Timeline & Milestone Monitoring
+- Project/proposal milestones and dates
+- SLA configuration and milestone status
+- Progress %, timeline/Gantt view
+- Upcoming and overdue detection
+- Delay calculation and timeline adherence
+- Deadline alerts, escalation and responsibility tracking
+- Project/proposal milestone history
+
+## FR-12 — AI Decision Support
+- Analytics dataset preparation and feature engineering
+- Delay-risk/project-risk prediction
+- Proposal risk, bottleneck and dependency analysis
+- Compensation/R&R/timeline risk analysis
+- Risk classification and explainable indicators
+- Early-warning alerts and recommendations
+- Policy trends and project-execution insights
+- Model evaluation/version tracking
+- Prototype/mock model and production ML architecture
+
+## Cross-Cutting — Government API Integration
+- Integration layer and API abstraction
+- Land records, cadastral maps and government portals
+- Authentication, data mapping and synchronization
+- Request/response validation, errors and retries
+- Logging and sync status
+- Mock government APIs for prototype
+
+## Cross-Cutting — Alerts & Notifications
+- Central notification engine and in-app notifications
+- Submission, verification, query and approval alerts
+- Missing-document, deadline and overdue alerts
+- Compensation, R&R, possession and API-failure alerts
+- Preferences/history
+- Email/SMS integration architecture
+
+## Cross-Cutting — Secure Document Repository & Audit
+- Central repository, metadata and categories
+- Version control/history
+- Access control and secure storage
+- Preview/search/download controls
+- Audit trail: who/what/when/before-after
+- Proposal and document activity history
+
+## Cross-Cutting — MIS & Analytics Reports
+- MIS report engine and standard/custom reports
+- Filterable state/district/project/date reports
+- Acquisition, compensation, R&R, possession and timeline reports
+- CSV/Excel/PDF export
+- Report history and executive summaries
+
+## Cross-Cutting — Field Data Collection
+- Mobile-responsive field interface
+- GPS, geo-tagged evidence and parcel identification
+- Survey form, inspection checklist and photo/document capture
+- Remarks, verification submission and officer/timestamp/location history
+
+## Security, Quality & Governance
+- Authentication/authorization and API security
+- Input/file validation and secure document access
+- Audit logging, backups and data integrity
+- Unit, API, integration and E2E testing
+- RBAC, AI/OCR, GIS and responsive UI testing
+- Performance testing and error handling
+
+## Final Prototype / Internal Submission
+- End-to-end demo: login → proposal → documents → AI/OCR → confidence → verification → validation → GIS → approval → compensation/R&R → possession → dashboard → prediction → audit
+- Architecture diagram
+- ER/database diagram
+- API documentation
+- Feature-to-requirement mapping
+- Test results
+- Internal presentation/demo preparation
