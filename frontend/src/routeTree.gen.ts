@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as UploadsRouteImport } from './routes/uploads'
+import { Route as CitizenDashboardRouteImport } from './routes/citizen.dashboard'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const UploadsRoute = UploadsRouteImport.update({
   path: '/uploads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitizenDashboardRoute = CitizenDashboardRouteImport.update({
+  id: '/citizen/dashboard',
+  path: '/citizen/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/dashboard': typeof CitizenDashboardRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/dashboard': typeof CitizenDashboardRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/dashboard': typeof CitizenDashboardRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/uploads'
+  fullPaths: '/' | '/uploads' | '/citizen/dashboard'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/uploads'
-  id: '__root__' | '/' | '/uploads'
+  to: '/' | '/uploads' | '/citizen/dashboard'
+  id: '__root__' | '/' | '/uploads' | '/citizen/dashboard'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   UploadsRoute: typeof UploadsRoute
+  CitizenDashboardRoute: typeof CitizenDashboardRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UploadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/citizen/dashboard': {
+      id: '/citizen/dashboard'
+      path: '/citizen/dashboard'
+      fullPath: '/citizen/dashboard'
+      preLoaderRoute: typeof CitizenDashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   UploadsRoute: UploadsRoute,
+  CitizenDashboardRoute: CitizenDashboardRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
