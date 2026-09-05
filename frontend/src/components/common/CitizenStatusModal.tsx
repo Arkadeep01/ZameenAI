@@ -32,6 +32,7 @@ export default function CitizenStatusModal({
   initialQuery = '',
 }: CitizenStatusModalProps) {
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
   const [searchQuery, setSearchQuery] = useState(initialQuery || '142/2');
   const [selectedRecord, setSelectedRecord] = useState<LandRecordStatus>(SAMPLE_LAND_RECORDS[0]);
   const [stateFilter, setStateFilter] = useState('All');
@@ -103,10 +104,10 @@ export default function CitizenStatusModal({
             <Search className="w-5 h-5 text-emerald-400" />
             <div>
               <h3 className="font-sans font-bold text-sm sm:text-base tracking-wide">
-                {isHi ? 'नागरिक भूमि अधिग्रहण स्थिति एवं मुआवजा सत्यापन' : 'Citizen Land Status & Compensation Tracker'}
+                {isHi ? 'नागरिक भूमि अधिग्रहण स्थिति एवं मुआवजा सत्यापन' : isBn ? 'নাগরিক ভূমি অর্জন স্ট্যাটাস ও কম্পেনসেশন টিপিক্যাল' : 'Citizen Land Status & Compensation Tracker'}
               </h3>
               <p className="text-[11px] text-slate-400">
-                {isHi ? 'भूमि अधिग्रहण, पुनर्वासन एवं पुनर्व्यवस्थापन में उचित प्रतिकर का अधिकार अधिनियम, 2013' : 'Right to Fair Compensation & Transparency in Land Acquisition (RFCTLARR) Act, 2013'}
+                {isHi ? 'भूमि अधिग्रहण, पुनर्वासन एवं पुनर्व्यवस्थापन में उचित प्रतिकर का अधिकार अधिनियम, 2013' : isBn ? 'ভূমি অর্জন, পুনর্বাসন ও পুনর্ব্যবস্থাপনে যৌক্তিক ক্ষতিপূরণের অধিকার আইন, ২০১৩' : 'Right to Fair Compensation & Transparency in Land Acquisition (RFCTLARR) Act, 2013'}
               </p>
             </div>
           </div>
@@ -129,7 +130,7 @@ export default function CitizenStatusModal({
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={isHi ? "खसरा संख्या, सर्वे नंबर या अधिसूचना आईडी दर्ज करें..." : "Enter Khasra / Survey No. or Notification ID..."}
+                  placeholder={isHi ? "खसरा संख्या, सर्वे नंबर या अधिसूचना आईडी दर्ज करें..." : isBn ? "খসরা নম্বর, সার্ভে নম্বর বা বিজ্ঞপ্তি আইডি লিখুন..." : "Enter Khasra / Survey No. or Notification ID..."}
                   className="w-full pl-9 pr-3 py-2 bg-white border border-slate-300 rounded-md text-xs sm:text-sm focus:outline-hidden focus:ring-2 focus:ring-[#003366]"
                 />
               </div>
@@ -137,13 +138,13 @@ export default function CitizenStatusModal({
                 type="submit"
                 className="px-5 py-2 bg-[#003366] hover:bg-blue-900 text-white text-xs sm:text-sm font-bold rounded-md transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >
-                <span>{isHi ? "अभिलेख खोजें" : "Track Record"}</span>
+                <span>{isHi ? "अभिलेख खोजें" : isBn ? "রেকর্ড ট্র্যাক করুন" : "Track Record"}</span>
               </button>
             </form>
 
             {/* Quick Record Selection Buttons */}
             <div className="mt-3 flex items-center gap-2 text-xs flex-wrap">
-              <span className="text-slate-500 font-medium">{isHi ? "सत्यापित उदाहरण:" : "Verified Examples:"}</span>
+              <span className="text-slate-500 font-medium">{isHi ? "सत्यापित उदाहरण:" : isBn ? "যাচাইকৃত উদাহরণ:" : "Verified Examples:"}</span>
               {SAMPLE_LAND_RECORDS.map((rec) => (
                 <button
                   key={rec.notificationId}

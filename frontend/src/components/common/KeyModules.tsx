@@ -20,6 +20,7 @@ interface KeyModulesProps {
 
 export default function KeyModules({ lang, onSelectModule }: KeyModulesProps) {
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
 
   const getModuleIcon = (iconName: string) => {
     switch (iconName) {
@@ -43,14 +44,16 @@ export default function KeyModules({ lang, onSelectModule }: KeyModulesProps) {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-xs font-bold text-orange-500 uppercase tracking-widest block mb-1">
-              {isHi ? 'प्रणाली आर्किटेक्चर' : 'Architecture'}
+              {isHi ? 'प्रणाली आर्किटेक्चर' : isBn ? 'সিস্টেম আর্কিটেকচার' : 'Architecture'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">
-              {isHi ? 'ज़मीन एआई मुख्य प्रणाली घटक' : 'Core System Modules'}
+              {isHi ? 'ज़मीन एआई मुख्य प्रणाली घटक' : isBn ? 'জামিন এআই কোর সিস্টেম মডিউল' : 'Core System Modules'}
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-slate-500 max-w-2xl">
               {isHi
                 ? 'वैधानिक परिशुद्धता, स्थानिक जीआईएस संरेखण और निर्बाध अंतर-विभागीय कार्यप्रवाह हेतु विशेषीकृत डिजिटल इंजन।'
+                : isBn
+                ? 'বিধানগত নির্ভুলতা, স্থানিক জিআইএস সংহতি এবং নিরবচ্ছিন্ন আন্তঃবিভাগীয় ওয়ার্কফ্লোর জন্য বিশেষ ডিজিটাল ইঞ্জিন।'
                 : 'Automated RoR/Jamabandi parsing, RBAC access controls, PFMS DBT integration, and real-time interactive GIS pipelines.'}
             </p>
           </div>
@@ -73,18 +76,18 @@ export default function KeyModules({ lang, onSelectModule }: KeyModulesProps) {
                     {getModuleIcon(module.icon)}
                   </div>
                   <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                    {isHi ? module.tagHi : module.tag}
+                    {isHi ? module.tagHi : isBn ? module.tagBn : module.tag}
                   </span>
                 </div>
 
                 {/* Module Title */}
                 <h4 className="text-sm font-bold text-slate-800 mb-1 group-hover:text-[#003366] transition-colors">
-                  {isHi ? module.titleHi : module.title}
+                  {isHi ? module.titleHi : isBn ? module.titleBn : module.title}
                 </h4>
 
                 {/* One-line Description */}
                 <p className="text-[11px] text-slate-500 leading-relaxed mb-3">
-                  {isHi ? module.descriptionHi : module.description}
+                  {isHi ? module.descriptionHi : isBn ? module.descriptionBn : module.description}
                 </p>
 
                 {/* Highlighted Benchmark Metric */}
@@ -93,7 +96,7 @@ export default function KeyModules({ lang, onSelectModule }: KeyModulesProps) {
                     {module.sampleMetric}
                   </div>
                   <div className="text-[10px] text-slate-400 mt-0.5">
-                    {isHi ? module.sampleMetricLabelHi : module.sampleMetricLabel}
+                    {isHi ? module.sampleMetricLabelHi : isBn ? module.sampleMetricLabelBn : module.sampleMetricLabel}
                   </div>
                 </div>
               </div>
@@ -105,7 +108,7 @@ export default function KeyModules({ lang, onSelectModule }: KeyModulesProps) {
                   onClick={() => onSelectModule(module)}
                   className="w-full py-2 px-3 rounded bg-slate-100 hover:bg-[#003366] hover:text-white text-slate-700 text-xs font-bold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                 >
-                  <span>{isHi ? 'पूर्वावलोकन एवं सिमुलेशन' : 'Inspect Module Spec'}</span>
+                  <span>{isHi ? 'पूर्वावलोकन एवं सिमुलेशन' : isBn ? 'পূর্বে দেখুন এবং সিমুলেশন' : 'Inspect Module Spec'}</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
