@@ -14,6 +14,7 @@ import { Route as CitizenRouteImport } from './routes/citizen'
 import { Route as UploadsRouteImport } from './routes/uploads'
 import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
 import { Route as CitizenDashboardRouteImport } from './routes/citizen.dashboard'
+import { Route as CitizenDigitalizationsRouteImport } from './routes/citizen.digitalizations'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,18 +41,25 @@ const CitizenDashboardRoute = CitizenDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => CitizenRoute,
 } as any)
+const CitizenDigitalizationsRoute = CitizenDigitalizationsRouteImport.update({
+  id: '/digitalizations',
+  path: '/digitalizations',
+  getParentRoute: () => CitizenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/citizen': typeof CitizenRouteWithChildren
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
   '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
   '/citizen': typeof CitizenIndexRoute
 }
 export interface FileRoutesById {
@@ -60,19 +68,32 @@ export interface FileRoutesById {
   '/citizen': typeof CitizenRouteWithChildren
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
   '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/citizen' | '/uploads' | '/citizen/dashboard' | '/citizen/'
+  fullPaths:
+    | '/'
+    | '/citizen'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/digitalizations'
+    | '/citizen/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/uploads' | '/citizen/dashboard' | '/citizen'
+  to:
+    | '/'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/digitalizations'
+    | '/citizen'
   id:
     | '__root__'
     | '/'
     | '/citizen'
     | '/uploads'
     | '/citizen/dashboard'
+    | '/citizen/digitalizations'
     | '/citizen/'
   fileRoutesById: FileRoutesById
 }
@@ -119,16 +140,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitizenDashboardRouteImport
       parentRoute: typeof CitizenRoute
     }
+    '/citizen/digitalizations': {
+      id: '/citizen/digitalizations'
+      path: '/digitalizations'
+      fullPath: '/citizen/digitalizations'
+      preLoaderRoute: typeof CitizenDigitalizationsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
   }
 }
 
 interface CitizenRouteChildren {
   CitizenDashboardRoute: typeof CitizenDashboardRoute
+  CitizenDigitalizationsRoute: typeof CitizenDigitalizationsRoute
   CitizenIndexRoute: typeof CitizenIndexRoute
 }
 
 const CitizenRouteChildren: CitizenRouteChildren = {
   CitizenDashboardRoute: CitizenDashboardRoute,
+  CitizenDigitalizationsRoute: CitizenDigitalizationsRoute,
   CitizenIndexRoute: CitizenIndexRoute,
 }
 

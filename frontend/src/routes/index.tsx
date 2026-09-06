@@ -1,17 +1,17 @@
-import { useState } from 'react';
-import { createFileRoute, useNavigate } from '@tanstack/react-router';
+import { useState } from "react";
+import { createFileRoute, useNavigate } from "@tanstack/react-router";
 
-import Header from '../components/common/header';
-import Hero from '../components/common/Hero';
-import TrustBar from '../components/common/TrustBar';
-import ProblemToSolution from '../components/common/ProblemToSolution';
-import KeyModules from '../components/common/KeyModules';
-import StakeholderPathways from '../components/common/StakeholderPathways';
-import TransparencyStats from '../components/common/TransparencyStats';
-import Footer from '../components/common/Footer';
-import OfficialLoginModal from '../components/common/OfficialLoginModal';
+import Header from "../components/common/header";
+import Hero from "../components/common/Hero";
+import TrustBar from "../components/common/TrustBar";
+import ProblemToSolution from "../components/common/ProblemToSolution";
+import KeyModules from "../components/common/KeyModules";
+import StakeholderPathways from "../components/common/StakeholderPathways";
+import TransparencyStats from "../components/common/TransparencyStats";
+import Footer from "../components/common/Footer";
+import OfficialLoginModal from "../components/common/OfficialLoginModal";
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
@@ -22,24 +22,20 @@ function HomePage() {
   // Official Login / Signup modal state — shared across Header, Hero,
   // StakeholderPathways and Footer so they all open the SAME modal.
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [authView, setAuthView] = useState<'login' | 'signup'>('login');
+  const [authView, setAuthView] = useState<"login" | "signup">("login");
 
   const openOfficialLogin = (_roleId?: string) => {
-    setAuthView('login');
+    setAuthView("login");
     setAuthModalOpen(true);
   };
 
-  const handleAuthSuccess = (userType: 'government' | 'citizen') => {
+  const handleAuthSuccess = (userType: "government" | "citizen") => {
     // Demo login succeeded — route by role.
-    // Only '/citizen/dashboard' exists today. There's no government dashboard
-    // route yet, so we just close the modal (no navigate) for government users
-    // rather than sending them to a 404. Once you add
-    // src/routes/government.dashboard.tsx (same pattern as citizen.dashboard.tsx),
-    // uncomment the else-branch navigate below.
-    if (userType === 'citizen') {
-      navigate({ to: '/citizen/dashboard' });
+    // The app currently registers the citizen landing route at /citizen,
+    // so redirect there instead of the nonexistent /citizen/dashboard route.
+    if (userType === "citizen") {
+      navigate({ to: "/citizen" });
     } else {
-      // navigate({ to: '/government/dashboard' });
       setAuthModalOpen(false);
     }
   };
@@ -58,24 +54,18 @@ function HomePage() {
       />
       <Hero
         lang="en"
-        onOpenCitizenModal={() => navigate({ to: '/uploads' })}
+        onOpenCitizenModal={() => navigate({ to: "/uploads" })}
         onOpenOfficialLogin={openOfficialLogin}
       />
       <TrustBar lang="en" />
-      <ProblemToSolution lang={isHi ? 'hi' : 'en'} />
-      <KeyModules
-        lang="en"
-        onSelectModule={(module: any) => {}}
-      />
+      <ProblemToSolution lang={isHi ? "hi" : "en"} />
+      <KeyModules lang="en" onSelectModule={(module: any) => {}} />
       <StakeholderPathways
         lang="en"
         onOpenOfficialLogin={openOfficialLogin}
         onOpenCitizenModal={() => {}}
       />
-      <TransparencyStats
-        lang="en"
-        onOpenCitizenModal={() => {}}
-      />
+      <TransparencyStats lang="en" onOpenCitizenModal={() => {}} />
       <Footer
         lang="en"
         onOpenCitizenModal={() => {}}

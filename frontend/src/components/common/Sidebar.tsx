@@ -16,14 +16,30 @@ import {
 
 const menuItems = [
   { name: "Dashboard", to: "/citizen/dashboard", icon: LayoutDashboard },
-  { name: "Document Digitization", to: "/citizen/document-digitization", icon: FileText },
+  {
+    name: "Document Digitization",
+    to: "/citizen/digitalizations",
+    icon: FileText,
+  },
   { name: "Processing Queue", to: "/citizen/processing-queue", icon: Clock3 },
   { name: "Review Center", to: "/citizen/review-center", icon: ClipboardCheck },
   { name: "Land Records", to: "/citizen/land-records", icon: Map },
-  { name: "Validation & Anomalies", to: "/citizen/validation-anomalies", icon: ShieldCheck },
-  { name: "Acquisition Workflow", to: "/citizen/acquisition-workflow", icon: Workflow },
+  {
+    name: "Validation & Anomalies",
+    to: "/citizen/validation-anomalies",
+    icon: ShieldCheck,
+  },
+  {
+    name: "Acquisition Workflow",
+    to: "/citizen/acquisition-workflow",
+    icon: Workflow,
+  },
   { name: "GIS Map", to: "/citizen/gis-map", icon: MapPinned },
-  { name: "Reports & Analytics", to: "/citizen/reports-analytics", icon: BarChart3 },
+  {
+    name: "Reports & Analytics",
+    to: "/citizen/reports-analytics",
+    icon: BarChart3,
+  },
   { name: "Audit Logs", to: "/citizen/audit-logs", icon: History },
   { name: "Settings", to: "/citizen/settings", icon: Settings },
 ];
