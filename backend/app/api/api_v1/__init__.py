@@ -1,3 +1,5 @@
+from fastapi import APIRouter
+
 from app.api.api_v1.uploads import router as upload_router
 
 api_router = APIRouter()
