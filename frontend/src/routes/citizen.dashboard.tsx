@@ -213,14 +213,12 @@ function CitizenDashboard() {
   }, []);
 
   return (
-    <div className="min-h-full space-y-5">
-
+    <div className="min-h-full space-y-5 p-4 sm:p-6">
       {/* =================================================
           PAGE HEADER
       ================================================= */}
 
       <section className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
-
         <div>
           <h1 className="text-2xl font-bold tracking-tight text-[#0B1F44] sm:text-3xl">
             AI Digitization Dashboard
@@ -233,15 +231,14 @@ function CitizenDashboard() {
 
         <div className="text-left sm:text-right">
           <p className="text-sm font-medium text-slate-700">
-  {new Date().toLocaleDateString("en-IN", {
-    weekday: "long",
-    day: "2-digit",
-    month: "long",
-    year: "numeric",
-  })}
-</p>
+            {new Date().toLocaleDateString("en-IN", {
+              weekday: "long",
+              day: "2-digit",
+              month: "long",
+              year: "numeric",
+            })}
+          </p>
         </div>
-
       </section>
 
       {/* =================================================
@@ -249,7 +246,6 @@ function CitizenDashboard() {
       ================================================= */}
 
       <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-
         {stats.map((stat) => {
           const Icon = stat.icon;
 
@@ -258,9 +254,7 @@ function CitizenDashboard() {
               key={stat.label}
               className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
             >
-
               <div className="flex items-start justify-between">
-
                 <div>
                   <p className="text-sm font-medium text-slate-500">
                     {stat.label}
@@ -274,12 +268,8 @@ function CitizenDashboard() {
                 <div
                   className={`flex h-11 w-11 items-center justify-center rounded-xl ${stat.iconBg}`}
                 >
-                  <Icon
-                    size={21}
-                    className={stat.iconColor}
-                  />
+                  <Icon size={21} className={stat.iconColor} />
                 </div>
-
               </div>
 
               <div className="mt-4">
@@ -289,11 +279,9 @@ function CitizenDashboard() {
                   {stat.badge}
                 </span>
               </div>
-
             </div>
           );
         })}
-
       </section>
 
       {/* =================================================
@@ -301,13 +289,11 @@ function CitizenDashboard() {
       ================================================= */}
 
       <section className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1.8fr)_minmax(320px,1fr)]">
-
         {/* =================================================
             AI PROCESSING PIPELINE
         ================================================= */}
 
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-
           {/* Pipeline Heading */}
           <div>
             <h2 className="text-lg font-bold text-[#0B1F44]">
@@ -328,9 +314,7 @@ function CitizenDashboard() {
           ------------------------------------------------ */}
 
           <div className="mt-14 w-full">
-
             <div className="flex w-full items-start">
-
               {pipelineSteps.map((step, index) => {
                 const Icon = step.icon;
 
@@ -345,17 +329,15 @@ function CitizenDashboard() {
                     key={step.name}
                     className="flex min-w-0 flex-1 items-start"
                   >
-
                     {/* =====================================
                         NODE
                     ===================================== */}
 
                     <div
-  className={`flex min-w-0 flex-1 flex-col items-center ${
-    isComplete ? "-translate-x-5" : ""
-  }`}
->
-
+                      className={`flex min-w-0 flex-1 flex-col items-center ${
+                        isComplete ? "-translate-x-5" : ""
+                      }`}
+                    >
                       {/* Node Circle */}
                       <div
                         className={`
@@ -375,7 +357,6 @@ function CitizenDashboard() {
                           }
                         `}
                       >
-
                         {/* Green pulse only on current node */}
                         {isActive && (
                           <span className="absolute inset-[-5px] rounded-full border-2 border-green-300 opacity-70" />
@@ -391,7 +372,6 @@ function CitizenDashboard() {
                           strokeWidth={2}
                           className="relative z-10"
                         />
-
                       </div>
 
                       {/* Node Name */}
@@ -399,11 +379,7 @@ function CitizenDashboard() {
                         className={`
                           mt-2 whitespace-nowrap text-center text-[10px] font-semibold
                           transition-colors duration-300
-                          ${
-                            isActive
-                              ? "text-green-600"
-                              : "text-slate-700"
-                          }
+                          ${isActive ? "text-green-600" : "text-slate-700"}
                         `}
                       >
                         {step.name}
@@ -423,7 +399,6 @@ function CitizenDashboard() {
                       >
                         {step.value}
                       </p>
-
                     </div>
 
                     {/* =====================================
@@ -432,7 +407,6 @@ function CitizenDashboard() {
 
                     {!isComplete && (
                       <div className="relative mt-[17px] h-0.5 min-w-1 flex-1 overflow-hidden bg-blue-200">
-
                         {/* Connector becomes green after
                             animation passes this node */}
                         {index < activeStep && (
@@ -443,18 +417,13 @@ function CitizenDashboard() {
                         {index === activeStep && (
                           <div className="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-transparent via-green-400 to-green-500 transition-all duration-500" />
                         )}
-
                       </div>
                     )}
-
                   </div>
                 );
               })}
-
             </div>
-
           </div>
-
         </div>
 
         {/* =================================================
@@ -462,9 +431,7 @@ function CitizenDashboard() {
         ================================================= */}
 
         <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-
           <div className="flex items-start justify-between">
-
             <div>
               <h2 className="text-lg font-bold text-[#0B1F44]">
                 Extraction Confidence
@@ -481,49 +448,28 @@ function CitizenDashboard() {
             >
               <MoreHorizontal size={18} />
             </button>
-
           </div>
 
           <div className="mt-4">
-
-            <p className="text-4xl font-bold text-emerald-600">
-              91.6%
-            </p>
+            <p className="text-4xl font-bold text-emerald-600">91.6%</p>
 
             <span className="mt-2 inline-flex rounded-full bg-emerald-50 px-2.5 py-1 text-[11px] font-semibold text-emerald-700">
               ↑ 2.4% from last week
             </span>
-
           </div>
 
           {/* Chart */}
           <div className="mt-5 h-24 w-full">
-
             <svg
               viewBox="0 0 500 100"
               className="h-full w-full"
               preserveAspectRatio="none"
             >
-
               <defs>
-                <linearGradient
-                  id="confidenceArea"
-                  x1="0"
-                  y1="0"
-                  x2="0"
-                  y2="1"
-                >
-                  <stop
-                    offset="0%"
-                    stopColor="#3B82F6"
-                    stopOpacity="0.18"
-                  />
+                <linearGradient id="confidenceArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.18" />
 
-                  <stop
-                    offset="100%"
-                    stopColor="#3B82F6"
-                    stopOpacity="0"
-                  />
+                  <stop offset="100%" stopColor="#3B82F6" stopOpacity="0" />
                 </linearGradient>
               </defs>
 
@@ -563,9 +509,7 @@ function CitizenDashboard() {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-
             </svg>
-
           </div>
 
           <div className="mt-1 flex justify-between text-[10px] text-slate-400">
@@ -578,9 +522,7 @@ function CitizenDashboard() {
             <span>May 11</span>
             <span>May 12</span>
           </div>
-
         </div>
-
       </section>
 
       {/* =================================================
@@ -588,10 +530,8 @@ function CitizenDashboard() {
       ================================================= */}
 
       <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-
         {/* Header */}
         <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
-
           <div>
             <h2 className="text-lg font-bold text-[#0B1F44]">
               Recent Documents
@@ -609,17 +549,13 @@ function CitizenDashboard() {
             View All Documents
             <ArrowUpRight size={14} />
           </button>
-
         </div>
 
         {/* Table */}
         <div className="overflow-x-auto">
-
           <table className="w-full min-w-[850px] text-left">
-
             <thead>
               <tr className="border-b border-slate-100 bg-slate-50/70">
-
                 <th className="px-5 py-3 text-[11px] font-bold uppercase tracking-wide text-slate-500">
                   Document ID
                 </th>
@@ -651,18 +587,15 @@ function CitizenDashboard() {
                 <th className="px-5 py-3 text-[11px] font-bold uppercase tracking-wide text-slate-500">
                   Owner
                 </th>
-
               </tr>
             </thead>
 
             <tbody>
-
               {recentDocuments.map((doc) => (
                 <tr
                   key={doc.id}
                   className="border-b border-slate-50 transition last:border-0 hover:bg-slate-50/60"
                 >
-
                   <td className="px-5 py-3.5">
                     <button
                       type="button"
@@ -703,18 +636,12 @@ function CitizenDashboard() {
                   <td className="px-5 py-3.5 text-xs font-medium text-slate-600">
                     {doc.owner}
                   </td>
-
                 </tr>
               ))}
-
             </tbody>
-
           </table>
-
         </div>
-
       </section>
-
     </div>
   );
 }

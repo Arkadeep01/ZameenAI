@@ -11,9 +11,13 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CitizenRouteImport } from './routes/citizen'
+import { Route as FindMyLandRouteImport } from './routes/find-my-land'
 import { Route as UploadsRouteImport } from './routes/uploads'
 import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
 import { Route as CitizenDashboardRouteImport } from './routes/citizen.dashboard'
+import { Route as CitizenLandDetailsRouteImport } from './routes/citizen.land-details'
+import { Route as CitizenMyLandRouteImport } from './routes/citizen.my-land'
+import { Route as CitizenMyLandMapRouteImport } from './routes/citizen.my-land-map'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -23,6 +27,11 @@ const IndexRoute = IndexRouteImport.update({
 const CitizenRoute = CitizenRouteImport.update({
   id: '/citizen',
   path: '/citizen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FindMyLandRoute = FindMyLandRouteImport.update({
+  id: '/find-my-land',
+  path: '/find-my-land',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UploadsRoute = UploadsRouteImport.update({
@@ -40,45 +49,94 @@ const CitizenDashboardRoute = CitizenDashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => CitizenRoute,
 } as any)
+const CitizenLandDetailsRoute = CitizenLandDetailsRouteImport.update({
+  id: '/land-details',
+  path: '/land-details',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenMyLandRoute = CitizenMyLandRouteImport.update({
+  id: '/my-land',
+  path: '/my-land',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenMyLandMapRoute = CitizenMyLandMapRouteImport.update({
+  id: '/my-land-map',
+  path: '/my-land-map',
+  getParentRoute: () => CitizenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/citizen': typeof CitizenRouteWithChildren
+  '/find-my-land': typeof FindMyLandRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/land-details': typeof CitizenLandDetailsRoute
+  '/citizen/my-land': typeof CitizenMyLandRoute
+  '/citizen/my-land-map': typeof CitizenMyLandMapRoute
   '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/find-my-land': typeof FindMyLandRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/land-details': typeof CitizenLandDetailsRoute
+  '/citizen/my-land': typeof CitizenMyLandRoute
+  '/citizen/my-land-map': typeof CitizenMyLandMapRoute
   '/citizen': typeof CitizenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/citizen': typeof CitizenRouteWithChildren
+  '/find-my-land': typeof FindMyLandRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/land-details': typeof CitizenLandDetailsRoute
+  '/citizen/my-land': typeof CitizenMyLandRoute
+  '/citizen/my-land-map': typeof CitizenMyLandMapRoute
   '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/citizen' | '/uploads' | '/citizen/dashboard' | '/citizen/'
+  fullPaths:
+    | '/'
+    | '/citizen'
+    | '/find-my-land'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/land-details'
+    | '/citizen/my-land'
+    | '/citizen/my-land-map'
+    | '/citizen/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/uploads' | '/citizen/dashboard' | '/citizen'
+  to:
+    | '/'
+    | '/find-my-land'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/land-details'
+    | '/citizen/my-land'
+    | '/citizen/my-land-map'
+    | '/citizen'
   id:
     | '__root__'
     | '/'
     | '/citizen'
+    | '/find-my-land'
     | '/uploads'
     | '/citizen/dashboard'
+    | '/citizen/land-details'
+    | '/citizen/my-land'
+    | '/citizen/my-land-map'
     | '/citizen/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CitizenRoute: typeof CitizenRouteWithChildren
+  FindMyLandRoute: typeof FindMyLandRoute
   UploadsRoute: typeof UploadsRoute
 }
 
@@ -96,6 +154,13 @@ declare module '@tanstack/react-router' {
       path: '/citizen'
       fullPath: '/citizen'
       preLoaderRoute: typeof CitizenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/find-my-land': {
+      id: '/find-my-land'
+      path: '/find-my-land'
+      fullPath: '/find-my-land'
+      preLoaderRoute: typeof FindMyLandRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/uploads': {
@@ -119,16 +184,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitizenDashboardRouteImport
       parentRoute: typeof CitizenRoute
     }
+    '/citizen/land-details': {
+      id: '/citizen/land-details'
+      path: '/land-details'
+      fullPath: '/citizen/land-details'
+      preLoaderRoute: typeof CitizenLandDetailsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/my-land': {
+      id: '/citizen/my-land'
+      path: '/my-land'
+      fullPath: '/citizen/my-land'
+      preLoaderRoute: typeof CitizenMyLandRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/my-land-map': {
+      id: '/citizen/my-land-map'
+      path: '/my-land-map'
+      fullPath: '/citizen/my-land-map'
+      preLoaderRoute: typeof CitizenMyLandMapRouteImport
+      parentRoute: typeof CitizenRoute
+    }
   }
 }
 
 interface CitizenRouteChildren {
   CitizenDashboardRoute: typeof CitizenDashboardRoute
+  CitizenLandDetailsRoute: typeof CitizenLandDetailsRoute
+  CitizenMyLandRoute: typeof CitizenMyLandRoute
+  CitizenMyLandMapRoute: typeof CitizenMyLandMapRoute
   CitizenIndexRoute: typeof CitizenIndexRoute
 }
 
 const CitizenRouteChildren: CitizenRouteChildren = {
   CitizenDashboardRoute: CitizenDashboardRoute,
+  CitizenLandDetailsRoute: CitizenLandDetailsRoute,
+  CitizenMyLandRoute: CitizenMyLandRoute,
+  CitizenMyLandMapRoute: CitizenMyLandMapRoute,
   CitizenIndexRoute: CitizenIndexRoute,
 }
 
@@ -138,6 +230,7 @@ const CitizenRouteWithChildren =
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CitizenRoute: CitizenRouteWithChildren,
+  FindMyLandRoute: FindMyLandRoute,
   UploadsRoute: UploadsRoute,
 }
 export const routeTree = rootRouteImport
