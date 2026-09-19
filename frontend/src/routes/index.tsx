@@ -6,9 +6,11 @@ import Hero from '../components/common/Hero';
 import TrustBar from '../components/common/TrustBar';
 import ProblemToSolution from '../components/common/ProblemToSolution';
 import KeyModules from '../components/common/KeyModules';
+import ModuleDetailModal from '../components/common/ModuleDetailModal';
 import StakeholderPathways from '../components/common/StakeholderPathways';
 import TransparencyStats from '../components/common/TransparencyStats';
 import Footer from '../components/common/Footer';
+import { KeyModuleInfo } from '../utils/types';
 
 export const Route = createFileRoute('/')({
   component: HomePage,
@@ -17,6 +19,7 @@ export const Route = createFileRoute('/')({
 function HomePage() {
   const navigate = useNavigate();
   const [lang, setLang] = useState<'en' | 'hi' | 'bn'>('en');
+  const [selectedModule, setSelectedModule] = useState<KeyModuleInfo | null>(null);
 
   const handleQuickSearch = (query: string) => {
     // Would open citizen status modal
@@ -43,7 +46,12 @@ function HomePage() {
       <ProblemToSolution lang={lang} />
       <KeyModules
         lang={lang}
-        onSelectModule={(module: any) => {}}
+        onSelectModule={(module: KeyModuleInfo) => setSelectedModule(module)}
+      />
+      <ModuleDetailModal
+        module={selectedModule}
+        onClose={() => setSelectedModule(null)}
+        lang={lang}
       />
       <StakeholderPathways
         lang={lang}
