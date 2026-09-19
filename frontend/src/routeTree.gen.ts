@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as GisRouteImport } from './routes/gis'
 import { Route as UploadsRouteImport } from './routes/uploads'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GisRoute = GisRouteImport.update({
+  id: '/gis',
+  path: '/gis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UploadsRoute = UploadsRouteImport.update({
@@ -25,27 +31,31 @@ const UploadsRoute = UploadsRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/uploads'
+  fullPaths: '/' | '/gis' | '/uploads'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/uploads'
-  id: '__root__' | '/' | '/uploads'
+  to: '/' | '/gis' | '/uploads'
+  id: '__root__' | '/' | '/gis' | '/uploads'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  GisRoute: typeof GisRoute
   UploadsRoute: typeof UploadsRoute
 }
 
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gis': {
+      id: '/gis'
+      path: '/gis'
+      fullPath: '/gis'
+      preLoaderRoute: typeof GisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/uploads': {
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  GisRoute: GisRoute,
   UploadsRoute: UploadsRoute,
 }
 export const routeTree = rootRouteImport

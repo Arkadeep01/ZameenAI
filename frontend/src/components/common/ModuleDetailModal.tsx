@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { KeyModuleInfo, Language } from '../../utils/types';
+import GisMap from '../../features/gis/GisMap';
 import { 
   X, 
   Sparkles, 
@@ -211,20 +212,16 @@ export default function ModuleDetailModal({
               {module.id === 'gis-spatial' && (
                 <div className="space-y-3">
                   <div className="text-slate-700 text-xs">
-                    {isHi ? 'उपग्रह कैडस्ट्रल ओवरले एवं बफर जोन विश्लेषण:' : isBn ? 'স্যাটেলাইট ক্যাডাস্ট্রাল ওভারলে এবং অর্জন করিডোর বাফার বিশ্লেষণ:' : 'Satellite Cadastre Overlay & Acquisition Corridor Buffer Analysis:'}
+                    {isHi ? 'लाइव भूखंड मानचित्र — स्थिति के अनुसार रंग-कोडित:' : isBn ? 'লাইভ পার্সেল ম্যাপ — অবস্থা অনুযায়ী রঙ-কোডেড:' : 'Live Parcel Map — Color-Coded by Acquisition Status:'}
                   </div>
-                  <div className="p-4 bg-slate-900 text-slate-200 rounded-lg border border-slate-700 font-mono text-xs space-y-2">
-                    <div className="flex justify-between border-b border-slate-800 pb-1.5 text-[11px]">
-                      <span className="text-amber-400">GIS Layer: Bhunaksha Cadastral + Sentinel 2A</span>
-                      <span className="text-emerald-400">Resolution: 0.5m/px</span>
-                    </div>
-                    <div className="p-3 bg-slate-950 rounded border border-slate-800 text-[11px] space-y-1">
-                      <p>• Corridor Centerline: NH-44 Chainage Km 42+200 to 58+400</p>
-                      <p>• Right-of-Way (RoW) Width: 60.0 meters statutory</p>
-                      <p>• Intersecting Cadastral Parcels: 142 Parcels Identified</p>
-                      <p className="text-emerald-400 font-bold">• Boundary Conflict Rate: 0.0% (Clean Geometric Separation)</p>
-                    </div>
-                  </div>
+                  <GisMap compact />
+                  <p className="text-[10px] text-slate-400">
+                    {isHi
+                      ? 'यह पूर्वावलोकन नमूना भूखंड डेटा दिखाता है। पूर्ण मानचित्र हेतु /gis देखें।'
+                      : isBn
+                      ? 'এই প্রিভিউ নমুনা পার্সেল ডেটা দেখায়। সম্পূর্ণ ম্যাপের জন্য /gis দেখুন।'
+                      : 'This preview shows sample parcel data. See the full national map at /gis.'}
+                  </p>
                 </div>
               )}
 
