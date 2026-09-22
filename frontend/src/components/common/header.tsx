@@ -36,14 +36,15 @@ export default function Header({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
 
   const navLinks = [
-    { id: 'hero', label: isHi ? 'सिंहावलोकन' : 'Overview' },
-    { id: 'transparency-stats', label: isHi ? 'राष्ट्रीय संकेतक' : 'Executive KPIs' },
-    { id: 'workflow', label: isHi ? 'अधिग्रहण कार्यप्रवाह' : 'Statutory Workflow' },
-    { id: 'ai-intelligence', label: isHi ? 'एआई इंटेलिजेंस' : 'AI Intelligence' },
-    { id: 'architecture', label: isHi ? 'मंच आर्किटेक्चर' : 'Platform Architecture' },
-    { id: 'stakeholder-pathways', label: isHi ? 'हितधारक प्रवेश' : 'Role Portals' },
+    { id: 'hero', label: isHi ? 'सिंहावलोकन' : isBn ? 'দৃষ্টিপাত' : 'Overview' },
+    { id: 'transparency-stats', label: isHi ? 'राष्ट्रीय संकेतक' : isBn ? 'জাতীয় সূচক' : 'Executive KPIs' },
+    { id: 'workflow', label: isHi ? 'अधिग्रहण कार्यप्रवाह' : isBn ? 'অর্জন ওয়ার্কফ্লো' : 'Statutory Workflow' },
+    { id: 'ai-intelligence', label: isHi ? 'एआई इंटेलिजेंस' : isBn ? 'এআই বুদ্ধিমত্তা' : 'AI Intelligence' },
+    { id: 'architecture', label: isHi ? 'मंच आर्किटेक्चर' : isBn ? 'প্ল্যাটফর্ম আর্কিটেকচার' : 'Platform Architecture' },
+    { id: 'stakeholder-pathways', label: isHi ? 'हितधारक प्रवेश' : isBn ? 'স্টেকহোল্ডার প্রবেশ' : 'Role Portals' },
   ];
 
   const startUploading = () => {
@@ -87,11 +88,11 @@ export default function Header({
           {/* Official Government Identity */}
           <div className="flex items-center gap-2">
             <span className="font-semibold text-white tracking-wide">
-              {isHi ? 'भारत सरकार' : 'GOVERNMENT OF INDIA'}
+              {isHi ? 'भारत सरकार' : isBn ? 'ভারত সরকার' : 'GOVERNMENT OF INDIA'}
             </span>
             <span className="text-slate-600">•</span>
             <span className="text-slate-300 hidden sm:inline">
-              {isHi ? 'ग्रामीण विकास मंत्रालय (DoLR)' : 'Ministry of Rural Development (DoLR)'}
+              {isHi ? 'ग्रामीण विकास मंत्रालय (DoLR)' : isBn ? 'গ্রামীন উন্নয়ন মন্ত্রণালয় (DoLR)' : 'Ministry of Rural Development (DoLR)'}
             </span>
             <span className="text-slate-600 hidden md:inline">•</span>
             <span className="text-slate-400 hidden md:inline text-[10px] uppercase font-mono">
@@ -106,7 +107,7 @@ export default function Header({
               href="#main-content" 
               className="hidden lg:inline-block text-slate-400 hover:text-white transition-colors underline underline-offset-2 text-[10px]"
             >
-              {isHi ? 'मुख्य विषय पर जाएं' : 'Skip to main content'}
+              {isHi ? 'मुख्य विषय पर जाएं' : isBn ? 'মূল বিষয়ে যান' : 'Skip to main content'}
             </a>
 
             {/* Font Size Adjusters */}
@@ -168,6 +169,14 @@ export default function Header({
               >
                 हिन्दी
               </button>
+              <button
+                onClick={() => onLanguageChange('bn')}
+                className={`px-2 py-0.5 font-bold text-[10px] transition-colors ${
+                  lang === 'bn' ? 'bg-[#003366] text-white' : 'text-slate-300 hover:bg-slate-700'
+                }`}
+              >
+                বাংলা
+              </button>
             </div>
           </div>
         </div>
@@ -194,6 +203,8 @@ export default function Header({
             <span className="text-[10px] font-medium text-slate-500 tracking-normal mt-0.5 hidden sm:block">
               {isHi
                 ? 'राष्ट्रीय भूमि अधिग्रहण एवं अभिलेख प्रबंधन मंच'
+                : isBn
+                ? 'জাতীয় ভূমি অর্জন ও রেকর্ড ম্যানেজমেন্ট প্ল্যাটফর্ম'
                 : 'National Land Acquisition & Records Infrastructure'}
             </span>
           </Link>
@@ -225,7 +236,7 @@ export default function Header({
           {/* Live System Status Indicator */}
           <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] text-slate-600">
             <span className="w-2 h-2 rounded-full bg-[#138808] animate-pulse" />
-            <span className="font-medium">{isHi ? 'एनआईसी क्लाउड लाइव' : 'NIC Cloud Live'}</span>
+            <span className="font-medium">{isHi ? 'एनआईसी क्लाउड लाइव' : isBn ? 'এনআইসি ক্লাউড লাইভ' : 'NIC Cloud Live'}</span>
           </div>
 
           {/* Start Uploading CTA */}
@@ -235,7 +246,7 @@ export default function Header({
             className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-md transition-colors shadow-2xs cursor-pointer h-9"
           >
             <Search className="w-3.5 h-3.5 text-slate-500" />
-            <span>Start Uploading</span>
+            <span>{isHi ? 'अपलोडिंग शुरू करें' : isBn ? 'আপলোডিং শুরু করুন' : 'Start Uploading'}</span>
           </button>
 
           {/* Dominant Primary Action: Portal Login */}
@@ -245,7 +256,7 @@ export default function Header({
             className="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#003366] hover:bg-slate-900 rounded-md transition-colors shadow-sm cursor-pointer h-9 active:scale-[0.98]"
           >
             <UserCheck className="w-4 h-4 text-white" />
-            <span className="tracking-wide uppercase">{isHi ? 'पोर्टल लॉगिन' : 'Portal Login'}</span>
+            <span className="tracking-wide uppercase">{isHi ? 'पोर्टल लॉगिन' : isBn ? 'পোর্টাল লগইন' : 'Portal Login'}</span>
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -264,7 +275,7 @@ export default function Header({
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3 shadow-lg">
           <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider pb-1 border-b border-slate-100">
-            {isHi ? 'पोर्टल नेविगेशन' : 'Platform Navigation'}
+            {isHi ? 'पोर्टल नेविगेशन' : isBn ? 'পোর্টাল নেভিগেশন' : 'Platform Navigation'}
           </div>
           <div className="grid grid-cols-1 gap-1">
             {navLinks.map((link) => (
@@ -290,7 +301,7 @@ export default function Header({
               className="w-full py-2.5 px-3 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-200 rounded-md flex items-center justify-center gap-2 cursor-pointer"
             >
               <Search className="w-4 h-4 text-slate-600" />
-              <span>Start Uploading</span>
+              <span>{isHi ? 'अपलोडिंग शुरू करें' : isBn ? 'আপলোডিং শুরু করুন' : 'Start Uploading'}</span>
             </button>
             <button
               onClick={() => {
@@ -300,7 +311,7 @@ export default function Header({
               className="w-full py-2.5 px-3 text-xs font-bold text-white bg-[#003366] hover:bg-slate-900 rounded-md flex items-center justify-center gap-2 shadow-xs cursor-pointer"
             >
               <UserCheck className="w-4 h-4 text-white" />
-              <span>{isHi ? 'जन परिचय अधिकारी लॉगिन' : 'Official Portal Login (SSO)'}</span>
+              <span>{isHi ? 'जन परिचय अधिकारी लॉगिन' : isBn ? 'জন পরিচয় অফিসার লগইন' : 'Official Portal Login (SSO)'}</span>
             </button>
           </div>
         </div>

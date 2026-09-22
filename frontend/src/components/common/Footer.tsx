@@ -22,6 +22,7 @@ interface FooterProps {
 
 export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }: FooterProps) {
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
 
   return (
     <footer id="footer" className="bg-slate-900 text-slate-300 border-t border-slate-800 text-xs">
@@ -38,10 +39,10 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
                   <span className="text-emerald-400 ml-0.5">AI</span>
                 </div>
                 <div className="text-xs text-slate-400">
-                  {isHi ? 'राष्ट्रीय भूमि अधिग्रहण एवं अभिलेख मंच' : 'National Land Acquisition & Records Portal'}
+                  {isHi ? 'राष्ट्रीय भूमि अधिग्रहण एवं अभिलेख मंच' : isBn ? 'জাতীয় ভূমি অর্জন ও রেকর্ড প্ল্যাটফর্ম' : 'National Land Acquisition & Records Portal'}
                 </div>
                 <div className="text-[10px] text-slate-500">
-                  {isHi ? 'डिजिटल इंडिया • भारत सरकार' : 'Digital India • Government of India'}
+                  {isHi ? 'डिजिटल इंडिया • भारत सरकार' : isBn ? 'ডিজিটাল ইন্ডিয়া • ভারত সরকার' : 'Digital India • Government of India'}
                 </div>
               </div>
             </div>
@@ -49,6 +50,8 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
             <p className="text-slate-400 text-xs leading-relaxed">
               {isHi
                 ? 'ज़मीन एआई भारत सरकार के ग्रामीण विकास मंत्रालय (भूमि संसाधन विभाग) की एक पहल है, जिसका उद्देश्य भूमि अधिग्रहण एवं भू-अभिलेखों के डिजिटलीकरण में पूर्ण पारदर्शिता एवं स्पष्टता लाना है।'
+                : isBn
+                ? 'জামিন এআই গ্রামীন উন্নয়ন মন্ত্রণালয় (ভূমি সম্পদ বিভাগ), ভারত সরকারের একটি উদ্যোগ, যার লক্ষ্য ভূমি অর্জন ও ভূমি রেকর্ডের ডিজিটাইজেশনে পূর্ণ স্বচ্ছতা আনার।'
                 : 'ZameenAI is a flagship initiative under the Digital India Land Records Modernization Programme (DILRMP), Department of Land Resources, Ministry of Rural Development, Government of India.'}
             </p>
 
@@ -68,7 +71,7 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
           {/* Col 2 (3 cols): RTI & Grievance Redressal (CPGRAMS / Land Samadhan) */}
           <div className="lg:col-span-3 space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-orange-400 pb-1 border-b border-slate-800">
-              {isHi ? 'सूचना का अधिकार एवं जन शिकायत' : 'RTI & Citizen Grievance'}
+              {isHi ? 'सूचना का अधिकार एवं जन शिकायत' : isBn ? 'তথ্যের অধিকার ও নাগরিক শিকায়ত' : 'RTI & Citizen Grievance'}
             </h3>
             <ul className="space-y-2 text-slate-400">
               <li>
@@ -79,7 +82,7 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <FileText className="w-3.5 h-3.5 text-orange-400" />
-                  <span>{isHi ? 'सूचना का अधिकार (RTI Act 2005)' : 'Right to Information (RTI Online)'}</span>
+                  <span>{isHi ? 'सूचना का अधिकार (RTI Act 2005)' : isBn ? 'তথ্যের অধিকার (RTI আইন ২০০৫)' : 'Right to Information (RTI Online)'}</span>
                 </a>
               </li>
               <li>
@@ -90,7 +93,7 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
                   className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
                   <HelpCircle className="w-3.5 h-3.5 text-orange-400" />
-                  <span>{isHi ? 'केंद्रीकृत जन शिकायत (CPGRAMS)' : 'Centralized Grievance (CPGRAMS)'}</span>
+                  <span>{isHi ? 'केंद्रीकृत जन शिकायत (CPGRAMS)' : isBn ? 'কেন্দ্রীকৃত শিকায়ত (CPGRAMS)' : 'Centralized Grievance (CPGRAMS)'}</span>
                 </a>
               </li>
               <li>
@@ -99,12 +102,12 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
                   className="hover:text-white transition-colors flex items-center gap-1.5 text-left cursor-pointer"
                 >
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>{isHi ? 'भूमि समाधान एवं ई-आपत्ति (Sec 15)' : 'Land Samadhan & E-Objection (Sec 15)'}</span>
+                  <span>{isHi ? 'भूमि समाधान एवं ई-आपत्ति (Sec 15)' : isBn ? 'ভূমি সমাধান এবং ই-আপত্তি (ধারা ১৫)' : 'Land Samadhan & E-Objection (Sec 15)'}</span>
                 </button>
               </li>
               <li>
                 <span className="text-[11px] text-slate-500 block pt-1">
-                  {isHi ? 'लोक सूचना अधिकारी (PIO):' : 'Nodal PIO (Land Resources):'}
+                  {isHi ? 'लोक सूचना अधिकारी (PIO):' : isBn ? 'নোডাল পিআইও (ভূমি সম্পদ):' : 'Nodal PIO (Land Resources):'}
                   <br />
                   <span className="text-slate-300">Shri R. K. Sharma, Director (DILRMP)</span>
                 </span>
@@ -115,20 +118,22 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
           {/* Col 3 (3 cols): Data Privacy & Legal Framework */}
           <div className="lg:col-span-3 space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-orange-400 pb-1 border-b border-slate-800">
-              {isHi ? 'डेटा गोपनीयता एवं वैधानिक व्यवस्था' : 'Data Privacy & Framework'}
+              {isHi ? 'डेटा गोपनीयता एवं वैधानिक व्यवस्था' : isBn ? 'ডেটা গোপনীয়তা ও বৈधानিক কাঠামো' : 'Data Privacy & Framework'}
             </h3>
             <div className="space-y-2 text-slate-400 text-xs">
               <p className="leading-relaxed">
                 <strong className="text-white block mb-0.5">
-                  {isHi ? 'डीपीडीपी अधिनियम 2023 अनुपालन:' : 'DPDP Act 2023 Protection:'}
+                  {isHi ? 'डीपीडीपी अधिनियम 2023 अनुपालन:' : isBn ? 'DPDP আইন ২০২৩ সুরক্ষা:' : 'DPDP Act 2023 Protection:'}
                 </strong>
                 {isHi
                   ? 'नागरिकों एवं भू-स्वामियों के समस्त भू-अभिलेख एवं व्यक्तिगत डेटा डिजिटल व्यक्तिगत डेटा संरक्षण अधिनियम, 2023 के तहत भारत में स्थित राष्ट्रीय डेटा केंद्रों में पूर्णतः सुरक्षित हैं।'
+                  : isBn
+                  ? 'নাগরিক ও ভূমালিকদের সব ভূমি রেকর্ড, মালিকানা डीড এবং আধার-সিডেড ক্ষতিপূরণ ডেটা भारतीय প্রজাতন্ত্রের সার্বভৌমিক সীমার মধ্যে প্রক্রিয়া ও হোস্ট করা হয়।'
                   : 'All land records, ownership deeds, and Aadhaar-seeded compensation data are processed and hosted within the sovereign boundaries of the Republic of India.'}
               </p>
               <div className="pt-2 flex items-center gap-1.5 text-emerald-400 text-[11px]">
                 <Lock className="w-3.5 h-3.5" />
-                <span>{isHi ? '256-बिट एंड-टू-एंड एन्क्रिप्शन' : 'End-to-End Cryptographic Encryption'}</span>
+                <span>{isHi ? '256-बिट एंड-टू-एंड एन्क्रिप्शन' : isBn ? '২৫৬-বিট এন্ড-টু-এন্ড এনক্রিপশন' : 'End-to-End Cryptographic Encryption'}</span>
               </div>
             </div>
           </div>
@@ -136,7 +141,7 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
           {/* Col 4 (2 cols): Government Contact & Helpdesk */}
           <div className="lg:col-span-2 space-y-3">
             <h3 className="text-xs font-bold uppercase tracking-wider text-orange-400 pb-1 border-b border-slate-800">
-              {isHi ? 'शासकीय संपर्क' : 'Official Contact'}
+              {isHi ? 'शासकीय संपर्क' : isBn ? 'সরকারি যোগাযোগ' : 'Official Contact'}
             </h3>
             <div className="space-y-2.5 text-xs text-slate-400">
               <div className="flex items-start gap-2">
@@ -144,6 +149,8 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
                 <span className="leading-tight">
                   {isHi
                     ? 'भूमि संसाधन विभाग, कृषि भवन, नई दिल्ली - 110001'
+                    : isBn
+                    ? 'ভূমি সম্পদ বিভাগ, কৃষি ভবন, নিউ দিল্লি - ১১০০০১'
                     : 'Dept. of Land Resources, Krishi Bhawan, New Delhi - 110001'}
                 </span>
               </div>
@@ -160,7 +167,7 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
                   onClick={onOpenOfficialLogin}
                   className="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-orange-300 border border-slate-700 rounded text-[11px] font-bold transition-colors w-full cursor-pointer text-center"
                 >
-                  {isHi ? 'अधिकारी हेल्पडेस्क लॉगिन' : 'Officer Helpdesk Portal'}
+                  {isHi ? 'अधिकारी हेल्पडेस्क लॉगिन' : isBn ? 'অফিসার হেল্পডেস্ক লগইন' : 'Officer Helpdesk Portal'}
                 </button>
               </div>
             </div>
@@ -193,14 +200,14 @@ export default function Footer({ lang, onOpenCitizenModal, onOpenOfficialLogin }
           </div>
 
           <div className="text-slate-500">
-            {isHi ? 'अंतिम अद्यतन:' : 'Page Last Updated:'} <span className="text-slate-300 font-mono">03 Sept 2026</span>
+            {isHi ? 'अंतिम अद्यतन:' : isBn ? 'শেষ আপডেট:' : 'Page Last Updated:'} <span className="text-slate-300 font-mono">03 Sept 2026</span>
           </div>
         </div>
 
         {/* 3. Sleek Theme Bottom Strip */}
         <div className="pt-6 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 text-xs">
           <div>
-            <span className="font-bold text-white">ZameenAI</span> • {isHi ? 'ग्रामीण विकास मंत्रालय, भारत सरकार की एक पहल' : 'An initiative of Ministry of Rural Development, Govt. of India'}
+            <span className="font-bold text-white">ZameenAI</span> • {isHi ? 'ग्रामीण विकास मंत्रालय, भारत सरकार की एक पहल' : isBn ? 'গ্রামীন উন্নয়ন মন্ত্রণালয়, ভারত সরকারের একটি উদ্যোগ' : 'An initiative of Ministry of Rural Development, Govt. of India'}
           </div>
           <div className="flex flex-wrap space-x-6 text-slate-400">
             <a href="#privacy" onClick={(e) => { e.preventDefault(); }} className="hover:text-white transition-colors">Privacy Policy</a>

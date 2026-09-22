@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CitizenRouteImport } from './routes/citizen'
 import { Route as FindMyLandRouteImport } from './routes/find-my-land'
+import { Route as GisRouteImport } from './routes/gis'
 import { Route as UploadsRouteImport } from './routes/uploads'
 import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
 import { Route as CitizenDashboardRouteImport } from './routes/citizen.dashboard'
@@ -32,6 +33,11 @@ const CitizenRoute = CitizenRouteImport.update({
 const FindMyLandRoute = FindMyLandRouteImport.update({
   id: '/find-my-land',
   path: '/find-my-land',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GisRoute = GisRouteImport.update({
+  id: '/gis',
+  path: '/gis',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UploadsRoute = UploadsRouteImport.update({
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/citizen': typeof CitizenRouteWithChildren
   '/find-my-land': typeof FindMyLandRoute
+  '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
   '/citizen/land-details': typeof CitizenLandDetailsRoute
@@ -79,6 +86,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/find-my-land': typeof FindMyLandRoute
+  '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
   '/citizen/land-details': typeof CitizenLandDetailsRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/citizen': typeof CitizenRouteWithChildren
   '/find-my-land': typeof FindMyLandRoute
+  '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
   '/citizen/land-details': typeof CitizenLandDetailsRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
     | '/'
     | '/citizen'
     | '/find-my-land'
+    | '/gis'
     | '/uploads'
     | '/citizen/dashboard'
     | '/citizen/land-details'
@@ -114,6 +124,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/find-my-land'
+    | '/gis'
     | '/uploads'
     | '/citizen/dashboard'
     | '/citizen/land-details'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/citizen'
     | '/find-my-land'
+    | '/gis'
     | '/uploads'
     | '/citizen/dashboard'
     | '/citizen/land-details'
@@ -137,6 +149,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CitizenRoute: typeof CitizenRouteWithChildren
   FindMyLandRoute: typeof FindMyLandRoute
+  GisRoute: typeof GisRoute
   UploadsRoute: typeof UploadsRoute
 }
 
@@ -161,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/find-my-land'
       fullPath: '/find-my-land'
       preLoaderRoute: typeof FindMyLandRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gis': {
+      id: '/gis'
+      path: '/gis'
+      fullPath: '/gis'
+      preLoaderRoute: typeof GisRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/uploads': {
@@ -231,6 +251,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CitizenRoute: CitizenRouteWithChildren,
   FindMyLandRoute: FindMyLandRoute,
+  GisRoute: GisRoute,
   UploadsRoute: UploadsRoute,
 }
 export const routeTree = rootRouteImport

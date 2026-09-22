@@ -10,6 +10,7 @@ interface TransparencyStatsProps {
 
 export default function TransparencyStats({ lang, onOpenCitizenModal }: TransparencyStatsProps) {
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
 
   const getValueColor = (idx: number) => {
     switch (idx) {
@@ -31,21 +32,23 @@ export default function TransparencyStats({ lang, onOpenCitizenModal }: Transpar
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 pb-5 border-b border-slate-100 gap-4">
           <div>
             <span className="text-xs font-bold text-orange-500 uppercase tracking-widest block mb-1">
-              {isHi ? 'राष्ट्रीय सूचकांक' : 'Live Analytics'}
+              {isHi ? 'राष्ट्रीय सूचकांक' : isBn ? 'জাতীয় সূচক' : 'Live Analytics'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">
-              {isHi ? 'भूमि अधिग्रहण वास्तविक समय संकेतक' : 'National Transparency & Impact Metrics'}
+              {isHi ? 'भूमि अधिग्रहण वास्तविक समय संकेतक' : isBn ? 'জাতীয় স্বচ্ছতা ও প্রভাব মেট্রিক্স' : 'National Transparency & Impact Metrics'}
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-slate-500">
               {isHi
                 ? 'पीएफएमएस, राज्य भू-अभिलेख और राष्ट्रीय जीआईएस ग्रिड से स्वचालित रूप से समन्वित।'
+                : isBn
+                ? 'সেন্ট্রাল পিএফএমএস ট্রেজারি, রাজ্য ভূমি রেজিস্ট্রি এবং ভূনকশা জিআইএস সার্ভারের সাথে সরাসরি সিঙ্ক্রোনাইজড।'
                 : 'Directly synchronized with Central PFMS Treasury, State Land Registries, and Bhunaksha GIS servers.'}
             </p>
           </div>
 
           <div className="flex items-center gap-2 text-xs font-medium text-slate-500">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping" />
-            <span>{isHi ? 'डेटा लाइव अपडेट: 24 घंटे सक्रिय' : 'Central Server Live Synced'}</span>
+            <span>{isHi ? 'डेटा लाइव अपडेट: 24 घंटे सक्रिय' : isBn ? 'ডেটা লাইভ আপডেট: ২৪ ঘণ্টা সক্রিয়' : 'Central Server Live Synced'}</span>
           </div>
         </div>
 
@@ -59,7 +62,7 @@ export default function TransparencyStats({ lang, onOpenCitizenModal }: Transpar
               <div>
                 <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
                   <span className="uppercase tracking-wider font-bold text-[10px]">
-                    {isHi ? kpi.unitHi : kpi.unit}
+                    {isHi ? kpi.unitHi : isBn ? kpi.unitBn : kpi.unit}
                   </span>
                   <CheckCircle className="w-4 h-4 text-emerald-600" />
                 </div>
@@ -67,11 +70,11 @@ export default function TransparencyStats({ lang, onOpenCitizenModal }: Transpar
                   {kpi.value}
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-800 mt-1.5 leading-snug">
-                  {isHi ? kpi.labelHi : kpi.label}
+                  {isHi ? kpi.labelHi : isBn ? kpi.labelBn : kpi.label}
                 </h3>
               </div>
               <div className="mt-3 pt-2.5 border-t border-slate-200/60 text-[11px] text-slate-500 leading-relaxed">
-                {isHi ? kpi.subtextHi : kpi.subtext}
+                {isHi ? kpi.subtextHi : isBn ? kpi.subtextBn : kpi.subtext}
               </div>
             </div>
           ))}
@@ -83,11 +86,13 @@ export default function TransparencyStats({ lang, onOpenCitizenModal }: Transpar
             <ShieldCheck className="w-6 h-6 text-[#003366] shrink-0" />
             <div>
               <span className="font-bold text-slate-800 block">
-                {isHi ? '100% प्रत्यक्ष लाभ अंतरण (DBT) गारंटी' : 'Zero Leakage Direct Benefit Transfer (DBT) Guarantee'}
+                {isHi ? '100% प्रत्यक्ष लाभ अंतरण (DBT) गारंटी' : isBn ? '১০০% ডাইরেক্ট বেনিফিট ট্রান্সফার (ডিবিটি) গ্যারান্টি' : 'Zero Leakage Direct Benefit Transfer (DBT) Guarantee'}
               </span>
               <span className="text-slate-500 text-[11px]">
                 {isHi
                   ? 'सभी मुआवजा भुगतान भारतीय रिजर्व बैंक एवं पीएफएमएस के माध्यम से सीधे भू-स्वामी के बैंक खाते में जमा होते हैं।'
+                  : isBn
+                  ? 'সব ক্ষতিপূরণ বিতরণ RBI এবং PFMS-এর মাধ্যমে সরাসরি যাচাইকৃত ভূমালিকের ব্যাংক অ্যাকাউন্টে ইলেক্ট্রনিকভাবে করা হয়।'
                   : 'All land compensation awards are disbursed electronically through RBI & PFMS directly into the verified landowner bank accounts.'}
               </span>
             </div>
@@ -96,7 +101,7 @@ export default function TransparencyStats({ lang, onOpenCitizenModal }: Transpar
             onClick={onOpenCitizenModal}
             className="shrink-0 px-4 py-2 rounded bg-[#003366] hover:bg-blue-900 text-white font-bold text-xs transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
           >
-            <span>{isHi ? 'मेरी मुआवजा राशि जांचें' : 'Verify My Land Award'}</span>
+            <span>{isHi ? 'मेरी मुआवजा राशि जांचें' : isBn ? 'আমার ক্ষতিপূরণ যাচাই করুন' : 'Verify My Land Award'}</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </button>
         </div>
