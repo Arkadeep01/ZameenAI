@@ -1,5 +1,4 @@
 import { createFileRoute, useNavigate } from '@tanstack/react-router';
-import { useState } from 'react';
 
 import Header from '../components/common/header';
 import Hero from '../components/common/Hero';
