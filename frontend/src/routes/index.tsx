@@ -40,7 +40,7 @@ function HomePage() {
     if (userType === 'citizen') {
       navigate({ to: '/citizen' });
     } else {
-      navigate({ to: '/uploads' });
+      navigate({ to: '/' });
     }
   };
 
