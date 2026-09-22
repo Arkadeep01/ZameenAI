@@ -34,7 +34,7 @@ const menuItems = [
     to: "/citizen/acquisition-workflow",
     icon: Workflow,
   },
-  { name: "GIS Map", to: "/citizen/gis-map", icon: MapPinned },
+  { name: "GIS Map", to: "/citizen/my-land", icon: MapPinned },
   {
     name: "Reports & Analytics",
     to: "/citizen/reports-analytics",
@@ -54,7 +54,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
 
   return (
     <aside
-      className={`fixed left-0 top-16 z-40 flex h-[calc(100vh-4rem)] w-60 flex-col bg-[#06254A] text-white transition-transform duration-300 ease-in-out ${
+      className={`fixed left-0 top-16 z-[1050] flex h-[calc(100vh-4rem)] w-60 flex-col bg-[#06254A] text-white transition-transform duration-300 ease-in-out ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } lg:translate-x-0`}
     >

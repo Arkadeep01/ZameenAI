@@ -1,1 +1,130 @@
 @import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+
+/* ========================================================================== */
+/* USER LOCATION MARKER                                                      */
+/* ========================================================================== */
+
+@keyframes user-loc-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.85;
+  }
+  70% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+.user-location-pulse-ring {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(37, 99, 235, 0.45);
+  animation: user-loc-pulse 2s infinite ease-out;
+  pointer-events: none;
+}
+
+.user-location-dot {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #2563eb;
+  border: 3px solid #ffffff;
+  box-shadow:
+    0 0 0 1.5px rgba(37, 99, 235, 0.6),
+    0 3px 8px rgba(0, 0, 0, 0.35);
+  z-index: 2;
+}
+
+.user-location-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 4px;
+  height: 4px;
+  margin-top: -2px;
+  margin-left: -2px;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+
+/* ========================================================================== */
+/* LEAFLET                                                                    */
+/* ========================================================================== */
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  font-family: inherit;
+  background: #dce6ef;
+}
+
+/* Prevent global CSS from shrinking Leaflet tiles */
+
+.leaflet-container img {
+  max-width: none !important;
+}
+
+/* Map tiles */
+
+.leaflet-tile {
+  max-width: none !important;
+}
+
+/* Leaflet controls */
+
+.leaflet-control-attribution {
+  font-size: 7px !important;
+}
+
+/* ========================================================================== */
+/* PARCEL LABEL                                                               */
+/* ========================================================================== */
+
+.parcel-label {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 0 !important;
+  border-radius: 6px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18) !important;
+  color: #173b55 !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  padding: 4px 8px !important;
+}
+
+.parcel-label::before {
+  display: none !important;
+}
+
+/* ========================================================================== */
+/* FULLSCREEN MAP                                                             */
+/* ========================================================================== */
+
+.leaflet-container:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* ========================================================================== */
+/* MOBILE                                                                     */
+/* ========================================================================== */
+
+@media (max-width: 640px) {
+  .leaflet-control-attribution {
+    display: none;
+  }
+
+  .parcel-label {
+    font-size: 10px !important;
+    padding: 3px 6px !important;
+  }
+}

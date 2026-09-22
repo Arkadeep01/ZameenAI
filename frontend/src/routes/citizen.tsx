@@ -28,7 +28,7 @@ function CitizenLayout() {
       )}
 
       <main className="pt-16 transition-all duration-200 lg:pl-60">
-        <div className="p-4 sm:p-6">
+        <div>
           <Outlet />
         </div>
       </main>

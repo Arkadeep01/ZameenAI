@@ -17,7 +17,7 @@ const TopBar: React.FC<TopBarProps> = ({ onMenuClick }) => {
   const [profileOpen, setProfileOpen] = useState(false);
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 h-16 border-b border-gray-200 bg-white">
+    <header className="fixed left-0 right-0 top-0 z-[1100] h-16 border-b border-gray-200 bg-white shadow-xs">
       <div className="flex h-full items-center justify-between px-4 sm:px-6">
         {/* Left Section */}
         <div className="flex items-center gap-3">
@@ -95,9 +95,7 @@ const TopBar: React.FC<TopBarProps> = ({ onMenuClick }) => {
                 <p className="text-sm font-semibold leading-4 text-gray-800">
                   Citizen
                 </p>
-                <p className="text-[11px] leading-4 text-gray-500">
-                  Landowner
-                </p>
+                <p className="text-[11px] leading-4 text-gray-500">Landowner</p>
               </div>
 
               <ChevronDown
@@ -111,9 +109,7 @@ const TopBar: React.FC<TopBarProps> = ({ onMenuClick }) => {
             {profileOpen && (
               <div className="absolute right-0 mt-2 w-52 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-lg">
                 <div className="border-b border-gray-100 px-4 py-3">
-                  <p className="text-sm font-semibold text-gray-800">
-                    Citizen
-                  </p>
+                  <p className="text-sm font-semibold text-gray-800">Citizen</p>
                   <p className="text-xs text-gray-500">Landowner</p>
                 </div>
 
