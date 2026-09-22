@@ -27,6 +27,7 @@ export default function StakeholderPathways({
   onOpenCitizenModal,
 }: StakeholderPathwaysProps) {
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
 
   const getPersonaIcon = (roleCode: string) => {
     switch (roleCode) {
@@ -64,14 +65,16 @@ export default function StakeholderPathways({
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
           <div>
             <span className="text-xs font-bold text-orange-500 uppercase tracking-widest block mb-1">
-              {isHi ? 'भूमिका-विशिष्ट कार्यक्षेत्र' : 'Portals & Access'}
+              {isHi ? 'भूमिका-विशिष्ट कार्यक्षेत्र' : isBn ? 'ভূমিকা-নির্দিষ্ট কর্মক্ষেত্র' : 'Portals & Access'}
             </span>
             <h2 className="text-2xl sm:text-3xl font-black text-slate-800 tracking-tight">
-              {isHi ? 'सात प्रमुख हितधारक प्रवेश द्वार' : 'Stakeholder Pathways'}
+              {isHi ? 'सात प्रमुख हितधारक प्रवेश द्वार' : isBn ? 'সাতটি প্রধান স্টেকহোল্ডার পথ' : 'Stakeholder Pathways'}
             </h2>
             <p className="mt-1 text-xs sm:text-sm text-slate-500 max-w-2xl">
               {isHi
                 ? 'प्रस्ताव प्रस्तुत करने वाली एजेंसियों से लेकर क्षेत्रीय पटवारी, जिला मजिस्ट्रेट एवं आम नागरिकों तक - प्रत्येक हेतु समर्पित सुरक्षित लॉगिन।'
+                : isBn
+                ? 'প্রস্তাব জমা দেওয়া এজেন্সি থেকে ফিল্ড পটোয়ারি, জেলা মেজিস্ট্রেট এবং সাধারণ নাগরিক পর্যন্ত - প্রতিটি জন্য নিযুক্ত সুরক্ষিত লগইন।'
                 : 'Role-specific authenticated portals via Jan Parichay SSO for officials and transparent tracking for citizens.'}
             </p>
           </div>
@@ -122,36 +125,36 @@ export default function StakeholderPathways({
                     }`}
                   >
                     {isCitizen
-                      ? isHi ? 'नागरिक एवं भू-स्वामी' : 'Citizens & Landowners'
-                      : isHi ? 'शासकीय अधिकारी' : 'Government Officials'}
+                      ? (isHi ? 'नागरिक एवं भू-स्वामी' : isBn ? 'নাগরিক ও ভূমালিক' : 'Citizens & Landowners')
+                      : (isHi ? 'शासकीय अधिकारी' : isBn ? 'সরকারি কর্মকর্তা' : 'Government Officials')}
                   </span>
 
                   {/* Title & Subtitle */}
                   <h3 className="text-base sm:text-lg font-bold text-slate-800 leading-snug">
-                    {isHi ? persona.titleHi : persona.title}
+                    {isHi ? persona.titleHi : isBn ? persona.titleBn : persona.title}
                   </h3>
                   <p className="text-[11px] font-medium text-slate-400 mt-0.5">
-                    {isHi ? persona.subtitleHi : persona.subtitle}
+                    {isHi ? persona.subtitleHi : isBn ? persona.subtitleBn : persona.subtitle}
                   </p>
 
                   {/* Primary Entity / Dept */}
                   <div className="mt-2 inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
-                    <span>{isHi ? 'संबद्धता:' : 'Affiliation:'}</span>
-                    <span className="text-slate-800">{isHi ? persona.primaryEntityHi : persona.primaryEntity}</span>
+                    <span>{isHi ? 'संबद्धता:' : isBn ? 'অংশীদারিত্ব:' : 'Affiliation:'}</span>
+                    <span className="text-slate-800">{isHi ? persona.primaryEntityHi : isBn ? persona.primaryEntityBn : persona.primaryEntity}</span>
                   </div>
 
                   {/* Description */}
                   <p className="text-xs text-slate-500 mt-3 leading-relaxed">
-                    {isHi ? persona.descriptionHi : persona.description}
+                    {isHi ? persona.descriptionHi : isBn ? persona.descriptionBn : persona.description}
                   </p>
 
                   {/* Key Responsibilities Chips */}
                   <div className="mt-4 pt-3 border-t border-slate-100">
                     <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1.5">
-                      {isHi ? 'मुख्य वैधानिक उत्तरदायित्व:' : 'Statutory Key Responsibilities:'}
+                      {isHi ? 'मुख्य वैधानिक उत्तरदायित्व:' : isBn ? 'প্রধান বৈধানিক দায়িত্ব:' : 'Statutory Key Responsibilities:'}
                     </span>
                     <div className="flex flex-wrap gap-1.5">
-                      {(isHi ? persona.keyResponsibilitiesHi : persona.keyResponsibilities).map((item, rIdx) => (
+                      {(isHi ? persona.keyResponsibilitiesHi : isBn ? persona.keyResponsibilitiesBn : persona.keyResponsibilities).map((item, rIdx) => (
                         <span
                           key={rIdx}
                           className="px-2 py-0.5 rounded bg-slate-50 text-slate-600 border border-slate-200 text-[10px] font-medium"
@@ -176,8 +179,8 @@ export default function StakeholderPathways({
                   >
                     <span>
                       {isCitizen
-                        ? (isHi ? 'खसरा / सर्वे संख्या खोजें' : 'Search Survey / Khasra No.')
-                        : (isHi ? `${persona.roleCode} परिचयं लॉगिन (SSO)` : `Parichay SSO Login (${persona.roleCode})`)}
+                        ? (isHi ? 'खसरा / सर्वे संख्या खोजें' : isBn ? 'খসরা / সার্ভে নম্বর খুঁজুন' : 'Search Survey / Khasra No.')
+                        : (isHi ? `${persona.roleCode} परिचयं लॉगिन (SSO)` : isBn ? `${persona.roleCode} পরিচয় লগইন (SSO)` : `Parichay SSO Login (${persona.roleCode})`)}
                     </span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>

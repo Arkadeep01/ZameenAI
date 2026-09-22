@@ -9,6 +9,7 @@ interface TrustBarProps {
 
 export default function TrustBar({ lang }: TrustBarProps) {
   const isHi = lang === 'hi';
+  const isBn = lang === 'bn';
 
   const partnerIcons = [
     <Landmark key="gov" className="w-5 h-5 text-[#003366]" />,
@@ -25,6 +26,8 @@ export default function TrustBar({ lang }: TrustBarProps) {
           <p className="text-xs uppercase tracking-wider font-semibold text-slate-500">
             {isHi 
               ? 'राष्ट्रीय संस्थागत एकीकरण एवं स्वामित्व' 
+              : isBn
+              ? 'জাতীয় সাংগঠনিক সংহতি ও অঙ্গীকার'
               : 'Institutional Framework, Ownership & National Integration'}
           </p>
         </div>
@@ -41,7 +44,7 @@ export default function TrustBar({ lang }: TrustBarProps) {
                   {partnerIcons[idx % partnerIcons.length]}
                 </div>
                 <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
-                  {isHi ? partner.badgeHi : partner.badge}
+                  {isHi ? partner.badgeHi : isBn ? partner.badgeBn : partner.badge}
                 </span>
               </div>
               <div>
@@ -49,7 +52,7 @@ export default function TrustBar({ lang }: TrustBarProps) {
                   {partner.name}
                 </h2>
                 <p className="text-[11px] text-slate-500 line-clamp-2 mt-0.5 leading-snug">
-                  {isHi ? partner.titleHi : partner.title}
+                  {isHi ? partner.titleHi : isBn ? partner.titleBn : partner.title}
                 </p>
               </div>
             </div>
@@ -60,17 +63,17 @@ export default function TrustBar({ lang }: TrustBarProps) {
         <div className="mt-3.5 pt-3.5 border-t border-slate-200/80 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-[11px] text-slate-500 text-center font-medium">
           <span className="inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#138808]" />
-            {isHi ? 'डिजिटल व्यक्तिगत डेटा संरक्षण (DPDP) अधिनियम 2023 से आच्छादित' : 'Protected under Digital Personal Data Protection (DPDP) Act 2023'}
+            {isHi ? 'डिजिटल व्यक्तिगत डेटा संरक्षण (DPDP) अधिनियम 2023 से आच्छादित' : isBn ? 'ডিজিটাল ব্যক্তিগত ডেটা সুরক্ষা (DPDP) আইন ২০২৩ দ্বারা সুরক্ষিত' : 'Protected under Digital Personal Data Protection (DPDP) Act 2023'}
           </span>
           <span className="text-slate-300">•</span>
           <span className="inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff9933]" />
-            {isHi ? 'राष्ट्रीय सूचना विज्ञान केंद्र (NIC) टियर-IV सुरक्षित डेटा सेंटर में होस्टेड' : 'Hosted securely on National Informatics Centre (NIC) MeghRaj Cloud'}
+            {isHi ? 'राष्ट्रीय सूचना विज्ञान केंद्र (NIC) टियर-IV सुरक्षित डेटा सेंटर में होस्टेड' : isBn ? 'জাতীয় তথ্য বিজ্ঞান কেন্দ্র (NIC) টিয়ার-IV সুরক্ষিত ডেটা সেন্টারে হোস্টেড' : 'Hosted securely on National Informatics Centre (NIC) MeghRaj Cloud'}
           </span>
           <span className="text-slate-300">•</span>
           <span className="inline-flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#003366]" />
-            {isHi ? '28 राज्यों एवं 8 केंद्र शासित प्रदेशों के राजस्व पोर्टल्स से सीधे संबद्ध' : 'Integrated with 28 State & UT Revenue & Registration Portals'}
+            {isHi ? '28 राज्यों एवं 8 केंद्र शासित प्रदेशों के राजस्व पोर्टल्स से सीधे संबद्ध' : isBn ? '২৮টি রাজ্য ও ৮টি কেন্দ্রশাসিত আঞ্চলিক রাজस्व পোর্টলসহ সরাসরি সংযুক্ত' : 'Integrated with 28 State & UT Revenue & Registration Portals'}
           </span>
         </div>
       </div>

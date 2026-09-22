@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { KeyModuleInfo, Language } from '../../utils/types';
+import GisMap from '../../features/gis/GisMap';
 import { 
   X, 
   Sparkles, 
@@ -26,10 +27,11 @@ export default function ModuleDetailModal({
   onClose,
   lang,
 }: ModuleDetailModalProps) {
+  const [activeTab, setActiveTab] = useState<'overview' | 'simulation'>('overview');
+
   if (!module) return null;
   const isHi = lang === 'hi';
-
-  const [activeTab, setActiveTab] = useState<'overview' | 'simulation'>('overview');
+  const isBn = lang === 'bn';
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/75 backdrop-blur-xs overflow-y-auto">
@@ -49,10 +51,10 @@ export default function ModuleDetailModal({
             </div>
             <div>
               <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">
-                {isHi ? 'प्रणाली विशिष्टता' : 'System Module Specification'}
+                {isHi ? 'प्रणाली विशिष्टता' : isBn ? 'সিস্টেম মডিউল স্পেসিফিকেশন' : 'System Module Specification'}
               </span>
               <h3 className="font-sans font-bold text-base sm:text-lg text-white">
-                {isHi ? module.titleHi : module.title}
+                {isHi ? module.titleHi : isBn ? module.titleBn : module.title}
               </h3>
             </div>
           </div>
@@ -74,7 +76,7 @@ export default function ModuleDetailModal({
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            {isHi ? 'सिंहावलोकन एवं कार्यप्रणाली' : 'Architectural Overview'}
+            {isHi ? 'सिंहावलोकन एवं कार्यप्रणाली' : isBn ? 'আর্কিটেকচারাল ওভারভিউ' : 'Architectural Overview'}
           </button>
           <button
             onClick={() => setActiveTab('simulation')}
@@ -84,7 +86,7 @@ export default function ModuleDetailModal({
                 : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
             }`}
           >
-            {isHi ? 'लाइव सिमुलेशन पूर्वावलोकन' : 'Live Interactive Demo'}
+            {isHi ? 'लाइव सिमुलेशन पूर्वावलोकन' : isBn ? 'লাইভ ইন্টারেক্টিভ ডেমো' : 'Live Interactive Demo'}
           </button>
         </div>
 
@@ -95,10 +97,10 @@ export default function ModuleDetailModal({
               {/* Mission Summary */}
               <div className="p-4 rounded-lg bg-slate-50 border border-slate-200">
                 <span className="text-[10px] uppercase font-bold text-[#003366] tracking-wider block mb-1">
-                  {isHi ? 'मूल उद्देश्य:' : 'Core Operational Purpose:'}
+                  {isHi ? 'मूल उद्देश्य:' : isBn ? 'মূল অপারেশনাল উদ্দেশ্য:' : 'Core Operational Purpose:'}
                 </span>
                 <p className="text-sm text-slate-800 font-medium leading-relaxed">
-                  {isHi ? module.descriptionHi : module.description}
+                  {isHi ? module.descriptionHi : isBn ? module.descriptionBn : module.description}
                 </p>
               </div>
 
@@ -108,7 +110,7 @@ export default function ModuleDetailModal({
                   {isHi ? 'तकनीकी एवं वैधानिक क्षमताएं:' : 'Statutory & Technical Specifications:'}
                 </span>
                 <ul className="space-y-2 text-slate-700">
-                  {(isHi ? module.detailsHi : module.details).map((point, idx) => (
+                  {(isHi ? module.detailsHi : isBn ? module.detailsBn : module.details).map((point, idx) => (
                     <li key={idx} className="flex items-start gap-2.5 p-3 rounded bg-slate-50 border border-slate-200">
                       <CheckCircle2 className="w-4 h-4 text-[#138808] shrink-0 mt-0.5" />
                       <span className="leading-relaxed">{point}</span>
@@ -121,10 +123,10 @@ export default function ModuleDetailModal({
               <div className="p-3.5 rounded-lg bg-blue-50/70 border border-blue-200 flex items-center justify-between">
                 <div>
                   <span className="text-[10px] uppercase font-bold text-[#003366]">
-                    {isHi ? 'प्रमाणित बेंचमार्क' : 'Certified Quality SLA:'}
+                    {isHi ? 'प्रमाणित बेंचमार्क' : isBn ? 'প্রমাণিত কোইলিটি এসএলএ:' : 'Certified Quality SLA:'}
                   </span>
                   <div className="text-sm font-bold text-slate-900 mt-0.5">
-                    {isHi ? module.sampleMetricLabelHi : module.sampleMetricLabel}
+                    {isHi ? module.sampleMetricLabelHi : isBn ? module.sampleMetricLabelBn : module.sampleMetricLabel}
                   </div>
                 </div>
                 <div className="font-mono text-lg font-black text-[#003366]">
@@ -140,6 +142,8 @@ export default function ModuleDetailModal({
                   <div className="text-slate-700 text-xs">
                     {isHi
                       ? 'हस्तलिखित देवनागरी/क्षेत्रीय भाषा खतौनी का न्यूरल ओसीआर एवं म्यूटेशन विसंगति पहचान:'
+                      : isBn
+                      ? 'নমুনা এক্সট্রাকশন: ঐতিহাসিক পেপার RoR বনাম স্ট্রাকচারড জামিন এআই JSON গ্রিড:'
                       : 'Sample Extraction: Historical Paper RoR vs. Structured ZameenAI JSON Grid:'}
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -175,6 +179,8 @@ export default function ModuleDetailModal({
                   <div className="text-slate-700 text-xs">
                     {isHi
                       ? 'आरएफसीटीएलएआरआर अधिनियम 2013 के अंतर्गत 5-स्तरीय अनुमोदन श्रृंखला:'
+                      : isBn
+                      ? 'স্ট্যাটুটি ৫-টিয়ার হায়ারার্কিক্যাল অনুমোদন ওয়ার্কফ্লো ডিজিটাল স্বাক্ষরসহ:'
                       : 'Statutory 5-Tier Hierarchical Approval Workflow with Digital Signature:'}
                   </div>
                   <div className="space-y-2">
@@ -206,27 +212,23 @@ export default function ModuleDetailModal({
               {module.id === 'gis-spatial' && (
                 <div className="space-y-3">
                   <div className="text-slate-700 text-xs">
-                    {isHi ? 'उपग्रह कैडस्ट्रल ओवरले एवं बफर जोन विश्लेषण:' : 'Satellite Cadastre Overlay & Acquisition Corridor Buffer Analysis:'}
+                    {isHi ? 'लाइव भूखंड मानचित्र — स्थिति के अनुसार रंग-कोडित:' : isBn ? 'লাইভ পার্সেল ম্যাপ — অবস্থা অনুযায়ী রঙ-কোডেড:' : 'Live Parcel Map — Color-Coded by Acquisition Status:'}
                   </div>
-                  <div className="p-4 bg-slate-900 text-slate-200 rounded-lg border border-slate-700 font-mono text-xs space-y-2">
-                    <div className="flex justify-between border-b border-slate-800 pb-1.5 text-[11px]">
-                      <span className="text-amber-400">GIS Layer: Bhunaksha Cadastral + Sentinel 2A</span>
-                      <span className="text-emerald-400">Resolution: 0.5m/px</span>
-                    </div>
-                    <div className="p-3 bg-slate-950 rounded border border-slate-800 text-[11px] space-y-1">
-                      <p>• Corridor Centerline: NH-44 Chainage Km 42+200 to 58+400</p>
-                      <p>• Right-of-Way (RoW) Width: 60.0 meters statutory</p>
-                      <p>• Intersecting Cadastral Parcels: 142 Parcels Identified</p>
-                      <p className="text-emerald-400 font-bold">• Boundary Conflict Rate: 0.0% (Clean Geometric Separation)</p>
-                    </div>
-                  </div>
+                  <GisMap compact />
+                  <p className="text-[10px] text-slate-400">
+                    {isHi
+                      ? 'यह पूर्वावलोकन नमूना भूखंड डेटा दिखाता है। पूर्ण मानचित्र हेतु /gis देखें।'
+                      : isBn
+                      ? 'এই প্রিভিউ নমুনা পার্সেল ডেটা দেখায়। সম্পূর্ণ ম্যাপের জন্য /gis দেখুন।'
+                      : 'This preview shows sample parcel data. See the full national map at /gis.'}
+                  </p>
                 </div>
               )}
 
               {module.id === 'exec-dashboard' && (
                 <div className="space-y-3">
                   <div className="text-slate-700 text-xs">
-                    {isHi ? 'राष्ट्रीय स्तर पर राज्यवार प्रगति एवं मुआवजा संवितरण संकेतक:' : 'National Executive Monitoring & PFMS Fund Velocity Cockpit:'}
+                    {isHi ? 'राष्ट्रीय स्तर पर राज्यवार प्रगति एवं मुआवजा संवितरण संकेतक:' : isBn ? 'জাতীয় egunفيذي মনিটরিং ও PFMS ফান্ড ভেলোসিটি ককপিট:' : 'National Executive Monitoring & PFMS Fund Velocity Cockpit:'}
                   </div>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="p-3 bg-slate-50 rounded-lg border border-slate-200">
@@ -255,13 +257,13 @@ export default function ModuleDetailModal({
         <div className="bg-slate-50 px-6 py-3 border-t border-slate-200 flex items-center justify-between text-xs text-slate-600">
           <div className="flex items-center gap-1.5">
             <Lock className="w-3.5 h-3.5 text-slate-500" />
-            <span>{isHi ? 'भारत सरकार डिजिटल सार्वजनिक अवसंरचना (DPI)' : 'Government of India Digital Public Infrastructure (DPI)'}</span>
+            <span>{isHi ? 'भारत सरकार डिजिटल सार्वजनिक अवसंरचना (DPI)' : isBn ? 'ভারত সরকার ডিজিটাল পাবলিক ইনফ্রাস্ট্রাকচার (DPI)' : 'Government of India Digital Public Infrastructure (DPI)'}</span>
           </div>
           <button
             onClick={onClose}
             className="px-4 py-1.5 bg-slate-800 hover:bg-slate-900 text-white rounded text-xs font-semibold cursor-pointer"
           >
-            {isHi ? 'बंद करें' : 'Close'}
+            {isHi ? 'बंद करें' : isBn ? 'বন্ধ করুন' : 'Close'}
           </button>
         </div>
       </div>

@@ -1,5 +1,3 @@
-from app.api.api_v1.uploads import router as upload_router
+from app.api.api_v1.api import api_router
 
-api_router = APIRouter()
-
-api_router.include_router(upload_router, prefix="", tags=["upload"])
+__all__ = ["api_router"]

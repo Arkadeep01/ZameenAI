@@ -1,20 +1,26 @@
-export type Language = 'en' | 'hi';
+export type Language = 'en' | 'hi' | 'bn';
 
 export interface PersonaInfo {
   id: string;
   roleCode: string;
   title: string;
   titleHi: string;
+  titleBn: string;
   subtitle: string;
   subtitleHi: string;
+  subtitleBn: string;
   badge: string;
   badgeHi: string;
+  badgeBn: string;
   description: string;
   descriptionHi: string;
+  descriptionBn: string;
   keyResponsibilities: string[];
   keyResponsibilitiesHi: string[];
+  keyResponsibilitiesBn: string[];
   primaryEntity: string;
   primaryEntityHi: string;
+  primaryEntityBn: string;
   accentColor: string;
 }
 
@@ -22,29 +28,38 @@ export interface KeyModuleInfo {
   id: string;
   title: string;
   titleHi: string;
+  titleBn: string;
   tag: string;
   tagHi: string;
+  tagBn: string;
   description: string;
   descriptionHi: string;
+  descriptionBn: string;
   details: string[];
   detailsHi: string[];
+  detailsBn: string[];
   icon: string;
   sampleMetric: string;
   sampleMetricLabel: string;
   sampleMetricLabelHi: string;
+  sampleMetricLabelBn: string;
 }
 
 export interface ProblemSolutionStep {
   stepNumber: string;
   title: string;
   titleHi: string;
+  titleBn: string;
   tag: string;
   tagHi: string;
+  tagBn: string;
   points: string[];
   pointsHi: string[];
+  pointsBn: string[];
   icon: string;
   statusBadge: string;
   statusBadgeHi: string;
+  statusBadgeBn: string;
   color: string;
 }
 
