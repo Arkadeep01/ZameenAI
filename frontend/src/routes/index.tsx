@@ -34,13 +34,12 @@ function HomePage() {
 
   const handleAuthSuccess = (userType: 'government' | 'citizen') => {
     // Demo login succeeded — route by role.
-    // Citizen hub redirects /citizen → /citizen/dashboard.
-    // Government officials land on the upload / digitization workspace.
+    // Citizen → dashboard; government → upload / digitization workspace.
     setAuthModalOpen(false);
     if (userType === 'citizen') {
-      navigate({ to: '/citizen' });
+      navigate({ to: '/citizen/dashboard' });
     } else {
-      navigate({ to: '/' });
+      navigate({ to: '/uploads' });
     }
   };
 
