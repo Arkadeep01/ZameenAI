@@ -5,9 +5,13 @@ from fastapi.responses import JSONResponse
 from app.core.config import settings
 from app.api.api_v1.api import api_router
 
+
 app = FastAPI(
     title="ZameenAI",
-    description="National Intelligent Land Acquisition and Land Records Management System",
+    description=(
+        "National Intelligent Land Acquisition and "
+        "Land Records Management System"
+    ),
     version="1.0.0",
 )
 
@@ -26,4 +30,6 @@ app.include_router(api_router, prefix="/api")
 
 @app.get("/")
 async def root():
-    return JSONResponse({"message": "ZameenAI API - Land Acquisition & Digitization Platform"})
+    return JSONResponse({
+        "message": "ZameenAI API - Land Acquisition & Digitization Platform"
+    })
