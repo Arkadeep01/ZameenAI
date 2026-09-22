@@ -13,7 +13,7 @@ import Footer from '../components/common/Footer';
 import OfficialLoginModal from '../components/common/OfficialLoginModal';
 import { KeyModuleInfo } from '../utils/types';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
@@ -25,14 +25,14 @@ function HomePage() {
   // Official Login / Signup modal state — shared across Header, Hero,
   // StakeholderPathways and Footer so they all open the SAME modal.
   const [authModalOpen, setAuthModalOpen] = useState(false);
-  const [authView, setAuthView] = useState<'login' | 'signup'>('login');
+  const [authView, setAuthView] = useState<"login" | "signup">("login");
 
   const openOfficialLogin = (_roleId?: string) => {
-    setAuthView('login');
+    setAuthView("login");
     setAuthModalOpen(true);
   };
 
-  const handleAuthSuccess = (userType: 'government' | 'citizen') => {
+  const handleAuthSuccess = (userType: "government" | "citizen") => {
     // Demo login succeeded — route by role.
     // Citizen → dashboard; government → upload / digitization workspace.
     setAuthModalOpen(false);
