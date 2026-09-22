@@ -10,12 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CitizenRouteImport } from './routes/citizen'
 import { Route as GisRouteImport } from './routes/gis'
 import { Route as UploadsRouteImport } from './routes/uploads'
+import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
+import { Route as CitizenDashboardRouteImport } from './routes/citizen.dashboard'
+import { Route as CitizenDigitalizationsRouteImport } from './routes/citizen.digitalizations'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CitizenRoute = CitizenRouteImport.update({
+  id: '/citizen',
+  path: '/citizen',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GisRoute = GisRouteImport.update({
@@ -28,33 +37,81 @@ const UploadsRoute = UploadsRouteImport.update({
   path: '/uploads',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CitizenIndexRoute = CitizenIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenDashboardRoute = CitizenDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenDigitalizationsRoute = CitizenDigitalizationsRouteImport.update({
+  id: '/digitalizations',
+  path: '/digitalizations',
+  getParentRoute: () => CitizenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/citizen': typeof CitizenRouteWithChildren
   '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
+  '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
+  '/citizen': typeof CitizenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/citizen': typeof CitizenRouteWithChildren
   '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/dashboard': typeof CitizenDashboardRoute
+  '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
+  '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/gis' | '/uploads'
+  fullPaths:
+    | '/'
+    | '/citizen'
+    | '/gis'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/digitalizations'
+    | '/citizen/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/gis' | '/uploads'
-  id: '__root__' | '/' | '/gis' | '/uploads'
+  to:
+    | '/'
+    | '/gis'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/digitalizations'
+    | '/citizen'
+  id:
+    | '__root__'
+    | '/'
+    | '/citizen'
+    | '/gis'
+    | '/uploads'
+    | '/citizen/dashboard'
+    | '/citizen/digitalizations'
+    | '/citizen/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CitizenRoute: typeof CitizenRouteWithChildren
   GisRoute: typeof GisRoute
   UploadsRoute: typeof UploadsRoute
 }
@@ -66,6 +123,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/citizen': {
+      id: '/citizen'
+      path: '/citizen'
+      fullPath: '/citizen'
+      preLoaderRoute: typeof CitizenRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gis': {
@@ -82,11 +146,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof UploadsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/citizen/': {
+      id: '/citizen/'
+      path: '/'
+      fullPath: '/citizen/'
+      preLoaderRoute: typeof CitizenIndexRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/dashboard': {
+      id: '/citizen/dashboard'
+      path: '/dashboard'
+      fullPath: '/citizen/dashboard'
+      preLoaderRoute: typeof CitizenDashboardRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/digitalizations': {
+      id: '/citizen/digitalizations'
+      path: '/digitalizations'
+      fullPath: '/citizen/digitalizations'
+      preLoaderRoute: typeof CitizenDigitalizationsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
   }
 }
 
+interface CitizenRouteChildren {
+  CitizenDashboardRoute: typeof CitizenDashboardRoute
+  CitizenDigitalizationsRoute: typeof CitizenDigitalizationsRoute
+  CitizenIndexRoute: typeof CitizenIndexRoute
+}
+
+const CitizenRouteChildren: CitizenRouteChildren = {
+  CitizenDashboardRoute: CitizenDashboardRoute,
+  CitizenDigitalizationsRoute: CitizenDigitalizationsRoute,
+  CitizenIndexRoute: CitizenIndexRoute,
+}
+
+const CitizenRouteWithChildren =
+  CitizenRoute._addFileChildren(CitizenRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CitizenRoute: CitizenRouteWithChildren,
   GisRoute: GisRoute,
   UploadsRoute: UploadsRoute,
 }

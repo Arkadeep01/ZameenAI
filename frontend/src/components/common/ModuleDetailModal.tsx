@@ -27,11 +27,11 @@ export default function ModuleDetailModal({
   onClose,
   lang,
 }: ModuleDetailModalProps) {
+  const [activeTab, setActiveTab] = useState<'overview' | 'simulation'>('overview');
+
   if (!module) return null;
   const isHi = lang === 'hi';
   const isBn = lang === 'bn';
-
-  const [activeTab, setActiveTab] = useState<'overview' | 'simulation'>('overview');
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/75 backdrop-blur-xs overflow-y-auto">
