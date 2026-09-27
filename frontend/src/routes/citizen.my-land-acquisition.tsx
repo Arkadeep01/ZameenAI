@@ -13,9 +13,7 @@ import {
 /* -------------------------------------------------------------------------- */
 /* SERVICES & TYPES                                                           */
 /* -------------------------------------------------------------------------- */
-import {
-  useCitizenAcquisitionCases,
-} from "../services/acquisition";
+import { useCitizenAcquisitionCases } from "../services/acquisition";
 import { useCitizenLand } from "../services/citizen";
 
 /* -------------------------------------------------------------------------- */
@@ -60,7 +58,8 @@ export function MyLandAcquisitionPage() {
   const [activeFilter, setActiveFilter] = useState<FilterStatus>("ALL");
 
   // Summary counts computed dynamically from actual data
-  const totalParcelsCount = landSummary?.totalParcels ?? (cases.length > 0 ? cases.length + 1 : 0);
+  const totalParcelsCount =
+    landSummary?.totalParcels ?? (cases.length > 0 ? cases.length + 1 : 0);
   const underAcquisitionCount = cases.length;
   const completedCount = useMemo(
     () =>
@@ -89,7 +88,9 @@ export function MyLandAcquisitionPage() {
       for (const stg of c.stages || []) {
         if (stg.citizenAction) {
           return {
-            title: stg.citizenAction.description || "Compensation verification is pending for:",
+            title:
+              stg.citizenAction.description ||
+              "Compensation verification is pending for:",
             khasraNumber: c.khasraNumber,
             projectTitle: c.projectTitle,
             actionUrl: stg.citizenAction.actionUrl || "/citizen/compensation",
@@ -216,7 +217,7 @@ export function MyLandAcquisitionPage() {
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-[#062B52]">
-                MY LAND ACQUISITION
+                My Land Acquisition
               </h1>
               <p className="text-xs sm:text-sm text-slate-600">
                 Track government acquisition activity affecting your land.
@@ -265,10 +266,7 @@ export function MyLandAcquisitionPage() {
             {/* LEFT / MAIN COLUMN: CASES LIST (8 COLS ON DESKTOP)           */}
             {/* ------------------------------------------------------------ */}
             <div className="lg:col-span-8 space-y-5">
-              <section
-                aria-label="My Acquisition Cases"
-                className="space-y-4"
-              >
+              <section aria-label="My Acquisition Cases" className="space-y-4">
                 {/* Section Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border-b border-slate-200 pb-3">
                   <div>
@@ -280,7 +278,8 @@ export function MyLandAcquisitionPage() {
                     </p>
                   </div>
                   <span className="text-xs font-semibold text-slate-500 self-start sm:self-auto">
-                    Showing {filteredCases.length} of {cases.length} {cases.length === 1 ? "case" : "cases"}
+                    Showing {filteredCases.length} of {cases.length}{" "}
+                    {cases.length === 1 ? "case" : "cases"}
                   </span>
                 </div>
 
@@ -342,7 +341,21 @@ export function MyLandAcquisitionPage() {
                           : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
                       }`}
                     >
-                      In Progress ({cases.filter((c) => !c.statusLabel.toUpperCase().includes("COMPLETED") && !c.stages.some((s) => s.status === "ACTION_REQUIRED" || s.citizenAction)).length})
+                      In Progress (
+                      {
+                        cases.filter(
+                          (c) =>
+                            !c.statusLabel
+                              .toUpperCase()
+                              .includes("COMPLETED") &&
+                            !c.stages.some(
+                              (s) =>
+                                s.status === "ACTION_REQUIRED" ||
+                                s.citizenAction,
+                            ),
+                        ).length
+                      }
+                      )
                     </button>
 
                     <button

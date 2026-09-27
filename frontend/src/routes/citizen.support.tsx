@@ -87,7 +87,7 @@ const FAQ_LIST: FAQItem[] = [
 function UnifiedSupportPage() {
   const searchParams = useSearch({ from: "/citizen/support" });
   const [activeTab, setActiveTab] = useState<"overview" | "faqs" | "grievance">(
-    searchParams.tab || "overview"
+    searchParams.tab || "overview",
   );
 
   // Sync state if query param changes
@@ -104,7 +104,7 @@ function UnifiedSupportPage() {
 
   // Grievance Form State
   const [grievanceCategory, setGrievanceCategory] = useState(
-    "Land Acquisition & Compensation Discrepancy"
+    "Land Acquisition & Compensation Discrepancy",
   );
   const [khasraNumber, setKhasraNumber] = useState("Khasra 184/2");
   const [grievanceSubject, setGrievanceSubject] = useState("");
@@ -141,25 +141,26 @@ function UnifiedSupportPage() {
 
   return (
     <PageContainer className="space-y-5 text-[#062B52] sm:space-y-6">
-    {/* ================================================================== */}
-    {/* 1. BREADCRUMB & PAGE HEADER                                        */}
-    {/* ================================================================== */}
-    <PageHeader
-      breadcrumbs={citizenCrumbs("/citizen/support")}
-      title="Citizen Support &amp; Grievance Redressal"
-      subtitle="Official single-window portal for guidance, inquiries, frequently asked questions, and dispute redressal."
-      actions={
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
-          <ShieldCheck size={14} aria-hidden="true" />
-          DoLR Citizen SLA Active
-        </span>
-      }
-    />
+      {/* ================================================================== */}
+      {/* 1. BREADCRUMB & PAGE HEADER                                        */}
+      {/* ================================================================== */}
+      <PageHeader
+        breadcrumbs={citizenCrumbs("/citizen/support")}
+        title="Citizen Support &amp; Grievance Redressal"
+        subtitle="Official single-window portal for guidance, inquiries, frequently asked questions, and dispute redressal."
+        actions={
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+            <ShieldCheck size={14} aria-hidden="true" />
+            DoLR Citizen SLA Active
+          </span>
+        }
+      />
 
       {/* ================================================================== */}
       {/* 2. TAB NAVIGATION                                                  */}
       {/* ================================================================== */}
-      <div className="flex border-b border-[#D9E2EC] bg-white rounded-t-xl px-4 pt-2 shadow-2xs">
+      <div className="flex gap-10 border-b border-[#D9E2EC] bg-white rounded-t-xl px-4 pt-2 shadow-2xs">
+        {" "}
         <button
           type="button"
           onClick={() => setActiveTab("overview")}
@@ -172,7 +173,6 @@ function UnifiedSupportPage() {
           <BookOpen size={16} />
           <span>Overview &amp; Help Desk</span>
         </button>
-
         <button
           type="button"
           onClick={() => setActiveTab("faqs")}
@@ -185,7 +185,6 @@ function UnifiedSupportPage() {
           <HelpCircle size={16} />
           <span>FAQs ({FAQ_LIST.length})</span>
         </button>
-
         <button
           type="button"
           onClick={() => setActiveTab("grievance")}
@@ -216,10 +215,13 @@ function UnifiedSupportPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-emerald-50 text-[#16855B]">
                 <Phone size={20} />
               </div>
-              <h3 className="text-base font-bold text-[#062B52]">Toll-Free Revenue Helpline</h3>
+              <h3 className="text-base font-bold text-[#062B52]">
+                Toll-Free Revenue Helpline
+              </h3>
               <p className="text-sm font-bold text-[#1261A8]">1800-180-1551</p>
               <p className="text-xs text-[#607089] leading-relaxed">
-                Monday to Saturday, 9:00 AM to 6:00 PM IST. Free government assistance for landholders.
+                Monday to Saturday, 9:00 AM to 6:00 PM IST. Free government
+                assistance for landholders.
               </p>
             </div>
 
@@ -228,10 +230,15 @@ function UnifiedSupportPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#1261A8]">
                 <Mail size={20} />
               </div>
-              <h3 className="text-base font-bold text-[#062B52]">Digital Helpdesk</h3>
-              <p className="text-sm font-bold text-[#1261A8]">support@zameenai.gov.in</p>
+              <h3 className="text-base font-bold text-[#062B52]">
+                Digital Helpdesk
+              </h3>
+              <p className="text-sm font-bold text-[#1261A8]">
+                support@zameenai.gov.in
+              </p>
               <p className="text-xs text-[#607089] leading-relaxed">
-                Official inquiries regarding cadastral surveys, digital extracts, and technical questions.
+                Official inquiries regarding cadastral surveys, digital
+                extracts, and technical questions.
               </p>
             </div>
 
@@ -240,10 +247,15 @@ function UnifiedSupportPage() {
               <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-amber-50 text-amber-800">
                 <Building2 size={20} />
               </div>
-              <h3 className="text-base font-bold text-[#062B52]">Tehsil Revenue Office</h3>
-              <p className="text-sm font-bold text-[#062B52]">Sadar Tehsil, Varanasi</p>
+              <h3 className="text-base font-bold text-[#062B52]">
+                Tehsil Revenue Office
+              </h3>
+              <p className="text-sm font-bold text-[#062B52]">
+                Sadar Tehsil, Varanasi
+              </p>
               <p className="text-xs text-[#607089] leading-relaxed">
-                Room 104, Sub-Divisional Magistrate &amp; Tehsildar Complex. Timings: 10:00 AM – 4:00 PM.
+                Room 104, Sub-Divisional Magistrate &amp; Tehsildar Complex.
+                Timings: 10:00 AM – 4:00 PM.
               </p>
             </div>
           </div>
@@ -255,7 +267,8 @@ function UnifiedSupportPage() {
                 Landholder Service Guidelines &amp; Statutory Timelines
               </h2>
               <p className="text-xs text-[#607089] mt-0.5">
-                Standard operating procedures under State Land Revenue Acts &amp; DoLR Citizen Charter
+                Standard operating procedures under State Land Revenue Acts
+                &amp; DoLR Citizen Charter
               </p>
             </div>
 
@@ -263,44 +276,56 @@ function UnifiedSupportPage() {
               <div className="rounded-lg border border-slate-100 bg-[#F6F8FB] p-4 space-y-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-[#16855B]" />
-                  <h4 className="text-sm font-bold text-[#062B52]">Mutation &amp; Ownership Transfer</h4>
+                  <h4 className="text-sm font-bold text-[#062B52]">
+                    Mutation &amp; Ownership Transfer
+                  </h4>
                 </div>
                 <p className="text-xs leading-relaxed text-slate-600">
-                  Undisputed mutations are statutory mandated for completion within 30 days of registration.
-                  Track filing numbers under 'Activity' or with your local Tehsil office.
+                  Undisputed mutations are statutory mandated for completion
+                  within 30 days of registration. Track filing numbers under
+                  'Activity' or with your local Tehsil office.
                 </p>
               </div>
 
               <div className="rounded-lg border border-slate-100 bg-[#F6F8FB] p-4 space-y-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-[#16855B]" />
-                  <h4 className="text-sm font-bold text-[#062B52]">Acquisition &amp; Direct DBT Disbursal</h4>
+                  <h4 className="text-sm font-bold text-[#062B52]">
+                    Acquisition &amp; Direct DBT Disbursal
+                  </h4>
                 </div>
                 <p className="text-xs leading-relaxed text-slate-600">
-                  RFCTLARR 2013 guarantees 100% solatium and direct PFMS electronic credit. Ensure your bank
-                  records are verified before final award declaration.
+                  RFCTLARR 2013 guarantees 100% solatium and direct PFMS
+                  electronic credit. Ensure your bank records are verified
+                  before final award declaration.
                 </p>
               </div>
 
               <div className="rounded-lg border border-slate-100 bg-[#F6F8FB] p-4 space-y-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-[#16855B]" />
-                  <h4 className="text-sm font-bold text-[#062B52]">Cadastral Boundary Demarcation</h4>
+                  <h4 className="text-sm font-bold text-[#062B52]">
+                    Cadastral Boundary Demarcation
+                  </h4>
                 </div>
                 <p className="text-xs leading-relaxed text-slate-600">
-                  High-precision DGPS rover survey maps are digitally accessible via 'My Land Map'. For physical
-                  boundary stones, file a demarcation request at your tehsil.
+                  High-precision DGPS rover survey maps are digitally accessible
+                  via 'My Land Map'. For physical boundary stones, file a
+                  demarcation request at your tehsil.
                 </p>
               </div>
 
               <div className="rounded-lg border border-slate-100 bg-[#F6F8FB] p-4 space-y-2">
                 <div className="flex items-center gap-2">
                   <CheckCircle2 size={16} className="text-[#16855B]" />
-                  <h4 className="text-sm font-bold text-[#062B52]">Grievance Resolution Escalation</h4>
+                  <h4 className="text-sm font-bold text-[#062B52]">
+                    Grievance Resolution Escalation
+                  </h4>
                 </div>
                 <p className="text-xs leading-relaxed text-slate-600">
-                  Statutory grievances receive an SMS confirmation within 24 hours. Tehsildar inquiry reports
-                  are completed within 15 working days.
+                  Statutory grievances receive an SMS confirmation within 24
+                  hours. Tehsildar inquiry reports are completed within 15
+                  working days.
                 </p>
               </div>
             </div>
@@ -312,7 +337,8 @@ function UnifiedSupportPage() {
                   Need Immediate Resolution?
                 </span>
                 <p className="text-xs text-slate-700 font-medium">
-                  Have an unresolved dispute regarding circle rates, survey numbers, or mutation?
+                  Have an unresolved dispute regarding circle rates, survey
+                  numbers, or mutation?
                 </p>
               </div>
               <button
@@ -384,7 +410,8 @@ function UnifiedSupportPage() {
                   No matching questions found
                 </p>
                 <p className="text-xs text-slate-500 mt-1">
-                  Try searching with different terms or file a grievance for personalized assistance.
+                  Try searching with different terms or file a grievance for
+                  personalized assistance.
                 </p>
               </div>
             ) : (
@@ -432,37 +459,47 @@ function UnifiedSupportPage() {
               <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-[#16855B]">
                 <CheckCircle2 size={32} />
               </div>
-                
+
               <div className="space-y-1">
                 <h3 className="text-lg font-bold text-[#062B52]">
                   Grievance Registered Successfully
                 </h3>
                 <p className="text-xs text-slate-500">
-                  Your complaint has been assigned to the District Land Acquisition Officer and Sadar Tehsildar.
+                  Your complaint has been assigned to the District Land
+                  Acquisition Officer and Sadar Tehsildar.
                 </p>
               </div>
 
               <div className="rounded-lg border border-emerald-200 bg-emerald-50/50 p-4 text-left space-y-2 text-xs">
                 <div className="flex justify-between">
                   <span className="text-slate-500">Reference Number:</span>
-                  <strong className="text-[#062B52]">{submittedGrievance.referenceId}</strong>
+                  <strong className="text-[#062B52]">
+                    {submittedGrievance.referenceId}
+                  </strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Filing Date:</span>
-                  <strong className="text-[#062B52]">{submittedGrievance.submittedAt}</strong>
+                  <strong className="text-[#062B52]">
+                    {submittedGrievance.submittedAt}
+                  </strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Category:</span>
-                  <strong className="text-[#062B52]">{submittedGrievance.category}</strong>
+                  <strong className="text-[#062B52]">
+                    {submittedGrievance.category}
+                  </strong>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-slate-500">Expected Resolution:</span>
-                  <strong className="text-[#16855B]">Within 7 working days</strong>
+                  <strong className="text-[#16855B]">
+                    Within 7 working days
+                  </strong>
                 </div>
               </div>
 
               <p className="text-xs text-slate-500">
-                An official SMS confirmation has been dispatched to your Aadhaar-linked mobile phone.
+                An official SMS confirmation has been dispatched to your
+                Aadhaar-linked mobile phone.
               </p>
 
               <div className="pt-2 flex justify-center gap-3">
@@ -497,7 +534,8 @@ function UnifiedSupportPage() {
                   </h2>
                 </div>
                 <p className="text-xs text-[#607089] mt-0.5">
-                  Official statutory dispute redressal monitored under Department of Land Resources (DoLR) SLA.
+                  Official statutory dispute redressal monitored under
+                  Department of Land Resources (DoLR) SLA.
                 </p>
               </div>
 
@@ -512,7 +550,9 @@ function UnifiedSupportPage() {
                     onChange={(e) => setGrievanceCategory(e.target.value)}
                     className="mt-1.5 block w-full rounded-lg border border-slate-300 p-2.5 text-xs sm:text-sm text-slate-800 bg-white focus:border-[#1261A8] focus:ring-1 focus:ring-[#1261A8] outline-none"
                   >
-                    <option>Land Acquisition &amp; Compensation Discrepancy</option>
+                    <option>
+                      Land Acquisition &amp; Compensation Discrepancy
+                    </option>
                     <option>Khatauni / RoR Spelling Correction</option>
                     <option>Cadastral Boundary Demarcation Objection</option>
                     <option>Delayed Mutation Order</option>
@@ -568,9 +608,14 @@ function UnifiedSupportPage() {
 
                 {/* Legal Notice */}
                 <div className="flex items-start gap-2.5 rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-600">
-                  <ShieldCheck size={16} className="text-[#1261A8] shrink-0 mt-0.5" />
+                  <ShieldCheck
+                    size={16}
+                    className="text-[#1261A8] shrink-0 mt-0.5"
+                  />
                   <p className="leading-relaxed">
-                    All grievances submitted are legally tracked under the Public Grievance Redressal and Monitoring System (CPGRAMS) guidelines.
+                    All grievances submitted are legally tracked under the
+                    Public Grievance Redressal and Monitoring System (CPGRAMS)
+                    guidelines.
                   </p>
                 </div>
 
@@ -595,10 +640,10 @@ function UnifiedSupportPage() {
       {/* ================================================================== */}
       <div className="text-center text-xs text-slate-400 pt-4 pb-8">
         <p>
-          Department of Land Resources (DoLR), Ministry of Rural Development • Government of India.
+          Department of Land Resources (DoLR), Ministry of Rural Development •
+          Government of India.
         </p>
       </div>
-
     </PageContainer>
   );
 }

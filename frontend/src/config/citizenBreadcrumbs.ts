@@ -46,7 +46,7 @@ export const ACTIVITY_SECTION: Crumb = {
 };
 
 /* -------------------------------------------------------------------------- */
-/| ROUTE -> SECTION TRAIL REFERENCE                                          */
+/| ROUTE -> SECTION TRAIL REFERENCE                                          */;
 /* -------------------------------------------------------------------------- */
 
 /**
@@ -71,7 +71,10 @@ export const CITIZEN_BREADCRUMB_TRAILS: Record<string, Crumb[]> = {
   ],
 
   /* ---- 3. Land Services ---- */
-  "/citizen/acquisition": [LAND_SERVICES_SECTION, { label: "Land Acquisition" }],
+  "/citizen/acquisition": [
+    LAND_SERVICES_SECTION,
+    { label: "Land Acquisition" },
+  ],
   "/citizen/acquisition-status": [
     LAND_SERVICES_SECTION,
     { label: "Acquisition Status" },
