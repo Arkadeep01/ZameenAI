@@ -1,17 +1,15 @@
 import React from 'react';
 import GovernmentEmblem from './GovernmentEmblem';
 import { Language } from '../../utils/types';
-import { 
-  ShieldCheck, 
-  Phone, 
-  Mail, 
-  MapPin, 
-  FileText, 
-  HelpCircle, 
+import {
+  ShieldCheck,
+  Phone,
+  Mail,
+  MapPin,
+  FileText,
+  HelpCircle,
   ExternalLink,
   Lock,
-  Globe,
-  Award
 } from 'lucide-react';
 
 interface FooterProps {

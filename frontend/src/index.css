@@ -2,6 +2,115 @@
 @import "leaflet/dist/leaflet.css";
 
 /* ========================================================================== */
+/* DESIGN TOKENS — single source of truth for the Citizen Portal               */
+/* Tailwind v4 @theme: generates bg-portal-*, text-portal-*, border-portal-*  */
+/* ========================================================================== */
+
+@theme {
+  /* Brand — navy (primary text / headers) */
+  --color-portal-navy: #062b52; /* canonical navy            */
+  --color-portal-navy-deep: #06254a; /* header / deepest chrome    */
+  --color-portal-navy-hover: #0c396e; /* primary action hover      */
+
+  /* Brand — ZameenAI blue (primary action, active nav) */
+  --color-portal-blue: #1261a8;
+  --color-portal-blue-hover: #0f4c80;
+  --color-portal-blue-soft: #eaf3fc; /* tinted info surface      */
+  --color-portal-blue-ink: #0f4c80; /* link / heading on tint    */
+
+  /* Semantic status */
+  --color-portal-green: #16855b; /* completed / success        */
+  --color-portal-green-soft: #e8f5ef;
+  --color-portal-amber: #b45309; /* action required / warning  */
+  --color-portal-amber-soft: #fff7ed;
+  --color-portal-red: #b91c1c; /* destructive only           */
+  --color-portal-red-soft: #fef2f2;
+
+  /* Neutrals */
+  --color-portal-ink: #172b4d; /* body copy                  */
+  --color-portal-muted: #607089; /* helper / secondary text    */
+  --color-portal-subtle: #64748b;
+  --color-portal-line: #d9e2ec; /* standard card / divider    */
+  --color-portal-line-soft: #eaf3fc;
+  --color-portal-canvas: #f4f8fb; /* page background            */
+  --color-portal-surface: #f6f8fb; /* inset / sub surface       */
+
+  /* Sidebar (dark navy chrome) */
+  --color-portal-sidebar: #062b52;
+  --color-portal-sidebar-text: #dce8f5;
+  --color-portal-sidebar-muted: #b8cbe0;
+  --color-portal-sidebar-hover: rgb(255 255 255 / 0.08);
+}
+
+/* Extra small screens. Tailwind's smallest default breakpoint is `sm` (40rem),
+   which is too coarse for phone/tablet chrome (e.g. showing icon-only controls
+   up to 640px and labels after that). */
+@theme {
+  --breakpoint-xs: 26rem; /* 416px */
+}
+
+/* ========================================================================== */
+/* GLOBAL FULL-WIDTH RESPONSIVE LAYOUT (Supports all zoom levels)             */
+/* ========================================================================== */
+
+html {
+  /* Anchor scroll offsets for the fixed 72px header */
+  scroll-padding-top: 88px;
+  -webkit-text-size-adjust: 100%;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  /* 100% (not 100vw) — 100vw includes the classic scrollbar gutter and
+     is the usual cause of unintended horizontal scrolling */
+  max-width: 100%;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /* Safety net against horizontal overflow. `clip` (not `hidden`) is used
+     deliberately: it does not create a scroll container, so it will not
+     break `position: sticky` (used by the public header). */
+  overflow-x: clip;
+  font-family:
+    ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Images and media must never force a container wider than its parent */
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Main Citizen Content Area: fills ALL remaining width next to the sidebar.
+   min-width:0 is what stops flex/grid children from forcing overflow. */
+.citizen-main-content {
+  width: 100%;
+  min-width: 0;
+  flex: 1 1 0%;
+  /* Long unbroken tokens (Khasra numbers, hashes) must wrap, not widen
+     the layout and create a horizontal scrollbar */
+  overflow-wrap: break-word;
+}
+
+/* ========================================================================== */
 /* USER LOCATION MARKER                                                      */
 /* ========================================================================== */
 
@@ -126,5 +235,31 @@
   .parcel-label {
     font-size: 10px !important;
     padding: 3px 6px !important;
+  }
+}
+
+/* ========================================================================== */
+/* DIGITIZATION — SUBTLE PROCESSING PULSE                                     */
+/* A single restrained scale/opacity pulse on the AI processing indicator.     */
+/* Prefers reduced motion for users who ask for it.                           */
+/* ========================================================================== */
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(18 104 168 / 0.28);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgb(18 104 168 / 0);
+  }
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-ring {
+    animation: none;
   }
 }

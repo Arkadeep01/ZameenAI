@@ -28,17 +28,17 @@ export default function ParcelDetailSheet({ parcel }: ParcelDetailSheetProps) {
 
       <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
         <div className="flex items-start gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#e8f4f8] text-[#174b69]">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EAF3FC] text-[#062B52]">
             <FileText size={20} />
           </div>
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <h2 className="text-base sm:text-lg font-bold text-[#173c56]">
+              <h2 className="text-base sm:text-lg font-bold text-[#062B52]">
                 Selected Land Parcel
               </h2>
 
-              <span className="rounded-full bg-[#edf7fa] px-2.5 py-0.5 text-xs font-semibold text-[#174b69]">
+              <span className="rounded-full bg-[#edf7fa] px-2.5 py-0.5 text-xs font-semibold text-[#062B52]">
                 Parcel #{parcel.id}
               </span>
             </div>
@@ -227,7 +227,7 @@ export default function ParcelDetailSheet({ parcel }: ParcelDetailSheetProps) {
       {/* HELP                                                               */}
       {/* ================================================================== */}
 
-      <div className="mt-4 rounded-xl border border-sky-100 bg-[#e5f3fb] p-4">
+      <div className="mt-4 rounded-xl border border-sky-100 bg-[#EAF3FC] p-4">
         <div className="flex items-start gap-2.5">
           <ShieldCheck size={20} className="mt-0.5 shrink-0 text-emerald-600" />
 
@@ -236,7 +236,7 @@ export default function ParcelDetailSheet({ parcel }: ParcelDetailSheetProps) {
               Need Land Registry Help?
             </div>
 
-            <div className="mt-1 text-xs sm:text-sm font-bold leading-tight text-[#174b69]">
+            <div className="mt-1 text-xs sm:text-sm font-bold leading-tight text-[#062B52]">
               Tehsildar Camp Office:
               <br />
               +91 542 222-108
@@ -268,7 +268,7 @@ function DetailBox({
       <div className="text-xs font-medium text-slate-500">{label}</div>
 
       <div
-        className={`mt-0.5 font-bold leading-tight text-[#173b55] ${
+        className={`mt-0.5 font-bold leading-tight text-[#062B52] ${
           large ? "text-base sm:text-lg" : "text-sm"
         }`}
       >
@@ -329,18 +329,18 @@ function ActionButton({
   blue?: boolean;
   onClick?: () => void;
 }) {
-  let classes = "border-slate-200 bg-white text-[#173b55]";
+  let classes = "border-slate-200 bg-white text-[#062B52] hover:bg-slate-50";
 
   if (dark) {
-    classes = "border-[#0c3b5d] bg-[#0c3b5d] text-white";
+    classes = "border-[#062B52] bg-[#062B52] text-white hover:bg-[#0c396e]";
   }
 
   if (green) {
-    classes = "border-emerald-700 bg-[#287447] text-white";
+    classes = "border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-700";
   }
 
   if (blue) {
-    classes = "border-sky-100 bg-[#e5f3fb] text-[#174b69]";
+    classes = "border-sky-200 bg-[#EAF3FC] text-[#1261A8] hover:bg-sky-100";
   }
 
   return (

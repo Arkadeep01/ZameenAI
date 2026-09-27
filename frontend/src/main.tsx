@@ -2,9 +2,8 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom/client";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import "leaflet/dist/leaflet.css";
 
-/* eslint-disable */
+/* index.css also @imports leaflet's stylesheet, so it must load first. */
 import "./index.css"; // eslint-disable-line
 
 import { routeTree } from "./routeTree.gen";

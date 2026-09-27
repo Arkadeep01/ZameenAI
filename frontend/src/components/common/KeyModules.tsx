@@ -1,16 +1,13 @@
 import React from 'react';
 import { KEY_MODULES } from '../../utils/portalData';
 import { KeyModuleInfo, Language } from '../../utils/types';
-import { 
-  FileSearch, 
-  ShieldCheck, 
-  MapPin, 
-  BarChart3, 
-  ArrowUpRight, 
-  Sparkles, 
-  Layers, 
-  CheckCircle,
-  ExternalLink
+import {
+  FileSearch,
+  ShieldCheck,
+  MapPin,
+  BarChart3,
+  ArrowUpRight,
+  Sparkles,
 } from 'lucide-react';
 
 interface KeyModulesProps {
