@@ -39,11 +39,11 @@ export default function TrustBar({ lang }: TrustBarProps) {
               key={partner.name}
               className="p-3 rounded-lg border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xs transition-all flex flex-col justify-between text-left"
             >
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-1.5 rounded bg-slate-50 border border-slate-200 shadow-2xs">
+              <div className="flex items-start justify-between gap-2 mb-2">
+                <div className="p-1.5 rounded bg-slate-50 border border-slate-200 shadow-2xs shrink-0">
                   {partnerIcons[idx % partnerIcons.length]}
                 </div>
-                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">
+                <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200 text-right leading-snug shrink-0 max-w-[62%]">
                   {isHi ? partner.badgeHi : isBn ? partner.badgeBn : partner.badge}
                 </span>
               </div>

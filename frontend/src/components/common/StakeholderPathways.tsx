@@ -1,5 +1,7 @@
 import React from 'react';
+import { useNavigate } from '@tanstack/react-router';
 import { STAKEHOLDER_PERSONAS } from '../../utils/portalData';
+import { PERSONA_TO_PORTAL } from '../../utils/portals';
 import { PersonaInfo, Language } from '../../utils/types';
 import { 
   Users, 
@@ -26,6 +28,7 @@ export default function StakeholderPathways({
   onOpenOfficialLogin,
   onOpenCitizenModal,
 }: StakeholderPathwaysProps) {
+  const navigate = useNavigate();
   const isHi = lang === 'hi';
   const isBn = lang === 'bn';
 
@@ -51,6 +54,13 @@ export default function StakeholderPathways({
   };
 
   const handleRoleAction = (persona: PersonaInfo) => {
+    // Direct demo access: every card opens its own dashboard.
+    // All dashboards share the same light citizen-style theme.
+    const target = PERSONA_TO_PORTAL[persona.id];
+    if (target) {
+      navigate({ to: target });
+      return;
+    }
     if (persona.id === 'citizen') {
       onOpenCitizenModal();
     } else {

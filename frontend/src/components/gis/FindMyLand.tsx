@@ -295,12 +295,18 @@ function statusClasses(status: ParcelStatus) {
 /* MAIN COMPONENT                                                             */
 /* -------------------------------------------------------------------------- */
 
-export default function FindMyLand() {
+export default function FindMyLand({
+  initialQuery,
+}: {
+  initialQuery?: string;
+} = {}) {
   const navigate = useNavigate();
 
   const [searchType, setSearchType] = useState<SearchType>("survey");
 
-  const [searchValue, setSearchValue] = useState("SV-1025");
+  const [searchValue, setSearchValue] = useState(
+    initialQuery && initialQuery.trim() ? initialQuery.trim() : "SV-1025",
+  );
 
   const [village, setVillage] = useState("West Bengal");
 

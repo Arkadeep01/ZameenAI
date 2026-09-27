@@ -50,14 +50,15 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
       <div className="absolute inset-0 pointer-events-none opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]" />
 
       {/* 1. Live Statutory Gazette / Notification Ticker */}
-      <div className="bg-[#002244] text-blue-100 text-xs px-4 py-1.5 border-b border-blue-900/60 flex items-center justify-between">
-        <div className="max-w-7xl mx-auto w-full flex items-center gap-3">
-          <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] bg-[#ff9933] px-2.5 py-0.5 rounded text-white shrink-0 shadow-xs">
+      <div className="bg-[#002244] text-blue-100 text-xs px-3 sm:px-4 py-1.5 border-b border-blue-900/60">
+        <div className="max-w-7xl mx-auto w-full flex items-center gap-2 sm:gap-3">
+          <div className="flex items-center gap-1.5 font-bold uppercase tracking-wider text-[10px] bg-[#ff9933] px-2 sm:px-2.5 py-0.5 rounded text-white shrink-0 shadow-xs">
             <Bell className="w-3 h-3 text-white animate-pulse" />
-            <span>{isHi ? 'राजपत्र सूचना' : isBn ? 'রাজপত্র বিজ্ঞপ্তি' : 'Official Gazette'}</span>
+            <span className="hidden min-[420px]:inline">{isHi ? 'राजपत्र सूचना' : isBn ? 'রাজপত্র বিজ্ঞপ্তি' : 'Official Gazette'}</span>
+            <span className="min-[420px]:hidden">{isHi ? 'राजपत्र' : isBn ? 'রাজপত্র' : 'Gazette'}</span>
           </div>
-          <div className="overflow-hidden whitespace-nowrap text-xs text-blue-100 font-medium">
-            <span className="inline-block transition-all duration-500 ease-in-out">
+          <div className="min-w-0 flex-1 overflow-hidden whitespace-nowrap text-ellipsis text-xs text-blue-100 font-medium">
+            <span key={tickerIndex} className="block truncate">
               {isHi ? TICKER_NOTICES[tickerIndex].textHi : isBn ? TICKER_NOTICES[tickerIndex].textBn : TICKER_NOTICES[tickerIndex].text}
             </span>
           </div>
@@ -69,12 +70,12 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
       </div>
 
       {/* Main Hero Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 md:py-16 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column (7 cols): Official Tagline, Mission, Dual CTAs & Trust Badges */}
-          <div className="lg:col-span-7 space-y-6">
+          <div className="lg:col-span-7 space-y-5 sm:space-y-6 min-w-0">
             {/* Government Mandate Badge */}
-            <span className="inline-block px-3 py-1 rounded-full bg-blue-400/20 text-blue-100 text-[10px] font-bold tracking-widest uppercase border border-blue-300/20 shadow-2xs">
+            <span className="inline-block max-w-full px-3 py-1 rounded-full bg-blue-400/20 text-blue-100 text-[10px] font-bold tracking-widest uppercase border border-blue-300/20 shadow-2xs leading-relaxed">
               {isHi
                 ? 'डिजिटल इंडिया भू-अभिलेख आधुनिकीकरण कार्यक्रम (DILRMP) • अगली पीढ़ी का भू-सुशासन'
                 : isBn
@@ -83,7 +84,7 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
             </span>
 
             {/* Tagline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+            <h1 className="text-[26px] leading-[1.2] sm:text-4xl lg:text-5xl font-bold text-white tracking-tight sm:leading-tight text-balance">
               {isHi ? HERO_CONTENT.tagline.hi : isBn ? HERO_CONTENT.tagline.bn : HERO_CONTENT.tagline.en}
             </h1>
 
@@ -189,23 +190,23 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
           </div>
 
           {/* Right Column (5 cols): Live Telemetry Snapshot / Government Acquisition Cockpit */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative min-w-0">
             <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-2xl overflow-hidden relative text-white">
               {/* Window Header */}
-              <div className="bg-[#002244]/80 px-4 py-3 text-white flex items-center justify-between border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="font-mono text-xs font-semibold tracking-wider uppercase text-blue-100">
+              <div className="bg-[#002244]/80 px-3 sm:px-4 py-3 text-white flex items-center justify-between gap-2 border-b border-white/10">
+                <div className="flex items-center gap-2 min-w-0">
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shrink-0" />
+                  <span className="block truncate font-mono text-[11px] sm:text-xs font-semibold tracking-wider uppercase text-blue-100">
                     {isHi ? 'राष्ट्रीय भूमि अधिग्रहण ग्रिड - लाइव ट्रैकर' : isBn ? 'জাতীয় ভূমি অর্জন গ্রিড - লাইভ ট্র্যাকার' : 'National Land Acquisition Grid - Live'}
                   </span>
                 </div>
-                <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-blue-900/60 text-blue-200 border border-blue-700/50">
+                <span className="shrink-0 text-[10px] font-mono px-2 py-0.5 rounded bg-blue-900/60 text-blue-200 border border-blue-700/50">
                   NIC-Cloud-Secure
                 </span>
               </div>
 
               {/* Window Body */}
-              <div className="p-5 space-y-4 text-xs text-blue-50 bg-slate-900/30">
+              <div className="p-4 sm:p-5 space-y-4 text-xs text-blue-50 bg-slate-900/30">
                 {/* Sample Active Notified Project Banner */}
                 <div className="p-3 rounded-lg bg-white/10 border border-white/15 flex items-start justify-between gap-3">
                   <div>
@@ -222,13 +223,13 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
                   </span>
                 </div>
 
-                {/* Milestone Stepper */}
+                {/* Milestone Stepper — wraps to 2-3 columns on phones instead of squeezing 5 */}
                 <div>
-                  <div className="text-[11px] font-bold text-blue-200 uppercase tracking-wider mb-2 flex items-center justify-between">
+                  <div className="text-[11px] font-bold text-blue-200 uppercase tracking-wider mb-2 flex flex-wrap items-center gap-x-2 gap-y-1 justify-between">
                     <span>{isHi ? 'वैधानिक अधिग्रहण चरण' : isBn ? 'বিধানগত অর্জন পাইপলাইন' : 'Statutory Acquisition Pipeline'}</span>
                     <span className="text-emerald-300 font-semibold">{isHi ? 'चरण 4/5: पंचाट घोषणा' : isBn ? 'পর্যায় ৪/৫: পঞ্চাট ঘোষণা' : 'Stage 4/5: Award Stage'}</span>
                   </div>
-                  <div className="grid grid-cols-5 gap-1 text-center font-semibold text-[10px]">
+                  <div className="grid grid-cols-3 sm:grid-cols-5 gap-1 text-center font-semibold text-[10px]">
                     <div className="p-1.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
                       Sec 4/11
                     </div>
@@ -241,7 +242,7 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
                     <div className="p-1.5 rounded bg-[#ff9933] text-slate-950 font-bold border border-orange-300 animate-pulse">
                       Award & Calc
                     </div>
-                    <div className="p-1.5 rounded bg-white/5 text-blue-200/60 border border-white/10">
+                    <div className="p-1.5 rounded bg-white/5 text-blue-200/60 border border-white/10 col-span-3 sm:col-span-1">
                       DBT Payout
                     </div>
                   </div>
@@ -249,12 +250,12 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
 
                 {/* AI Jamabandi Extraction Telemetry */}
                 <div className="p-3 rounded-lg bg-white/10 border border-white/15 space-y-2">
-                  <div className="flex items-center justify-between">
-<span className="font-semibold text-white flex items-center gap-1.5">
-                       <Sparkles className="w-3.5 h-3.5 text-[#ff9933]" />
-                       {isHi ? 'एआई जमाबंदी सत्यापन परिशुद्धता' : isBn ? 'এআই জমাবন্দি যাচাইকরণ নির্ভুলতা' : 'AI Record Digitization Accuracy'}
-                     </span>
-                    <span className="font-mono font-bold text-emerald-300 text-xs">99.8% F1 Score</span>
+                  <div className="flex items-start justify-between gap-2">
+<span className="font-semibold text-white flex items-center gap-1.5 min-w-0">
+                        <Sparkles className="w-3.5 h-3.5 text-[#ff9933] shrink-0" />
+                        <span className="leading-snug">{isHi ? 'एआई जमाबंदी सत्यापन परिशुद्धता' : isBn ? 'এআই জমাবন্দি যাচাইকরণ নির্ভুলতা' : 'AI Record Digitization Accuracy'}</span>
+                      </span>
+                    <span className="font-mono font-bold text-emerald-300 text-xs shrink-0">99.8% F1</span>
                   </div>
                   <div className="w-full bg-white/20 rounded-full h-2 overflow-hidden">
                     <div className="bg-emerald-400 h-2 rounded-full w-[99.8%]" />
@@ -267,11 +268,11 @@ export default function Hero({ lang, onOpenCitizenModal, onOpenOfficialLogin }: 
 
                 {/* Live Direct Benefit Transfer Tracker */}
                 <div className="p-3 rounded-lg bg-white/10 border border-white/15">
-                  <div className="flex items-center justify-between text-xs">
+                  <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs">
                     <span className="text-blue-100 font-medium">
                       {isHi ? 'पीएफएमएस प्रत्यक्ष लाभ अंतरण (DBT)' : isBn ? 'পিএফএমএস ডাইরেক্ট বেনিফিট ট্রান্সফার (ডিবিটি)' : 'PFMS Direct Benefit Transfer'}
                     </span>
-                    <span className="font-bold text-white">₹68,420 Cr Disbursed</span>
+                    <span className="font-bold text-white whitespace-nowrap">₹68,420 Cr Disbursed</span>
                   </div>
                   <div className="flex items-center gap-2 mt-1.5 text-[11px] text-emerald-300 font-medium">
                     <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />

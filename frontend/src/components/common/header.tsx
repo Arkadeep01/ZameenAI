@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from '@tanstack/react-router';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useNavigate } from '@tanstack/react-router';
 import GovernmentEmblem from '../common/GovernmentEmblem';
+import logo from '../../../assets/logo.png';
+import { PORTAL_LINKS } from '../../utils/portals';
 import { Language } from '../../utils/types';
 import { 
   UserCheck, 
@@ -9,7 +11,9 @@ import {
   X, 
   Sun, 
   Moon, 
-  ChevronRight
+  ChevronRight,
+  ChevronDown,
+  LayoutDashboard
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -35,27 +39,37 @@ export default function Header({
 }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('hero');
+  const [portalsOpen, setPortalsOpen] = useState(false);
+  const [navQuery, setNavQuery] = useState('');
+  const portalsRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   const isHi = lang === 'hi';
   const isBn = lang === 'bn';
 
+  // Single Overview entry — every dashboard opens exactly once via the
+  // Role Portals menu (no duplicate dashboard links in the navbar).
   const navLinks = [
-    { id: 'hero', label: isHi ? 'सिंहावलोकन' : isBn ? 'দৃষ্টিপাত' : 'Overview' },
-    { id: 'transparency-stats', label: isHi ? 'राष्ट्रीय संकेतक' : isBn ? 'জাতীয় সূচক' : 'Executive KPIs' },
-    { id: 'workflow', label: isHi ? 'अधिग्रहण कार्यप्रवाह' : isBn ? 'অর্জন ওয়ার্কফ্লো' : 'Statutory Workflow' },
-    { id: 'ai-intelligence', label: isHi ? 'एआई इंटेलिजेंस' : isBn ? 'এআই বুদ্ধিমত্তা' : 'AI Intelligence' },
-    { id: 'architecture', label: isHi ? 'मंच आर्किटेक्चर' : isBn ? 'প্ল্যাটফর্ম আর্কিটেকচার' : 'Platform Architecture' },
-    { id: 'stakeholder-pathways', label: isHi ? 'हितधारक प्रवेश' : isBn ? 'স্টেকহোল্ডার প্রবেশ' : 'Role Portals' },
+    { id: 'hero', label: isHi ? 'सिंहावलोकन' : isBn ? 'দৃষ্টিপাত' : 'Overview', to: '/', hash: 'hero', kind: 'section' as const },
   ];
+
+  // Navbar search → exact Find-My-Land page, query carried as ?q=
+  const submitNavSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    const q = navQuery.trim();
+    setMobileMenuOpen(false);
+    setPortalsOpen(false);
+    navigate({ to: '/find-my-land', search: q ? { q } : {} });
+  };
 
   const startUploading = () => {
     window.location.hash = '/uploads';
   };
 
-  // We keep the scroll listener because TanStack router active props 
-  // track URL paths, whereas scroll spying requires DOM position tracking.
+  // Scroll-spy only highlights Overview (hero) and the Role Portals
+  // dropdown (stakeholder section) — everything else is a dashboard route.
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['hero', 'transparency-stats', 'workflow', 'ai-intelligence', 'architecture', 'stakeholder-pathways'];
+      const sections = ['hero', 'stakeholder-pathways'];
       const scrollPos = window.scrollY + 120;
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -72,6 +86,25 @@ export default function Header({
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close portals dropdown on outside click / Escape
+  useEffect(() => {
+    if (!portalsOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (portalsRef.current && !portalsRef.current.contains(e.target as Node)) {
+        setPortalsOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setPortalsOpen(false);
+    };
+    document.addEventListener('mousedown', onClick);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('mousedown', onClick);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [portalsOpen]);
 
   return (
     <header className="sticky top-0 z-40 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/90 shadow-2xs">
@@ -101,7 +134,7 @@ export default function Header({
           </div>
 
           {/* Accessibility & Language Controls */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {/* Standard anchor is maintained here for native screen-reader skip link behavior */}
             <a 
               href="#main-content" 
@@ -110,8 +143,8 @@ export default function Header({
               {isHi ? 'मुख्य विषय पर जाएं' : isBn ? 'মূল বিষয়ে যান' : 'Skip to main content'}
             </a>
 
-            {/* Font Size Adjusters */}
-            <div className="flex items-center border border-slate-700 rounded bg-slate-800 overflow-hidden">
+            {/* Font Size Adjusters — hidden on phones to save space */}
+            <div className="hidden sm:flex items-center border border-slate-700 rounded bg-slate-800 overflow-hidden">
               <button
                 onClick={() => onFontSizeChange('normal')}
                 title="Standard Text Size"
@@ -141,11 +174,11 @@ export default function Header({
               </button>
             </div>
 
-            {/* High Contrast Toggle */}
+            {/* High Contrast Toggle — hidden on phones to save space */}
             <button
               onClick={onToggleHighContrast}
               title="Toggle High Contrast"
-              className="flex items-center gap-1 px-2 py-0.5 border border-slate-700 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors text-[10px]"
+              className="hidden sm:flex items-center gap-1 px-2 py-0.5 border border-slate-700 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors text-[10px]"
             >
               {highContrast ? <Sun className="w-3 h-3 text-[#ff9933]" /> : <Moon className="w-3 h-3 text-slate-400" />}
               <span className="hidden sm:inline">{highContrast ? 'Normal' : 'Contrast'}</span>
@@ -183,16 +216,23 @@ export default function Header({
       </div>
 
       {/* 3. Primary Header Bar: Brand + Navigation + System Status + Dominant Login CTA */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
-        {/* Left: Emblem + ZameenAI Identity */}
-        <div className="flex items-center gap-3 shrink-0">
-          <div className="pr-3 border-r border-slate-200 hidden sm:flex items-center">
-            <GovernmentEmblem className="h-9 w-auto text-slate-800" />
-          </div>
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 h-16 flex items-center justify-between gap-2 sm:gap-4">
+        {/* Left: Logo + Emblem + ZameenAI Identity */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0 min-w-0">
+          <Link to="/" hash="hero" className="flex items-center gap-2 sm:gap-2.5 group shrink-0">
+            <img
+              src={logo}
+              alt="ZameenAI logo"
+              className="h-9 w-9 sm:h-10 sm:w-10 rounded-lg object-contain ring-1 ring-slate-200 shadow-xs"
+            />
+            <span className="hidden md:flex items-center pr-2.5 border-r border-slate-200">
+              <GovernmentEmblem className="h-9 w-auto text-slate-800" />
+            </span>
+          </Link>
 
-          <Link to="/" hash="hero" className="flex flex-col group">
+          <Link to="/" hash="hero" className="flex flex-col group min-w-0">
             <div className="flex items-center gap-2">
-              <span className="text-xl sm:text-2xl font-black tracking-tight text-[#003366] leading-none">
+              <span className="text-lg sm:text-2xl font-black tracking-tight text-[#003366] leading-none whitespace-nowrap">
                 Zameen<span className="text-slate-900">AI</span>
               </span>
               <span className="hidden sm:inline-flex items-center gap-1 px-1.5 py-0.5 text-[9px] uppercase font-bold tracking-wider rounded bg-slate-100 text-[#003366] border border-slate-200">
@@ -200,7 +240,7 @@ export default function Header({
                 Gov.in
               </span>
             </div>
-            <span className="text-[10px] font-medium text-slate-500 tracking-normal mt-0.5 hidden sm:block">
+            <span className="text-[10px] font-medium text-slate-500 tracking-normal mt-0.5 hidden lg:block">
               {isHi
                 ? 'राष्ट्रीय भूमि अधिग्रहण एवं अभिलेख प्रबंधन मंच'
                 : isBn
@@ -210,53 +250,107 @@ export default function Header({
           </Link>
         </div>
 
-        {/* Center: Desktop Navigation Bar */}
-        <nav className="hidden xl:flex items-center gap-1">
+        {/* Center: Overview + Searchbar + Role Portals (no duplicate dashboard links) */}
+        <nav className="hidden xl:flex items-center gap-2 min-w-0 flex-1 justify-center px-4">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
-            return (
-              <Link
-                key={link.id}
-                to="/"
-                hash={link.id}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-md transition-all ${
-                  isActive
-                    ? 'text-[#003366] bg-blue-50/80 font-bold border-b-2 border-[#003366]'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                }`}
-              >
+            const isActive = link.kind === 'section' && activeSection === link.id;
+            const cls = `px-2 py-1.5 text-xs font-semibold rounded-md transition-all whitespace-nowrap shrink-0 ${
+              isActive
+                ? 'text-[#003366] bg-blue-50/80 font-bold shadow-[inset_0_-2px_0_#003366]'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+            }`;
+            return link.kind === 'section' ? (
+              <Link key={link.id} to={link.to} hash={link.hash} className={cls}>
+                {link.label}
+              </Link>
+            ) : (
+              <Link key={link.id} to={link.to} className={cls}>
                 {link.label}
               </Link>
             );
           })}
+          {/* Navbar searchbar — Khasra / Survey No. / Notification ID */}
+          <form
+            onSubmit={submitNavSearch}
+            role="search"
+            className="flex h-9 w-full max-w-55 items-center gap-1.5 rounded-md border border-slate-200 bg-slate-50 px-2.5 transition-colors focus-within:border-[#003366] focus-within:bg-white focus-within:ring-2 focus-within:ring-blue-100"
+          >
+            <Search className="w-3.5 h-3.5 shrink-0 text-slate-400" />
+            <input
+              type="search"
+              value={navQuery}
+              onChange={(e) => setNavQuery(e.target.value)}
+              placeholder={isHi ? 'खसरा / सर्वे नं. खोजें…' : isBn ? 'খসরা / সার্ভে নং খুঁজুন…' : 'Search Khasra / Survey No.…'}
+              aria-label="Search land records"
+              className="w-full min-w-0 bg-transparent text-xs text-slate-800 outline-none placeholder:text-slate-400"
+            />
+          </form>
+          {/* Role Portals dropdown — each entry opens its own dashboard */}
+          <div ref={portalsRef} className="relative">
+            <button
+              type="button"
+              onClick={() => setPortalsOpen((v) => !v)}
+              className={`inline-flex items-center gap-1 px-2 py-1.5 text-xs font-semibold rounded-md transition-all cursor-pointer whitespace-nowrap ${
+                portalsOpen || activeSection === 'stakeholder-pathways'
+                  ? 'text-[#003366] bg-blue-50/80 font-bold shadow-[inset_0_-2px_0_#003366]'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+              }`}
+              aria-haspopup="menu"
+              aria-expanded={portalsOpen}
+            >
+              <LayoutDashboard className="w-3.5 h-3.5" />
+              <span>{isHi ? 'रोल पोर्टल' : isBn ? 'রোল পোর্টাল' : 'Role Portals'}</span>
+              <ChevronDown className={`w-3.5 h-3.5 transition-transform ${portalsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {portalsOpen && (
+              <div className="absolute right-0 top-full mt-2 w-[min(380px,calc(100vw-2rem))] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl" role="menu">
+                <div className="border-b border-slate-100 bg-slate-50/80 px-4 py-2.5">
+                  <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    Role Portals — click to open dashboard
+                  </p>
+                </div>
+                <div className="max-h-[380px] overflow-y-auto p-2">
+                  {PORTAL_LINKS.map((p) => (
+                    <Link
+                      key={p.route}
+                      to={p.route}
+                      onClick={() => setPortalsOpen(false)}
+                      className="flex items-start gap-3 rounded-lg px-3 py-2.5 hover:bg-sky-50 transition-colors"
+                    >
+                      <img src={logo} alt="" className="h-8 w-8 shrink-0 rounded-md object-contain ring-1 ring-slate-200" />
+                      <span className="min-w-0 flex-1">
+                        <span className="flex items-center gap-2">
+                          <span className="truncate text-[13px] font-bold text-slate-800">{p.name}</span>
+                        </span>
+                        <span className="mt-0.5 block truncate text-[11px] text-slate-500">{p.desc}</span>
+                      </span>
+                      <span className="shrink-0 rounded bg-blue-50 border border-blue-200 px-1.5 py-0.5 font-mono text-[9px] font-bold text-[#003366]">
+                        {p.badge}
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </nav>
 
-        {/* Right: Status Indicator + Secondary Citizen Search + Dominant Portal Login */}
-        <div className="flex items-center gap-2.5 sm:gap-3 shrink-0">
-          {/* Live System Status Indicator */}
-          <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] text-slate-600">
+        {/* Right: Status Indicator + Dominant Portal Login */}
+        <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
+          {/* Live System Status Indicator — only on very wide screens to protect navbar space */}
+          <div className="hidden 2xl:flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-slate-50 border border-slate-200 text-[11px] text-slate-600 whitespace-nowrap">
             <span className="w-2 h-2 rounded-full bg-[#138808] animate-pulse" />
             <span className="font-medium">{isHi ? 'एनआईसी क्लाउड लाइव' : isBn ? 'এনআইসি ক্লাউড লাইভ' : 'NIC Cloud Live'}</span>
           </div>
 
-          {/* Start Uploading CTA */}
-          <button
-            type="button"
-            onClick={startUploading}
-            className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded-md transition-colors shadow-2xs cursor-pointer h-9"
-          >
-            <Search className="w-3.5 h-3.5 text-slate-500" />
-            <span>{isHi ? 'अपलोडिंग शुरू करें' : isBn ? 'আপলোডিং শুরু করুন' : 'Start Uploading'}</span>
-          </button>
-
-          {/* Dominant Primary Action: Portal Login */}
+          {/* Dominant Primary Action: Portal Login — icon-only on phones */}
           <button
             type="button"
             onClick={() => onOpenOfficialLogin()}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 text-xs font-bold text-white bg-[#003366] hover:bg-slate-900 rounded-md transition-colors shadow-sm cursor-pointer h-9 active:scale-[0.98]"
+            className="inline-flex items-center justify-center gap-2 px-2.5 sm:px-4 py-2 text-xs font-bold text-white bg-[#003366] hover:bg-slate-900 rounded-md transition-colors shadow-sm cursor-pointer h-9 active:scale-[0.98]"
           >
             <UserCheck className="w-4 h-4 text-white" />
-            <span className="tracking-wide uppercase">{isHi ? 'पोर्टल लॉगिन' : isBn ? 'পোর্টাল লগইন' : 'Portal Login'}</span>
+            <span className="tracking-wide uppercase hidden min-[420px]:inline">{isHi ? 'पोर्टल लॉगिन' : isBn ? 'পোর্টাল লগইন' : 'Portal Login'}</span>
           </button>
 
           {/* Mobile Menu Toggle */}
@@ -265,29 +359,81 @@ export default function Header({
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="xl:hidden p-2 rounded-md text-slate-700 hover:bg-slate-100 border border-slate-200 cursor-pointer"
             aria-label="Toggle Navigation Menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
-      {/* 4. Mobile Navigation Dropdown */}
+      {/* 4. Mobile Navigation Dropdown — internally scrollable so long portal list never pushes the page */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-white border-t border-slate-200 px-4 py-4 space-y-3 shadow-lg">
+        <div className="xl:hidden bg-white border-t border-slate-200 shadow-lg">
+          <div className="px-4 py-4 space-y-3 max-h-[calc(100dvh-7rem)] overflow-y-auto overscroll-contain">
           <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider pb-1 border-b border-slate-100">
             {isHi ? 'पोर्टल नेविगेशन' : isBn ? 'পোর্টাল নেভিগেশন' : 'Platform Navigation'}
           </div>
           <div className="grid grid-cols-1 gap-1">
             {navLinks.map((link) => (
+              link.kind === 'section' ? (
+                <Link
+                  key={link.id}
+                  to={link.to}
+                  hash={link.hash}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#003366] hover:bg-slate-50 rounded-md flex items-center justify-between"
+                >
+                  <span>{link.label}</span>
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                </Link>
+              ) : (
+                <Link
+                  key={link.id}
+                  to={link.to}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#003366] hover:bg-slate-50 rounded-md flex items-center justify-between"
+                >
+                  <span>{link.label}</span>
+                  <ChevronRight className="w-4 h-4 text-slate-400" />
+                </Link>
+              )
+            ))}
+          </div>
+
+          {/* Mobile navbar searchbar */}
+          <form
+            onSubmit={submitNavSearch}
+            role="search"
+            className="flex h-10 w-full items-center gap-2 rounded-md border border-slate-200 bg-slate-50 px-3 focus-within:border-[#003366] focus-within:bg-white"
+          >
+            <Search className="w-4 h-4 shrink-0 text-slate-400" />
+            <input
+              type="search"
+              value={navQuery}
+              onChange={(e) => setNavQuery(e.target.value)}
+              placeholder={isHi ? 'खसरा / सर्वे नं. खोजें…' : isBn ? 'খসরা / সার্ভে নং খুঁজুন…' : 'Search Khasra / Survey No.…'}
+              aria-label="Search land records"
+              className="w-full min-w-0 bg-transparent text-sm text-slate-800 outline-none placeholder:text-slate-400"
+            />
+          </form>
+
+          <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider pb-1 border-b border-slate-100 pt-1">
+            Role Portals — open dashboard
+          </div>
+          <div className="grid grid-cols-1 gap-1">
+            {PORTAL_LINKS.map((p) => (
               <Link
-                key={link.id}
-                to="/"
-                hash={link.id}
+                key={p.route}
+                to={p.route}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-3 py-2 text-sm font-medium text-slate-700 hover:text-[#003366] hover:bg-slate-50 rounded-md flex items-center justify-between"
+                className="px-3 py-2 rounded-md flex items-center gap-3 hover:bg-sky-50"
               >
-                <span>{link.label}</span>
-                <ChevronRight className="w-4 h-4 text-slate-400" />
+                <img src={logo} alt="" className="h-7 w-7 rounded-md object-contain ring-1 ring-slate-200" />
+                <span className="flex-1 min-w-0">
+                  <span className="block truncate text-[13px] font-bold text-slate-800">{p.name}</span>
+                  <span className="block truncate text-[11px] text-slate-500">{p.desc}</span>
+                </span>
+                <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
               </Link>
             ))}
           </div>
@@ -313,6 +459,7 @@ export default function Header({
               <UserCheck className="w-4 h-4 text-white" />
               <span>{isHi ? 'जन परिचय अधिकारी लॉगिन' : isBn ? 'জন পরিচয় অফিসার লগইন' : 'Official Portal Login (SSO)'}</span>
             </button>
+          </div>
           </div>
         </div>
       )}

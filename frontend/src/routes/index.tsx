@@ -11,6 +11,7 @@ import StakeholderPathways from '../components/common/StakeholderPathways';
 import TransparencyStats from '../components/common/TransparencyStats';
 import Footer from '../components/common/Footer';
 import OfficialLoginModal from '../components/common/OfficialLoginModal';
+import { PERSONA_TO_PORTAL } from '../utils/portals';
 import { KeyModuleInfo } from '../utils/types';
 
 export const Route = createFileRoute("/")({
@@ -26,25 +27,33 @@ function HomePage() {
   // StakeholderPathways and Footer so they all open the SAME modal.
   const [authModalOpen, setAuthModalOpen] = useState(false);
   const [authView, setAuthView] = useState<"login" | "signup">("login");
+  const [pendingRoleId, setPendingRoleId] = useState<string | null>(null);
 
-  const openOfficialLogin = (_roleId?: string) => {
+  const openOfficialLogin = (roleId?: string) => {
+    setPendingRoleId(roleId ?? null);
     setAuthView("login");
     setAuthModalOpen(true);
   };
 
   const handleAuthSuccess = (userType: "government" | "citizen") => {
-    // Demo login succeeded — route by role.
-    // Citizen → dashboard; government → upload / digitization workspace.
+    // Demo login succeeded — route to the selected role's own dashboard.
+    // Every portal shares the same light citizen-style theme.
     setAuthModalOpen(false);
+    if (pendingRoleId && PERSONA_TO_PORTAL[pendingRoleId]) {
+      navigate({ to: PERSONA_TO_PORTAL[pendingRoleId] });
+      setPendingRoleId(null);
+      return;
+    }
     if (userType === 'citizen') {
       navigate({ to: '/citizen/dashboard' });
     } else {
-      navigate({ to: '/uploads' });
+      navigate({ to: '/desk-validator' });
     }
+    setPendingRoleId(null);
   };
 
   return (
-    <div>
+    <div className="overflow-x-clip">
       <Header
         lang={lang}
         onLanguageChange={setLang}
@@ -57,7 +66,7 @@ function HomePage() {
       />
       <Hero
         lang={lang}
-        onOpenCitizenModal={() => navigate({ to: '/uploads' })}
+        onOpenCitizenModal={() => navigate({ to: '/citizen/dashboard' })}
         onOpenOfficialLogin={openOfficialLogin}
       />
       <TrustBar lang={lang} />
@@ -74,7 +83,7 @@ function HomePage() {
       <StakeholderPathways
         lang={lang}
         onOpenOfficialLogin={openOfficialLogin}
-        onOpenCitizenModal={() => {}}
+        onOpenCitizenModal={() => navigate({ to: '/citizen/dashboard' })}
       />
       <TransparencyStats
         lang={lang}
