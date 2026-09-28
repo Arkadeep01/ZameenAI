@@ -1,19 +1,11 @@
 import React, { useState } from 'react';
 import { KeyModuleInfo, Language } from '../../utils/types';
 import GisMap from '../../features/gis/GisMap';
-import { 
-  X, 
-  Sparkles, 
-  ShieldCheck, 
-  MapPin, 
-  BarChart3, 
-  CheckCircle2, 
-  Layers, 
-  FileText, 
-  Cpu, 
-  Eye, 
+import {
+  X,
+  CheckCircle2,
+  Cpu,
   Lock,
-  ArrowRight
 } from 'lucide-react';
 
 interface ModuleDetailModalProps {

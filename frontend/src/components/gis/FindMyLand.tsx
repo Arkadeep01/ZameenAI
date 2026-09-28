@@ -1,294 +1,191 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 
 import {
   AlertTriangle,
   ArrowRight,
-  BookOpen,
-  CheckCircle2,
+  Building2,
   ChevronDown,
   CircleHelp,
-  Compass,
-  Crosshair,
+  FileQuestion,
   FileText,
   Info,
-  LandPlot,
-  Layers3,
-  Map,
+  Loader2,
+  Map as MapIcon,
+  MapPin,
   Phone,
   RotateCcw,
   Search,
   ShieldCheck,
-  UserRound,
+  User,
   X,
-  ZoomIn,
-  ZoomOut,
 } from "lucide-react";
 
+import type { Parcel } from "../../types/gis";
+import type { SearchParcelRow } from "../../services/gis";
+import { gisParcels } from "../../utils/gisMockData";
 import {
-  MapContainer,
-  Marker,
-  Polygon,
-  Popup,
-  TileLayer,
-  useMap,
-  useMapEvents,
-} from "react-leaflet";
+  searchLandParcels,
+  searchRowToParcel,
+  type SearchParcelParams,
+} from "../../services/gis";
 
-import type { ReactNode } from "react";
+import { citizenCrumbs } from "../../config/citizenBreadcrumbs";
+import { LocationService } from "../../services/locationService";
 
-import "leaflet/dist/leaflet.css";
+import CitizenGISMap from "./CitizenGISMap";
+import ParcelCard from "./ParcelCard";
+import SearchableCombobox from "../common/SearchableCombobox";
 
-import L from "leaflet";
-
-import MapPanControl from "./MapPanControl";
+import PageContainer from "../common/PageContainer";
+import PageHeader from "../common/PageHeader";
+import {
+  buttonClass,
+  cardHeadingClass,
+  eyebrowClass,
+  fieldClass,
+  insetSurface,
+  surface,
+  surfacePadded,
+} from "../common/portalStyles";
 
 /* -------------------------------------------------------------------------- */
 /* TYPES                                                                      */
 /* -------------------------------------------------------------------------- */
 
-type SearchType = "survey" | "khasra" | "plot" | "dag";
+type SearchMethod = "details" | "parcel" | "map";
 
-type ParcelStatus = "acquisition" | "clear" | "review";
+type IdentifierField = "khasra" | "khata" | "owner";
 
-interface LandParcel {
-  id: number;
-  survey: string;
+type LocationLevel = "state" | "district" | "tehsil" | "village";
+
+/** Flattened, comparable view of a record regardless of its source. */
+interface SearchableRecord {
   khasra: string;
-  dag: string;
-  area: string;
-  mouza: string;
+  khata: string;
+  owner: string;
+  village: string;
   tehsil: string;
   district: string;
-  classification: string;
-  owner: string;
-  status: ParcelStatus;
-  statusLabel: string;
-  match: string;
-  center: [number, number];
-  polygon: [number, number][];
+  state: string;
+  parcelCode: string;
+}
+
+interface SearchCriteria {
+  state: string;
+  district: string;
+  tehsil: string;
+  village: string;
 }
 
 /* -------------------------------------------------------------------------- */
-/* MOCK DATA                                                                  */
+/* HELPERS                                                                    */
 /* -------------------------------------------------------------------------- */
 
-const parcels: LandParcel[] = [
-  {
-    id: 1025,
-    survey: "SV-1025",
-    khasra: "KH-458",
-    dag: "DG-782",
-    area: "2.00 Acres",
-    mouza: "Haripur",
-    tehsil: "Singur",
-    district: "Hooghly",
-    classification: "Agricultural (Fasli)",
-    owner: "Ramesh K. Sharma",
-    status: "acquisition",
-    statusLabel: "Under Acquisition (NH-31)",
-    match: "Primary Match",
-    center: [22.815, 88.229],
-    polygon: [
-      [22.819, 88.222],
-      [22.821, 88.231],
-      [22.814, 88.235],
-      [22.81, 88.227],
-    ],
-  },
-  {
-    id: 1024,
-    survey: "SV-1024",
-    khasra: "KH-342/1",
-    dag: "DG-765",
-    area: "1.50 Acres",
-    mouza: "Haripur",
-    tehsil: "Singur",
-    district: "Hooghly",
-    classification: "Agricultural (Shali)",
-    owner: "Ramesh K. Sharma",
-    status: "clear",
-    statusLabel: "Safe / Clear Title",
-    match: "Adjacent Plot",
-    center: [22.808, 88.22],
-    polygon: [
-      [22.812, 88.214],
-      [22.814, 88.223],
-      [22.806, 88.227],
-      [22.802, 88.218],
-    ],
-  },
-  {
-    id: 1089,
-    survey: "SV-1089",
-    khasra: "KH-118",
-    dag: "DG-811",
-    area: "0.75 Acres",
-    mouza: "Kalyanpur",
-    tehsil: "Singur",
-    district: "Hooghly",
-    classification: "Residential (Bastu)",
-    owner: "Ramesh K. Sharma",
-    status: "review",
-    statusLabel: "Under Routine Review",
-    match: "Partial Match",
-    center: [22.824, 88.243],
-    polygon: [
-      [22.829, 88.237],
-      [22.831, 88.246],
-      [22.823, 88.25],
-      [22.819, 88.241],
-    ],
-  },
-];
+function text(value: unknown): string {
+  if (value === null || value === undefined) return "";
+  return String(value).trim();
+}
 
-/* -------------------------------------------------------------------------- */
-/* LEAFLET ICON                                                               */
-/* -------------------------------------------------------------------------- */
+function lower(value: string): string {
+  return value.trim().toLowerCase();
+}
 
-const markerIcon = L.divIcon({
-  className: "custom-land-marker",
-  html: `
-    <div
-      style="
-        width:34px;
-        height:34px;
-        border-radius:50% 50% 50% 0;
-        background:#003b5c;
-        transform:rotate(-45deg);
-        border:3px solid white;
-        box-shadow:0 3px 12px rgba(0,0,0,.35);
-        display:flex;
-        align-items:center;
-        justify-content:center;
-      "
-    >
-      <div
-        style="
-          width:9px;
-          height:9px;
-          border-radius:50%;
-          background:white;
-        "
-      ></div>
-    </div>
-  `,
-  iconSize: [34, 34],
-  iconAnchor: [17, 34],
+/** Any of the supplied values contains the needle. */
+function anyContains(values: string[], needle: string): boolean {
+  return values.some((value) => lower(value).includes(needle));
+}
+
+const rowToRecord = (row: SearchParcelRow): SearchableRecord => ({
+  khasra: text(row.khasra_no),
+  khata: text(row.khata_no),
+  owner: text(row.owner_name),
+  village: text(row.village),
+  tehsil: text(row.tehsil),
+  district: text(row.district),
+  state: "",
+  parcelCode: text(row.parcel_code),
 });
 
-/* -------------------------------------------------------------------------- */
-/* MAP CONTROLLER                                                             */
-/* -------------------------------------------------------------------------- */
+const parcelToRecord = (parcel: Parcel): SearchableRecord => ({
+  khasra: parcel.khasraNumber,
+  khata: parcel.khatauni ?? "",
+  owner: "",
+  village: parcel.village,
+  tehsil: parcel.tehsil,
+  district: parcel.district,
+  state: parcel.state,
+  parcelCode: parcel.cadastralId,
+});
 
-function MapController({ selected }: { selected: LandParcel | null }) {
-  const map = useMap();
+/**
+ * Applies the location filters plus one identifier the citizen typed.
+ * `identifier` is empty when the citizen only narrowed by location.
+ */
+function matchesCriteria(
+  record: SearchableRecord,
+  location: SearchCriteria,
+  identifierField: IdentifierField | null,
+  identifierValue: string,
+): boolean {
+  if (location.state && record.state && lower(record.state) !== lower(location.state)) return false;
+  if (location.district && record.district && lower(record.district) !== lower(location.district)) return false;
+  if (location.tehsil && record.tehsil && lower(record.tehsil) !== lower(location.tehsil)) return false;
+  if (location.village && record.village && lower(record.village) !== lower(location.village)) return false;
 
-  const goToSelected = () => {
-    if (!selected) return;
+  const needle = lower(identifierValue);
+  if (!needle) return true;
 
-    map.flyTo(selected.center, 15, {
-      animate: true,
-      duration: 0.7,
-    });
-  };
-
-  return (
-    <div className="absolute right-3 top-3 z-[1000] flex flex-col overflow-hidden rounded-lg border border-slate-300 bg-white shadow-lg">
-      <button
-        type="button"
-        onClick={() => map.zoomIn()}
-        className="flex h-10 w-10 items-center justify-center border-b border-slate-200 text-slate-700 transition hover:bg-slate-100"
-        title="Zoom in"
-      >
-        <ZoomIn size={18} />
-      </button>
-
-      <button
-        type="button"
-        onClick={() => map.zoomOut()}
-        className="flex h-10 w-10 items-center justify-center border-b border-slate-200 text-slate-700 transition hover:bg-slate-100"
-        title="Zoom out"
-      >
-        <ZoomOut size={18} />
-      </button>
-
-      <button
-        type="button"
-        onClick={goToSelected}
-        className="flex h-10 w-10 items-center justify-center border-b border-slate-200 text-slate-700 transition hover:bg-slate-100"
-        title="Center parcel"
-      >
-        <Crosshair size={18} />
-      </button>
-
-      <button
-        type="button"
-        onClick={() =>
-          map.setView([22.815, 88.229], 12, {
-            animate: true,
-          })
-        }
-        className="flex h-10 w-10 items-center justify-center text-slate-700 transition hover:bg-slate-100"
-        title="Reset map"
-      >
-        <RotateCcw size={17} />
-      </button>
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* MAP CLICK HANDLER                                                          */
-/* -------------------------------------------------------------------------- */
-
-function MapClickHandler({
-  onLocationSelect,
-}: {
-  onLocationSelect: (lat: number, lng: number) => void;
-}) {
-  useMapEvents({
-    click(event) {
-      onLocationSelect(
-        Number(event.latlng.lat.toFixed(6)),
-        Number(event.latlng.lng.toFixed(6)),
-      );
-    },
-  });
-
-  return null;
-}
-
-/* -------------------------------------------------------------------------- */
-/* STATUS HELPERS                                                             */
-/* -------------------------------------------------------------------------- */
-
-function statusClasses(status: ParcelStatus) {
-  switch (status) {
-    case "acquisition":
-      return {
-        badge: "bg-[#ffe2bd] text-[#7a4300]",
-        dot: "bg-[#d99125]",
-        fill: "#d99125",
-        border: "#8a540d",
-      };
-
-    case "review":
-      return {
-        badge: "bg-[#fff0bd] text-[#6e5100]",
-        dot: "bg-[#e5a000]",
-        fill: "#e5a000",
-        border: "#9b7200",
-      };
-
-    default:
-      return {
-        badge: "bg-[#d9f4df] text-[#17652c]",
-        dot: "bg-[#2c8a4b]",
-        fill: "#2c8a4b",
-        border: "#1f6938",
-      };
+  if (identifierField === "khasra") {
+    return anyContains(
+      [record.khasra, record.parcelCode],
+      needle,
+    );
   }
+
+  if (identifierField === "khata") {
+    return anyContains([record.khata], needle);
+  }
+
+  return anyContains([record.owner], needle);
+}
+
+/** Method 2 accepts both identifiers at once; both must match when supplied. */
+function matchesParcelMethod(
+  record: SearchableRecord,
+  khasra: string,
+  khata: string,
+): boolean {
+  const hasKhasra = lower(khasra).length > 0;
+  const hasKhata = lower(khata).length > 0;
+
+  if (!hasKhasra && !hasKhata) return true;
+
+  if (hasKhasra && !anyContains([record.khasra, record.parcelCode], lower(khasra))) {
+    return false;
+  }
+
+  if (hasKhata && !anyContains([record.khata], lower(khata))) return false;
+
+  return true;
+}
+
+function usePrefersReducedMotion(): boolean {
+  const [reduced, setReduced] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    setReduced(mq.matches);
+
+    const onChange = (event: MediaQueryListEvent) => setReduced(event.matches);
+
+    mq.addEventListener("change", onChange);
+
+    return () => mq.removeEventListener("change", onChange);
+  }, []);
+
+  return reduced;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -298,925 +195,1171 @@ function statusClasses(status: ParcelStatus) {
 export default function FindMyLand() {
   const navigate = useNavigate();
 
-  const [searchType, setSearchType] = useState<SearchType>("survey");
+  const reducedMotion = usePrefersReducedMotion();
+  const [revealed, setRevealed] = useState(false);
 
-  const [searchValue, setSearchValue] = useState("SV-1025");
+  const [method, setMethod] = useState<SearchMethod>("details");
 
-  const [village, setVillage] = useState("West Bengal");
+  const [location, setLocation] = useState<SearchCriteria>({
+    state: "",
+    district: "",
+    tehsil: "",
+    village: "",
+  });
 
-  const [district, setDistrict] = useState("Hooghly");
+  const [isLoadingDistricts, setIsLoadingDistricts] = useState(false);
+  const [isLoadingTehsils, setIsLoadingTehsils] = useState(false);
+  const [isLoadingVillages, setIsLoadingVillages] = useState(false);
 
-  const [block, setBlock] = useState("Haripur (Singur)");
+  const districtTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tehsilTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const villageTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const [searched, setSearched] = useState(true);
+  useEffect(() => {
+    return () => {
+      if (districtTimerRef.current) clearTimeout(districtTimerRef.current);
+      if (tehsilTimerRef.current) clearTimeout(tehsilTimerRef.current);
+      if (villageTimerRef.current) clearTimeout(villageTimerRef.current);
+    };
+  }, []);
 
-  const [selectedParcel, setSelectedParcel] = useState<LandParcel>(parcels[0]);
+  const [identifierField, setIdentifierField] =
+    useState<IdentifierField>("khasra");
+  const [identifierValue, setIdentifierValue] = useState("");
 
-  const [clickedLocation, setClickedLocation] = useState<
-    [number, number] | null
-  >(null);
+  const [khasraValue, setKhasraValue] = useState("");
+  const [khataValue, setKhataValue] = useState("");
+
+  const [searched, setSearched] = useState(false);
+  const [results, setResults] = useState<Parcel[]>([]);
+  const [selectedParcel, setSelectedParcel] = useState<Parcel | null>(null);
+  const [isSearching, setIsSearching] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [offlineNotice, setOfflineNotice] = useState(false);
+  const [validationHint, setValidationHint] = useState<string | null>(null);
+  const [clickedLocation, setClickedLocation] = useState<[number, number] | null>(
+    null,
+  );
+
+  useEffect(() => {
+    if (reducedMotion) {
+      setRevealed(true);
+      return;
+    }
+
+    const frame = requestAnimationFrame(() => setRevealed(true));
+
+    return () => cancelAnimationFrame(frame);
+  }, [reducedMotion]);
 
   /* ---------------------------------------------------------------------- */
-  /* FILTER PARCELS                                                         */
+  /* CASCADING LOCATION OPTIONS                                             */
   /* ---------------------------------------------------------------------- */
 
-  const filteredParcels = useMemo(() => {
-    if (!searched) return [];
+  const locationOptions = useMemo(() => {
+    const states = LocationService.getStates();
+    const districts = location.state
+      ? LocationService.getDistricts(location.state)
+      : [];
+    const tehsils =
+      location.state && location.district
+        ? LocationService.getTehsils(location.state, location.district)
+        : [];
+    const villages =
+      location.state && location.district && location.tehsil
+        ? LocationService.getVillages(
+            location.state,
+            location.district,
+            location.tehsil,
+          )
+        : [];
 
-    const value = searchValue.trim().toLowerCase();
+    return {
+      state: states,
+      district: districts,
+      tehsil: tehsils,
+      village: villages,
+    };
+  }, [location.state, location.district, location.tehsil]);
 
-    if (!value) return parcels;
+  /** Changing a level clears every deeper level so options stay consistent. */
+  const handleLocationChange = (level: LocationLevel, value: string) => {
+    setLocation((prev) => {
+      const next: SearchCriteria = { ...prev, [level]: value };
 
-    return parcels.filter((parcel) => {
-      if (searchType === "survey") {
-        return parcel.survey.toLowerCase().includes(value);
+      if (level === "state") {
+        next.district = "";
+        next.tehsil = "";
+        next.village = "";
+      } else if (level === "district") {
+        next.tehsil = "";
+        next.village = "";
+      } else if (level === "tehsil") {
+        next.village = "";
       }
 
-      if (searchType === "khasra") {
-        return parcel.khasra.toLowerCase().includes(value);
-      }
-
-      if (searchType === "plot") {
-        return String(parcel.id).includes(value);
-      }
-
-      return parcel.dag.toLowerCase().includes(value);
+      return next;
     });
-  }, [searched, searchType, searchValue]);
 
-  /* ---------------------------------------------------------------------- */
-  /* SEARCH                                                                 */
-  /* ---------------------------------------------------------------------- */
-
-  const handleSearch = () => {
-    setSearched(true);
-
-    const first = filteredParcels[0] ?? parcels[0];
-
-    setSelectedParcel(first);
+    if (level === "state") {
+      if (value) {
+        setIsLoadingDistricts(true);
+        if (districtTimerRef.current) clearTimeout(districtTimerRef.current);
+        districtTimerRef.current = setTimeout(() => setIsLoadingDistricts(false), 120);
+      } else {
+        setIsLoadingDistricts(false);
+      }
+      setIsLoadingTehsils(false);
+      setIsLoadingVillages(false);
+    } else if (level === "district") {
+      if (value) {
+        setIsLoadingTehsils(true);
+        if (tehsilTimerRef.current) clearTimeout(tehsilTimerRef.current);
+        tehsilTimerRef.current = setTimeout(() => setIsLoadingTehsils(false), 120);
+      } else {
+        setIsLoadingTehsils(false);
+      }
+      setIsLoadingVillages(false);
+    } else if (level === "tehsil") {
+      if (value) {
+        setIsLoadingVillages(true);
+        if (villageTimerRef.current) clearTimeout(villageTimerRef.current);
+        villageTimerRef.current = setTimeout(() => setIsLoadingVillages(false), 120);
+      } else {
+        setIsLoadingVillages(false);
+      }
+    }
   };
 
   /* ---------------------------------------------------------------------- */
-  /* CLEAR                                                                  */
+  /* MAP DATA                                                              */
   /* ---------------------------------------------------------------------- */
 
-  const handleClear = () => {
-    setSearchValue("");
+  const mapParcels = useMemo(
+    () => (searched ? results : gisParcels),
+    [searched, results],
+  );
+
+  /* ---------------------------------------------------------------------- */
+  /* SEARCH                                                                */
+  /* ---------------------------------------------------------------------- */
+
+  const runSearch = async (
+    locationFilter: SearchCriteria,
+    matcher: (record: SearchableRecord) => boolean,
+    params: SearchParcelParams,
+  ) => {
+    setIsSearching(true);
+    setError(null);
+    setOfflineNotice(false);
+    setValidationHint(null);
+
+    try {
+      const response = await searchLandParcels(params);
+
+      const matched = response.data
+        .filter((row) => matcher(rowToRecord(row)))
+        .map((row) => searchRowToParcel(row))
+        .filter((parcel): parcel is Parcel => parcel !== null);
+
+      setResults(matched);
+      setSearched(true);
+    } catch {
+      /*
+       * The GIS module can be unavailable while the rest of the portal keeps
+       * working, so fall back to the shared cadastral dataset the rest of the
+       * Citizen Portal already uses and tell the citizen which source answered.
+       */
+      try {
+        const matched = gisParcels.filter((parcel) =>
+          matcher(parcelToRecord(parcel)),
+        );
+
+        setResults(matched);
+        setSearched(true);
+        setOfflineNotice(true);
+      } catch {
+        setResults([]);
+        setSearched(true);
+        setError(
+          "We could not reach the land records service right now. Please try again in a moment.",
+        );
+      }
+    } finally {
+      setIsSearching(false);
+    }
+  };
+
+  const handleSearch = () => {
+    if (method === "map") return;
+
+    if (method === "details") {
+      if (!identifierValue.trim()) {
+        setValidationHint(
+          "Enter the land record number you want to search for.",
+        );
+        return;
+      }
+
+      void runSearch(
+        location,
+        (record) =>
+          matchesCriteria(record, location, identifierField, identifierValue),
+        {
+          ...(location.district ? { district: location.district } : {}),
+          ...(identifierField === "khasra" && identifierValue.trim()
+            ? { khasra_no: identifierValue.trim() }
+            : {}),
+        },
+      );
+
+      return;
+    }
+
+    if (!khasraValue.trim() && !khataValue.trim()) {
+      setValidationHint("Enter a Khasra / Plot number or a Khata / Khatian number.");
+      return;
+    }
+
+    void runSearch(
+      location,
+      (record) => matchesParcelMethod(record, khasraValue, khataValue),
+      {
+        ...(location.district ? { district: location.district } : {}),
+        ...(khasraValue.trim() ? { khasra_no: khasraValue.trim() } : {}),
+      },
+    );
+  };
+
+  /* ---------------------------------------------------------------------- */
+  /* RESET / NAVIGATION                                                    */
+  /* ---------------------------------------------------------------------- */
+
+  const handleReset = () => {
+    setMethod("details");
+    setLocation({ state: "", district: "", tehsil: "", village: "" });
+    setIsLoadingDistricts(false);
+    setIsLoadingTehsils(false);
+    setIsLoadingVillages(false);
+    setIdentifierField("khasra");
+    setIdentifierValue("");
+    setKhasraValue("");
+    setKhataValue("");
+    setResults([]);
     setSearched(false);
-    setSelectedParcel(parcels[0]);
+    setSelectedParcel(null);
+    setError(null);
+    setOfflineNotice(false);
+    setValidationHint(null);
     setClickedLocation(null);
   };
 
-  /* ---------------------------------------------------------------------- */
-  /* SELECT PARCEL                                                          */
-  /* ---------------------------------------------------------------------- */
+  const handleViewDetails = (parcel: Parcel) => {
+    navigate({ to: "/citizen/land-details", search: { parcel: String(parcel.id) } });
+  };
 
-  const handleParcelSelect = (parcel: LandParcel) => {
+  const handleViewOnMap = (parcel: Parcel) => {
     setSelectedParcel(parcel);
+    setMethod("map");
   };
 
-  /* ---------------------------------------------------------------------- */
-  /* VIEW DETAILS                                                           */
-  /* ---------------------------------------------------------------------- */
+  const showOnMap = searched ? results : gisParcels;
 
-  const handleViewDetails = (parcel: LandParcel) => {
-    navigate({
-      to: "/citizen/land-details",
-      search: {
-        parcel: String(parcel.id),
-      },
-    });
-  };
+  const identifierLabel =
+    identifierField === "khasra"
+      ? "Khasra / Plot Number"
+      : identifierField === "khata"
+        ? "Khata / Khatian Number"
+        : "Owner Name";
 
-  /* ---------------------------------------------------------------------- */
-  /* FULL MAP                                                               */
-  /* ---------------------------------------------------------------------- */
-
-  const handleFullMap = () => {
-    navigate({
-      to: "/citizen/my-land-map",
-      search: {
-        parcel: String(selectedParcel.id),
-      },
-    });
-  };
+  const identifierPlaceholder =
+    identifierField === "khasra"
+      ? "e.g. 184/2"
+      : identifierField === "khata"
+        ? "e.g. KH-9912"
+        : "e.g. part of the registered name";
 
   return (
-    <div className="min-h-screen bg-[#f7f9fb] text-[#082f49]">
+    <PageContainer className="space-y-5 sm:space-y-6">
       {/* ================================================================== */}
-      {/* TOP HEADER                                                         */}
+      {/* PAGE HEADER                                                       */}
       {/* ================================================================== */}
 
-      <header className="border-b border-slate-300 bg-white">
-        <div className="mx-auto max-w-[1440px] px-4 py-3 sm:px-6 lg:px-8">
-          <div className="mb-2 flex items-center justify-between gap-4 text-xs text-slate-600">
-            <div>
-              My Land <span className="mx-1">›</span>{" "}
-              <span className="font-semibold text-[#082f49]">Find My Land</span>
-            </div>
+      <Reveal shown={revealed} reduced={reducedMotion} as="div">
+        <PageHeader
+          breadcrumbs={citizenCrumbs("/citizen/find-land")}
+          title="Search / Find Land"
+          subtitle="Find your land record using location, parcel details, or the map."
+          actions={
+            <>
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-[#BFDCF0] bg-[#EAF3FC] px-2.5 py-1 text-xs font-semibold text-[#1261A8]">
+                <FileText size={13} aria-hidden="true" />
+                Land Record Search
+              </span>
 
-            <div className="hidden items-center gap-5 md:flex">
+              {(searched || identifierValue || khasraValue || khataValue) && (
+                <button
+                  type="button"
+                  onClick={handleReset}
+                  className={buttonClass("secondary", "sm")}
+                >
+                  <RotateCcw size={13} aria-hidden="true" />
+                  Reset Search
+                </button>
+              )}
+            </>
+          }
+        />
+      </Reveal>
+
+      {/* ================================================================== */}
+      {/* SEARCH CARD                                                       */}
+      {/* ================================================================== */}
+
+      <Reveal
+        shown={revealed}
+        reduced={reducedMotion}
+        delay={reducedMotion ? 0 : 70}
+        as="section"
+        className={surfacePadded}
+        aria-labelledby="find-land-search-heading"
+      >
+        <h2 id="find-land-search-heading" className={cardHeadingClass}>
+          Find a Land Parcel
+        </h2>
+
+        <p className="mt-1 text-xs text-slate-600 sm:text-sm">
+          Enter the details you know. You can search by location, parcel number,
+          or owner information.
+        </p>
+
+        {/* ---------------- Search method tabs ---------------- */}
+
+        <div
+          role="tablist"
+          aria-label="Search method"
+          className="mt-4 grid grid-cols-1 gap-2 sm:grid-cols-3"
+        >
+          {(
+            [
+              ["details", "Search by Land Details", Building2],
+              ["parcel", "Search by Parcel Number", FileText],
+              ["map", "Search on Map", MapIcon],
+            ] as const
+          ).map(([value, label, Icon]) => {
+            const isSelected = method === value;
+
+            return (
               <button
+                key={value}
                 type="button"
-                className="flex items-center gap-1.5 font-medium hover:text-[#003b5c]"
+                role="tab"
+                id={`find-land-tab-${value}`}
+                aria-selected={isSelected}
+                aria-controls={`find-land-panel-${value}`}
+                onClick={() => setMethod(value)}
+                className={`flex min-h-[44px] items-center justify-center gap-2 rounded-lg border px-3.5 py-2 text-xs font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1261A8] ${
+                  isSelected
+                    ? "border-[#062B52] bg-[#062B52] text-white"
+                    : "border-[#D9E2EC] bg-white text-[#062B52] hover:border-slate-300 hover:bg-slate-50"
+                }`}
               >
-                <BookOpen size={14} />
-                Need help finding numbers? View Guide
+                <Icon size={15} aria-hidden="true" />
+                {label}
               </button>
-
-              <button
-                type="button"
-                onClick={handleClear}
-                className="flex items-center gap-1.5 hover:text-[#003b5c]"
-              >
-                <RotateCcw size={14} />
-                Reset Search
-              </button>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-between gap-3 md:flex-row md:items-center">
-            <div>
-              <div className="flex flex-wrap items-center gap-2">
-                <h1 className="text-2xl font-bold tracking-tight text-[#062f4f] sm:text-3xl">
-                  Find My Land
-                </h1>
-
-                <span className="rounded bg-[#dbeaf5] px-2 py-1 text-[10px] font-bold tracking-wide text-[#123d59]">
-                  CADASTRAL GIS ENGINE V4.2
-                </span>
-              </div>
-
-              <p className="mt-1 text-sm text-slate-600 sm:text-[15px]">
-                Search for your land using the information on your land record,
-                khatian, or registered sale deed.
-              </p>
-            </div>
-
-            <div className="flex w-fit items-center gap-2 rounded bg-[#e8f5fc] px-3 py-2 text-xs font-semibold text-[#163d56]">
-              <ShieldCheck size={17} className="text-[#24764b]" />
-              Directorate of Land Records & Surveys (WB)
-            </div>
-          </div>
+            );
+          })}
         </div>
-      </header>
 
-      <main className="mx-auto max-w-[1440px] px-4 py-3 sm:px-6 lg:px-8">
-        {/* ================================================================ */}
-        {/* INFORMATION BAR                                                   */}
-        {/* ================================================================ */}
+        {/* ---------------- Method 1: Land Details ---------------- */}
 
-        <section className="mb-4 flex flex-col gap-3 rounded border border-[#9bc8e5] bg-[#e5f5fd] px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-start gap-3">
-            <Info size={19} className="mt-0.5 shrink-0 text-[#0b4567]" />
+        {method === "details" && (
+          <div
+            role="tabpanel"
+            id="find-land-panel-details"
+            aria-labelledby="find-land-tab-details"
+            className="mt-5 min-w-0"
+          >
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <SearchableCombobox
+                id="find-land-state"
+                label="State"
+                value={location.state}
+                options={locationOptions.state}
+                placeholder="All States / Union Territories"
+                searchPlaceholder="Search states..."
+                emptyMessage="No states found"
+                onChange={(value) => handleLocationChange("state", value)}
+                onClear={() => handleLocationChange("state", "")}
+              />
 
-            <p className="text-sm leading-5 text-[#173b50]">
-              You can search using any one of your land record identifiers
-              below. <strong>No technical GIS knowledge required.</strong>
-            </p>
-          </div>
+              <SearchableCombobox
+                id="find-land-district"
+                label="District"
+                value={location.district}
+                options={locationOptions.district}
+                placeholder="All districts"
+                disabledPlaceholder="Select a state first"
+                searchPlaceholder="Search districts..."
+                disabled={!location.state}
+                loading={isLoadingDistricts}
+                loadingMessage="Loading districts..."
+                emptyMessage="No districts found"
+                onChange={(value) => handleLocationChange("district", value)}
+                onClear={() => handleLocationChange("district", "")}
+              />
 
-          <div className="flex shrink-0 items-center gap-2 text-xs font-semibold text-slate-600">
-            <span className="h-2 w-2 rounded-full bg-[#25834c]" />
-            Revenue Sync: Updated Today, 08:30 AM IST
-          </div>
-        </section>
+              <SearchableCombobox
+                id="find-land-tehsil"
+                label="Tehsil / Taluka"
+                value={location.tehsil}
+                options={locationOptions.tehsil}
+                placeholder="All tehsils"
+                disabledPlaceholder="Select a district first"
+                searchPlaceholder="Search tehsil / taluka..."
+                disabled={!location.district}
+                loading={isLoadingTehsils}
+                loadingMessage="Loading tehsils..."
+                emptyMessage="No tehsils found"
+                onChange={(value) => handleLocationChange("tehsil", value)}
+                onClear={() => handleLocationChange("tehsil", "")}
+              />
 
-        {/* ================================================================ */}
-        {/* SEARCH CARD                                                        */}
-        {/* ================================================================ */}
+              <SearchableCombobox
+                id="find-land-village"
+                label="Village"
+                value={location.village}
+                options={locationOptions.village}
+                placeholder="All villages"
+                disabledPlaceholder="Select a tehsil/taluka first"
+                searchPlaceholder="Search villages..."
+                disabled={!location.tehsil}
+                loading={isLoadingVillages}
+                loadingMessage="Loading villages..."
+                emptyMessage="No villages found"
+                onChange={(value) => handleLocationChange("village", value)}
+                onClear={() => handleLocationChange("village", "")}
+              />
+            </div>
 
-        <section className="mb-4 rounded border border-slate-300 bg-white p-4 shadow-sm sm:p-5">
-          <div className="grid gap-5 lg:grid-cols-[1fr_1fr]">
-            <div>
-              <h2 className="text-lg font-bold text-[#073654]">
-                Search Land Parcel
-              </h2>
+            <fieldset className="mt-5 min-w-0">
+              <legend className={eyebrowClass}>Search by</legend>
 
-              <p className="mt-1 text-xs text-slate-600">
-                Enter the land record number you have. You only need to provide
-                one identifier.
-              </p>
+              <div
+                role="radiogroup"
+                aria-label="Search by"
+                className="mt-2 grid grid-cols-1 gap-2 sm:grid-cols-3"
+              >
+                {(
+                  [
+                    ["khasra", "Khasra / Plot Number"],
+                    ["khata", "Khata / Khatian Number"],
+                    ["owner", "Owner Name"],
+                  ] as const
+                ).map(([value, label]) => {
+                  const isSelected = identifierField === value;
 
-              {/* Search Type */}
-              <div className="mt-4">
-                <p className="mb-2 text-[11px] font-bold uppercase tracking-wide text-slate-600">
-                  Select Identifier Type
-                </p>
-
-                <div className="flex flex-wrap gap-2">
-                  {[
-                    ["survey", "Survey Number"],
-                    ["khasra", "Khasra Number"],
-                    ["plot", "Plot Number"],
-                    ["dag", "Dag Number"],
-                  ].map(([value, label]) => (
+                  return (
                     <button
                       key={value}
                       type="button"
-                      onClick={() => setSearchType(value as SearchType)}
-                      className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold transition ${
-                        searchType === value
-                          ? "bg-[#003b5c] text-white"
-                          : "bg-[#e1f1fb] text-[#29495c] hover:bg-[#cfe7f5]"
+                      role="radio"
+                      aria-checked={isSelected}
+                      onClick={() => {
+                        setIdentifierField(value);
+                        setValidationHint(null);
+                      }}
+                      className={`flex min-h-[44px] items-center gap-2.5 rounded-lg border px-3.5 py-2 text-left text-xs font-semibold transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1261A8] ${
+                        isSelected
+                          ? "border-[#062B52] bg-[#062B52] text-white"
+                          : "border-[#D9E2EC] bg-white text-[#062B52] hover:border-slate-300 hover:bg-slate-50"
                       }`}
                     >
                       <span
-                        className={`h-3 w-3 rounded-full border ${
-                          searchType === value
+                        aria-hidden="true"
+                        className={`h-3.5 w-3.5 shrink-0 rounded-full border-2 ${
+                          isSelected
                             ? "border-white bg-white"
-                            : "border-slate-500"
+                            : "border-slate-300 bg-transparent"
                         }`}
                       />
 
                       {label}
                     </button>
-                  ))}
-                </div>
-              </div>
-
-              {/* Input */}
-              <div className="mt-4">
-                <label className="mb-1.5 block text-xs font-bold text-[#16435e]">
-                  {searchType === "survey"
-                    ? "Enter Survey Number"
-                    : searchType === "khasra"
-                      ? "Enter Khasra Number"
-                      : searchType === "plot"
-                        ? "Enter Plot Number"
-                        : "Enter Dag Number"}{" "}
-                  <span className="text-red-500">*</span>
-                </label>
-
-                <div className="flex gap-2">
-                  <div className="relative flex-1">
-                    <FileText
-                      size={16}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-600"
-                    />
-
-                    <input
-                      value={searchValue}
-                      onChange={(e) => setSearchValue(e.target.value)}
-                      onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                          handleSearch();
-                        }
-                      }}
-                      placeholder={
-                        searchType === "survey"
-                          ? "e.g. SV-1025"
-                          : "Enter number"
-                      }
-                      className="h-11 w-full border border-slate-300 bg-white pl-10 pr-9 text-sm outline-none transition focus:border-[#00628f] focus:ring-2 focus:ring-[#cce8f5]"
-                    />
-
-                    {searchValue && (
-                      <button
-                        type="button"
-                        onClick={() => setSearchValue("")}
-                        className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-800"
-                      >
-                        <X size={16} />
-                      </button>
-                    )}
-                  </div>
-
-                  <button
-                    type="button"
-                    onClick={handleSearch}
-                    className="flex h-11 items-center gap-2 bg-[#003b5c] px-5 text-sm font-bold text-white transition hover:bg-[#005174]"
-                  >
-                    <Search size={17} />
-
-                    <span className="hidden sm:inline">Find Land</span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={handleClear}
-                    className="h-11 bg-[#e0f0fa] px-4 text-sm font-semibold text-[#173d55] transition hover:bg-[#cfe7f5]"
-                  >
-                    Clear
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Where to look */}
-            <div>
-              <div className="rounded bg-[#e0f1fb] px-4 py-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-[#143d56]">
-                  <CircleHelp size={16} />
-                  Where to look? Top right corner of your Khatian, RoR, or Sale
-                  Deed document.
-                </div>
-              </div>
-
-              <div className="mt-6">
-                <div className="mb-2 flex items-center justify-between">
-                  <p className="text-xs font-semibold text-slate-700">
-                    Where is your land?{" "}
-                    <span className="font-normal">(Optional)</span>
-                  </p>
-
-                  <span className="text-[11px] text-slate-500">
-                    Leave blank if unknown
-                  </span>
-                </div>
-
-                <div className="grid gap-2 sm:grid-cols-3">
-                  <SelectBox value={village} onChange={setVillage} />
-
-                  <SelectBox value={district} onChange={setDistrict} />
-
-                  <SelectBox value={block} onChange={setBlock} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* SEARCH RESULT MESSAGE                                             */}
-        {/* ================================================================ */}
-
-        {searched && (
-          <section className="mb-4 flex flex-col gap-3 rounded border border-slate-300 bg-white px-4 py-3 shadow-sm md:flex-row md:items-center md:justify-between">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#d6f6df]">
-                <CheckCircle2 size={22} className="text-[#25834c]" />
-              </div>
-
-              <div>
-                <p className="text-sm font-bold text-slate-800">
-                  Land Parcel Located
-                </p>
-
-                <p className="text-sm text-slate-600">
-                  {filteredParcels.length} registered cadastral records found
-                  matching <strong>"{searchValue || "your search"}"</strong> in
-                  Haripur Mouza, Hooghly. Primary record{" "}
-                  <strong>Parcel #{selectedParcel.id}</strong> is highlighted on
-                  the map.
-                </p>
-              </div>
-            </div>
-
-            <div className="flex shrink-0 items-center gap-2 text-xs font-semibold text-slate-600">
-              <Layers3 size={16} />
-              Survey Map Sheet #WB-HG-084
-            </div>
-          </section>
-        )}
-
-        {/* ================================================================ */}
-        {/* RESULTS + MAP                                                     */}
-        {/* ================================================================ */}
-
-        <section className="grid gap-4 lg:grid-cols-[380px_minmax(0,1fr)]">
-          {/* LEFT */}
-          <div>
-            <div className="mb-2 flex items-center justify-between px-1">
-              <h2 className="text-base font-bold text-[#073b5a]">
-                Land Parcels Found{" "}
-                <span className="rounded-full bg-[#dcecf7] px-2 py-0.5 text-xs">
-                  {filteredParcels.length}
-                </span>
-              </h2>
-
-              <span className="text-[11px] text-slate-500">
-                Sorted by relevance
-              </span>
-            </div>
-
-            <div className="space-y-2.5">
-              {filteredParcels.map((parcel, index) => (
-                <ParcelCard
-                  key={parcel.id}
-                  parcel={parcel}
-                  active={selectedParcel.id === parcel.id}
-                  primary={index === 0}
-                  onSelect={() => handleParcelSelect(parcel)}
-                  onViewDetails={() => handleViewDetails(parcel)}
-                />
-              ))}
-            </div>
-
-            {/* Browse village */}
-            <div className="mt-3 flex items-center justify-between gap-3 rounded bg-[#e0f1fb] px-4 py-3">
-              <div className="flex items-center gap-3">
-                <Compass size={22} className="shrink-0 text-[#124968]" />
-
-                <div>
-                  <p className="text-xs font-bold text-[#143d56]">
-                    Search by Village or Map location instead?
-                  </p>
-
-                  <p className="mt-0.5 text-[11px] text-slate-600">
-                    Browse full revenue cadastre sheets by mouza.
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                className="shrink-0 rounded bg-white px-3 py-2 text-xs font-bold text-[#083b58] shadow-sm transition hover:bg-[#f5f9fc]"
-              >
-                Browse Village
-              </button>
-            </div>
-          </div>
-
-          {/* RIGHT MAP */}
-          <div className="min-w-0">
-            <div className="relative h-[520px] overflow-hidden rounded border border-slate-300 bg-[#dce7ef] shadow-sm sm:h-[600px] lg:h-[670px]">
-              <MapContainer
-                center={selectedParcel.center}
-                zoom={14}
-                minZoom={5}
-                maxZoom={20}
-                scrollWheelZoom
-                dragging
-                touchZoom
-                doubleClickZoom
-                boxZoom
-                keyboard
-                zoomControl={false}
-                attributionControl
-                className="absolute inset-0 !h-full !w-full"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                }}
-              >
-                <TileLayer
-                  attribution="&copy; OpenStreetMap contributors"
-                  url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
-
-                <MapController selected={selectedParcel} />
-
-                <MapClickHandler
-                  onLocationSelect={(lat, lng) =>
-                    setClickedLocation([lat, lng])
-                  }
-                />
-
-                {parcels.map((parcel) => {
-                  const status = statusClasses(parcel.status);
-
-                  const active = selectedParcel.id === parcel.id;
-
-                  return (
-                    <div key={parcel.id}>
-                      <Polygon
-                        positions={parcel.polygon}
-                        pathOptions={{
-                          color: active ? "#001f33" : status.border,
-                          weight: active ? 3 : 1.5,
-                          fillColor: status.fill,
-                          fillOpacity: active ? 0.48 : 0.2,
-                        }}
-                        eventHandlers={{
-                          click: () => handleParcelSelect(parcel),
-                        }}
-                      />
-
-                      <Marker
-                        position={parcel.center}
-                        icon={markerIcon}
-                        eventHandlers={{
-                          click: () => handleParcelSelect(parcel),
-                        }}
-                      >
-                        <Popup>
-                          <div className="min-w-[190px]">
-                            <p className="text-sm font-bold text-[#083b58]">
-                              Parcel #{parcel.id}
-                            </p>
-
-                            <p className="mt-1 text-xs text-slate-600">
-                              {parcel.mouza} Mouza • {parcel.tehsil}
-                            </p>
-
-                            <div
-                              className={`mt-2 rounded px-2 py-1 text-xs font-semibold ${status.badge}`}
-                            >
-                              {parcel.statusLabel}
-                            </div>
-
-                            <button
-                              type="button"
-                              onClick={() => handleViewDetails(parcel)}
-                              className="mt-3 w-full rounded bg-[#003b5c] px-3 py-2 text-xs font-bold text-white"
-                            >
-                              View Details
-                            </button>
-                          </div>
-                        </Popup>
-                      </Marker>
-                    </div>
                   );
                 })}
+              </div>
+            </fieldset>
 
-                {clickedLocation && (
-                  <Marker position={clickedLocation}>
-                    <Popup>
-                      <div className="text-xs">
-                        <p className="font-bold">Selected Map Location</p>
+            <div className="mt-5 min-w-0">
+              <label
+                htmlFor="find-land-identifier"
+                className="mb-1.5 block text-xs font-semibold text-[#062B52]"
+              >
+                {identifierLabel}{" "}
+                <span className="text-red-600">*</span>
+              </label>
 
-                        <p className="mt-1">
-                          {clickedLocation[0]}, {clickedLocation[1]}
-                        </p>
-                      </div>
-                    </Popup>
-                  </Marker>
+              <div className="relative min-w-0">
+                {identifierField === "owner" ? (
+                  <User
+                    size={16}
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                  />
+                ) : (
+                  <FileText
+                    size={16}
+                    aria-hidden="true"
+                    className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                  />
                 )}
 
-                <MapPanControl defaultCenter={selectedParcel.center} />
-              </MapContainer>
+                <input
+                  id="find-land-identifier"
+                  value={identifierValue}
+                  onChange={(event) => {
+                    setIdentifierValue(event.target.value);
+                    setValidationHint(null);
+                  }}
+                  onKeyDown={(event) => {
+                    if (event.key === "Enter") handleSearch();
+                  }}
+                  placeholder={identifierPlaceholder}
+                  aria-invalid={Boolean(validationHint)}
+                  className={`${fieldClass} h-11 pl-10 ${
+                    identifierValue ? "pr-10" : "pr-3"
+                  }`}
+                />
 
-              {/* Map top badges */}
-              <div className="pointer-events-none absolute left-3 top-3 z-[1000] flex flex-wrap gap-2">
-                <div className="rounded bg-white/95 px-3 py-2 text-xs font-bold text-[#16435e] shadow">
-                  <span className="mr-2 inline-block h-2.5 w-2.5 rounded-full bg-[#25834c]" />
-                  GPS Cadastre: WGS 84 / UTM Zone 45N
-                </div>
-
-                <div className="rounded bg-white/95 px-3 py-2 text-xs font-semibold text-slate-600 shadow">
-                  Scale 1:2,500
-                </div>
+                {identifierValue && (
+                  <button
+                    type="button"
+                    onClick={() => setIdentifierValue("")}
+                    aria-label={`Clear ${identifierLabel}`}
+                    className="absolute right-2.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1261A8]"
+                  >
+                    <X size={15} aria-hidden="true" />
+                  </button>
+                )}
               </div>
+            </div>
+          </div>
+        )}
 
-              {/* Selected parcel label */}
-              <div className="absolute bottom-24 left-1/2 z-[1000] -translate-x-1/2">
-                <div className="rounded bg-[#003b5c] px-3 py-2 text-xs font-bold text-white shadow-lg">
-                  <span className="mr-2 inline-block h-2 w-2 rounded-full bg-red-400" />
-                  Parcel #{selectedParcel.id} (Searched)
-                </div>
-              </div>
+        {/* ---------------- Method 2: Parcel Number ---------------- */}
 
-              {/* Selected parcel panel */}
-              <div className="absolute bottom-3 right-3 z-[1000] w-[min(360px,calc(100%-24px))] rounded-lg border border-slate-200 bg-white shadow-xl">
-                <div className="flex items-start justify-between gap-3 p-4">
-                  <div>
-                    <p className="flex items-center gap-2 text-sm font-bold text-[#123d59]">
-                      <ShieldCheck size={17} className="text-[#99702a]" />
-                      Parcel #{selectedParcel.id} Found
-                    </p>
+        {method === "parcel" && (
+          <div
+            role="tabpanel"
+            id="find-land-panel-parcel"
+            aria-labelledby="find-land-tab-parcel"
+            className="mt-5 min-w-0"
+          >
+            <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <TextField
+                id="find-land-khasra"
+                label="Khasra / Plot Number"
+                placeholder="e.g. 184/2"
+                value={khasraValue}
+                onChange={(value) => {
+                  setKhasraValue(value);
+                  setValidationHint(null);
+                }}
+                onEnter={handleSearch}
+                icon={<FileText size={16} aria-hidden="true" />}
+              />
 
-                    <p className="mt-1 text-xs text-slate-600">
-                      {selectedParcel.mouza} Mouza • {selectedParcel.tehsil},{" "}
-                      {selectedParcel.district}
-                    </p>
-                  </div>
+              <TextField
+                id="find-land-khata"
+                label="Khata / Khatian Number"
+                placeholder="e.g. KH-9912"
+                value={khataValue}
+                onChange={(value) => {
+                  setKhataValue(value);
+                  setValidationHint(null);
+                }}
+                onEnter={handleSearch}
+                icon={<FileText size={16} aria-hidden="true" />}
+              />
+            </div>
 
-                  <span className="text-xs font-bold text-slate-600">
-                    {selectedParcel.area}
+            <p className="mt-3 flex items-start gap-2 text-xs leading-5 text-slate-500">
+              <Info
+                size={14}
+                aria-hidden="true"
+                className="mt-0.5 shrink-0 text-slate-400"
+              />
+              <span>
+                Enter either number, or both to narrow the search further.
+              </span>
+            </p>
+          </div>
+        )}
+
+        {/* ---------------- Method 3: Map ---------------- */}
+
+        {method === "map" && (
+          <div
+            role="tabpanel"
+            id="find-land-panel-map"
+            aria-labelledby="find-land-tab-map"
+            className="mt-5 min-w-0"
+          >
+            <div
+              className={`${surface} min-w-0 overflow-hidden`}
+              aria-label="Land parcel map"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1.5 border-b border-[#D9E2EC] px-4 py-3 sm:px-5">
+                <div className="flex min-w-0 items-center gap-2.5">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#1261A8]">
+                    <MapPin size={16} aria-hidden="true" />
                   </span>
+
+                  <div className="min-w-0">
+                    <h3 className="truncate text-sm font-bold text-[#062B52]">
+                      Select a Parcel on the Map
+                    </h3>
+                    <p className="truncate text-xs text-slate-600">
+                      Tap a boundary to see the land record
+                    </p>
+                  </div>
                 </div>
 
-                {selectedParcel.status === "acquisition" && (
-                  <div className="mx-3 mb-3 rounded bg-[#fff0d9] px-3 py-2 text-[11px] font-semibold text-[#744b16]">
-                    <AlertTriangle size={13} className="mr-1 inline" />
-                    Intersecting NH-31 Acquisition Zone
+                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-lg border border-[#D9E2EC] bg-[#F6F8FB] px-2.5 py-1 text-xs font-semibold text-[#062B52]">
+                  {showOnMap.length} parcel{showOnMap.length === 1 ? "" : "s"}{" "}
+                  shown
+                </span>
+              </div>
+
+              <CitizenGISMap
+                parcels={mapParcels}
+                selectedParcel={selectedParcel}
+                onSelectParcel={setSelectedParcel}
+                onMapClick={(lat, lng) =>
+                  setClickedLocation([
+                    Number(lat.toFixed(6)),
+                    Number(lng.toFixed(6)),
+                  ])
+                }
+                clickedLocation={clickedLocation}
+                className="h-[380px] w-full sm:h-[460px] lg:h-[540px]"
+              />
+            </div>
+
+            {selectedParcel ? (
+              <div className="mt-4 flex flex-col gap-3 rounded-lg border border-[#D9E2EC] bg-[#F6F8FB] p-4 sm:flex-row sm:items-center sm:justify-between">
+                <div className="flex min-w-0 items-start gap-2.5">
+                  <ShieldCheck
+                    size={16}
+                    aria-hidden="true"
+                    className="mt-0.5 shrink-0 text-[#1261A8]"
+                  />
+
+                  <div className="min-w-0">
+                    <p className="text-xs font-bold text-[#062B52]">
+                      Khasra {selectedParcel.khasraNumber} selected
+                    </p>
+
+                    <p className="mt-0.5 text-xs text-slate-600">
+                      {selectedParcel.village} &bull; {selectedParcel.tehsil},{" "}
+                      {selectedParcel.district} &bull;{" "}
+                      {Number(selectedParcel.area).toFixed(2)}{" "}
+                      {selectedParcel.areaUnit}
+                    </p>
+
+                    <p className="mt-0.5 text-xs font-semibold text-[#1261A8]">
+                      {selectedParcel.statusLabel}
+                    </p>
                   </div>
-                )}
+                </div>
 
                 <button
                   type="button"
                   onClick={() => handleViewDetails(selectedParcel)}
-                  className="mx-3 mb-3 flex w-[calc(100%-24px)] items-center justify-center gap-2 rounded bg-[#003b5c] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#005174]"
+                  className={`${buttonClass("primary", "md")} w-full shrink-0 sm:w-auto`}
                 >
-                  View Full Land Details
-                  <ArrowRight size={15} />
-                </button>
-
-                <div className="border-t border-slate-100 px-4 py-2 text-[10px] text-slate-500">
-                  Verified by Directorate of Land Records
-                </div>
-              </div>
-
-              {/* Legend */}
-              <div className="absolute bottom-3 left-3 z-[1000] hidden w-[245px] rounded-lg border border-slate-200 bg-white/95 p-3 shadow-lg sm:block">
-                <p className="mb-2 text-[11px] font-bold uppercase tracking-wide text-[#16435e]">
-                  What do parcel colours mean?
-                </p>
-
-                <div className="grid grid-cols-2 gap-x-3 gap-y-2 text-[11px] font-medium text-slate-700">
-                  <LegendItem color="#25834c" label="Safe / Clear" />
-
-                  <LegendItem color="#e5a000" label="Under Review" />
-
-                  <LegendItem color="#d99125" label="Acquisition" />
-
-                  <LegendItem color="#b91c1c" label="Disputed / Stay" />
-                </div>
-              </div>
-
-              {/* Map bottom actions */}
-              <div className="absolute bottom-0 left-0 right-0 z-[999] flex items-center justify-end gap-2 bg-white/90 px-3 py-2 backdrop-blur">
-                <button
-                  type="button"
-                  onClick={handleFullMap}
-                  className="flex items-center gap-1.5 text-[11px] font-semibold text-[#073b5a] hover:underline"
-                >
-                  <Map size={14} />
-                  View Full Interactive Map
+                  <FileText size={15} aria-hidden="true" />
+                  View Land Details
                 </button>
               </div>
-            </div>
+            ) : (
+              <p className="mt-4 flex items-start gap-2 text-xs leading-5 text-slate-600">
+                <CircleHelp
+                  size={14}
+                  aria-hidden="true"
+                  className="mt-0.5 shrink-0 text-[#1261A8]"
+                />
+                <span>
+                  No parcel selected yet. Choose a boundary on the map to view
+                  its land record.
+                </span>
+              </p>
+            )}
           </div>
-        </section>
+        )}
 
-        {/* ================================================================ */}
-        {/* HELP                                                               */}
-        {/* ================================================================ */}
+        {/* ---------------- Validation hint ---------------- */}
 
-        <section className="mt-5 rounded border border-slate-300 bg-white p-4 shadow-sm sm:p-5">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-start gap-4">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded bg-[#e0f1fb]">
-                <FileText size={24} className="text-[#104766]" />
-              </div>
+        {validationHint && (
+          <p
+            role="alert"
+            className="mt-4 flex items-start gap-2 rounded-lg border border-amber-300 bg-amber-50 p-3 text-xs leading-5 text-amber-900"
+          >
+            <AlertTriangle
+              size={14}
+              aria-hidden="true"
+              className="mt-0.5 shrink-0 text-amber-700"
+            />
+            {validationHint}
+          </p>
+        )}
 
-              <div>
-                <h2 className="text-base font-bold text-[#083b58] sm:text-lg">
-                  Need Help Finding Your Land Record?
-                </h2>
+        {/* ---------------- Actions ---------------- */}
 
-                <p className="mt-1 max-w-3xl text-sm leading-5 text-slate-600">
-                  If you cannot find your parcel or your document's survey
-                  number is blurred, call the Toll-Free Citizen Helpline:
-                  1800-112-455 (Mon-Sat 9:00 AM–6:00 PM) or visit your nearest
-                  Singur Block Revenue Camp.
-                </p>
-              </div>
-            </div>
+        {method !== "map" && (
+          <div className="mt-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+            <button
+              type="button"
+              onClick={handleSearch}
+              disabled={isSearching}
+              aria-busy={isSearching}
+              className={`${buttonClass("primary", "lg")} group w-full disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto`}
+            >
+              {isSearching ? (
+                <Loader2
+                  size={16}
+                  aria-hidden="true"
+                  className="animate-spin"
+                />
+              ) : (
+                <Search size={16} aria-hidden="true" />
+              )}
 
-            <div className="flex shrink-0 flex-wrap gap-2">
-              <button
-                type="button"
-                className="flex items-center gap-2 bg-[#e0f1fb] px-4 py-3 text-xs font-bold text-[#123d59] transition hover:bg-[#cfe7f5]"
+              {isSearching ? "Searching…" : "Search Land"}
+
+              {!isSearching && (
+                <ArrowRight
+                  size={15}
+                  aria-hidden="true"
+                  className="transition-transform duration-150 group-hover:translate-x-0.5"
+                />
+              )}
+            </button>
+
+            <button
+              type="button"
+              onClick={handleReset}
+              disabled={isSearching}
+              className={`${buttonClass("secondary", "lg")} w-full disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto`}
+            >
+              <RotateCcw size={15} aria-hidden="true" />
+              Clear
+            </button>
+
+            {isSearching && (
+              <span
+                role="status"
+                className="flex items-center gap-2 text-xs text-slate-600 sm:ml-1"
               >
-                <Phone size={15} />
-                Citizen Help Center
-              </button>
-
-              <button
-                type="button"
-                className="bg-[#003b5c] px-5 py-3 text-xs font-bold text-white transition hover:bg-[#005174]"
-              >
-                Report Issue
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================ */}
-        {/* FOOTER                                                            */}
-        {/* ================================================================ */}
-
-        <div className="flex flex-col gap-2 py-4 text-[11px] text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <span>
-            © Directorate of Land Records & Surveys, Government of West Bengal
-          </span>
-
-          <span className="flex items-center gap-1">
-            <ShieldCheck size={13} />
-            Official Government Land Records Portal
-          </span>
-        </div>
-      </main>
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* SELECT BOX                                                                 */
-/* -------------------------------------------------------------------------- */
-
-function SelectBox({
-  value,
-  onChange,
-}: {
-  value: string;
-  onChange: (value: string) => void;
-}) {
-  return (
-    <div className="relative">
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="h-10 w-full appearance-none rounded border border-transparent bg-[#e0f1fb] px-3 pr-9 text-xs font-semibold text-[#173d55] outline-none transition focus:border-[#7ab2d0]"
-      >
-        <option>{value}</option>
-        <option>West Bengal</option>
-        <option>Hooghly</option>
-        <option>Singur</option>
-      </select>
-
-      <ChevronDown
-        size={15}
-        className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-600"
-      />
-    </div>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* PARCEL CARD                                                                */
-/* -------------------------------------------------------------------------- */
-
-function ParcelCard({
-  parcel,
-  active,
-  primary,
-  onSelect,
-  onViewDetails,
-}: {
-  parcel: LandParcel;
-  active: boolean;
-  primary: boolean;
-  onSelect: () => void;
-  onViewDetails: () => void;
-}) {
-  const status = statusClasses(parcel.status);
-
-  return (
-    <article
-      className={`overflow-hidden rounded border bg-white transition ${
-        active
-          ? "border-[#0a3e5c] shadow-md ring-1 ring-[#0a3e5c]"
-          : "border-slate-300 shadow-sm hover:border-slate-400 hover:shadow-md"
-      }`}
-      onClick={onSelect}
-    >
-      {/* Card header */}
-      <div className="flex items-start justify-between gap-3 px-4 py-3">
-        <div>
-          <div className="flex flex-wrap items-center gap-2">
-            <h3 className="text-lg font-bold text-[#093a59]">
-              Parcel #{parcel.id}
-            </h3>
-
-            {primary && (
-              <span className="rounded bg-[#003b5c] px-2 py-1 text-[10px] font-bold text-white">
-                Active Focus
+                <Loader2
+                  size={13}
+                  aria-hidden="true"
+                  className="animate-spin text-[#1261A8]"
+                />
+                Searching land records…
               </span>
             )}
           </div>
+        )}
 
-          <p className="mt-1 text-[11px] font-semibold text-slate-600">
-            Mouza: {parcel.mouza} (Jl. No. 42) • Tehsil: {parcel.tehsil}
+        {/* ---------------- Compact help ---------------- */}
+
+        <div className={`${insetSurface} mt-5 p-3.5`}>
+          <p className="flex items-center gap-2 text-xs font-bold text-[#062B52]">
+            <CircleHelp size={14} aria-hidden="true" className="text-[#1261A8]" />
+            Where can I find these details?
           </p>
+
+          <dl className="mt-2.5 grid grid-cols-1 gap-2.5 sm:grid-cols-3">
+            {[
+              [
+                "Khasra / Plot Number",
+                "Usually available on your land record or RoR.",
+              ],
+              [
+                "Khata / Khatian Number",
+                "Available on your land record documents.",
+              ],
+              [
+                "Village / Tehsil",
+                "Available on the land record or property documents.",
+              ],
+            ].map(([term, description]) => (
+              <div key={term} className="min-w-0">
+                <dt className="text-xs font-semibold text-[#062B52]">{term}</dt>
+                <dd className="mt-0.5 text-xs leading-5 text-slate-600">
+                  {description}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
+      </Reveal>
 
-        <span
-          className={`shrink-0 rounded px-2.5 py-1.5 text-[10px] font-bold ${status.badge}`}
+      {/* ================================================================== */}
+      {/* SEARCH RESULTS                                                      */}
+      {/* ================================================================== */}
+
+      {searched && method !== "map" && (
+        <Reveal
+          shown={revealed}
+          reduced={reducedMotion}
+          delay={reducedMotion ? 0 : 120}
+          as="section"
+          className="space-y-3"
+          aria-labelledby="find-land-results-heading"
         >
-          {parcel.status === "acquisition" && (
-            <AlertTriangle size={12} className="mr-1 inline" />
+          <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1">
+            <h2
+              id="find-land-results-heading"
+              className="text-base font-bold text-[#062B52]"
+            >
+              Search Results
+            </h2>
+
+            <span className="text-xs text-slate-500">
+              {results.length} land parcel{results.length === 1 ? "" : "s"} found
+            </span>
+          </div>
+
+          {error && (
+            <div
+              className={`${surface} border-red-200 bg-red-50 p-4`}
+              role="alert"
+            >
+              <div className="flex items-start gap-2.5">
+                <AlertTriangle
+                  size={16}
+                  aria-hidden="true"
+                  className="mt-0.5 shrink-0 text-red-600"
+                />
+
+                <div className="min-w-0">
+                  <p className="text-sm font-bold text-red-800">
+                    Unable to search land records
+                  </p>
+
+                  <p className="mt-0.5 text-xs leading-5 text-red-800">
+                    Please try again in a moment.
+                  </p>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={handleSearch}
+                className={`${buttonClass("secondary", "sm")} mt-3`}
+              >
+                <RotateCcw size={13} aria-hidden="true" />
+                Try Again
+              </button>
+            </div>
           )}
 
-          {parcel.status === "clear" && (
-            <CheckCircle2 size={12} className="mr-1 inline" />
+          {!error && offlineNotice && (
+            <div
+              className={`${insetSurface} flex items-start gap-2.5 p-3.5`}
+              role="status"
+            >
+              <Info
+                size={15}
+                aria-hidden="true"
+                className="mt-0.5 shrink-0 text-[#1261A8]"
+              />
+
+              <p className="text-xs leading-5 text-[#062B52]">
+                The land records service is not responding, so these results
+                come from the last synchronised offline registry copy.
+              </p>
+            </div>
           )}
 
-          {parcel.statusLabel}
-        </span>
-      </div>
+          {!error && results.length > 0 && (
+            <div className="space-y-3">
+              {results.map((parcel) => (
+                <ParcelCard
+                  key={parcel.id}
+                  parcel={parcel}
+                  selected={selectedParcel?.id === parcel.id}
+                  onSelect={() => setSelectedParcel(parcel)}
+                  onViewMap={() => handleViewOnMap(parcel)}
+                  onViewDetails={() => handleViewDetails(parcel)}
+                />
+              ))}
+            </div>
+          )}
 
-      {/* Main data */}
-      <div className="mx-3 mb-3 grid grid-cols-3 divide-x divide-white bg-[#e1f2fb]">
-        <DataCell label="Survey No" value={parcel.survey} />
+          {!error && results.length === 0 && (
+            <div
+              className={`${surface} border-dashed p-8 text-center`}
+              role="status"
+            >
+              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#EAF3FC] text-[#1261A8]">
+                <Search size={22} aria-hidden="true" />
+              </span>
 
-        <DataCell
-          label="Khasra / Dag"
-          value={`${parcel.khasra} / ${parcel.dag}`}
-        />
+              <p className="mt-3 text-sm font-bold text-[#062B52]">
+                No land record found
+              </p>
 
-        <DataCell label="Recorded Area" value={parcel.area} />
-      </div>
+              <p className="mx-auto mt-1 max-w-sm text-xs leading-5 text-slate-500">
+                We couldn&apos;t find a matching land parcel with the details
+                entered.
+              </p>
 
-      {/* Details */}
-      <div className="grid gap-x-4 gap-y-2 px-4 pb-3 sm:grid-cols-2">
-        <SmallDetail
-          icon={<LandPlot size={14} />}
-          label="Classification"
-          value={parcel.classification}
-        />
+              <div className="mt-4 flex flex-col justify-center gap-2 sm:flex-row">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setMethod("details");
+                    setValidationHint(null);
+                  }}
+                  className={`${buttonClass("secondary", "md")} w-full sm:w-auto`}
+                >
+                  <RotateCcw size={14} aria-hidden="true" />
+                  Try again
+                </button>
 
-        <SmallDetail
-          icon={<UserRound size={14} />}
-          label="Owner"
-          value={`${parcel.owner} (1/1)`}
-        />
+                <button
+                  type="button"
+                  onClick={() => setMethod("map")}
+                  className={`${buttonClass("primary", "md")} w-full sm:w-auto`}
+                >
+                  <MapIcon size={14} aria-hidden="true" />
+                  Search on Map
+                </button>
+              </div>
+            </div>
+          )}
+        </Reveal>
+      )}
 
-        <SmallDetail
-          icon={<FileText size={14} />}
-          label="Notification"
-          value={
-            parcel.status === "acquisition"
-              ? "Sec 3A Gazetted"
-              : "No Active Notice"
-          }
-        />
+      {/* ================================================================== */}
+      {/* NEED HELP & SUPPORT                                                 */}
+      {/* ================================================================== */}
 
-        <SmallDetail
-          icon={<ShieldCheck size={14} />}
-          label="Title Status"
-          value={parcel.status === "clear" ? "Clear" : "Mutation Cleared"}
-        />
-      </div>
+      <Reveal
+        shown={revealed}
+        reduced={reducedMotion}
+        delay={reducedMotion ? 0 : 170}
+        as="section"
+        className={surfacePadded}
+      >
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex min-w-0 items-start gap-3.5">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#1261A8]">
+              <FileQuestion size={20} aria-hidden="true" />
+            </span>
 
-      {/* Actions */}
-      <div className="flex gap-2 px-4 pb-4">
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onViewDetails();
-          }}
-          className="flex flex-1 items-center justify-center gap-1.5 rounded bg-[#003b5c] px-3 py-2.5 text-xs font-bold text-white transition hover:bg-[#005174]"
-        >
-          View Land Details
-          <ArrowRight size={14} />
-        </button>
+            <div className="min-w-0">
+              <h2 className="text-base font-bold text-[#062B52]">
+                Need Help Finding Your Land Record?
+              </h2>
 
-        <button
-          type="button"
-          onClick={(e) => {
-            e.stopPropagation();
-            onSelect();
-          }}
-          className="flex items-center justify-center gap-1.5 rounded bg-[#dceefa] px-3 py-2.5 text-xs font-bold text-[#16445f] transition hover:bg-[#cce5f4]"
-        >
-          <Map size={14} />
-          Map Centered
-        </button>
-      </div>
-    </article>
+              <p className="mt-1 text-xs leading-5 text-slate-600 sm:text-sm">
+                If you cannot find your parcel or your document&apos;s survey
+                number is blurred, call the Toll-Free Citizen Helpline:{" "}
+                <strong className="text-[#062B52]">1800-112-455</strong>{" "}
+                (Mon&ndash;Sat 9:00 AM&ndash;6:00 PM) or visit your nearest Revenue
+                Camp.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex w-full shrink-0 flex-col gap-2 sm:flex-row lg:w-auto">
+            <button
+              type="button"
+              className={`${buttonClass("secondary", "md")} w-full sm:w-auto`}
+            >
+              <Phone size={14} aria-hidden="true" className="text-[#1261A8]" />
+              Citizen Helpline
+            </button>
+
+            <button
+              type="button"
+              onClick={() => navigate({ to: "/citizen/dashboard" })}
+              className={`${buttonClass("primary", "md")} w-full sm:w-auto`}
+            >
+              Back to Dashboard
+            </button>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ================================================================== */}
+      {/* CITIZEN PORTAL FOOTER                                               */}
+      {/* ================================================================== */}
+
+      <footer className="border-t border-[#D9E2EC] pt-5 text-center text-xs leading-relaxed text-slate-500">
+        <p>
+          &copy; Directorate of Land Records &amp; Surveys, ZameenAI Citizen
+          Cadastre
+        </p>
+
+        <p className="mt-1 inline-flex items-center gap-1.5 font-medium text-emerald-700">
+          <ShieldCheck size={13} aria-hidden="true" />
+          Official Government Land Records Portal
+        </p>
+      </footer>
+    </PageContainer>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/* DATA CELL                                                                  */
+/* REVEAL — subtle fade-up, disabled under prefers-reduced-motion            */
 /* -------------------------------------------------------------------------- */
 
-function DataCell({ label, value }: { label: string; value: string }) {
+function Reveal({
+  shown,
+  reduced,
+  delay = 0,
+  as: Tag = "div",
+  className,
+  children,
+  ...rest
+}: {
+  shown: boolean;
+  reduced: boolean;
+  delay?: number;
+  as?: "div" | "section";
+  className?: string;
+  children: React.ReactNode;
+} & React.HTMLAttributes<HTMLElement>) {
   return (
-    <div className="min-w-0 px-2.5 py-2">
-      <p className="text-[10px] font-bold uppercase text-slate-600">{label}</p>
-
-      <p className="mt-0.5 truncate text-xs font-bold text-[#073b5a]">
-        {value}
-      </p>
-    </div>
+    <Tag
+      className={className}
+      style={{
+        opacity: shown ? 1 : 0,
+        transform: shown ? "translateY(0)" : "translateY(8px)",
+        transition: reduced
+          ? "none"
+          : `opacity 400ms ease-out ${delay}ms, transform 400ms ease-out ${delay}ms`,
+      }}
+      {...rest}
+    >
+      {children}
+    </Tag>
   );
 }
 
 /* -------------------------------------------------------------------------- */
-/* SMALL DETAIL                                                               */
+/* FORM FIELDS                                                                */
 /* -------------------------------------------------------------------------- */
 
-function SmallDetail({
-  icon,
+function SelectField({
+  id,
   label,
   value,
+  options,
+  placeholder,
+  onChange,
 }: {
-  icon: ReactNode;
+  id: string;
   label: string;
   value: string;
+  options: string[];
+  placeholder: string;
+  onChange: (value: string) => void;
 }) {
   return (
-    <div className="flex items-start gap-1.5 text-[11px] leading-4">
-      <span className="mt-0.5 shrink-0 text-[#16435e]">{icon}</span>
+    <div className="min-w-0">
+      <label
+        htmlFor={id}
+        className="mb-1.5 block text-xs font-semibold text-[#062B52]"
+      >
+        {label}
+      </label>
 
-      <div>
-        <span className="font-semibold text-slate-600">{label}:</span>{" "}
-        <span className="font-medium text-slate-700">{value}</span>
+      <div className="relative min-w-0">
+        <select
+          id={id}
+          value={value}
+          onChange={(event) => onChange(event.target.value)}
+          className={`${fieldClass} h-11 cursor-pointer appearance-none pr-9 font-semibold`}
+        >
+          <option value="">{placeholder}</option>
+
+          {options.map((option) => (
+            <option key={option} value={option}>
+              {option}
+            </option>
+          ))}
+        </select>
+
+        <ChevronDown
+          size={15}
+          aria-hidden="true"
+          className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"
+        />
       </div>
     </div>
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/* LEGEND                                                                     */
-/* -------------------------------------------------------------------------- */
-
-function LegendItem({ color, label }: { color: string; label: string }) {
+function TextField({
+  id,
+  label,
+  placeholder,
+  value,
+  onChange,
+  onEnter,
+  icon,
+}: {
+  id: string;
+  label: string;
+  placeholder: string;
+  value: string;
+  onChange: (value: string) => void;
+  onEnter: () => void;
+  icon: React.ReactNode;
+}) {
   return (
-    <div className="flex items-center gap-2">
-      <span
-        className="h-2.5 w-2.5 rounded-full"
-        style={{
-          backgroundColor: color,
-        }}
-      />
+    <div className="min-w-0">
+      <label
+        htmlFor={id}
+        className="mb-1.5 block text-xs font-semibold text-[#062B52]"
+      >
+        {label}
+      </label>
 
-      {label}
+      <div className="relative min-w-0">
+        <span className="pointer-events-none absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400">
+          {icon}
+        </span>
+
+        <input
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          onChange={(event) => onChange(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter") onEnter();
+          }}
+          className={`${fieldClass} h-11 pl-10 ${value ? "pr-10" : "pr-3"}`}
+        />
+
+        {value && (
+          <button
+            type="button"
+            onClick={() => onChange("")}
+            aria-label={`Clear ${label}`}
+            className="absolute right-2.5 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded text-slate-400 transition-colors hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1261A8]"
+          >
+            <X size={15} aria-hidden="true" />
+          </button>
+        )}
+      </div>
     </div>
   );
 }

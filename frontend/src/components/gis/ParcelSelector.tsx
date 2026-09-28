@@ -17,11 +17,11 @@ export default function ParcelSelector({
     <div className="rounded-2xl border border-slate-200/90 bg-white p-4 shadow-xs sm:p-5">
       <div className="mb-3 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#e8f4f8] text-[#174b69]">
+          <div className="flex h-6 w-6 items-center justify-center rounded-md bg-[#EAF3FC] text-[#062B52]">
             <Layers3 size={13} />
           </div>
 
-          <h3 className="text-xs sm:text-sm font-bold text-[#173c56]">
+          <h3 className="text-xs sm:text-sm font-bold text-[#062B52]">
             Your Land Parcels:
           </h3>
         </div>
@@ -43,8 +43,8 @@ export default function ParcelSelector({
               onClick={() => onSelect(parcel)}
               className={`flex min-h-[52px] items-center gap-2.5 rounded-xl border px-3.5 py-2.5 text-left transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs active:translate-y-0 ${
                 selected
-                  ? "border-[#0c3b5d] bg-[#0c3b5d] text-white"
-                  : "border-slate-200 bg-[#eaf5fb] text-[#173b55] hover:border-sky-300"
+                  ? "border-[#062B52] bg-[#062B52] text-white shadow-xs"
+                  : "border-slate-200 bg-[#EAF3FC] text-[#062B52] hover:border-sky-300"
               }`}
             >
               {selected ? (
@@ -54,7 +54,7 @@ export default function ParcelSelector({
                   size={15}
                   className={
                     acquisition
-                      ? "shrink-0 text-orange-500"
+                      ? "shrink-0 text-amber-500"
                       : "shrink-0 text-emerald-600"
                   }
                 />

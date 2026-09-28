@@ -5,15 +5,15 @@ export default function MapLegend() {
   const [collapsed, setCollapsed] = useState(false);
 
   return (
-    <div className="absolute bottom-3 left-3 z-[1000] w-[calc(100%-24px)] max-w-[380px] overflow-hidden rounded-xl border border-slate-200/90 bg-white/95 shadow-xl backdrop-blur-md transition-all duration-200">
+    <div className="absolute bottom-3 left-3 right-3 z-[1000] max-w-[380px] overflow-hidden rounded-xl border border-slate-200/90 bg-white/95 shadow-xl backdrop-blur-md transition-all duration-200">
       {/* HEADER */}
 
       <div
         onClick={() => setCollapsed(!collapsed)}
         className="flex cursor-pointer items-center justify-between gap-2 border-b border-slate-200/80 px-3.5 py-2.5 transition-colors hover:bg-slate-50/80 select-none"
       >
-        <div className="flex items-center gap-2 text-xs font-bold text-[#173b55]">
-          <CircleHelp size={16} className="shrink-0 text-[#174b69]" />
+        <div className="flex items-center gap-2 text-xs font-bold text-[#062B52]">
+          <CircleHelp size={16} className="shrink-0 text-[#062B52]" />
           What do the parcel colours mean?
         </div>
 
@@ -44,34 +44,34 @@ export default function MapLegend() {
 
           <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 px-3.5 py-3">
             <LegendItem
-              color="bg-emerald-600"
-              title="Normal / Safe"
-              subtitle="Land is clear"
+              color="bg-emerald-500"
+              title="Verified"
+              subtitle="Safe / Clear title"
             />
 
             <LegendItem
-              color="bg-yellow-500"
-              title="Under Review"
-              subtitle="Routine check"
+              color="bg-blue-500"
+              title="Pending"
+              subtitle="Routine review"
             />
 
             <LegendItem
-              color="bg-orange-500"
+              color="bg-amber-500"
               title="Under Acquisition"
-              subtitle="Govt. project"
+              subtitle="Govt. notice"
             />
 
             <LegendItem
-              color="bg-red-600"
-              title="Disputed"
-              subtitle="Legal claim"
+              color="bg-red-500"
+              title="Issue Found"
+              subtitle="Legal query / Disputed"
             />
           </div>
 
           {/* INFORMATION */}
 
-          <div className="flex items-start gap-2 border-t border-slate-200 bg-[#edf7fc] px-3.5 py-2.5 text-xs leading-5 text-slate-600">
-            <LockKeyhole size={14} className="mt-0.5 shrink-0 text-[#174b69]" />
+          <div className="flex items-start gap-2 border-t border-slate-200 bg-[#EAF3FC] px-3.5 py-2.5 text-xs leading-5 text-slate-600">
+            <LockKeyhole size={14} className="mt-0.5 shrink-0 text-[#062B52]" />
 
             <span>
               Zero technical GIS layers needed. Click any coloured box to

@@ -1,5 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import PageContainer from "../components/common/PageContainer";
+import PageHeader from "../components/common/PageHeader";
+import StatusBadge, { type StatusTone } from "../components/common/StatusBadge";
+import {
+  buttonClass,
+  cardHeadingClass,
+  eyebrowClass,
+  fieldClass,
+  surface,
+  surfacePadded,
+} from "../components/common/portalStyles";
 import {
   FileText,
   Loader2,
@@ -9,7 +20,6 @@ import {
   File,
   CloudUpload,
   Camera,
-  User,
   Shield,
   ChevronRight,
   ChevronLeft,
@@ -37,10 +47,8 @@ import {
   FileCode,
   Info,
   Calendar,
-  Hash,
-  Ruler,
-  Trees,
 } from "lucide-react";
+import { citizenCrumbs } from "../config/citizenBreadcrumbs";
 
 export const Route = createFileRoute("/citizen/digitalizations")({
   component: CitizenDigitalizations,
@@ -184,34 +192,31 @@ const FIELD_GROUPS = [
 /* Small shared bits                                                   */
 /* ------------------------------------------------------------------ */
 
-function confidenceTone(conf: number) {
-  if (conf >= 90) return { text: "text-emerald-600", bg: "bg-emerald-50", border: "border-emerald-200", badge: "bg-emerald-100 text-emerald-700" };
-  if (conf >= 70) return { text: "text-amber-600", bg: "bg-amber-50", border: "border-amber-200", badge: "bg-amber-100 text-amber-700" };
-  return { text: "text-rose-600", bg: "bg-rose-50", border: "border-rose-200", badge: "bg-rose-100 text-rose-700" };
-}
+/**
+ * Digitisation-domain status tones.
+ *
+ * The shared `StatusBadge` resolves tones from the canonical civic/cadastral
+ * vocabulary. A few labels here mean something different in this workflow, so
+ * the page states the tone explicitly rather than changing global semantics:
+ *   - "Review"    = field needs human verification (not "under review")
+ *   - "Valid"     = cross-check passed
+ *   - "Ready"     = file accepted and queued
+ *   - "Extracted" = AI read completed successfully
+ */
+const DIGITIZATION_TONES: Record<string, StatusTone> = {
+  ready: "current",
+  extracted: "success",
+  valid: "success",
+  review: "danger",
+  warning: "warning",
+};
 
-const TopBar: React.FC<{ title: string; subtitle: string }> = ({ title, subtitle }) => (
-  <header className="border-b border-gray-200 bg-gradient-to-r from-white to-gray-50 px-8 py-5">
-    <div className="flex items-center justify-between">
-      <div className="flex items-center gap-3">
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-blue-600 to-blue-700 shadow-md">
-          <Landmark className="h-5 w-5 text-white" />
-        </div>
-        <div>
-          <h1 className="text-xl font-semibold tracking-tight text-gray-900">{title}</h1>
-          <p className="mt-0.5 text-sm text-gray-500">{subtitle}</p>
-        </div>
-      </div>
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white px-3 py-1.5 text-sm text-gray-700 shadow-sm">
-          <User className="h-3.5 w-3.5 text-gray-400" />
-          <span>Citizen</span>
-          <ChevronRight className="h-3 w-3 rotate-90 text-gray-400" />
-        </div>
-      </div>
-    </div>
-  </header>
-);
+/** Confidence text colour only. Tinted surfaces/badges are set per component. */
+function confidenceTone(conf: number) {
+  if (conf >= 90) return { text: "text-emerald-700" };
+  if (conf >= 70) return { text: "text-amber-700" };
+  return { text: "text-rose-700" };
+}
 
 const StepRail: React.FC<{ step: WizardStep }> = ({ step }) => {
   const steps: { key: WizardStep; label: string; icon: React.ReactNode }[] = [
@@ -223,26 +228,46 @@ const StepRail: React.FC<{ step: WizardStep }> = ({ step }) => {
   ];
   const idx = steps.findIndex((s) => s.key === step);
   if (idx === -1) return null;
+
   return (
-    <div className="flex items-center gap-2 px-8 pt-5 text-xs">
-      {steps.map((s, i) => (
-        <React.Fragment key={s.key}>
-          <div
-            className={`flex items-center gap-1.5 rounded-full border px-2.5 py-1 transition-all duration-300 ${
-              i < idx
-                ? "border-emerald-200 bg-emerald-50 text-emerald-600"
-                : i === idx
-                ? "border-blue-400 bg-blue-50 text-blue-600 shadow-sm"
-                : "border-gray-200 text-gray-400"
-            }`}
-          >
-            {i < idx ? <Check className="h-3 w-3" /> : i === idx ? s.icon : <span className="font-mono">{i + 1}</span>}
-            {s.label}
-          </div>
-          {i < steps.length - 1 && <div className={`h-px w-6 ${i < idx ? "bg-emerald-300" : "bg-gray-200"}`} />}
-        </React.Fragment>
-      ))}
-    </div>
+    <nav aria-label="Digitization progress" className="min-w-0">
+      <ol className="flex flex-wrap items-center gap-1.5">
+        {steps.map((s, i) => {
+          const isDone = i < idx;
+          const isCurrent = i === idx;
+          return (
+            <li key={s.key} className="flex min-w-0 items-center gap-1.5">
+              <span
+                aria-current={isCurrent ? "step" : undefined}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-colors duration-150 ${
+                  isDone
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-700"
+                    : isCurrent
+                      ? "border-[#1261A8]/30 bg-[#EAF3FC] text-[#1261A8]"
+                      : "border-[#D9E2EC] bg-white text-[#607089]"
+                }`}
+              >
+                {isDone ? (
+                  <Check className="h-3 w-3 shrink-0" aria-hidden="true" />
+                ) : isCurrent ? (
+                  <span className="shrink-0">{s.icon}</span>
+                ) : (
+                  <span className="font-mono">{i + 1}</span>
+                )}
+                {s.label}
+              </span>
+
+              {i < steps.length - 1 && (
+                <span
+                  aria-hidden="true"
+                  className={`h-px w-4 shrink-0 sm:w-6 ${isDone ? "bg-emerald-300" : "bg-[#D9E2EC]"}`}
+                />
+              )}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
   );
 };
 
@@ -296,15 +321,11 @@ const UploadStep: React.FC<{
     icon,
   }) => (
     <div>
-      <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-gray-600">
-        {icon && <span className="text-gray-400">{icon}</span>}
+      <label className="mb-1.5 flex items-center gap-1.5 text-xs font-medium text-[#607089]">
+        {icon && <span className="shrink-0 text-slate-400">{icon}</span>}
         {label}
       </label>
-      <select
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="w-full rounded-lg border border-gray-200 bg-white px-3 py-2 text-sm text-gray-700 transition focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200 hover:border-gray-300"
-      >
+      <select value={value} onChange={(e) => onChange(e.target.value)} className={fieldClass}>
         {options.map((o) => (
           <option key={o}>{o}</option>
         ))}
@@ -313,7 +334,7 @@ const UploadStep: React.FC<{
   );
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white p-8">
+    <div className="min-w-0">
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
         <div className="lg:col-span-3">
           <div
@@ -323,142 +344,129 @@ const UploadStep: React.FC<{
             }}
             onDragLeave={() => setIsDragging(false)}
             onDrop={handleDrop}
-            className={`relative overflow-hidden rounded-2xl border-2 border-dashed p-12 text-center transition-all duration-300 ${
-              isDragging 
-                ? "border-blue-400 bg-blue-50 shadow-lg shadow-blue-100/50" 
-                : "border-gray-300 bg-white hover:border-blue-300 hover:shadow-md"
+            className={`rounded-xl border-2 border-dashed bg-white p-6 text-center transition-colors duration-150 sm:p-10 ${
+              isDragging
+                ? "border-[#1261A8] bg-[#EAF3FC]"
+                : "border-[#D9E2EC] hover:border-[#1261A8]/60 hover:bg-[#F6F8FB]"
             }`}
           >
-            <div className="absolute inset-0 opacity-5">
-              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-blue-400" />
-              <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-purple-400" />
-            </div>
-            
-            <div className="relative">
-              <div className={`mx-auto mb-4 flex h-20 w-20 items-center justify-center rounded-full transition-all duration-300 ${
-                isDragging ? "bg-blue-100 text-blue-600 scale-110" : "bg-gray-100 text-gray-400"
-              }`}>
-                <CloudUpload className={`h-10 w-10 ${isDragging ? "text-blue-600" : "text-gray-400"}`} />
+            <div>
+              <div
+                className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full transition-colors duration-150 ${
+                  isDragging ? "bg-[#1261A8]/10 text-[#1261A8]" : "bg-[#EAF3FC] text-[#1261A8]"
+                }`}
+              >
+                <CloudUpload className="h-8 w-8" />
               </div>
-              <h3 className="text-lg font-semibold text-gray-800">Upload Land Records</h3>
-              <p className="mx-auto mt-1 max-w-md text-sm text-gray-500">
+              <h3 className={`${cardHeadingClass} text-center`}>Upload Land Records</h3>
+              <p className="mx-auto mt-1.5 max-w-md text-sm text-slate-600">
                 Drag &amp; drop your scanned land records here, or click to browse
               </p>
-              <p className="mb-6 text-xs text-gray-400">
+              <p className="mb-5 mt-1 text-xs text-[#607089]">
                 AI will automatically preprocess, classify, OCR and extract structured information
               </p>
-              <div className="flex items-center justify-center gap-3">
-                <button
-                  onClick={() => fileInputRef.current?.click()}
-                  className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-3 text-sm font-medium text-white shadow-md transition hover:shadow-lg hover:from-blue-700 hover:to-blue-800"
-                >
-                  <Upload className="h-4 w-4" />
+              <div className="flex flex-col items-stretch justify-center gap-2.5 sm:flex-row sm:items-center">
+                <button type="button" onClick={() => fileInputRef.current?.click()} className={buttonClass("primary", "lg")}>
+                  <Upload className="h-4 w-4" aria-hidden="true" />
                   Browse Files
                 </button>
-                <button
-                  onClick={() => cameraInputRef.current?.click()}
-                  className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-medium text-gray-700 shadow-sm transition hover:bg-gray-50 hover:shadow-md"
-                >
-                  <Camera className="h-4 w-4" />
+                <button type="button" onClick={() => cameraInputRef.current?.click()} className={buttonClass("secondary", "lg")}>
+                  <Camera className="h-4 w-4" aria-hidden="true" />
                   Open Camera
                 </button>
               </div>
               <input ref={fileInputRef} type="file" accept=".pdf,.jpg,.jpeg,.png" multiple onChange={handleFileUpload} className="hidden" />
               <input ref={cameraInputRef} type="file" accept="image/*" capture="environment" onChange={handleFileUpload} className="hidden" />
               
-              <div className="mt-6 flex items-center justify-center gap-4 text-xs text-gray-400">
-                <span className="flex items-center gap-1">
-                  <File className="h-3 w-3" /> PDF
-                </span>
-                <span className="h-3 w-px bg-gray-300" />
-                <span className="flex items-center gap-1">
-                  <File className="h-3 w-3" /> JPG
-                </span>
-                <span className="h-3 w-px bg-gray-300" />
-                <span className="flex items-center gap-1">
-                  <File className="h-3 w-3" /> PNG
-                </span>
-                <span className="h-3 w-px bg-gray-300" />
+              <div className="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-1.5 text-xs text-[#607089]">
+                {["PDF", "JPG", "PNG"].map((t) => (
+                  <span key={t} className="inline-flex items-center gap-1">
+                    <File className="h-3 w-3" aria-hidden="true" />
+                    {t}
+                  </span>
+                ))}
+                <span aria-hidden="true" className="h-3 w-px bg-[#D9E2EC]" />
                 <span>Max 50MB</span>
               </div>
             </div>
           </div>
 
           {files.length > 0 && (
-            <div className="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-              <div className="flex items-center justify-between border-b border-gray-100 px-6 py-4">
-                <div>
-                  <h4 className="font-medium text-gray-800">Uploaded Files</h4>
-                  <p className="text-xs text-gray-400">{files.length} file(s) ready for processing</p>
+            <div className={`${surface} mt-5 overflow-hidden`}>
+              <div className="flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-5 py-4">
+                <div className="min-w-0">
+                  <h4 className="text-sm font-bold text-[#062B52]">Uploaded Files</h4>
+                  <p className="text-xs text-[#607089]">{files.length} file(s) ready for processing</p>
                 </div>
-                <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-600">
+                <span className="shrink-0 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
                   {files.length} files
                 </span>
               </div>
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="text-left text-xs uppercase tracking-wide text-gray-500">
-                    <th className="px-6 py-3 font-medium">File Name</th>
-                    <th className="px-6 py-3 font-medium">Type</th>
-                    <th className="px-6 py-3 font-medium">Size</th>
-                    <th className="px-6 py-3 font-medium">Pages</th>
-                    <th className="px-6 py-3 font-medium">Status</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-gray-100">
-                  {files.map((f) => (
-                    <tr key={f.id} className="transition hover:bg-gray-50">
-                      <td className="flex items-center gap-2 px-6 py-3 text-gray-700">
-                        <File className="h-4 w-4 text-blue-500" />
-                        {f.name}
-                      </td>
-                      <td className="px-6 py-3 text-gray-500">{f.type}</td>
-                      <td className="px-6 py-3 text-gray-500">{f.size}</td>
-                      <td className="px-6 py-3 text-gray-500">{f.pages}</td>
-                      <td className="px-6 py-3">
-                        <span className="inline-flex items-center rounded-full bg-blue-50 px-2.5 py-1 text-xs font-medium text-blue-600">
-                          <CheckCircle className="mr-1 h-3 w-3" />
-                          {f.status.charAt(0).toUpperCase() + f.status.slice(1)}
-                        </span>
-                      </td>
+
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[560px] text-left text-sm">
+                  <thead>
+                    <tr className="border-b border-slate-100 text-xs uppercase tracking-wide text-[#607089]">
+                      <th scope="col" className="px-5 py-3 font-semibold">File Name</th>
+                      <th scope="col" className="px-5 py-3 font-semibold">Type</th>
+                      <th scope="col" className="px-5 py-3 font-semibold">Size</th>
+                      <th scope="col" className="px-5 py-3 font-semibold">Pages</th>
+                      <th scope="col" className="px-5 py-3 font-semibold">Status</th>
                     </tr>
-                  ))}
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody className="divide-y divide-slate-100">
+                    {files.map((f) => (
+                      <tr key={f.id} className="transition-colors hover:bg-[#F6F8FB]">
+                        <td className="px-5 py-3 font-medium text-[#062B52]">
+                          <span className="flex items-center gap-2">
+                            <File className="h-4 w-4 shrink-0 text-[#1261A8]" aria-hidden="true" />
+                            <span className="truncate">{f.name}</span>
+                          </span>
+                        </td>
+                        <td className="px-5 py-3 text-slate-600">{f.type}</td>
+                        <td className="px-5 py-3 text-slate-600">{f.size}</td>
+                        <td className="px-5 py-3 text-slate-600">{f.pages}</td>
+                        <td className="px-5 py-3">
+                          <StatusBadge
+                            status={f.status.charAt(0).toUpperCase() + f.status.slice(1)}
+                            tone={DIGITIZATION_TONES[f.status.toLowerCase()]}
+                          />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           )}
 
-          <div className="mt-6 flex items-center justify-between">
-            <button className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-600 transition hover:bg-gray-50">
-              <BookOpen className="h-4 w-4" />
+          <div className="mt-5 flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center sm:justify-between">
+            <button type="button" className={buttonClass("secondary", "md")}>
+              <BookOpen className="h-4 w-4" aria-hidden="true" />
               View Template
             </button>
-            <div className="flex items-center gap-3">
-              <button className="rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-600 transition hover:bg-gray-50">
+            <div className="flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center">
+              <button type="button" className={buttonClass("secondary", "md")}>
                 Save as Draft
               </button>
-              <button
-                disabled={files.length === 0}
-                onClick={onStartProcessing}
-                className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-6 py-2.5 text-sm font-medium text-white shadow-md transition hover:shadow-lg hover:from-blue-700 hover:to-blue-800 disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:shadow-none"
-              >
-                <Sparkles className="h-4 w-4" />
+              <button type="button" disabled={files.length === 0} onClick={onStartProcessing} className={buttonClass("primary", "md")}>
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
                 Start AI Processing
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
           </div>
         </div>
 
         <div className="lg:col-span-2">
-          <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-            <div className="mb-4 flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-blue-500 to-blue-600">
-                <Layers className="h-4 w-4 text-white" />
+          <div className={surfacePadded}>
+            <div className="mb-4 flex items-center gap-2.5">
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FC]">
+                <Layers className="h-4 w-4 text-[#1261A8]" aria-hidden="true" />
               </div>
-              <h3 className="font-medium text-gray-800">Document Metadata</h3>
+              <h3 className={cardHeadingClass}>Document Metadata</h3>
             </div>
-            
+
             <div className="space-y-4">
               <Field 
                 label="Document Type" 
@@ -468,7 +476,7 @@ const UploadStep: React.FC<{
                 icon={<FileText className="h-3.5 w-3.5" />}
               />
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <Field 
                   label="State" 
                   value={state} 
@@ -485,7 +493,7 @@ const UploadStep: React.FC<{
                 />
               </div>
               
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 <Field 
                   label="Tehsil" 
                   value={tehsil} 
@@ -582,34 +590,35 @@ const ProcessingStep: React.FC<{ onDone: () => void }> = ({ onDone }) => {
   const isComplete = ocrProgress >= 100;
 
   return (
-    <div className="flex flex-1 items-center justify-center bg-gradient-to-b from-gray-50 to-white p-8">
-      <div className="w-full max-w-2xl rounded-2xl border border-gray-200 bg-white p-8 shadow-lg">
-        <div className="flex items-center justify-between">
-          <p className="text-xs text-gray-400">Document ID: DOC-001</p>
-          <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-medium text-blue-600">
+    <div className="mx-auto w-full max-w-2xl min-w-0">
+      <div className={`${surface} w-full min-w-0 p-5 sm:p-6`}>
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <p className="text-xs text-[#607089]">Document ID: DOC-001</p>
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[#1261A8]/30 bg-[#EAF3FC] px-2.5 py-1 text-xs font-semibold text-[#1261A8]">
+            {isComplete ? <Check className="h-3 w-3" aria-hidden="true" /> : <Loader2 className="h-3 w-3 animate-spin" aria-hidden="true" />}
             {Math.round(ocrProgress)}% Complete
           </span>
         </div>
-        <h2 className="mt-2 text-xl font-semibold text-gray-800">AI Processing in Progress</h2>
-        <p className="text-sm text-gray-500">Our AI is analyzing and extracting data from your document</p>
+        <h2 className={`${cardHeadingClass} mt-2`}>AI Processing in Progress</h2>
+        <p className="mt-1 text-sm text-[#607089]">Our AI is analyzing and extracting data from your document</p>
 
-        <div className="my-8 flex justify-center">
+        <div className="my-7 flex justify-center">
           <div className="relative">
-            <div className={`absolute inset-[-20px] rounded-full border-4 border-blue-200 opacity-50 transition-all duration-1000 ${pulse ? 'scale-110' : 'scale-100'}`} />
-            <div className={`absolute inset-[-40px] rounded-full border-4 border-blue-300 opacity-30 transition-all duration-1000 ${pulse ? 'scale-125' : 'scale-100'}`} style={{ animationDelay: '0.3s' }} />
-            
-            <div className="relative flex h-32 w-32 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-600 shadow-lg">
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 opacity-75" 
-                   style={{ animation: 'pulse-ring 2s ease-in-out infinite' }} />
-              <div className="absolute inset-0 rounded-full bg-white/20" 
-                   style={{ animation: 'spin-slow 8s linear infinite' }} />
-              <Brain className="relative z-10 h-14 w-14 text-white" />
-              <div className="absolute -right-2 -top-2">
-                <span className="flex h-4 w-4">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-blue-400 opacity-75" />
-                  <span className="relative inline-flex h-4 w-4 rounded-full bg-blue-500" />
-                </span>
-              </div>
+            <div
+              aria-hidden="true"
+              className={`absolute inset-[-18px] rounded-full border-2 border-[#1261A8]/25 transition-transform duration-1000 ${
+                pulse ? "scale-110" : "scale-100"
+              }`}
+            />
+            <div
+              aria-hidden="true"
+              className={`absolute inset-[-36px] rounded-full border-2 border-[#1261A8]/15 transition-transform duration-1000 ${
+                pulse ? "scale-125" : "scale-100"
+              }`}
+            />
+
+            <div className="pulse-ring relative flex h-28 w-28 items-center justify-center rounded-full bg-[#1261A8] shadow-xs sm:h-32 sm:w-32">
+              <Brain className="relative z-10 h-12 w-12 text-white" />
             </div>
           </div>
         </div>
@@ -620,12 +629,19 @@ const ProcessingStep: React.FC<{ onDone: () => void }> = ({ onDone }) => {
             const active = i === stageIndex && !isComplete;
             const Icon = stage.icon;
             return (
-              <div key={stage.label} className={`flex items-center justify-between rounded-lg px-3 py-2 transition-all duration-500 ${
-                active ? 'bg-blue-50' : done ? 'bg-green-50' : 'bg-gray-50'
-              }`}>
-                <div className="flex items-center gap-3">
-                  <div className={`flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300 ${
-                    done ? 'bg-emerald-500 text-white' : active ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-400'
+              <div
+                key={stage.label}
+                className={`flex items-center justify-between gap-3 rounded-lg border px-3 py-2.5 transition-colors duration-300 ${
+                  active
+                    ? "border-[#1261A8]/30 bg-[#EAF3FC]"
+                    : done
+                      ? "border-emerald-200 bg-emerald-50"
+                      : "border-[#D9E2EC] bg-[#F6F8FB]"
+                }`}
+              >
+                <div className="flex min-w-0 items-center gap-3">
+                  <div className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
+                    done ? "bg-emerald-600 text-white" : active ? "bg-[#1261A8] text-white" : "bg-slate-200 text-slate-500"
                   }`}>
                     {done ? (
                       <Check className="h-4 w-4" />
@@ -635,12 +651,12 @@ const ProcessingStep: React.FC<{ onDone: () => void }> = ({ onDone }) => {
                       <Icon className="h-4 w-4" />
                     )}
                   </div>
-                  <span className={`font-medium ${done ? 'text-gray-700' : active ? 'text-gray-900' : 'text-gray-400'}`}>
+                  <span className={`truncate text-sm font-semibold ${done ? "text-[#062B52]" : active ? "text-[#062B52]" : "text-[#607089]"}`}>
                     {stage.label}
                   </span>
                 </div>
-                <span className={`text-xs ${done ? 'text-emerald-600' : active ? 'text-blue-600' : 'text-gray-400'}`}>
-                  {done ? '✓ Complete' : active ? 'Processing...' : 'Pending'}
+                <span className={`shrink-0 text-xs font-medium ${done ? "text-emerald-700" : active ? "text-[#1261A8]" : "text-[#607089]"}`}>
+                  {done ? "Complete" : active ? "Processing..." : "Pending"}
                 </span>
               </div>
             );
@@ -648,35 +664,28 @@ const ProcessingStep: React.FC<{ onDone: () => void }> = ({ onDone }) => {
         </div>
 
         <div className="mt-6">
-          <div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-200">
-            <div 
-              className="h-full rounded-full bg-gradient-to-r from-blue-500 to-purple-500 transition-all duration-300"
+          <div
+            role="progressbar"
+            aria-valuenow={Math.round(ocrProgress)}
+            aria-valuemin={0}
+            aria-valuemax={100}
+            aria-label="OCR processing progress"
+            className="h-2 w-full overflow-hidden rounded-full bg-slate-200"
+          >
+            <div
+              className="h-full rounded-full bg-[#1261A8] transition-[width] duration-300"
               style={{ width: `${ocrProgress}%` }}
             />
           </div>
-          <p className="mt-1 text-right text-xs text-gray-400">{Math.round(ocrProgress)}%</p>
+          <p className="mt-1.5 text-right text-xs text-[#607089]">{Math.round(ocrProgress)}%</p>
         </div>
 
         {isComplete && (
-          <button
-            onClick={onDone}
-            className="mt-6 flex w-full items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-3 text-sm font-medium text-white shadow-md transition hover:shadow-lg hover:from-blue-700 hover:to-blue-800"
-          >
+          <button type="button" onClick={onDone} className={`${buttonClass("primary", "lg")} mt-6 w-full`}>
             View Extraction Results
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </button>
         )}
-
-        <style>{`
-          @keyframes pulse-ring {
-            0%, 100% { opacity: 0.5; transform: scale(1); }
-            50% { opacity: 0.8; transform: scale(1.05); }
-          }
-          @keyframes spin-slow {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-          }
-        `}</style>
       </div>
     </div>
   );
@@ -689,27 +698,37 @@ const ProcessingStep: React.FC<{ onDone: () => void }> = ({ onDone }) => {
 const DocumentPreview: React.FC = () => {
   const [zoom, setZoom] = useState(100);
   return (
-    <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-      <div className="mb-3 flex items-center justify-between">
-        <span className="text-xs text-gray-400">Source Document</span>
+    <div className={surfacePadded}>
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <h3 className="text-sm font-bold text-[#062B52]">Source Document</h3>
         <div className="flex items-center gap-1">
-          <button onClick={() => setZoom((z) => Math.max(50, z - 10))} className="rounded p-1.5 text-gray-400 hover:bg-gray-100">
-            <ZoomOut className="h-3.5 w-3.5" />
+          <button
+            type="button"
+            aria-label="Zoom out"
+            onClick={() => setZoom((z) => Math.max(50, z - 10))}
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#D9E2EC] bg-white text-slate-500 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1261A8]"
+          >
+            <ZoomOut className="h-3.5 w-3.5" aria-hidden="true" />
           </button>
-          <span className="w-10 text-center text-xs text-gray-400">{zoom}%</span>
-          <button onClick={() => setZoom((z) => Math.min(200, z + 10))} className="rounded p-1.5 text-gray-400 hover:bg-gray-100">
-            <ZoomIn className="h-3.5 w-3.5" />
+          <span className="w-11 text-center text-xs tabular-nums text-[#607089]">{zoom}%</span>
+          <button
+            type="button"
+            aria-label="Zoom in"
+            onClick={() => setZoom((z) => Math.min(200, z + 10))}
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#D9E2EC] bg-white text-slate-500 transition-colors hover:bg-slate-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1261A8]"
+          >
+            <ZoomIn className="h-3.5 w-3.5" aria-hidden="true" />
           </button>
         </div>
       </div>
       <div
-        className="flex aspect-[3/4] items-center justify-center overflow-hidden rounded-lg border border-gray-200 bg-gray-50"
+        className="flex aspect-[3/4] items-center justify-center overflow-hidden rounded-lg border border-[#D9E2EC] bg-[#F6F8FB]"
         style={{ transform: `scale(${zoom / 100})`, transformOrigin: "top center" }}
       >
         <div className="p-6 text-center">
-          <FileText className="mx-auto mb-3 h-10 w-10 text-gray-400" />
-          <p className="text-xs text-gray-500">Scanned Khatian record</p>
-          <p className="text-xs text-gray-400">Page 1 of 2</p>
+          <FileText className="mx-auto mb-3 h-10 w-10 text-slate-400" aria-hidden="true" />
+          <p className="text-xs font-medium text-[#062B52]">Scanned Khatian record</p>
+          <p className="text-xs text-[#607089]">Page 1 of 2</p>
         </div>
       </div>
     </div>
@@ -725,47 +744,34 @@ const ExtractionResultsStep: React.FC<{ onNext: () => void }> = ({ onNext }) => 
   const issues = EXTRACTED_FIELDS.filter(f => f.issue).length;
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white p-8">
+    <div className="min-w-0">
       {/* Record ID Header */}
-      <div className="mb-6 flex items-center justify-between rounded-2xl border border-gray-200 bg-white p-4 shadow-sm">
-        <div className="flex items-center gap-3">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-blue-50">
-            <FileCode className="h-5 w-5 text-blue-600" />
+      <div className={`${surface} mb-5 flex flex-wrap items-center justify-between gap-3 p-4`}>
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FC]">
+            <FileCode className="h-5 w-5 text-[#1261A8]" aria-hidden="true" />
           </div>
-          <div>
-            <p className="text-xs text-gray-400">Record ID</p>
-            <p className="font-mono text-sm font-semibold text-gray-800">{EXTRACTED_DATA.record_id}</p>
-          </div>
-        </div>
-        <div className="flex items-center gap-4">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-gray-400">Status:</span>
-            <span className="inline-flex items-center rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-medium text-emerald-700">
-              <CheckCircle className="mr-1 h-3 w-3" />
-              Extracted
-            </span>
+          <div className="min-w-0">
+            <p className={eyebrowClass}>Record ID</p>
+            <p className="truncate font-mono text-sm font-bold text-[#062B52]">{EXTRACTED_DATA.record_id}</p>
           </div>
         </div>
+        <StatusBadge status="Extracted" size="md" tone={DIGITIZATION_TONES.extracted} />
       </div>
 
       {/* Stats Summary */}
-      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        <div className="rounded-xl border border-gray-200 bg-white p-3 text-center shadow-sm">
-          <p className="text-2xl font-bold text-gray-800">{totalFields}</p>
-          <p className="text-xs text-gray-400">Total Fields</p>
-        </div>
-        <div className="rounded-xl border border-emerald-200 bg-emerald-50 p-3 text-center shadow-sm">
-          <p className="text-2xl font-bold text-emerald-600">{highConfidence}</p>
-          <p className="text-xs text-emerald-600">High Confidence</p>
-        </div>
-        <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-center shadow-sm">
-          <p className="text-2xl font-bold text-amber-600">{mediumConfidence}</p>
-          <p className="text-xs text-amber-600">Medium Confidence</p>
-        </div>
-        <div className="rounded-xl border border-rose-200 bg-rose-50 p-3 text-center shadow-sm">
-          <p className="text-2xl font-bold text-rose-600">{lowConfidence}</p>
-          <p className="text-xs text-rose-600">Low Confidence</p>
-        </div>
+      <div className="mb-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {[
+          { label: "Total Fields", value: totalFields, cls: "border-[#D9E2EC] bg-white text-[#062B52]" },
+          { label: "High Confidence", value: highConfidence, cls: "border-emerald-200 bg-emerald-50 text-emerald-700" },
+          { label: "Medium Confidence", value: mediumConfidence, cls: "border-amber-200 bg-amber-50 text-amber-700" },
+          { label: "Low Confidence", value: lowConfidence, cls: "border-rose-200 bg-rose-50 text-rose-700" },
+        ].map((t) => (
+          <div key={t.label} className={`rounded-xl border p-3 text-center shadow-xs ${t.cls}`}>
+            <p className="text-2xl font-bold tabular-nums">{t.value}</p>
+            <p className="text-xs font-medium opacity-80">{t.label}</p>
+          </div>
+        ))}
       </div>
 
       <div className="grid grid-cols-1 gap-6 lg:grid-cols-5">
@@ -773,16 +779,16 @@ const ExtractionResultsStep: React.FC<{ onNext: () => void }> = ({ onNext }) => 
           <DocumentPreview />
         </div>
         <div className="lg:col-span-3">
-          <div className="rounded-2xl border border-gray-200 bg-white shadow-sm overflow-hidden">
-            <div className="border-b border-gray-100 px-6 py-4 bg-gradient-to-r from-gray-50 to-white">
-              <h3 className="font-medium text-gray-800">Extracted Information</h3>
-              <p className="text-sm text-gray-500">
+          <div className={`${surface} overflow-hidden`}>
+            <div className="border-b border-slate-100 bg-[#F6F8FB] px-5 py-4">
+              <h3 className={cardHeadingClass}>Extracted Information</h3>
+              <p className="mt-0.5 text-xs text-[#607089]">
                 {EXTRACTED_DATA.document.document_title} - {EXTRACTED_DATA.document.document_type}
               </p>
             </div>
             
             {/* Grouped fields display */}
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-slate-100">
               {FIELD_GROUPS.map((group) => {
                 const GroupIcon = group.icon;
                 const groupFields = EXTRACTED_FIELDS.filter(f => group.fields.includes(f.id));
@@ -790,28 +796,27 @@ const ExtractionResultsStep: React.FC<{ onNext: () => void }> = ({ onNext }) => 
                 
                 return (
                   <div key={group.title}>
-                    <div className="flex items-center gap-2 bg-gray-50 px-6 py-2">
-                      <GroupIcon className="h-4 w-4 text-gray-500" />
-                      <span className="text-xs font-medium uppercase tracking-wider text-gray-500">
-                        {group.title}
-                      </span>
+                    <div className="flex items-center gap-2 bg-[#F6F8FB] px-5 py-2">
+                      <GroupIcon className="h-3.5 w-3.5 shrink-0 text-[#1261A8]" aria-hidden="true" />
+                      <span className={eyebrowClass}>{group.title}</span>
                     </div>
                     <div className="grid grid-cols-1 gap-0 sm:grid-cols-2">
                       {groupFields.map((field) => {
                         const tone = confidenceTone(field.confidence);
                         return (
-                          <div key={field.id} className="flex items-center justify-between border-b border-gray-50 px-4 py-2.5 hover:bg-gray-50 sm:border-r sm:border-b-0">
-                            <div>
-                              <p className="text-xs text-gray-400">{field.label}</p>
-                              <p className="text-sm font-medium text-gray-800">{field.value}</p>
+                          <div
+                            key={field.id}
+                            className="flex min-w-0 items-center justify-between gap-2 border-b border-slate-100 px-5 py-2.5 transition-colors hover:bg-[#F6F8FB] sm:border-r sm:last:border-r-0"
+                          >
+                            <div className="min-w-0">
+                              <p className="text-xs text-[#607089]">{field.label}</p>
+                              <p className="truncate text-sm font-semibold text-[#062B52]">{field.value}</p>
                             </div>
-                            <div className="flex items-center gap-2">
+                            <div className="flex shrink-0 items-center gap-1.5">
                               {field.issue && (
-                                <AlertTriangle className="h-3 w-3 text-amber-500" />
+                                <AlertTriangle className="h-3 w-3 text-amber-600" aria-label={`Needs review: ${field.issue}`} />
                               )}
-                              <span className={`text-xs font-medium ${tone.text}`}>
-                                {field.confidence}%
-                              </span>
+                              <span className={`text-xs font-semibold tabular-nums ${tone.text}`}>{field.confidence}%</span>
                             </div>
                           </div>
                         );
@@ -824,26 +829,21 @@ const ExtractionResultsStep: React.FC<{ onNext: () => void }> = ({ onNext }) => 
 
             {/* Issues summary */}
             {issues > 0 && (
-              <div className="border-t border-amber-200 bg-amber-50 px-6 py-3">
-                <div className="flex items-center gap-2 text-sm text-amber-700">
-                  <AlertTriangle className="h-4 w-4" />
-                  <span>{issues} field(s) have issues that may need review</span>
-                </div>
+              <div className="flex items-center gap-2 border-t border-amber-200 bg-amber-50 px-5 py-3 text-sm font-medium text-amber-800">
+                <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span>{issues} field(s) have issues that may need review</span>
               </div>
             )}
           </div>
 
-          <div className="mt-5 flex items-center justify-end gap-3">
-            <button className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-600 transition hover:bg-gray-50">
-              <RefreshCw className="h-4 w-4" />
+          <div className="mt-5 flex flex-col-reverse gap-2.5 sm:flex-row sm:items-center sm:justify-end">
+            <button type="button" className={buttonClass("secondary", "md")}>
+              <RefreshCw className="h-4 w-4" aria-hidden="true" />
               Reprocess
             </button>
-            <button
-              onClick={onNext}
-              className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2.5 text-sm font-medium text-white shadow-md transition hover:shadow-lg hover:from-blue-700 hover:to-blue-800"
-            >
+            <button type="button" onClick={onNext} className={buttonClass("primary", "md")}>
               Next: Confidence Analysis
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -866,97 +866,83 @@ const ConfidenceAnalysisStep: React.FC<{ onNext: () => void }> = ({ onNext }) =>
   const avgConfidence = Math.round(EXTRACTED_FIELDS.reduce((sum, f) => sum + f.confidence, 0) / EXTRACTED_FIELDS.length);
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white p-8">
-      <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-        <p className="text-sm text-gray-500">Overall Extraction Confidence</p>
-        <p className="mt-1 text-4xl font-semibold text-emerald-600">{avgConfidence}%</p>
+    <div className="min-w-0">
+      <div className={surfacePadded}>
+        <p className="text-sm text-[#607089]">Overall Extraction Confidence</p>
+        <p className="mt-1 text-4xl font-bold tabular-nums text-emerald-700">{avgConfidence}%</p>
 
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <div className="rounded-lg border border-emerald-200 bg-emerald-50 p-4">
-            <p className="text-xs text-gray-500">High (&ge;90%)</p>
-            <p className="mt-1 text-xl font-semibold text-emerald-600">{high}</p>
-          </div>
-          <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
-            <p className="text-xs text-gray-500">Medium (70-90%)</p>
-            <p className="mt-1 text-xl font-semibold text-amber-600">{medium}</p>
-          </div>
-          <div className="rounded-lg border border-rose-200 bg-rose-50 p-4">
-            <p className="text-xs text-gray-500">Low (&lt;70%)</p>
-            <p className="mt-1 text-xl font-semibold text-rose-600">{low}</p>
-          </div>
-          <div className="rounded-lg border border-gray-200 bg-gray-50 p-4">
-            <p className="text-xs text-gray-500">Warnings</p>
-            <p className="mt-1 text-xl font-semibold text-gray-700">{warnings}</p>
-          </div>
+        <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {[
+            { label: "High (≥90%)", value: high, cls: "border-emerald-200 bg-emerald-50 text-emerald-700" },
+            { label: "Medium (70-90%)", value: medium, cls: "border-amber-200 bg-amber-50 text-amber-700" },
+            { label: "Low (&lt;70%)", value: low, cls: "border-rose-200 bg-rose-50 text-rose-700" },
+            { label: "Warnings", value: warnings, cls: "border-[#D9E2EC] bg-[#F6F8FB] text-[#062B52]" },
+          ].map((t) => (
+            <div key={t.label} className={`rounded-lg border p-3.5 ${t.cls}`}>
+              <p className="text-xs font-medium opacity-80">{t.label}</p>
+              <p className="mt-1 text-xl font-bold tabular-nums">{t.value}</p>
+            </div>
+          ))}
         </div>
 
-        <p className="mb-2 mt-6 text-sm font-medium text-gray-700">Confidence Distribution</p>
-        <div className="flex h-2.5 w-full overflow-hidden rounded-full bg-gray-200">
-          <div className="bg-emerald-500 transition-all" style={{ width: `${(high / EXTRACTED_FIELDS.length) * 100}%` }} />
-          <div className="bg-amber-500 transition-all" style={{ width: `${(medium / EXTRACTED_FIELDS.length) * 100}%` }} />
-          <div className="bg-rose-500 transition-all" style={{ width: `${(low / EXTRACTED_FIELDS.length) * 100}%` }} />
+        <p className="mb-2 mt-5 text-sm font-semibold text-[#062B52]">Confidence Distribution</p>
+        <div className="flex h-2 w-full overflow-hidden rounded-full bg-slate-200">
+          <div className="bg-emerald-500 transition-[width]" style={{ width: `${(high / EXTRACTED_FIELDS.length) * 100}%` }} />
+          <div className="bg-amber-500 transition-[width]" style={{ width: `${(medium / EXTRACTED_FIELDS.length) * 100}%` }} />
+          <div className="bg-rose-500 transition-[width]" style={{ width: `${(low / EXTRACTED_FIELDS.length) * 100}%` }} />
         </div>
       </div>
 
-      <div className="mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm">
-        <table className="w-full text-sm">
-          <thead>
-            <tr className="text-left text-xs uppercase tracking-wide text-gray-500">
-              <th className="px-6 py-3 font-medium">Field</th>
-              <th className="px-6 py-3 font-medium">Value</th>
-              <th className="px-6 py-3 font-medium">AI Confidence</th>
-              <th className="px-6 py-3 font-medium">Validation</th>
-              <th className="px-6 py-3 font-medium">Issue</th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {EXTRACTED_FIELDS.map((f) => {
-              const tone = confidenceTone(f.confidence);
-              const validation = f.issue ? (f.confidence < 70 ? "Review" : "Warning") : "Valid";
-              return (
-                <tr key={f.id} className="transition hover:bg-gray-50">
-                  <td className="px-6 py-3 text-gray-500">{f.label}</td>
-                  <td className="px-6 py-3 text-gray-700">{f.value}</td>
-                  <td className={`px-6 py-3 font-medium ${f.confidence ? tone.text : "text-gray-400"}`}>
-                    {f.confidence ? `${f.confidence}%` : "—"}
-                  </td>
-                  <td className="px-6 py-3">
-                    <span
-                      className={`inline-flex items-center rounded-full px-2 py-0.5 text-xs font-medium ${
-                        validation === "Valid"
-                          ? "bg-emerald-100 text-emerald-700"
-                          : validation === "Warning"
-                          ? "bg-amber-100 text-amber-700"
-                          : "bg-rose-100 text-rose-700"
-                      }`}
-                    >
-                      {validation === "Warning" && <AlertTriangle className="mr-1 h-3 w-3" />}
-                      {validation === "Review" && <AlertTriangle className="mr-1 h-3 w-3" />}
-                      {validation}
-                    </span>
-                  </td>
-                  <td className="px-6 py-3 text-gray-400">{f.issue ?? "—"}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className={`${surface} mt-5 overflow-hidden`}>
+        <div className="overflow-x-auto">
+          <table className="w-full min-w-[720px] text-left text-sm">
+            <thead>
+              <tr className="border-b border-slate-100 text-xs uppercase tracking-wide text-[#607089]">
+                <th scope="col" className="px-5 py-3 font-semibold">Field</th>
+                <th scope="col" className="px-5 py-3 font-semibold">Value</th>
+                <th scope="col" className="px-5 py-3 font-semibold">AI Confidence</th>
+                <th scope="col" className="px-5 py-3 font-semibold">Validation</th>
+                <th scope="col" className="px-5 py-3 font-semibold">Issue</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-100">
+              {EXTRACTED_FIELDS.map((f) => {
+                const tone = confidenceTone(f.confidence);
+                const validation = f.issue ? (f.confidence < 70 ? "Review" : "Warning") : "Valid";
+                return (
+                  <tr key={f.id} className="transition-colors hover:bg-[#F6F8FB]">
+                    <td className="px-5 py-3 text-[#607089]">{f.label}</td>
+                    <td className="px-5 py-3 font-medium text-[#062B52]">{f.value}</td>
+                    <td className={`px-5 py-3 font-semibold tabular-nums ${f.confidence ? tone.text : "text-[#607089]"}`}>
+                      {f.confidence ? `${f.confidence}%` : "—"}
+                    </td>
+                    <td className="px-5 py-3">
+                      <StatusBadge
+                        status={validation}
+                        tone={DIGITIZATION_TONES[validation.toLowerCase()]}
+                        withIcon={validation !== "Valid"}
+                      />
+                    </td>
+                    <td className="px-5 py-3 text-[#607089]">{f.issue ?? "—"}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       {warnings > 0 && (
-        <div className="mt-5 flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700">
-          <AlertTriangle className="h-4 w-4 shrink-0" />
+        <div className="mt-5 flex items-center gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm font-medium text-amber-800">
+          <AlertTriangle className="h-4 w-4 shrink-0" aria-hidden="true" />
           Human verification required for {warnings} field{warnings > 1 ? "s" : ""}.
         </div>
       )}
 
       <div className="mt-5 flex justify-end">
-        <button
-          onClick={onNext}
-          className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 px-4 py-2.5 text-sm font-medium text-white shadow-md transition hover:shadow-lg hover:from-blue-700 hover:to-blue-800"
-        >
+        <button type="button" onClick={onNext} className={buttonClass("primary", "md")}>
           Proceed to Review
-          <ArrowRight className="h-4 w-4" />
+          <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </button>
       </div>
     </div>
@@ -980,104 +966,96 @@ const HumanReviewStep: React.FC<{ onApprove: () => void; onBackToUpload: () => v
   const correctionValue = corrections[field.id] ?? field.value;
 
   return (
-    <div className="flex-1 overflow-y-auto bg-gradient-to-b from-gray-50 to-white p-8">
-      <div className="mb-5 flex flex-wrap items-center gap-3">
-        <span className="text-xs text-gray-400">Record ID: {EXTRACTED_DATA.record_id}</span>
-        <span className="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-medium text-blue-700">AI Confidence: 68.4%</span>
-        <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-700">
-          {reviewFields.length} Fields Need Review
+    <div className="min-w-0">
+      <div className="mb-5 flex flex-wrap items-center gap-2">
+        <span className="text-xs text-[#607089]">Record ID: {EXTRACTED_DATA.record_id}</span>
+        <span className="inline-flex items-center rounded-full border border-[#1261A8]/30 bg-[#EAF3FC] px-2.5 py-1 text-xs font-semibold text-[#1261A8]">
+          AI Confidence: 68.4%
         </span>
-        <span className="rounded-full bg-rose-100 px-2.5 py-1 text-xs font-medium text-rose-700">Priority: High</span>
+        <StatusBadge status={`${reviewFields.length} Fields Need Review`} tone="action" />
+        <StatusBadge status="Priority: High" tone="danger" />
       </div>
 
-      <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
+      <div className="grid grid-cols-1 items-start gap-5 lg:grid-cols-3">
         <DocumentPreview />
 
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-          <p className="mb-3 text-xs uppercase tracking-wide text-gray-400">AI Extracted Value</p>
-          <p className="mb-1 text-sm font-medium text-gray-700">{field.label}</p>
-          <input
-            readOnly
-            value={field.value}
-            className="w-full rounded-lg border border-gray-200 bg-gray-50 px-3 py-2.5 text-sm text-gray-500"
-          />
+        <div className={`${surface} p-5`}>
+          <p className={eyebrowClass}>AI Extracted Value</p>
+          <p className="mb-1.5 mt-2 text-sm font-semibold text-[#062B52]">{field.label}</p>
+          <input readOnly value={field.value} className={`${fieldClass} cursor-default bg-[#F6F8FB] text-slate-500`} />
           <div className="mt-4 flex items-center justify-between text-sm">
-            <span className="text-gray-500">Confidence</span>
-            <span className={confidenceTone(field.confidence).text}>{field.confidence || 0}%</span>
+            <span className="text-[#607089]">Confidence</span>
+            <span className={`font-semibold tabular-nums ${confidenceTone(field.confidence).text}`}>{field.confidence || 0}%</span>
           </div>
           {field.issue && (
-            <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
+            <div className="mt-3 rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs font-medium text-amber-800">
               Issue: {field.issue}
             </div>
           )}
         </div>
 
-        <div className="rounded-2xl border border-gray-200 bg-white p-5 shadow-sm">
-          <p className="mb-3 text-xs uppercase tracking-wide text-gray-400">Reviewer Correction</p>
-          <p className="mb-1 text-sm font-medium text-gray-700">{field.label}</p>
+        <div className={`${surface} p-5`}>
+          <p className={eyebrowClass}>Reviewer Correction</p>
+          <p className="mb-1.5 mt-2 text-sm font-semibold text-[#062B52]">{field.label}</p>
           <input
             value={correctionValue}
             onChange={(e) => setCorrections((c) => ({ ...c, [field.id]: e.target.value }))}
-            className="w-full rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+            className={fieldClass}
           />
-          <p className="mb-1 mt-4 text-sm font-medium text-gray-700">Reason</p>
+          <p className="mb-1.5 mt-4 text-sm font-semibold text-[#062B52]">Reason</p>
           <textarea
             value={reason}
             onChange={(e) => setReason(e.target.value)}
             rows={3}
-            className="w-full resize-none rounded-lg border border-gray-200 px-3 py-2.5 text-sm text-gray-700 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-200"
+            className={`${fieldClass} min-h-[84px] resize-none`}
           />
 
           <div className="mt-4 grid grid-cols-3 gap-2">
-            <button className="flex items-center justify-center gap-1.5 rounded-lg bg-emerald-600 px-2 py-2 text-xs font-medium text-white transition hover:bg-emerald-700">
-              <Check className="h-3.5 w-3.5" />
+            <button type="button" className={`${buttonClass("success", "sm")} w-full px-2`}>
+              <Check className="h-3.5 w-3.5" aria-hidden="true" />
               Accept
             </button>
-            <button className="flex items-center justify-center gap-1.5 rounded-lg bg-blue-600 px-2 py-2 text-xs font-medium text-white transition hover:bg-blue-700">
-              <CheckCircle className="h-3.5 w-3.5" />
+            <button type="button" className={`${buttonClass("primary", "sm")} w-full px-2`}>
+              <CheckCircle className="h-3.5 w-3.5" aria-hidden="true" />
               Save
             </button>
-            <button className="flex items-center justify-center gap-1.5 rounded-lg bg-rose-600 px-2 py-2 text-xs font-medium text-white transition hover:bg-rose-700">
-              <Ban className="h-3.5 w-3.5" />
+            <button type="button" className={`${buttonClass("danger", "sm")} w-full px-2`}>
+              <Ban className="h-3.5 w-3.5" aria-hidden="true" />
               Incorrect
             </button>
           </div>
         </div>
       </div>
 
-      <div className="mt-6 flex items-center justify-between">
-        <div className="flex items-center gap-2">
+      <div className="mt-5 flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
           <button
+            type="button"
             disabled={index === 0}
             onClick={() => setIndex((i) => Math.max(0, i - 1))}
-            className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30"
+            className={buttonClass("secondary", "sm")}
           >
-            <ChevronLeft className="h-4 w-4" />
+            <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             Previous Field
           </button>
           <button
+            type="button"
             disabled={index === reviewFields.length - 1}
             onClick={() => setIndex((i) => Math.min(reviewFields.length - 1, i + 1))}
-            className="flex items-center gap-1.5 rounded-lg border border-gray-300 px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 disabled:cursor-not-allowed disabled:opacity-30"
+            className={buttonClass("secondary", "sm")}
           >
             Next Field
-            <ChevronRight className="h-4 w-4" />
+            <ChevronRight className="h-4 w-4" aria-hidden="true" />
           </button>
         </div>
 
-        <div className="flex items-center gap-3">
-          <button
-            onClick={onBackToUpload}
-            className="flex items-center gap-2 rounded-lg border border-gray-300 px-4 py-2.5 text-sm font-medium text-gray-600 transition hover:bg-gray-50"
-          >
-            <Send className="h-4 w-4" />
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <button type="button" onClick={onBackToUpload} className={buttonClass("secondary", "md")}>
+            <Send className="h-4 w-4" aria-hidden="true" />
             Send Back
           </button>
-          <button
-            onClick={onApprove}
-            className="flex items-center gap-2 rounded-lg bg-gradient-to-r from-emerald-600 to-emerald-700 px-4 py-2.5 text-sm font-medium text-white shadow-md transition hover:shadow-lg hover:from-emerald-700 hover:to-emerald-800"
-          >
-            <Shield className="h-4 w-4" />
+          <button type="button" onClick={onApprove} className={buttonClass("success", "md")}>
+            <Shield className="h-4 w-4" aria-hidden="true" />
             Approve Record
           </button>
         </div>
@@ -1107,30 +1085,35 @@ function CitizenDigitalizations() {
     setStep("upload");
   };
 
-  return (
-    <div className="min-h-screen w-full bg-white text-gray-800">
-      <div className="flex flex-col">
-        <TopBar title={titles[step].title} subtitle={titles[step].subtitle} />
-        <StepRail step={step} />
+  const { title, subtitle } = titles[step];
 
-        {step === "upload" && (
-          <UploadStep
-            files={files}
-            onAddFile={(f) => setFiles((prev) => [...prev, f])}
-            onStartProcessing={() => setStep("processing")}
-          />
-        )}
-        {step === "processing" && <ProcessingStep onDone={() => setStep("extraction")} />}
-        {step === "extraction" && <ExtractionResultsStep onNext={() => setStep("confidence")} />}
-        {step === "confidence" && <ConfidenceAnalysisStep onNext={() => setStep("review")} />}
-        {step === "review" && (
-          <HumanReviewStep 
-            onApprove={handleReset} 
-            onBackToUpload={() => setStep("upload")} 
-          />
-        )}
-      </div>
-    </div>
+  return (
+    <PageContainer className="space-y-5 sm:space-y-6">
+      <PageHeader
+        breadcrumbs={citizenCrumbs("/citizen/digitalizations")}
+        title={title}
+        subtitle={subtitle}
+      />
+
+      <StepRail step={step} />
+
+      {step === "upload" && (
+        <UploadStep
+          files={files}
+          onAddFile={(f) => setFiles((prev) => [...prev, f])}
+          onStartProcessing={() => setStep("processing")}
+        />
+      )}
+      {step === "processing" && <ProcessingStep onDone={() => setStep("extraction")} />}
+      {step === "extraction" && <ExtractionResultsStep onNext={() => setStep("confidence")} />}
+      {step === "confidence" && <ConfidenceAnalysisStep onNext={() => setStep("review")} />}
+      {step === "review" && (
+        <HumanReviewStep
+          onApprove={handleReset}
+          onBackToUpload={() => setStep("upload")}
+        />
+      )}
+    </PageContainer>
   );
 }
 

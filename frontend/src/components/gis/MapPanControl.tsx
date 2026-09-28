@@ -122,7 +122,7 @@ export default function MapPanControl({
           onPointerUp={stopContinuousPan}
           onPointerLeave={stopContinuousPan}
           onPointerCancel={stopContinuousPan}
-          className="group absolute bottom-0.5 left-1/2 flex h-7 w-8 -translate-x-1/2 cursor-pointer flex-col items-center justify-center rounded-b-full pb-0.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#0c3b5d] active:scale-90"
+          className="group absolute bottom-0.5 left-1/2 flex h-7 w-8 -translate-x-1/2 cursor-pointer flex-col items-center justify-center rounded-b-full pb-0.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#062B52] active:scale-90"
         >
           <ChevronDown
             size={15}
@@ -144,7 +144,7 @@ export default function MapPanControl({
           onPointerUp={stopContinuousPan}
           onPointerLeave={stopContinuousPan}
           onPointerCancel={stopContinuousPan}
-          className="group absolute left-0.5 top-1/2 flex h-8 w-7 -translate-y-1/2 cursor-pointer items-center justify-center rounded-l-full pl-0.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#0c3b5d] active:scale-90"
+          className="group absolute left-0.5 top-1/2 flex h-8 w-7 -translate-y-1/2 cursor-pointer items-center justify-center rounded-l-full pl-0.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#062B52] active:scale-90"
         >
           <ChevronLeft
             size={15}
@@ -162,7 +162,7 @@ export default function MapPanControl({
           onPointerUp={stopContinuousPan}
           onPointerLeave={stopContinuousPan}
           onPointerCancel={stopContinuousPan}
-          className="group absolute right-0.5 top-1/2 flex h-8 w-7 -translate-y-1/2 cursor-pointer items-center justify-center rounded-r-full pr-0.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#0c3b5d] active:scale-90"
+          className="group absolute right-0.5 top-1/2 flex h-8 w-7 -translate-y-1/2 cursor-pointer items-center justify-center rounded-r-full pr-0.5 text-slate-600 transition-colors hover:bg-slate-100 hover:text-[#062B52] active:scale-90"
         >
           <ChevronRight
             size={16}
@@ -177,7 +177,7 @@ export default function MapPanControl({
           aria-label="Recenter View"
           title="Recenter View"
           onClick={handleRecenter}
-          className="absolute left-1/2 top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-slate-100/95 text-slate-600 shadow-xs transition-all hover:border-slate-300 hover:bg-slate-200 hover:text-[#0c3b5d] active:scale-90"
+          className="absolute left-1/2 top-1/2 flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-slate-200 bg-slate-100/95 text-slate-600 shadow-xs transition-all hover:border-slate-300 hover:bg-slate-200 hover:text-[#062B52] active:scale-90"
         >
           <Crosshair size={12} strokeWidth={2.2} />
         </button>

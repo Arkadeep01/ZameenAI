@@ -1,18 +1,16 @@
 import React from 'react';
 import { STAKEHOLDER_PERSONAS } from '../../utils/portalData';
 import { PersonaInfo, Language } from '../../utils/types';
-import { 
-  Users, 
-  UserCheck, 
-  ArrowRight, 
-  Building, 
-  MapPin, 
-  FileCheck, 
-  Award, 
-  TrendingUp, 
-  ShieldAlert, 
-  HelpCircle,
-  ExternalLink
+import {
+  Users,
+  UserCheck,
+  ArrowRight,
+  Building,
+  MapPin,
+  FileCheck,
+  Award,
+  TrendingUp,
+  ShieldAlert,
 } from 'lucide-react';
 
 interface StakeholderPathwaysProps {

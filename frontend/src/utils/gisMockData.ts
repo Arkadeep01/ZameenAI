@@ -18,6 +18,63 @@ export const citizenInfo = {
 
 export const gisParcels: Parcel[] = [
   {
+    id: "1082",
+    cadastralId: "CAD-IND-1842",
+
+    surveyNumber: "Khasra No. 184/2",
+    khasraNumber: "184/2",
+
+    area: 0.84,
+    areaUnit: "Acres",
+
+    village: "Singur",
+    tehsil: "Singur",
+    district: "Hooghly",
+    state: "West Bengal",
+
+    landType: "Agricultural (Shali)",
+
+    status: "acquisition",
+    statusLabel: "Under Acquisition",
+
+    center: [22.8155, 88.2285],
+
+    khatauni: "KH-9912",
+
+    lagaan: "₹85 / year",
+
+    description:
+      "Infrastructure corridor alignment parcel under active acquisition for Eastern Freight Corridor.",
+
+    acquisition: {
+      active: true,
+      reason: "Eastern Freight Corridor Project",
+      gazetteDate: "10 March",
+      notificationYear: "2026",
+      nextStep: "Compensation Assessment in progress",
+      law: "Right to Fair Compensation & Transparency Act (RFCTLARR) applicable",
+    },
+
+    verification: {
+      verified: true,
+      authority: "CALA Office, Hooghly",
+      message: "Cadastral boundary digitally demarcated and verified.",
+    },
+
+    geometry: {
+      type: "Polygon",
+      coordinates: [
+        [
+          [88.2248, 22.8182],
+          [88.2322, 22.8194],
+          [88.2346, 22.8136],
+          [88.2266, 22.8118],
+          [88.2248, 22.8182],
+        ],
+      ],
+    },
+  },
+  {
     id: "1024",
     cadastralId: "CAD-IND-3421",
 

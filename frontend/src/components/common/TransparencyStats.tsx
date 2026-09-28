@@ -1,7 +1,7 @@
 import React from 'react';
 import { TRANSPARENCY_KPIS } from '../../utils/portalData';
 import { Language } from '../../utils/types';
-import { TrendingUp, CheckCircle, ShieldCheck, FileCheck, ArrowUpRight } from 'lucide-react';
+import { CheckCircle, ShieldCheck, ArrowUpRight } from 'lucide-react';
 
 interface TransparencyStatsProps {
   lang: Language;

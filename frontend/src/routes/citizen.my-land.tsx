@@ -1,17 +1,20 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import Breadcrumbs from "../components/common/Breadcrumbs";
+import { citizenCrumbs } from "../config/citizenBreadcrumbs";
 
 import {
   CheckCircle2,
+  Compass,
   Download,
-  FileCheck2,
   Grid2X2,
   LandPlot,
   MapPin,
-  Printer,
+  RefreshCw,
   Search,
   ShieldCheck,
   TriangleAlert,
+  X,
 } from "lucide-react";
 
 /* ========================================================================== */
@@ -24,21 +27,17 @@ import ServiceCard from "../components/gis/ServiceCard";
 import StatCard from "../components/gis/StatCard";
 
 /* ========================================================================== */
-/* DATA IMPORTS                                                               */
+/* SERVICE & DATA IMPORTS                                                     */
 /* ========================================================================== */
 
-import {
-  acquisitionParcels,
-  citizenInfo,
-  gisParcels,
-  totalArea,
-} from "../utils/gisMockData";
+import { useCitizenLand } from "../services/citizen";
+import { citizenInfo, gisParcels } from "../utils/gisMockData";
 
 /* ========================================================================== */
 /* TYPE IMPORTS                                                               */
 /* ========================================================================== */
 
-import type { Parcel } from "../types/gis";
+import { Parcel } from "../types/gis";
 
 /* ========================================================================== */
 /* ROUTE                                                                      */
@@ -49,21 +48,32 @@ export const Route = createFileRoute("/citizen/my-land")({
 });
 
 /* ========================================================================== */
-/* PAGE                                                                       */
+/* PAGE COMPONENT                                                             */
 /* ========================================================================== */
 
 function RouteComponent() {
   const navigate = useNavigate();
 
   /* ------------------------------------------------------------------------ */
+  /* TANSTACK QUERY - REUSED CITIZEN LAND HOOK                                */
+  /* ------------------------------------------------------------------------ */
+
+  const { data: landSummary, isLoading, isError, refetch } = useCitizenLand();
+
+  const parcels = landSummary?.parcels ?? gisParcels;
+
+  /* ------------------------------------------------------------------------ */
   /* STATE                                                                    */
   /* ------------------------------------------------------------------------ */
 
-  const [selectedParcel, setSelectedParcel] = useState<Parcel | null>(
-    gisParcels.length > 0 ? gisParcels[0] : null,
-  );
-
+  const [selectedParcel, setSelectedParcel] = useState<Parcel | null>(null);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (!selectedParcel && parcels.length > 0) {
+      setSelectedParcel(parcels[0]);
+    }
+  }, [parcels, selectedParcel]);
 
   /* ------------------------------------------------------------------------ */
   /* FILTERED PARCELS                                                         */
@@ -73,10 +83,10 @@ function RouteComponent() {
     const query = search.trim().toLowerCase();
 
     if (!query) {
-      return gisParcels;
+      return parcels;
     }
 
-    return gisParcels.filter((parcel: Parcel) => {
+    return parcels.filter((parcel: Parcel) => {
       const searchableValues = [
         parcel.id,
         parcel.cadastralId,
@@ -98,19 +108,15 @@ function RouteComponent() {
           .includes(query),
       );
     });
-  }, [search]);
+  }, [search, parcels]);
 
   /* ------------------------------------------------------------------------ */
-  /* SELECT PARCEL                                                            */
+  /* NAVIGATION HANDLERS                                                      */
   /* ------------------------------------------------------------------------ */
 
   const handleSelectParcel = (parcel: Parcel) => {
     setSelectedParcel(parcel);
   };
-
-  /* ------------------------------------------------------------------------ */
-  /* VIEW MAP                                                                 */
-  /* ------------------------------------------------------------------------ */
 
   const handleViewMap = (parcel: Parcel) => {
     navigate({
@@ -120,10 +126,6 @@ function RouteComponent() {
       },
     });
   };
-
-  /* ------------------------------------------------------------------------ */
-  /* VIEW LAND DETAILS                                                        */
-  /* ------------------------------------------------------------------------ */
 
   const handleViewDetails = (parcel: Parcel) => {
     navigate({
@@ -135,51 +137,69 @@ function RouteComponent() {
   };
 
   /* ------------------------------------------------------------------------ */
-  /* PAGE                                                                     */
+  /* PAGE RENDER                                                              */
   /* ------------------------------------------------------------------------ */
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#f4f8fb] text-[#17324d]">
-      <main className="mx-auto w-full max-w-[1480px] px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7">
+    <div className="w-full min-w-0 bg-[#F4F8FB] text-[#062B52]">
+      <div className="w-full min-w-0 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7 space-y-6">
         {/* ================================================================== */}
-        {/* CITIZEN IDENTITY                                                    */}
+        {/* BREADCRUMB                                                         */}
         {/* ================================================================== */}
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+          <Breadcrumbs
+            items={citizenCrumbs("/citizen/my-land")}
+            className="min-w-0"
+          />
 
-        <section className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md sm:p-6">
+          <div className="flex shrink-0 items-center gap-3 text-xs text-slate-500">
+            <span className="inline-flex items-center gap-1.5 font-medium text-emerald-700">
+              <ShieldCheck size={14} />
+              RoR Cadastre Verified
+            </span>
+            <span className="text-slate-300">•</span>
+            <span className="font-semibold text-slate-600">
+              {filteredParcels.length} {filteredParcels.length === 1 ? "Parcel" : "Parcels"} Available
+            </span>
+          </div>
+        </div>
+
+        {/* ================================================================== */}
+        {/* HERO HEADER CARD                                                   */}
+        {/* ================================================================== */}
+        <section className="rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-6 shadow-xs transition-all duration-200 hover:shadow-md">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-            {/* Citizen information */}
-
             <div className="min-w-0">
-              <div className="inline-flex items-center gap-1.5 rounded-lg bg-[#edf7fc] px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[#1b658e]">
+              <div className="inline-flex items-center gap-1.5 rounded-lg bg-[#EAF3FC] px-2.5 py-1 text-xs font-bold uppercase tracking-wider text-[#1261A8]">
                 <ShieldCheck size={14} />
-
                 <span>RoR Citizen Identity</span>
               </div>
 
-              <h1 className="mt-2 text-xl font-bold tracking-tight text-[#153550] sm:text-2xl">
-                Welcome, {citizenInfo.name}
+              <h1 className="mt-2 text-xl font-bold tracking-tight text-[#062B52] sm:text-2xl">
+                My Land
               </h1>
 
-              <div className="mt-1.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-500 sm:text-sm">
-                <span className="inline-flex items-center gap-1.5">
-                  <MapPin size={13} />
-                  Village: {citizenInfo.village}
+              <p className="mt-1.5 max-w-2xl text-xs sm:text-sm text-slate-500">
+                View and manage your registered land parcels.
+              </p>
+
+              <div className="mt-2.5 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-xs text-slate-500">
+                <span className="inline-flex items-center gap-1">
+                  <MapPin size={13} className="text-slate-400" />
+                  Primary Holder: {citizenInfo.name}
                 </span>
-
                 <span className="text-slate-300">•</span>
-
+                <span>Village: {citizenInfo.village}</span>
+                <span className="text-slate-300">•</span>
                 <span>Tehsil: {citizenInfo.tehsil}</span>
-
                 <span className="text-slate-300">•</span>
-
                 <span>District: {citizenInfo.district}</span>
               </div>
             </div>
 
-            {/* Revenue authority */}
-
+            {/* Revenue Authority Badge */}
             <div className="flex w-full items-center gap-3 rounded-xl border border-sky-100 bg-[#f6fbfe] p-3 transition-all duration-200 hover:border-sky-200 hover:bg-[#f0faff] sm:w-auto sm:min-w-[220px]">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-[#164f73]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-slate-200 bg-white text-[#1261A8]">
                 <LandPlot size={18} />
               </div>
 
@@ -187,11 +207,9 @@ function RouteComponent() {
                 <p className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   REVENUE AUTHORITY
                 </p>
-
-                <p className="text-sm font-bold text-[#1a4665]">
+                <p className="text-sm font-bold text-[#062B52]">
                   Tehsildar Office
                 </p>
-
                 <p className="text-xs font-semibold text-emerald-600">
                   ✓ Registry Active &amp; Valid
                 </p>
@@ -201,132 +219,133 @@ function RouteComponent() {
         </section>
 
         {/* ================================================================== */}
-        {/* PAGE HEADER                                                          */}
+        {/* SUMMARY STATISTICS                                                 */}
         {/* ================================================================== */}
-
-        <section className="flex flex-col gap-3 py-5 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
-              LAND ADMINISTRATION WORKSPACE
-            </span>
-
-            <h2 className="mt-1 text-2xl font-bold tracking-tight text-[#153550] sm:text-3xl">
-              My Land
-            </h2>
-
-            <p className="mt-1 max-w-xl text-xs sm:text-sm leading-relaxed text-slate-500">
-              View your registered land, location and current status in one
-              place.
+        {isLoading ? (
+          <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                className="h-32 rounded-2xl border border-slate-200 bg-white p-5 animate-pulse"
+              >
+                <div className="h-4 w-28 rounded bg-slate-200" />
+                <div className="mt-3 h-8 w-16 rounded bg-slate-300" />
+                <div className="mt-3 h-3 w-36 rounded bg-slate-100" />
+              </div>
+            ))}
+          </section>
+        ) : isError || !landSummary ? (
+          <section className="rounded-2xl border border-red-200 bg-red-50/50 p-6 text-center">
+            <p className="text-sm font-semibold text-red-700">
+              Unable to load land parcel statistics.
             </p>
-          </div>
-
-          {/* Header actions */}
-
-          <div className="flex w-full gap-2 sm:w-auto">
             <button
               type="button"
-              className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-sky-200 bg-[#edf7fc] px-3.5 text-xs font-semibold text-[#204d69] transition-all duration-200 hover:-translate-y-0.5 hover:bg-sky-100 hover:shadow-xs sm:flex-none"
+              onClick={() => refetch()}
+              className="mt-2.5 inline-flex items-center gap-1.5 rounded-xl bg-[#062B52] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#0c396e]"
             >
-              <FileCheck2 size={14} />
-              Sync Records
+              <RefreshCw size={13} />
+              Retry
             </button>
+          </section>
+        ) : (
+          <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            <StatCard
+              label="TOTAL PARCELS"
+              value={String(landSummary.totalParcels)}
+              suffix={landSummary.totalParcels === 1 ? "Parcel" : "Parcels"}
+              description="Registered in your name"
+            />
 
-            <button
-              type="button"
-              className="inline-flex h-9 flex-1 items-center justify-center gap-1.5 rounded-lg border border-sky-200 bg-[#edf7fc] px-3.5 text-xs font-semibold text-[#204d69] transition-all duration-200 hover:-translate-y-0.5 hover:bg-sky-100 hover:shadow-xs sm:flex-none"
-            >
-              <Printer size={14} />
-              Print Summary
-            </button>
-          </div>
-        </section>
+            <StatCard
+              label="VERIFIED"
+              value={String(landSummary.verifiedParcels)}
+              suffix="Parcels"
+              description="RoR & Cadastre digitally confirmed"
+            />
 
-        {/* ================================================================== */}
-        {/* STATISTICS                                                           */}
-        {/* ================================================================== */}
+            <StatCard
+              label="PENDING VERIFICATION"
+              value={String(landSummary.pendingVerification)}
+              suffix="Under Review"
+              description="Routine mutation verification"
+            />
 
-        <section className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          <StatCard
-            label="MY LAND"
-            value={String(gisParcels.length)}
-            suffix="Parcels"
-            description="Registered in your name"
-          />
-
-          <StatCard
-            label="TOTAL AREA"
-            value={Number(totalArea).toFixed(2)}
-            suffix="Acres"
-            description="Total registered land area"
-          />
-
-          <StatCard
-            label="LAND UNDER ACQUISITION"
-            value={String(acquisitionParcels.length)}
-            suffix={acquisitionParcels.length === 1 ? "Parcel" : "Parcels"}
-            description="Government project notice issued"
-            type="warning"
-          />
-
-          <StatCard
-            label="URGENT ACTION REQUIRED"
-            value="1"
-            suffix="Item"
-            description="Submit details for Parcel 1025"
-            type="danger"
-          />
-        </section>
+            <StatCard
+              label="UNDER ACQUISITION"
+              value={String(landSummary.underAcquisition)}
+              suffix={landSummary.underAcquisition === 1 ? "Parcel" : "Parcels"}
+              description={
+                landSummary.underAcquisition > 0
+                  ? "Government project notice active"
+                  : "No active acquisition notices"
+              }
+              type={landSummary.underAcquisition > 0 ? "warning" : "normal"}
+            />
+          </section>
+        )}
 
         {/* ================================================================== */}
-        {/* MY LAND PARCELS                                                      */}
+        {/* PARCEL LIST & SEARCH                                               */}
         {/* ================================================================== */}
-
-        <section className="mt-6">
-          <div className="mb-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <section className="space-y-4">
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <h3 className="text-lg sm:text-xl font-bold text-[#193b55]">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                REGISTERED LAND HOLDINGS
+              </span>
+              <h2 className="mt-1 text-xl font-bold tracking-tight text-[#062B52] sm:text-2xl">
                 My Land Parcels
-              </h3>
-
+              </h2>
               <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
-                Click on any parcel to see details, map view, or acquisition
-                status.
+                Click on any parcel to inspect boundaries, map location, or acquisition status.
               </p>
             </div>
 
-            <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
-              <CheckCircle2 size={14} className="text-emerald-600" />
-
-              <span>Cadastral records synchronized</span>
+            <div className="flex items-center gap-2">
+              <div className="inline-flex items-center gap-1.5 text-xs font-medium text-slate-500">
+                <CheckCircle2 size={14} className="text-emerald-600" />
+                <span>Cadastral records synchronized</span>
+              </div>
             </div>
           </div>
 
-          {/* Search */}
+          {/* Unified Search Input (matching Find Land) */}
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <Search
+                size={16}
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+              />
+              <input
+                type="search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                placeholder="Search by Khasra, Survey No., Village, or Parcel ID..."
+                className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-9 text-xs sm:text-sm text-[#062B52] placeholder:text-slate-400 outline-none transition focus:border-[#062B52] focus:ring-2 focus:ring-[#062B52]/10"
+              />
+              {search && (
+                <button
+                  type="button"
+                  onClick={() => setSearch("")}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X size={16} />
+                </button>
+              )}
+            </div>
 
-          <div className="mb-3 flex h-11 items-center gap-2.5 rounded-xl border border-slate-200 bg-white px-3.5 shadow-xs transition-all duration-200 focus-within:border-sky-300 focus-within:ring-2 focus-within:ring-sky-100">
-            <Search size={16} className="shrink-0 text-slate-400" />
-
-            <input
-              type="search"
-              value={search}
-              onChange={(event) => setSearch(event.target.value)}
-              placeholder="Search by Khasra, Survey No., Village..."
-              className="w-full border-0 bg-transparent text-xs sm:text-sm text-slate-700 outline-none placeholder:text-slate-400"
-            />
-
-            {search && (
-              <button
-                type="button"
-                onClick={() => setSearch("")}
-                className="shrink-0 text-xs font-semibold text-slate-400 transition hover:text-slate-700"
-              >
-                Clear
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => navigate({ to: "/citizen/find-land" })}
+              className="flex h-11 items-center gap-2 rounded-xl border border-sky-200 bg-[#EAF3FC] px-4 text-xs sm:text-sm font-semibold text-[#1261A8] shadow-xs transition hover:bg-sky-100"
+            >
+              <Compass size={16} />
+              <span className="hidden sm:inline">Find Other Land</span>
+            </button>
           </div>
 
-          {/* Parcel list */}
-
+          {/* Parcel Cards List */}
           <div className="space-y-3">
             {filteredParcels.map((parcel: Parcel) => (
               <ParcelCard
@@ -339,37 +358,47 @@ function RouteComponent() {
               />
             ))}
 
-            {/* No results */}
-
+            {/* Empty State (Section 10) */}
             {filteredParcels.length === 0 && (
-              <div className="flex min-h-36 flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white p-6 text-center transition-all hover:border-sky-300 hover:shadow-xs">
-                <Search size={22} className="text-slate-400" />
-
-                <strong className="mt-2.5 text-sm font-bold text-slate-700">
-                  No parcels found
-                </strong>
-
-                <p className="mt-1 text-xs text-slate-500">
-                  Try another Khasra number, village or parcel ID.
+              <div className="flex min-h-48 flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center shadow-xs">
+                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100 text-slate-400">
+                  <LandPlot size={24} />
+                </div>
+                <h3 className="mt-3 text-base font-bold text-[#062B52]">
+                  No Land Records Found
+                </h3>
+                <p className="mt-1 max-w-sm text-xs sm:text-sm text-slate-500">
+                  {search
+                    ? `No registered parcels matched "${search}". Try searching with another survey or khasra number.`
+                    : "Your registered land parcels will appear here once linked with your RoR account."}
                 </p>
-
-                <button
-                  type="button"
-                  onClick={() => setSearch("")}
-                  className="mt-3 rounded-lg bg-[#14384f] px-3.5 py-2 text-xs font-semibold text-white transition-all hover:bg-[#0b2b3e] hover:shadow-xs"
-                >
-                  Show All Parcels
-                </button>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {search && (
+                    <button
+                      type="button"
+                      onClick={() => setSearch("")}
+                      className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-100"
+                    >
+                      Clear Search
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => navigate({ to: "/citizen/find-land" })}
+                    className="rounded-xl bg-[#062B52] px-4 py-2 text-xs font-semibold text-white shadow-xs hover:bg-[#0c396e]"
+                  >
+                    Find Land
+                  </button>
+                </div>
               </div>
             )}
           </div>
         </section>
 
         {/* ================================================================== */}
-        {/* GIS MAP                                                              */}
+        {/* INTEGRATED CADASTRAL GIS MAP PREVIEW                               */}
         {/* ================================================================== */}
-
-        <section className="mt-6 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md sm:p-6">
+        <section className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md sm:p-6">
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
             <div className="min-w-0">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700">
@@ -377,13 +406,12 @@ function RouteComponent() {
                 HIGH-RESOLUTION SATELLITE CADASTRE
               </div>
 
-              <h3 className="mt-1 text-lg sm:text-xl font-bold text-[#193b55]">
+              <h3 className="mt-1 text-lg sm:text-xl font-bold text-[#062B52]">
                 Integrated Cadastral GIS Mesh
               </h3>
 
               <p className="mt-1 max-w-3xl text-xs sm:text-sm leading-relaxed text-slate-500">
-                View your registered parcels and their cadastral boundaries on
-                the integrated GIS map.
+                View your registered parcels and their cadastral boundaries on the integrated GIS map.
               </p>
             </div>
 
@@ -392,76 +420,100 @@ function RouteComponent() {
               onClick={() => {
                 if (selectedParcel) {
                   handleViewMap(selectedParcel);
+                } else if (parcels.length > 0) {
+                  handleViewMap(parcels[0]);
                 }
               }}
-              disabled={!selectedParcel}
-              className="inline-flex h-9 w-full items-center justify-center gap-1.5 rounded-lg bg-[#14394f] px-3.5 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0b2d40] hover:shadow-xs disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+              className="inline-flex h-10 w-full items-center justify-center gap-1.5 rounded-xl bg-[#062B52] px-4 text-xs sm:text-sm font-semibold text-white shadow-xs transition-all duration-200 hover:bg-[#0c396e] sm:w-auto"
             >
-              <Grid2X2 size={14} />
+              <Grid2X2 size={15} />
               Open Fullscreen GIS Viewer
             </button>
           </div>
 
-          {/* Map */}
-
-          <div className="w-full overflow-hidden rounded-xl border border-slate-200/80">
+          {/* Map Preview Container */}
+          <div className="w-full overflow-hidden rounded-xl border border-slate-200/90">
             <CitizenGISMap
-              parcels={gisParcels}
+              parcels={parcels}
               selectedParcel={selectedParcel}
               onSelectParcel={handleSelectParcel}
+              className="h-[380px] sm:h-[440px] lg:h-[480px]"
             />
           </div>
         </section>
 
         {/* ================================================================== */}
-        {/* QUICK CITIZEN SERVICES                                               */}
+        {/* QUICK CITIZEN LAND SERVICES                                        */}
         {/* ================================================================== */}
-
-        <section className="mt-6 rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md sm:p-6">
+        <section className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs transition-all duration-200 hover:shadow-md sm:p-6">
           <div className="mb-4">
-            <h3 className="text-lg sm:text-xl font-bold text-[#193b55]">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+              REVENUE UTILITIES
+            </span>
+            <h3 className="mt-1 text-lg sm:text-xl font-bold text-[#062B52]">
               Quick Citizen Land Services
             </h3>
-
-            <p className="mt-1 text-xs sm:text-sm text-slate-500">
-              Access commonly used land-record services.
+            <p className="mt-0.5 text-xs sm:text-sm text-slate-500">
+              Access commonly used land-record services and certified extract requests.
             </p>
           </div>
 
           <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
-            <ServiceCard
-              icon={<Search size={18} />}
-              title="Find Another Land Record"
-              description="Search by Khasra, Khatian or Plot ID"
-              action="Search"
-            />
+            <div onClick={() => navigate({ to: "/citizen/find-land" })}>
+              <ServiceCard
+                icon={<Search size={18} />}
+                title="Find Another Land Record"
+                description="Search by Khasra, Khatian or Plot ID"
+                action="Search"
+              />
+            </div>
 
-            <ServiceCard
-              icon={<Download size={18} />}
-              title="Download All RoR / Khatiyan"
-              description="Get your digital land ownership record"
-              action="Download"
-            />
+            <div
+              onClick={() => {
+                if (selectedParcel) {
+                  handleViewDetails(selectedParcel);
+                }
+              }}
+            >
+              <ServiceCard
+                icon={<Download size={18} />}
+                title="Download All RoR / Khatiyan"
+                description="Get your digital land ownership record"
+                action="Download"
+              />
+            </div>
 
-            <ServiceCard
-              icon={<TriangleAlert size={18} />}
-              title="Report a Problem / Grievance"
-              description="Submit a land-record or cadastral issue"
-              action="Report"
-            />
+            <div
+              onClick={() => {
+                if (selectedParcel) {
+                  handleViewDetails(selectedParcel);
+                }
+              }}
+            >
+              <ServiceCard
+                icon={<TriangleAlert size={18} />}
+                title="Report a Problem / Grievance"
+                description="Submit a land-record or cadastral issue"
+                action="Report"
+              />
+            </div>
           </div>
         </section>
 
         {/* ================================================================== */}
-        {/* FOOTER                                                               */}
+        {/* CITIZEN PORTAL FOOTER                                              */}
         {/* ================================================================== */}
-
-        <footer className="mt-8 border-t border-slate-200/60 py-6 text-center text-xs leading-relaxed text-slate-400">
-          Records displayed are synchronized with the Revenue Registry. GIS
-          boundaries are provided for citizen information and transparency. For
-          certified cadastral copies, contact your Tehsil Revenue Office.
+        <footer className="mt-8 border-t border-slate-200/70 py-6 text-center text-xs leading-relaxed text-slate-400">
+          <p>
+            ZameenAI National Land Portal • Department of Land Resources (DoLR),
+            Ministry of Rural Development.
+          </p>
+          <p className="mt-1 text-[11px] text-slate-400">
+            Records displayed are synchronized with the State Cadastral Registry. For certified
+            physical extracts or land disputes, contact your Tehsil Revenue Office.
+          </p>
         </footer>
-      </main>
+      </div>
     </div>
   );
 }

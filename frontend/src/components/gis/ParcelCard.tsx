@@ -18,10 +18,10 @@ export default function ParcelCard({
   onViewDetails,
 }: ParcelCardProps) {
   const statusClasses: Record<Parcel["status"], string> = {
-    safe: "bg-emerald-50 text-emerald-700 border-emerald-200",
-    review: "bg-yellow-50 text-yellow-700 border-yellow-200",
-    acquisition: "bg-amber-50 text-amber-700 border-amber-200",
-    disputed: "bg-red-50 text-red-700 border-red-200",
+    safe: "bg-emerald-50 text-emerald-800 border-emerald-200/90",
+    review: "bg-blue-50 text-blue-800 border-blue-200/90",
+    acquisition: "bg-amber-50 text-amber-800 border-amber-200/90",
+    disputed: "bg-red-50 text-red-800 border-red-200/90",
   };
 
   return (
@@ -31,10 +31,10 @@ export default function ParcelCard({
         "cursor-pointer rounded-2xl border bg-white p-5 sm:p-6",
         "transition-all duration-200",
         "hover:-translate-y-0.5",
-        "hover:border-sky-300",
+        "hover:border-slate-300",
         "hover:shadow-md",
         selected
-          ? "border-sky-500 shadow-[0_0_0_2px_rgba(14,116,144,0.12)]"
+          ? "border-[#062B52] ring-2 ring-[#062B52]/15 shadow-md"
           : "border-slate-200/90 shadow-xs",
       ]
         .filter(Boolean)
@@ -48,12 +48,12 @@ export default function ParcelCard({
         {/* LEFT */}
 
         <div className="flex flex-wrap items-center gap-2.5">
-          <h4 className="text-base sm:text-lg font-bold text-[#173c56]">
+          <h4 className="text-base sm:text-lg font-bold text-[#062B52]">
             Parcel {parcel.id}
           </h4>
 
           <span
-            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-semibold ${
+            className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold ${
               statusClasses[parcel.status]
             }`}
           >
@@ -79,7 +79,7 @@ export default function ParcelCard({
               event.stopPropagation();
               onViewDetails();
             }}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg bg-[#123f5c] px-3.5 text-xs font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#0c3048] hover:shadow-sm"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-xl bg-[#062B52] px-3.5 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0c396e] hover:shadow-xs"
           >
             <FileText size={14} />
             View Land Details
@@ -137,7 +137,7 @@ export default function ParcelCard({
             event.stopPropagation();
             onViewMap();
           }}
-          className="inline-flex h-9 w-full shrink-0 items-center justify-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50 px-3.5 text-xs font-semibold text-[#174b69] transition-all duration-200 hover:-translate-y-0.5 hover:bg-sky-100 hover:shadow-xs sm:w-auto"
+          className="inline-flex h-9 w-full shrink-0 items-center justify-center gap-1.5 rounded-xl border border-sky-200 bg-[#EAF3FC] px-3.5 text-xs font-semibold text-[#1261A8] transition-all duration-200 hover:bg-sky-100 hover:shadow-xs sm:w-auto"
         >
           <Map size={14} />
           View on Map
@@ -149,10 +149,10 @@ export default function ParcelCard({
       {/* ================================================================ */}
 
       {parcel.status === "acquisition" && parcel.acquisition?.active && (
-        <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50/80 p-4">
+        <div className="mt-4 rounded-xl border border-amber-200 bg-[#fff9ef] p-4">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
             <div className="flex min-w-0 flex-1 gap-2.5">
-              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-amber-700 shadow-xs">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-700">
                 <Info size={16} />
               </div>
 
@@ -175,8 +175,9 @@ export default function ParcelCard({
               type="button"
               onClick={(event) => {
                 event.stopPropagation();
+                onViewDetails();
               }}
-              className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg bg-[#153a52] px-3.5 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0b2b3d] hover:shadow-xs"
+              className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg bg-[#062B52] px-3.5 text-xs font-semibold text-white transition-all duration-200 hover:bg-[#0c396e] hover:shadow-xs"
             >
               <FileText size={13} />
               Submit Bank Details
@@ -194,8 +195,9 @@ export default function ParcelCard({
           type="button"
           onClick={(event) => {
             event.stopPropagation();
+            onViewDetails();
           }}
-          className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg bg-[#543509] px-4 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-[#3d2605] hover:shadow-sm"
+          className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-amber-600 px-4 text-xs sm:text-sm font-semibold text-white transition-all duration-200 hover:bg-amber-700 hover:shadow-sm"
         >
           <Calculator size={15} />
           Check Acquisition Status
@@ -214,7 +216,7 @@ function Detail({ label, value }: { label: string; value: string }) {
     <div className="min-w-0">
       <span className="block text-xs font-medium text-slate-500">{label}</span>
 
-      <strong className="mt-0.5 block text-sm font-bold leading-normal text-[#173c56]">
+      <strong className="mt-0.5 block text-sm font-bold leading-normal text-[#062B52]">
         {value}
       </strong>
     </div>

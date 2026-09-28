@@ -1,6 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
-import FindMyLand from "../components/gis/FindMyLand";
+import { createFileRoute, redirect } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/find-my-land")({
-  component: FindMyLand,
+  beforeLoad: () => {
+    throw redirect({ to: "/citizen/find-land" });
+  },
 });

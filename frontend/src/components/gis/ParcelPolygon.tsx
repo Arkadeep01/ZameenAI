@@ -24,16 +24,16 @@ export default function ParcelPolygon({
   const getColor = () => {
     switch (parcel.status) {
       case "acquisition":
-        return "#f97316";
+        return "#f59e0b";
 
       case "review":
-        return "#eab308";
+        return "#3b82f6";
 
       case "disputed":
-        return "#dc2626";
+        return "#ef4444";
 
       default:
-        return "#15803d";
+        return "#10b981";
     }
   };
 
@@ -45,8 +45,8 @@ export default function ParcelPolygon({
       pathOptions={{
         color,
         fillColor: color,
-        fillOpacity: selected ? 0.48 : 0.25,
-        weight: selected ? 4 : 2,
+        fillOpacity: selected ? 0.45 : 0.22,
+        weight: selected ? 3.5 : 1.8,
         opacity: 1,
         dashArray: parcel.status === "acquisition" ? "6 4" : undefined,
       }}
@@ -55,17 +55,24 @@ export default function ParcelPolygon({
       }}
     >
       <Tooltip direction="center" permanent className="parcel-label">
-        <div className="text-center">
-          <div className="font-bold">Parcel {parcel.id}</div>
-
-          <div>{parcel.area.toFixed(2)} Acres</div>
+        <div className="text-center select-none pointer-events-none">
+          <div className="font-bold leading-tight text-[#062B52]">
+            {parcel.khasraNumber.toLowerCase().includes("khasra")
+              ? parcel.khasraNumber
+              : `Khasra ${parcel.khasraNumber}`}
+          </div>
+          <div className="text-[10px] font-semibold text-[#1261A8] mt-0.5 whitespace-nowrap">
+            {parcel.area % 1 === 0 ? parcel.area.toFixed(2) : parcel.area}{" "}
+            {parcel.area <= 1 ? "Acre" : parcel.areaUnit || "Acres"}
+            {parcel.village ? ` • ${parcel.village}` : ""}
+          </div>
         </div>
       </Tooltip>
 
       <Popup>
         <div className="min-w-[190px] p-1 text-xs">
           <div className="flex items-center justify-between gap-2 border-b border-slate-100 pb-1.5">
-            <span className="font-bold text-[#173c56]">
+            <span className="font-bold text-[#062B52]">
               Parcel #{parcel.id}
             </span>
 
@@ -97,7 +104,7 @@ export default function ParcelPolygon({
                 },
               });
             }}
-            className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#123f5c] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#0c3048]"
+            className="mt-3 flex w-full items-center justify-center gap-1.5 rounded-xl bg-[#062B52] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#0c396e]"
           >
             <FileText size={13} />
             <span>View Land Details</span>
