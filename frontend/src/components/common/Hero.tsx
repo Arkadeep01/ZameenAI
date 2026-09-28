@@ -1,22 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { HERO_CONTENT, TICKER_NOTICES } from '../../utils/portalData';
 import { Language } from '../../utils/types';
-import { 
-  ShieldCheck, 
-  Search, 
-  UserCheck, 
-  ArrowRight, 
-  CheckCircle2, 
-  FileText, 
-  Building2, 
-  MapPin, 
-  Clock, 
-  Bell, 
+import {
+  ShieldCheck,
+  Search,
+  UserCheck,
+  ArrowRight,
+  CheckCircle2,
+  Building2,
+  MapPin,
+  Bell,
   Sparkles,
   Lock,
   Layers,
-  Database,
-  ExternalLink
 } from 'lucide-react';
 
 interface HeroProps {

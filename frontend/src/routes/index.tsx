@@ -10,9 +10,10 @@ import ModuleDetailModal from '../components/common/ModuleDetailModal';
 import StakeholderPathways from '../components/common/StakeholderPathways';
 import TransparencyStats from '../components/common/TransparencyStats';
 import Footer from '../components/common/Footer';
+import OfficialLoginModal from '../components/common/OfficialLoginModal';
 import { KeyModuleInfo } from '../utils/types';
 
-export const Route = createFileRoute('/')({
+export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
@@ -21,8 +22,25 @@ function HomePage() {
   const [lang, setLang] = useState<'en' | 'hi' | 'bn'>('en');
   const [selectedModule, setSelectedModule] = useState<KeyModuleInfo | null>(null);
 
-  const handleQuickSearch = (query: string) => {
-    // Would open citizen status modal
+  // Official Login / Signup modal state — shared across Header, Hero,
+  // StakeholderPathways and Footer so they all open the SAME modal.
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authView, setAuthView] = useState<"login" | "signup">("login");
+
+  const openOfficialLogin = (_roleId?: string) => {
+    setAuthView("login");
+    setAuthModalOpen(true);
+  };
+
+  const handleAuthSuccess = (userType: "government" | "citizen") => {
+    // Demo login succeeded — route by role.
+    // Citizen → dashboard; government → upload / digitization workspace.
+    setAuthModalOpen(false);
+    if (userType === 'citizen') {
+      navigate({ to: '/citizen/dashboard' });
+    } else {
+      navigate({ to: '/uploads' });
+    }
   };
 
   return (
@@ -31,7 +49,7 @@ function HomePage() {
         lang={lang}
         onLanguageChange={setLang}
         onOpenCitizenModal={() => {}}
-        onOpenOfficialLogin={() => {}}
+        onOpenOfficialLogin={openOfficialLogin}
         fontSize="normal"
         onFontSizeChange={() => {}}
         highContrast={false}
@@ -40,7 +58,7 @@ function HomePage() {
       <Hero
         lang={lang}
         onOpenCitizenModal={() => navigate({ to: '/uploads' })}
-        onOpenOfficialLogin={() => {}}
+        onOpenOfficialLogin={openOfficialLogin}
       />
       <TrustBar lang={lang} />
       <ProblemToSolution lang={lang} />
@@ -55,7 +73,7 @@ function HomePage() {
       />
       <StakeholderPathways
         lang={lang}
-        onOpenOfficialLogin={() => {}}
+        onOpenOfficialLogin={openOfficialLogin}
         onOpenCitizenModal={() => {}}
       />
       <TransparencyStats
@@ -65,7 +83,15 @@ function HomePage() {
       <Footer
         lang={lang}
         onOpenCitizenModal={() => {}}
-        onOpenOfficialLogin={() => {}}
+        onOpenOfficialLogin={openOfficialLogin}
+      />
+
+      <OfficialLoginModal
+        isOpen={authModalOpen}
+        onClose={() => setAuthModalOpen(false)}
+        view={authView}
+        onViewChange={setAuthView}
+        onAuthSuccess={handleAuthSuccess}
       />
     </div>
   );
