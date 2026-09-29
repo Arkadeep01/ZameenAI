@@ -1,0 +1,350 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "SUCCESS",
+  "record_id": "LR-2026-000147",
+  "document_id": "DOC-2026-000111",
+  "ingestion_id": "ING-2026-000058",
+  "pages_processed": 1,
+  "strategy": "MINIMAL",
+  "decision": "CLEAR",
+  "preprocessing_mode": "UPSCALE_ONLY",
+  "quality_score": 78.88,
+  "quality_source": "phase02",
+  "operations_applied": [
+    "UPSCALE"
+  ],
+  "operations_skipped": [
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [],
+  "upscaled": true,
+  "scale_factor": 2.1484,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "SUCCESS",
+      "strategy": "MINIMAL",
+      "decision": "CLEAR",
+      "preprocessing_mode": "UPSCALE_ONLY",
+      "quality_score": 78.88,
+      "quality_source": "phase02",
+      "rejection_reasons": [],
+      "upscaled": true,
+      "scale_factor": 2.1484,
+      "original_dimensions": {
+        "width": 1024,
+        "height": 559
+      },
+      "processed_dimensions": {
+        "width": 2200,
+        "height": 1201
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=CLEAR mode=UPSCALE_ONLY score=78.88",
+          "input_metric": 78.88,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": true,
+          "reason": "width=1024 target=2200 max_scale=2.5 scale=2.148",
+          "input_metric": 1024.0,
+          "threshold": 2200.0
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        }
+      ],
+      "regions_detected": [
+        {
+          "region_id": "TABLE-001",
+          "type": "TABLE",
+          "page": 1,
+          "bbox": [
+            151,
+            409,
+            2091,
+            844
+          ],
+          "confidence": 0.95
+        },
+        {
+          "region_id": "TEXT-001",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            762,
+            167,
+            1458,
+            204
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-002",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            793,
+            120,
+            1427,
+            156
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-003",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            730,
+            0,
+            1160,
+            120
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "HEADER-001",
+          "type": "HEADER",
+          "page": 1,
+          "bbox": [
+            0,
+            0,
+            2200,
+            144
+          ],
+          "confidence": 0.75
+        },
+        {
+          "region_id": "FOOTER-001",
+          "type": "FOOTER",
+          "page": 1,
+          "bbox": [
+            0,
+            1081,
+            2200,
+            1201
+          ],
+          "confidence": 0.75
+        }
+      ],
+      "metrics_before": {
+        "sharpness_normalized": 0.9212,
+        "contrast_normalized": 0.9059,
+        "brightness_normalized": 0.7356,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 7027.26,
+        "width": 1024,
+        "height": 559
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.6477,
+        "contrast_normalized": 0.8941,
+        "brightness_normalized": 0.7361,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 506.02,
+        "width": 2200,
+        "height": 1201
+      },
+      "output_files": {
+        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000147\\page_001_original.png",
+        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000147\\before\\page_001.png",
+        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000147\\after\\page_001_upscaled.png",
+        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000147\\page_001_processed.png"
+      },
+      "derivatives": {
+        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000147\\page_001_processed.png"
+      },
+      "selected_derivative": "upscaled",
+      "improvement_score": -0.0281,
+      "processing_improvement_sufficient": true,
+      "table_detected": true,
+      "table_bbox": [
+        151,
+        409,
+        2091,
+        844
+      ],
+      "readability_before": 0.6673,
+      "readability_after": 0.6393,
+      "candidate_evaluations": [
+        {
+          "name": "upscaled",
+          "description": "Decision-gated UPSCALE_ONLY output",
+          "readability": {
+            "local_contrast": 0.3912,
+            "text_region_contrast": 0.2225,
+            "character_like_ratio": 0.1334,
+            "component_density": 0.2667,
+            "stroke_width_quality": 0.255,
+            "noise_free_ratio": 0.9999,
+            "background_uniformity": 0.7045,
+            "structure_preservation": 1.0,
+            "information_preservation": 1.0,
+            "overall": 0.6393
+          },
+          "readability_delta": -0.0281,
+          "operations_applied": [
+            "UPSCALE"
+          ],
+          "is_binary": false,
+          "is_selected": true,
+          "improvement_score": -0.0281
+        }
+      ],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=CLEAR mode=UPSCALE_ONLY score=78.88",
+      "input_metric": 78.88,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": true,
+      "reason": "width=1024 target=2200 max_scale=2.5 scale=2.148",
+      "input_metric": 1024.0,
+      "threshold": 2200.0
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    }
+  ],
+  "regions_detected": [
+    {
+      "region_id": "TABLE-001",
+      "type": "TABLE",
+      "page": 1,
+      "bbox": [
+        151,
+        409,
+        2091,
+        844
+      ],
+      "confidence": 0.95
+    },
+    {
+      "region_id": "TEXT-001",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        762,
+        167,
+        1458,
+        204
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-002",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        793,
+        120,
+        1427,
+        156
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-003",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        730,
+        0,
+        1160,
+        120
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "HEADER-001",
+      "type": "HEADER",
+      "page": 1,
+      "bbox": [
+        0,
+        0,
+        2200,
+        144
+      ],
+      "confidence": 0.75
+    },
+    {
+      "region_id": "FOOTER-001",
+      "type": "FOOTER",
+      "page": 1,
+      "bbox": [
+        0,
+        1081,
+        2200,
+        1201
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "next_phase": "DOCUMENT_CLASSIFICATION",
+  "timestamps": {
+    "started_at": "2026-09-29T11:43:39.074998",
+    "completed_at": "2026-09-29T11:43:56.763363"
+  },
+  "source_checksum": "481943b7aa7d9ce3deac1e7b0bf93710517d5f7b2563ec6d461e0ef092880f1d",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000147"
+}

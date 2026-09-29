@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-2099-NOPE-000",
+  "document_id": "DOC-2099-NOPE-000",
+  "ingestion_id": "ING-2099-NOPE-000",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-29T16:11:20.700514",
+    "completed_at": "2026-09-29T16:11:20.701007"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

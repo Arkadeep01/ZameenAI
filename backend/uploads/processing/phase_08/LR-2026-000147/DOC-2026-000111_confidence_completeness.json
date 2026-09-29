@@ -1,0 +1,539 @@
+{
+  "phase": "CONFIDENCE_COMPLETENESS",
+  "status": "INCOMPLETE",
+  "record_id": "LR-2026-000147",
+  "document_id": "DOC-2026-000111",
+  "ingestion_id": "ING-2026-000058",
+  "document_type": "MUTATION_RECORD",
+  "confidence": {
+    "overall": 0.8389,
+    "band": "MEDIUM"
+  },
+  "completeness": {
+    "score": 0.0742,
+    "band": "LOW",
+    "applicable_fields": 25,
+    "present_fields": 1,
+    "missing_fields": 23,
+    "unreadable_fields": 1,
+    "not_applicable_fields": 3,
+    "critical_missing": [],
+    "important_missing": [
+      "location.district"
+    ]
+  },
+  "fields": {
+    "owner.name": {
+      "field_name": "owner.name",
+      "value_status": "REQUIRED_BUT_UNREADABLE",
+      "confidence": 0.3,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "owner.father_husband_name": {
+      "field_name": "owner.father_husband_name",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "owner.recorded_tenant": {
+      "field_name": "owner.recorded_tenant",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "owner.co_owner": {
+      "field_name": "owner.co_owner",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.survey_number": {
+      "field_name": "land.survey_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.khasra_number": {
+      "field_name": "land.khasra_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.plot_number": {
+      "field_name": "land.plot_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.khata_number": {
+      "field_name": "land.khata_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.area": {
+      "field_name": "land.area",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.area_unit": {
+      "field_name": "land.area_unit",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.nature_of_land": {
+      "field_name": "land.nature_of_land",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.land_type": {
+      "field_name": "land.land_type",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.state": {
+      "field_name": "location.state",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.district": {
+      "field_name": "location.district",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.block": {
+      "field_name": "location.block",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.tehsil": {
+      "field_name": "location.tehsil",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.mouza": {
+      "field_name": "location.mouza",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.village": {
+      "field_name": "location.village",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.document_title": {
+      "field_name": "document.document_title",
+      "value_status": "CONFLICTING",
+      "confidence": 0.8389,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.8461,
+        "ocr": 0.863,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 0.5
+      },
+      "in_conflict": true,
+      "value": "aiftjanretel 741",
+      "raw_value": "aiftjanretel 741",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Record of Rights",
+      "conflict_alternatives": [
+        {
+          "field": "document.document_title",
+          "value": "Record of Rights (RoR)",
+          "confidence": 0.81
+        }
+      ]
+    },
+    "document.department": {
+      "field_name": "document.department",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.document_date": {
+      "field_name": "document.document_date",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.map_number": {
+      "field_name": "document.map_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "mutation.mutation_number": {
+      "field_name": "mutation.mutation_number",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "mutation.mutation_date": {
+      "field_name": "mutation.mutation_date",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.document_number": {
+      "field_name": "registration.document_number",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.registration_date": {
+      "field_name": "registration.registration_date",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.issue_date": {
+      "field_name": "registration.issue_date",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "additional.remarks": {
+      "field_name": "additional.remarks",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    }
+  },
+  "missing_fields": [
+    "owner.father_husband_name",
+    "owner.recorded_tenant",
+    "owner.co_owner",
+    "land.survey_number",
+    "land.khasra_number",
+    "land.plot_number",
+    "land.khata_number",
+    "land.area",
+    "land.area_unit",
+    "land.nature_of_land",
+    "land.land_type",
+    "location.state",
+    "location.district",
+    "location.block",
+    "location.tehsil",
+    "location.mouza",
+    "location.village",
+    "document.department",
+    "document.document_date",
+    "document.map_number",
+    "mutation.mutation_number",
+    "mutation.mutation_date",
+    "additional.remarks"
+  ],
+  "unreadable_fields": [
+    "owner.name"
+  ],
+  "conflicting_fields": [
+    "document.document_title"
+  ],
+  "critical_issues": [],
+  "needs_review": true,
+  "next_phase": "PHASE_12_CORRECTION_REVALIDATION",
+  "models": {
+    "indicbart": "UNAVAILABLE",
+    "mistral": "UNAVAILABLE",
+    "ollama": "UNAVAILABLE"
+  },
+  "timestamps": {
+    "started_at": "2026-09-29T11:44:28.442141",
+    "completed_at": "2026-09-29T06:16:08.089611+00:00"
+  },
+  "processing_time_seconds": 0.1369,
+  "remediation": {
+    "required": true,
+    "reasons": [
+      {
+        "field": "owner.name",
+        "reason": "UNREADABLE_FIELD",
+        "message": "Label for 'owner.name' found in document but value could not be read."
+      },
+      {
+        "field": "location.state",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'location.state' has no extracted value."
+      },
+      {
+        "field": "location.district",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'location.district' has no extracted value."
+      },
+      {
+        "field": "document.document_title",
+        "reason": "CONFLICTING_VALUES",
+        "message": "Multiple values proposed for 'document.document_title'; human review required.",
+        "page": 1
+      },
+      {
+        "field": "mutation.mutation_number",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'mutation.mutation_number' has no extracted value."
+      },
+      {
+        "field": "mutation.mutation_date",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'mutation.mutation_date' has no extracted value."
+      }
+    ]
+  }
+}

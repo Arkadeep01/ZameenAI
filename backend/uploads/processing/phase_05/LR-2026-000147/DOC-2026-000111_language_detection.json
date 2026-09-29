@@ -1,0 +1,107 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-2026-000147",
+  "document_id": "DOC-2026-000111",
+  "language": {
+    "primary": "en",
+    "confidence": 0.9509,
+    "alternatives": [
+      {
+        "language": "mr",
+        "confidence": 0.5407
+      },
+      {
+        "language": "bn",
+        "confidence": 0.5184
+      }
+    ]
+  },
+  "script": {
+    "primary": "Latin",
+    "confidence": 0.9509,
+    "alternatives": [
+      {
+        "script": "Devanagari",
+        "confidence": 0.5407
+      },
+      {
+        "script": "Bengali",
+        "confidence": 0.5184
+      }
+    ]
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9509
+    },
+    {
+      "language": "mr",
+      "script": "Devanagari",
+      "confidence": 0.5407
+    },
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.5184
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "eng"
+    ],
+    "preferred_language": "English",
+    "script": "Latin",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9509,
+      "sample": "page_001_original.png",
+      "detail": "image_located size=1024x559 preview=provisional_ocr[eng+hin+ben] fused=en/Latin"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9009,
+      "sample": "রা = GOVERNMENT OF MAHARASHTRA REVENUE AND FOREST DEPARTMENT i RECORD OF RIGHTS (ADHIKAR ABHILEKH) | FORM VII-B (गाव নমুনা ७-बी: चिकारांचे पत्रक) : FORM VII-B S",
+      "detail": "script_counts={'Bengali': 18, 'Latin': 392, 'Devanagari': 30}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.8,
+      "sample": "রা = GOVERNMENT OF MAHARASHTRA REVENUE AND FOREST DEPARTMENT i RECORD OF RIGHTS (ADHIKAR ABHILEKH) | FORM VII-B (गाव নমুনা ७-बी: चिकारांचे पत्रक) : FORM VII-B S",
+      "detail": "terminology_hits={'en': 5, 'mr': 1}"
+    },
+    {
+      "source": "classification_context",
+      "language": "und",
+      "script": "Unknown",
+      "confidence": 0.0,
+      "sample": "MUTATION_RECORD",
+      "detail": "zero_weight_context_only"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-29T11:43:59.140712",
+    "completed_at": "2026-09-29T11:44:10.625916"
+  },
+  "processing_time_seconds": 11.4852,
+  "ingestion_id": "ING-2026-000058",
+  "document_type": "MUTATION_RECORD",
+  "classification_confidence": 0.85
+}

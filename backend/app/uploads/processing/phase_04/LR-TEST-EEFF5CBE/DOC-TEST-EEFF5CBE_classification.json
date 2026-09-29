@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-EEFF5CBE",
+  "document_id": "DOC-TEST-EEFF5CBE",
+  "ingestion_id": "ING-TEST-EEFF5CBE",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-29T16:11:19.621487",
+    "completed_at": "2026-09-29T16:11:19.621656"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

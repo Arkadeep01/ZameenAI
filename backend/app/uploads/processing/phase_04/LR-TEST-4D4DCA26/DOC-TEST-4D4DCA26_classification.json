@@ -1,0 +1,19 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-4D4DCA26",
+  "document_id": "DOC-TEST-4D4DCA26",
+  "ingestion_id": "ING-TEST-4D4DCA26",
+  "predicted_document_type": "RECORD_OF_RIGHTS",
+  "confidence": 0.7375,
+  "classification_status": "REVIEW_REQUIRED",
+  "evidence": [
+    "RECORD OF RIGHTS"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-29T15:57:42.058957",
+    "completed_at": "2026-09-29T15:57:42.059189"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}
