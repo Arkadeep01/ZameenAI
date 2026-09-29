@@ -1,0 +1,98 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-2026-000068",
+  "document_id": "DOC-2026-000056",
+  "language": {
+    "primary": "en",
+    "confidence": 0.9746,
+    "alternatives": [
+      {
+        "language": "hi",
+        "confidence": 0.5201
+      },
+      {
+        "language": "bn",
+        "confidence": 0.5054
+      }
+    ]
+  },
+  "script": {
+    "primary": "Latin",
+    "confidence": 0.9746,
+    "alternatives": [
+      {
+        "script": "Devanagari",
+        "confidence": 0.5201
+      },
+      {
+        "script": "Bengali",
+        "confidence": 0.5054
+      }
+    ]
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9746
+    },
+    {
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.5201
+    },
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.5054
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "eng"
+    ],
+    "preferred_language": "English",
+    "script": "Latin",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9746,
+      "sample": "ING-2026-000068.png",
+      "detail": "image_located size=464x348 preview=provisional_ocr[eng+hin+ben] fused=en/Latin"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9246,
+      "sample": "GOVERNMENT OF WEST BENGAL 71 Record of Rights (RoR) Bi Land and Land Reforms Department Date 15-07-2023 District : Nagia Block : Krishnanagar -1 Mouza : Krishna",
+      "detail": "script_counts={'Latin': 317, 'Devanagari': 15, 'Bengali': 4}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9,
+      "sample": "GOVERNMENT OF WEST BENGAL 71 Record of Rights (RoR) Bi Land and Land Reforms Department Date 15-07-2023 District : Nagia Block : Krishnanagar -1 Mouza : Krishna",
+      "detail": "terminology_hits={'en': 12}"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-22T12:56:23.081149",
+    "completed_at": "2026-09-22T12:56:27.572260"
+  },
+  "processing_time_seconds": 4.4911,
+  "ingestion_id": "ING-2026-000068",
+  "classification_confidence": 0.0
+}

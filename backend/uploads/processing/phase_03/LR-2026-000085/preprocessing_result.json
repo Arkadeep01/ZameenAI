@@ -1,0 +1,249 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "SUCCESS",
+  "record_id": "LR-2026-000085",
+  "document_id": "DOC-2026-000073",
+  "ingestion_id": "ING-2026-000085",
+  "pages_processed": 1,
+  "strategy": "MODERATE",
+  "decision": "CLEAR",
+  "preprocessing_mode": "UPSCALE_ONLY",
+  "quality_score": 90.14,
+  "quality_source": "phase02",
+  "operations_applied": [
+    "UPSCALE"
+  ],
+  "operations_skipped": [
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [],
+  "upscaled": true,
+  "scale_factor": 2.5,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "SUCCESS",
+      "strategy": "MODERATE",
+      "decision": "CLEAR",
+      "preprocessing_mode": "UPSCALE_ONLY",
+      "quality_score": 90.14,
+      "quality_source": "phase02",
+      "rejection_reasons": [],
+      "upscaled": true,
+      "scale_factor": 2.5,
+      "original_dimensions": {
+        "width": 800,
+        "height": 600
+      },
+      "processed_dimensions": {
+        "width": 2000,
+        "height": 1500
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=CLEAR mode=UPSCALE_ONLY score=90.14",
+          "input_metric": 90.14,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": true,
+          "reason": "width=800 target=2200 max_scale=2.5 scale=2.500",
+          "input_metric": 800.0,
+          "threshold": 2200.0
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
+        }
+      ],
+      "regions_detected": [
+        {
+          "region_id": "HEADER-001",
+          "type": "HEADER",
+          "page": 1,
+          "bbox": [
+            0,
+            0,
+            2000,
+            180
+          ],
+          "confidence": 0.75
+        },
+        {
+          "region_id": "FOOTER-001",
+          "type": "FOOTER",
+          "page": 1,
+          "bbox": [
+            0,
+            1350,
+            2000,
+            1500
+          ],
+          "confidence": 0.75
+        }
+      ],
+      "metrics_before": {
+        "sharpness_normalized": 1.0,
+        "contrast_normalized": 0.4275,
+        "brightness_normalized": 0.488,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 16784.47,
+        "width": 800,
+        "height": 600
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.6726,
+        "contrast_normalized": 0.3882,
+        "brightness_normalized": 0.488,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 643.18,
+        "width": 2000,
+        "height": 1500
+      },
+      "output_files": {
+        "original": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000085\\page_001_original.png",
+        "evidence_before": "D:\\Land Digitization\\uploads\\processing\\phase_03_evidence\\LR-2026-000085\\before\\page_001.png",
+        "evidence_after": "D:\\Land Digitization\\uploads\\processing\\phase_03_evidence\\LR-2026-000085\\after\\page_001_upscaled.png",
+        "processed": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000085\\page_001_processed.png"
+      },
+      "derivatives": {
+        "upscaled": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000085\\page_001_processed.png"
+      },
+      "selected_derivative": "upscaled",
+      "improvement_score": -0.019,
+      "processing_improvement_sufficient": true,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.583,
+      "readability_after": 0.564,
+      "candidate_evaluations": [
+        {
+          "name": "upscaled",
+          "description": "Decision-gated UPSCALE_ONLY output",
+          "readability": {
+            "local_contrast": 0.3756,
+            "text_region_contrast": 0.37,
+            "character_like_ratio": 0.04,
+            "component_density": 0.0799,
+            "stroke_width_quality": 0.1236,
+            "noise_free_ratio": 0.9989,
+            "background_uniformity": 0.0,
+            "structure_preservation": 1.0,
+            "information_preservation": 1.0,
+            "overall": 0.564
+          },
+          "readability_delta": -0.019,
+          "operations_applied": [
+            "UPSCALE"
+          ],
+          "is_binary": false,
+          "is_selected": true,
+          "improvement_score": -0.019
+        }
+      ],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=CLEAR mode=UPSCALE_ONLY score=90.14",
+      "input_metric": 90.14,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": true,
+      "reason": "width=800 target=2200 max_scale=2.5 scale=2.500",
+      "input_metric": 800.0,
+      "threshold": 2200.0
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
+    }
+  ],
+  "regions_detected": [
+    {
+      "region_id": "HEADER-001",
+      "type": "HEADER",
+      "page": 1,
+      "bbox": [
+        0,
+        0,
+        2000,
+        180
+      ],
+      "confidence": 0.75
+    },
+    {
+      "region_id": "FOOTER-001",
+      "type": "FOOTER",
+      "page": 1,
+      "bbox": [
+        0,
+        1350,
+        2000,
+        1500
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "next_phase": "DOCUMENT_CLASSIFICATION",
+  "timestamps": {
+    "started_at": "2026-09-22T15:55:48.419262",
+    "completed_at": "2026-09-22T15:56:02.759799"
+  },
+  "source_checksum": "3002c32910d0c13302ef1bad3c21379e77504e3bf1e593042c80095939084fbf",
+  "output_directory": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000085"
+}

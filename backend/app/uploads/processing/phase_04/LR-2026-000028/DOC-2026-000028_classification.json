@@ -1,0 +1,33 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-2026-000028",
+  "document_id": "DOC-2026-000028",
+  "ingestion_id": "ING-2026-000028",
+  "predicted_document_type": "KHATIAN",
+  "confidence": 0.48,
+  "classification_status": "LOW_CONFIDENCE",
+  "evidence": [
+    "Title: KHATIAN",
+    "KHATIAN NO",
+    "PLOT NO",
+    "AREA"
+  ],
+  "alternative_predictions": [
+    {
+      "document_type": "RECORD_OF_RIGHTS",
+      "confidence": 0.24,
+      "evidence": [
+        "KHATIAN",
+        "KHATIAN NO",
+        "PLOT NO",
+        "AREA"
+      ]
+    }
+  ],
+  "timestamps": {
+    "started_at": "2026-09-20T16:23:09.983054",
+    "completed_at": "2026-09-20T16:23:09.983054"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

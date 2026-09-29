@@ -1,0 +1,6481 @@
+{
+  "phase": "OCR",
+  "status": "SUCCESS",
+  "record_id": "LR-2026-000002~REP-SUB-38fd94e394c848ae",
+  "document_id": "DOC-REP-SUB-38fd94e394c848ae",
+  "ingestion_id": "ING-REP-SUB-38fd94e394c848ae",
+  "engine": "TESSERACT",
+  "language": {
+    "language": "en",
+    "script": "Latin",
+    "confidence": 0.99,
+    "multilingual": false,
+    "tesseract_codes": [
+      "eng"
+    ]
+  },
+  "input": {
+    "type": "SCANNED_PDF",
+    "original_path": "D:\\Land Digitization\\uploads\\originals\\ING-REP-SUB-38fd94e394c848ae.pdf",
+    "processed_path": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000002~REP-SUB-38fd94e394c848ae\\page_001_processed.png",
+    "input_paths": [
+      "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000002~REP-SUB-38fd94e394c848ae\\page_001_processed.png"
+    ]
+  },
+  "engines": {
+    "tesseract": "SUCCESS",
+    "surya": "UNAVAILABLE",
+    "roboflow": "SUCCESS"
+  },
+  "qr_status": "NOT_IMPLEMENTED",
+  "surya": {
+    "status": "UNAVAILABLE",
+    "reason": "surya_not_installed"
+  },
+  "roboflow": {
+    "status": "SUCCESS",
+    "model_id": "stamp-and-signature-detection-xqk9l-p0rwh/1",
+    "predictions": 0,
+    "artifacts": 0
+  },
+  "pages": [
+    {
+      "page": 1,
+      "page_number": 1,
+      "text": "# GOVERNMENT OF WEST BENGAL ree\nDarnardA nf RDinhte (RnAR\\ a\nS\nOF 30\nie\nRecord of Rights (RoR)\na\nLand and Land Reforms Department\nDate : 15-07-2023\nDistrict : Nadia\nBlock : Krishnanagar - |\nMouza : Krishnanagar\nPlot No. : 112\nKhaitanNo. : 45\nArea : 0.32 Acre\nNature of Land Agricultural\nName of Recorded Tenant\nRamesh Chandra Saha\n:\nLate Haripada Saha\nFather's / Husband's Name\n:\nMutation No. : 1023 ad Bn aecpheiws\nLand and Land Reforms Department\nDate of Mutation : 12-06-2018 Comat oweleoan\nGoverment of West Bengal\n— -PlotNo.\nRemarks\nClassification\nArea (Acre)\n; 112 :\nwe\n0.32\nBastu\nBe -__=— > — >>> MVUECHINEICHIN VF SYD ot Ourryor\nThis is a computer generated copy. No signature is required.",
+      "words": [
+        {
+          "text": "This",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 484,
+            "y": 1654,
+            "width": 91,
+            "height": 39
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 1,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "is",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 589,
+            "y": 1654,
+            "width": 34,
+            "height": 39
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 2,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "a",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 651,
+            "y": 1664,
+            "width": 11,
+            "height": 29
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 3,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "computer",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 675,
+            "y": 1659,
+            "width": 205,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 4,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "generated",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 893,
+            "y": 1655,
+            "width": 212,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 5,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "copy.",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1119,
+            "y": 1664,
+            "width": 111,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 6,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "No",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1247,
+            "y": 1655,
+            "width": 59,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 7,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "signature",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1322,
+            "y": 1655,
+            "width": 198,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 8,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "is",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1536,
+            "y": 1654,
+            "width": 33,
+            "height": 39
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 9,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "required.",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1584,
+            "y": 1654,
+            "width": 188,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 10,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "GOVERNMENT",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 601,
+            "y": 76,
+            "width": 466,
+            "height": 55
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "OF",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1088,
+            "y": 77,
+            "width": 88,
+            "height": 54
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "WEST",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1195,
+            "y": 77,
+            "width": 190,
+            "height": 54
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 4,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "BENGAL",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1405,
+            "y": 77,
+            "width": 270,
+            "height": 54
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 5,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "112",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 226,
+            "y": 1265,
+            "width": 92,
+            "height": 82
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "0.32",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1324,
+            "y": 1295,
+            "width": 108,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Area",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 72,
+            "y": 820,
+            "width": 125,
+            "height": 68
+          },
+          "page": 1,
+          "line_id": "1-R3-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "District",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 75,
+            "y": 416,
+            "width": 179,
+            "height": 67
+          },
+          "page": 1,
+          "line_id": "1-R3-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Plot",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 79,
+            "y": 665,
+            "width": 94,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Nature",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 79,
+            "y": 909,
+            "width": 168,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R3-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Name",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 79,
+            "y": 988,
+            "width": 149,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R9-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Mutation",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 79,
+            "y": 1428,
+            "width": 217,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Date",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 79,
+            "y": 1514,
+            "width": 117,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "No.",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 193,
+            "y": 665,
+            "width": 83,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "of",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 212,
+            "y": 1514,
+            "width": 50,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "of",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 264,
+            "y": 908,
+            "width": 51,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-R3-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Recorded",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 313,
+            "y": 987,
+            "width": 246,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R9-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "No.",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 318,
+            "y": 1428,
+            "width": 83,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Land",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 330,
+            "y": 909,
+            "width": 125,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R3-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "45",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 570,
+            "y": 745,
+            "width": 64,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Agricultural",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 590,
+            "y": 908,
+            "width": 287,
+            "height": 58
+          },
+          "page": 1,
+          "line_id": "1-R3-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Record",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 791,
+            "y": 174,
+            "width": 211,
+            "height": 56
+          },
+          "page": 1,
+          "line_id": "1-R7-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Land",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 903,
+            "y": 265,
+            "width": 138,
+            "height": 52
+          },
+          "page": 1,
+          "line_id": "1-R8-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Ramesh",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 908,
+            "y": 987,
+            "width": 209,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R10-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "of",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1024,
+            "y": 174,
+            "width": 58,
+            "height": 56
+          },
+          "page": 1,
+          "line_id": "1-R7-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Rights",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1104,
+            "y": 175,
+            "width": 187,
+            "height": 69
+          },
+          "page": 1,
+          "line_id": "1-R7-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Saha",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1303,
+            "y": 1066,
+            "width": 130,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-R11-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 8,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "(RoR)",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1314,
+            "y": 174,
+            "width": 172,
+            "height": 69
+          },
+          "page": 1,
+          "line_id": "1-R7-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Saha",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1374,
+            "y": 986,
+            "width": 131,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-R10-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 8,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Land",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1535,
+            "y": 1483,
+            "width": 96,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-GAP-13-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Reforms",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1840,
+            "y": 1481,
+            "width": 166,
+            "height": 40
+          },
+          "page": 1,
+          "line_id": "1-GAP-13-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "of",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1869,
+            "y": 1541,
+            "width": 38,
+            "height": 40
+          },
+          "page": 1,
+          "line_id": "1-GAP-14-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "15-07-2023",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 1978,
+            "y": 348,
+            "width": 266,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-R3-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Bengal",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 2032,
+            "y": 1542,
+            "width": 137,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-GAP-14-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Classification",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 635,
+            "y": 1188,
+            "width": 338,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-1-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Area",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1234,
+            "y": 1189,
+            "width": 117,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "(Acre)",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1369,
+            "y": 1188,
+            "width": 152,
+            "height": 56
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Remarks",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1839,
+            "y": 1184,
+            "width": 218,
+            "height": 61
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-3-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Block",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 79,
+            "y": 504,
+            "width": 136,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "of",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 245,
+            "y": 985,
+            "width": 50,
+            "height": 49
+          },
+          "page": 1,
+          "line_id": "1-R9-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "112",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 573,
+            "y": 665,
+            "width": 88,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Land",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 617,
+            "y": 264,
+            "width": 137,
+            "height": 52
+          },
+          "page": 1,
+          "line_id": "1-R8-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "1023",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 632,
+            "y": 1428,
+            "width": 124,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "and",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 775,
+            "y": 265,
+            "width": 105,
+            "height": 52
+          },
+          "page": 1,
+          "line_id": "1-R8-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Reforms",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1064,
+            "y": 264,
+            "width": 239,
+            "height": 53
+          },
+          "page": 1,
+          "line_id": "1-R8-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Chandra",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1137,
+            "y": 986,
+            "width": 218,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-R10-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Department",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1325,
+            "y": 264,
+            "width": 336,
+            "height": 65
+          },
+          "page": 1,
+          "line_id": "1-R8-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "and",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1644,
+            "y": 1483,
+            "width": 73,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-GAP-13-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Land",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1730,
+            "y": 1472,
+            "width": 96,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-GAP-13-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "West",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 1919,
+            "y": 1543,
+            "width": 99,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-GAP-14-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Department",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 2019,
+            "y": 1483,
+            "width": 228,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-GAP-13-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Nadia",
+          "confidence": 0.94,
+          "confidence_raw": 94.0,
+          "bbox": {
+            "x": 573,
+            "y": 421,
+            "width": 144,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R3-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "/",
+          "confidence": 0.93,
+          "confidence_raw": 93.0,
+          "bbox": {
+            "x": 307,
+            "y": 1068,
+            "width": 10,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R12-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Mouza",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 79,
+            "y": 585,
+            "width": 167,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Mutation",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 278,
+            "y": 1514,
+            "width": 215,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "0.32",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 571,
+            "y": 825,
+            "width": 110,
+            "height": 48
+          },
+          "page": 1,
+          "line_id": "1-R3-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Acre",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 699,
+            "y": 826,
+            "width": 117,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "-",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 928,
+            "y": 528,
+            "width": 17,
+            "height": 8
+          },
+          "page": 1,
+          "line_id": "1-R3-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Haripada",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 1053,
+            "y": 1067,
+            "width": 229,
+            "height": 58
+          },
+          "page": 1,
+          "line_id": "1-R11-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 485,
+            "y": 433,
+            "width": 10,
+            "height": 33
+          },
+          "page": 1,
+          "line_id": "1-R3-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 485,
+            "y": 838,
+            "width": 11,
+            "height": 34
+          },
+          "page": 1,
+          "line_id": "1-R3-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Date",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 1824,
+            "y": 348,
+            "width": 107,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-R3-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 1947,
+            "y": 360,
+            "width": 9,
+            "height": 31
+          },
+          "page": 1,
+          "line_id": "1-R3-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Bastu",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 727,
+            "y": 1296,
+            "width": 140,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-1-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 547,
+            "y": 1439,
+            "width": 10,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 547,
+            "y": 1527,
+            "width": 10,
+            "height": 33
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Tenant",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 576,
+            "y": 987,
+            "width": 174,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R9-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 825,
+            "y": 998,
+            "width": 10,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-R3-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "|",
+          "confidence": 0.89,
+          "confidence_raw": 89.0,
+          "bbox": {
+            "x": 965,
+            "y": 505,
+            "width": 10,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-R3-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Name",
+          "confidence": 0.87,
+          "confidence_raw": 87.0,
+          "bbox": {
+            "x": 621,
+            "y": 1068,
+            "width": 150,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R12-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.87,
+          "confidence_raw": 87.0,
+          "bbox": {
+            "x": 825,
+            "y": 1079,
+            "width": 10,
+            "height": 33
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "12-06-2018",
+          "confidence": 0.86,
+          "confidence_raw": 86.0,
+          "bbox": {
+            "x": 632,
+            "y": 1514,
+            "width": 294,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "ad",
+          "confidence": 0.85,
+          "confidence_raw": 85.0,
+          "bbox": {
+            "x": 1580,
+            "y": 1421,
+            "width": 51,
+            "height": 104
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.83,
+          "confidence_raw": 83.0,
+          "bbox": {
+            "x": 485,
+            "y": 517,
+            "width": 10,
+            "height": 33
+          },
+          "page": 1,
+          "line_id": "1-R3-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "KhaitanNo.",
+          "confidence": 0.8,
+          "confidence_raw": 80.0,
+          "bbox": {
+            "x": 79,
+            "y": 745,
+            "width": 293,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R3-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.8,
+          "confidence_raw": 80.0,
+          "bbox": {
+            "x": 485,
+            "y": 758,
+            "width": 11,
+            "height": 33
+          },
+          "page": 1,
+          "line_id": "1-R3-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Krishnanagar",
+          "confidence": 0.8,
+          "confidence_raw": 80.0,
+          "bbox": {
+            "x": 572,
+            "y": 504,
+            "width": 338,
+            "height": 58
+          },
+          "page": 1,
+          "line_id": "1-R3-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.77,
+          "confidence_raw": 77.0,
+          "bbox": {
+            "x": 485,
+            "y": 597,
+            "width": 11,
+            "height": 34
+          },
+          "page": 1,
+          "line_id": "1-R3-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.77,
+          "confidence_raw": 77.0,
+          "bbox": {
+            "x": 485,
+            "y": 678,
+            "width": 11,
+            "height": 33
+          },
+          "page": 1,
+          "line_id": "1-R3-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Krishnanagar",
+          "confidence": 0.77,
+          "confidence_raw": 77.0,
+          "bbox": {
+            "x": 573,
+            "y": 585,
+            "width": 337,
+            "height": 59
+          },
+          "page": 1,
+          "line_id": "1-R3-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Late",
+          "confidence": 0.72,
+          "confidence_raw": 72.0,
+          "bbox": {
+            "x": 924,
+            "y": 1069,
+            "width": 109,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-R11-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "nf",
+          "confidence": 0.68,
+          "confidence_raw": 68.0,
+          "bbox": {
+            "x": 1025,
+            "y": 174,
+            "width": 57,
+            "height": 40
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 2,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Goverment",
+          "confidence": 0.59,
+          "confidence_raw": 59.0,
+          "bbox": {
+            "x": 1612,
+            "y": 1543,
+            "width": 245,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-GAP-14-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "VF",
+          "confidence": 0.51,
+          "confidence_raw": 51.0,
+          "bbox": {
+            "x": 1876,
+            "y": 1560,
+            "width": 30,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 7,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "—",
+          "confidence": 0.38,
+          "confidence_raw": 38.0,
+          "bbox": {
+            "x": 810,
+            "y": 1560,
+            "width": 16,
+            "height": 1
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 4,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "we",
+          "confidence": 0.35,
+          "confidence_raw": 35.0,
+          "bbox": {
+            "x": 1637,
+            "y": 1265,
+            "width": 616,
+            "height": 107
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-3-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "a",
+          "confidence": 0.33,
+          "confidence_raw": 33.0,
+          "bbox": {
+            "x": 2005,
+            "y": 190,
+            "width": 14,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 5,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Comat",
+          "confidence": 0.3,
+          "confidence_raw": 30.0,
+          "bbox": {
+            "x": 1535,
+            "y": 1484,
+            "width": 322,
+            "height": 97
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ie",
+          "confidence": 0.27,
+          "confidence_raw": 27.0,
+          "bbox": {
+            "x": 2005,
+            "y": 144,
+            "width": 192,
+            "height": 139
+          },
+          "page": 1,
+          "line_id": "1-R5-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ree",
+          "confidence": 0.25,
+          "confidence_raw": 25.0,
+          "bbox": {
+            "x": 2006,
+            "y": 64,
+            "width": 202,
+            "height": 150
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 6,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Father's",
+          "confidence": 0.21,
+          "confidence_raw": 21.0,
+          "bbox": {
+            "x": 79,
+            "y": 1067,
+            "width": 202,
+            "height": 47
+          },
+          "page": 1,
+          "line_id": "1-R12-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "RDinhte",
+          "confidence": 0.19,
+          "confidence_raw": 19.0,
+          "bbox": {
+            "x": 1104,
+            "y": 175,
+            "width": 187,
+            "height": 39
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 3,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "S",
+          "confidence": 0.19,
+          "confidence_raw": 19.0,
+          "bbox": {
+            "x": 177,
+            "y": 38,
+            "width": 130,
+            "height": 231
+          },
+          "page": 1,
+          "line_id": "1-GAP-4-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": ">>>",
+          "confidence": 0.18,
+          "confidence_raw": 18.0,
+          "bbox": {
+            "x": 843,
+            "y": 1560,
+            "width": 73,
+            "height": 1
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 5,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": ">",
+          "confidence": 0.17,
+          "confidence_raw": 17.0,
+          "bbox": {
+            "x": 637,
+            "y": 1560,
+            "width": 130,
+            "height": 1
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Bn",
+          "confidence": 0.13,
+          "confidence_raw": 13.0,
+          "bbox": {
+            "x": 1665,
+            "y": 1420,
+            "width": 66,
+            "height": 105
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "DarnardA",
+          "confidence": 0.12,
+          "confidence_raw": 12.0,
+          "bbox": {
+            "x": 791,
+            "y": 174,
+            "width": 211,
+            "height": 40
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 1,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Husband's",
+          "confidence": 0.12,
+          "confidence_raw": 12.0,
+          "bbox": {
+            "x": 334,
+            "y": 1068,
+            "width": 267,
+            "height": 46
+          },
+          "page": 1,
+          "line_id": "1-R12-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "(RnAR\\",
+          "confidence": 0.09,
+          "confidence_raw": 9.0,
+          "bbox": {
+            "x": 1314,
+            "y": 174,
+            "width": 172,
+            "height": 40
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 4,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "-PlotNo.",
+          "confidence": 0.08,
+          "confidence_raw": 8.0,
+          "bbox": {
+            "x": 179,
+            "y": 1189,
+            "width": 195,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "a",
+          "confidence": 0.04,
+          "confidence_raw": 4.0,
+          "bbox": {
+            "x": 2097,
+            "y": 247,
+            "width": 117,
+            "height": 36
+          },
+          "page": 1,
+          "line_id": "1-R5-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "OF",
+          "confidence": 0.02,
+          "confidence_raw": 2.0,
+          "bbox": {
+            "x": 2006,
+            "y": 60,
+            "width": 83,
+            "height": 104
+          },
+          "page": 1,
+          "line_id": "1-R5-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "30",
+          "confidence": 0.02,
+          "confidence_raw": 2.0,
+          "bbox": {
+            "x": 2131,
+            "y": 64,
+            "width": 84,
+            "height": 96
+          },
+          "page": 1,
+          "line_id": "1-R5-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Be",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 89,
+            "y": 1560,
+            "width": 142,
+            "height": 1
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "-__=—",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 332,
+            "y": 1560,
+            "width": 120,
+            "height": 1
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "MVUECHINEICHIN",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 1612,
+            "y": 1560,
+            "width": 557,
+            "height": 31
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 6,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "SYD",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 1925,
+            "y": 1560,
+            "width": 51,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 8,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ot",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 1984,
+            "y": 1560,
+            "width": 39,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 9,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Ourryor",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 2042,
+            "y": 1560,
+            "width": 129,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-GAP-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 10,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "#",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 177,
+            "y": 38,
+            "width": 130,
+            "height": 176
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "—",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 75,
+            "y": 1158,
+            "width": 2,
+            "height": 3
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": ";",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 75,
+            "y": 1265,
+            "width": 2,
+            "height": 2
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": ":",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 484,
+            "y": 1265,
+            "width": 3,
+            "height": 2
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "aecpheiws",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 1770,
+            "y": 1420,
+            "width": 307,
+            "height": 105
+          },
+          "page": 1,
+          "line_id": "1-R3-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "oweleoan",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 1869,
+            "y": 1482,
+            "width": 378,
+            "height": 108
+          },
+          "page": 1,
+          "line_id": "1-R3-1-16",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 16,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        }
+      ],
+      "lines": [
+        {
+          "text": "# GOVERNMENT OF WEST BENGAL ree",
+          "words": [
+            {
+              "text": "#",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 177,
+                "y": 38,
+                "width": 130,
+                "height": 176
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "GOVERNMENT",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 601,
+                "y": 76,
+                "width": 466,
+                "height": 55
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "OF",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1088,
+                "y": 77,
+                "width": 88,
+                "height": 54
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "WEST",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1195,
+                "y": 77,
+                "width": 190,
+                "height": 54
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 4,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "BENGAL",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1405,
+                "y": 77,
+                "width": 270,
+                "height": 54
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 5,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "ree",
+              "confidence": 0.25,
+              "confidence_raw": 25.0,
+              "bbox": {
+                "x": 2006,
+                "y": 64,
+                "width": 202,
+                "height": 150
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 6,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 177,
+            "y": 38,
+            "width": 2031,
+            "height": 176
+          },
+          "region": "HEADER",
+          "page": 1,
+          "confidence": 0.6817,
+          "reading_order": 0
+        },
+        {
+          "text": "DarnardA nf RDinhte (RnAR\\ a",
+          "words": [
+            {
+              "text": "DarnardA",
+              "confidence": 0.12,
+              "confidence_raw": 12.0,
+              "bbox": {
+                "x": 791,
+                "y": 174,
+                "width": 211,
+                "height": 40
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 1,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "nf",
+              "confidence": 0.68,
+              "confidence_raw": 68.0,
+              "bbox": {
+                "x": 1025,
+                "y": 174,
+                "width": 57,
+                "height": 40
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 2,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "RDinhte",
+              "confidence": 0.19,
+              "confidence_raw": 19.0,
+              "bbox": {
+                "x": 1104,
+                "y": 175,
+                "width": 187,
+                "height": 39
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 3,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "(RnAR\\",
+              "confidence": 0.09,
+              "confidence_raw": 9.0,
+              "bbox": {
+                "x": 1314,
+                "y": 174,
+                "width": 172,
+                "height": 40
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 4,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "a",
+              "confidence": 0.33,
+              "confidence_raw": 33.0,
+              "bbox": {
+                "x": 2005,
+                "y": 190,
+                "width": 14,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 5,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 791,
+            "y": 174,
+            "width": 1228,
+            "height": 40
+          },
+          "region": "HEADER",
+          "page": 1,
+          "confidence": 0.282,
+          "reading_order": 1
+        },
+        {
+          "text": "S",
+          "words": [
+            {
+              "text": "S",
+              "confidence": 0.19,
+              "confidence_raw": 19.0,
+              "bbox": {
+                "x": 177,
+                "y": 38,
+                "width": 130,
+                "height": 231
+              },
+              "page": 1,
+              "line_id": "1-GAP-4-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 177,
+            "y": 38,
+            "width": 130,
+            "height": 231
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.19,
+          "reading_order": 2
+        },
+        {
+          "text": "OF 30",
+          "words": [
+            {
+              "text": "OF",
+              "confidence": 0.02,
+              "confidence_raw": 2.0,
+              "bbox": {
+                "x": 2006,
+                "y": 60,
+                "width": 83,
+                "height": 104
+              },
+              "page": 1,
+              "line_id": "1-R5-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "30",
+              "confidence": 0.02,
+              "confidence_raw": 2.0,
+              "bbox": {
+                "x": 2131,
+                "y": 64,
+                "width": 84,
+                "height": 96
+              },
+              "page": 1,
+              "line_id": "1-R5-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 2006,
+            "y": 60,
+            "width": 209,
+            "height": 104
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.02,
+          "reading_order": 3
+        },
+        {
+          "text": "ie",
+          "words": [
+            {
+              "text": "ie",
+              "confidence": 0.27,
+              "confidence_raw": 27.0,
+              "bbox": {
+                "x": 2005,
+                "y": 144,
+                "width": 192,
+                "height": 139
+              },
+              "page": 1,
+              "line_id": "1-R5-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 2005,
+            "y": 144,
+            "width": 192,
+            "height": 139
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.27,
+          "reading_order": 4
+        },
+        {
+          "text": "Record of Rights (RoR)",
+          "words": [
+            {
+              "text": "Record",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 791,
+                "y": 174,
+                "width": 211,
+                "height": 56
+              },
+              "page": 1,
+              "line_id": "1-R7-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "of",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1024,
+                "y": 174,
+                "width": 58,
+                "height": 56
+              },
+              "page": 1,
+              "line_id": "1-R7-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Rights",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1104,
+                "y": 175,
+                "width": 187,
+                "height": 69
+              },
+              "page": 1,
+              "line_id": "1-R7-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "(RoR)",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1314,
+                "y": 174,
+                "width": 172,
+                "height": 69
+              },
+              "page": 1,
+              "line_id": "1-R7-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 791,
+            "y": 174,
+            "width": 695,
+            "height": 70
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.96,
+          "reading_order": 5
+        },
+        {
+          "text": "a",
+          "words": [
+            {
+              "text": "a",
+              "confidence": 0.04,
+              "confidence_raw": 4.0,
+              "bbox": {
+                "x": 2097,
+                "y": 247,
+                "width": 117,
+                "height": 36
+              },
+              "page": 1,
+              "line_id": "1-R5-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 2097,
+            "y": 247,
+            "width": 117,
+            "height": 36
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.04,
+          "reading_order": 6
+        },
+        {
+          "text": "Land and Land Reforms Department",
+          "words": [
+            {
+              "text": "Land",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 617,
+                "y": 264,
+                "width": 137,
+                "height": 52
+              },
+              "page": 1,
+              "line_id": "1-R8-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "and",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 775,
+                "y": 265,
+                "width": 105,
+                "height": 52
+              },
+              "page": 1,
+              "line_id": "1-R8-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Land",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 903,
+                "y": 265,
+                "width": 138,
+                "height": 52
+              },
+              "page": 1,
+              "line_id": "1-R8-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Reforms",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1064,
+                "y": 264,
+                "width": 239,
+                "height": 53
+              },
+              "page": 1,
+              "line_id": "1-R8-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Department",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1325,
+                "y": 264,
+                "width": 336,
+                "height": 65
+              },
+              "page": 1,
+              "line_id": "1-R8-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 617,
+            "y": 264,
+            "width": 1044,
+            "height": 65
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.952,
+          "reading_order": 7
+        },
+        {
+          "text": "Date : 15-07-2023",
+          "words": [
+            {
+              "text": "Date",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 1824,
+                "y": 348,
+                "width": 107,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-R3-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 1947,
+                "y": 360,
+                "width": 9,
+                "height": 31
+              },
+              "page": 1,
+              "line_id": "1-R3-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "15-07-2023",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1978,
+                "y": 348,
+                "width": 266,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-R3-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 1824,
+            "y": 348,
+            "width": 420,
+            "height": 45
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9267,
+          "reading_order": 8
+        },
+        {
+          "text": "District : Nadia",
+          "words": [
+            {
+              "text": "District",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 75,
+                "y": 416,
+                "width": 179,
+                "height": 67
+              },
+              "page": 1,
+              "line_id": "1-R3-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 485,
+                "y": 433,
+                "width": 10,
+                "height": 33
+              },
+              "page": 1,
+              "line_id": "1-R3-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Nadia",
+              "confidence": 0.94,
+              "confidence_raw": 94.0,
+              "bbox": {
+                "x": 573,
+                "y": 421,
+                "width": 144,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R3-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 75,
+            "y": 416,
+            "width": 642,
+            "height": 67
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9367,
+          "reading_order": 9
+        },
+        {
+          "text": "Block : Krishnanagar - |",
+          "words": [
+            {
+              "text": "Block",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 79,
+                "y": 504,
+                "width": 136,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.83,
+              "confidence_raw": 83.0,
+              "bbox": {
+                "x": 485,
+                "y": 517,
+                "width": 10,
+                "height": 33
+              },
+              "page": 1,
+              "line_id": "1-R3-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Krishnanagar",
+              "confidence": 0.8,
+              "confidence_raw": 80.0,
+              "bbox": {
+                "x": 572,
+                "y": 504,
+                "width": 338,
+                "height": 58
+              },
+              "page": 1,
+              "line_id": "1-R3-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "-",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 928,
+                "y": 528,
+                "width": 17,
+                "height": 8
+              },
+              "page": 1,
+              "line_id": "1-R3-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "|",
+              "confidence": 0.89,
+              "confidence_raw": 89.0,
+              "bbox": {
+                "x": 965,
+                "y": 505,
+                "width": 10,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-R3-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 504,
+            "width": 896,
+            "height": 58
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.878,
+          "reading_order": 10
+        },
+        {
+          "text": "Mouza : Krishnanagar",
+          "words": [
+            {
+              "text": "Mouza",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 79,
+                "y": 585,
+                "width": 167,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.77,
+              "confidence_raw": 77.0,
+              "bbox": {
+                "x": 485,
+                "y": 597,
+                "width": 11,
+                "height": 34
+              },
+              "page": 1,
+              "line_id": "1-R3-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Krishnanagar",
+              "confidence": 0.77,
+              "confidence_raw": 77.0,
+              "bbox": {
+                "x": 573,
+                "y": 585,
+                "width": 337,
+                "height": 59
+              },
+              "page": 1,
+              "line_id": "1-R3-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 585,
+            "width": 831,
+            "height": 59
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.82,
+          "reading_order": 11
+        },
+        {
+          "text": "Plot No. : 112",
+          "words": [
+            {
+              "text": "Plot",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 79,
+                "y": 665,
+                "width": 94,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "No.",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 193,
+                "y": 665,
+                "width": 83,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.77,
+              "confidence_raw": 77.0,
+              "bbox": {
+                "x": 485,
+                "y": 678,
+                "width": 11,
+                "height": 33
+              },
+              "page": 1,
+              "line_id": "1-R3-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "112",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 573,
+                "y": 665,
+                "width": 88,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 665,
+            "width": 582,
+            "height": 47
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.91,
+          "reading_order": 12
+        },
+        {
+          "text": "KhaitanNo. : 45",
+          "words": [
+            {
+              "text": "KhaitanNo.",
+              "confidence": 0.8,
+              "confidence_raw": 80.0,
+              "bbox": {
+                "x": 79,
+                "y": 745,
+                "width": 293,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.8,
+              "confidence_raw": 80.0,
+              "bbox": {
+                "x": 485,
+                "y": 758,
+                "width": 11,
+                "height": 33
+              },
+              "page": 1,
+              "line_id": "1-R3-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "45",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 570,
+                "y": 745,
+                "width": 64,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 745,
+            "width": 555,
+            "height": 47
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.8533,
+          "reading_order": 13
+        },
+        {
+          "text": "Area : 0.32 Acre",
+          "words": [
+            {
+              "text": "Area",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 72,
+                "y": 820,
+                "width": 125,
+                "height": 68
+              },
+              "page": 1,
+              "line_id": "1-R3-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 485,
+                "y": 838,
+                "width": 11,
+                "height": 34
+              },
+              "page": 1,
+              "line_id": "1-R3-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "0.32",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 571,
+                "y": 825,
+                "width": 110,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-R3-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Acre",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 699,
+                "y": 826,
+                "width": 117,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 72,
+            "y": 820,
+            "width": 744,
+            "height": 68
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9275,
+          "reading_order": 14
+        },
+        {
+          "text": "Nature of Land Agricultural",
+          "words": [
+            {
+              "text": "Nature",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 79,
+                "y": 909,
+                "width": 168,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R3-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "of",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 264,
+                "y": 908,
+                "width": 51,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-R3-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Land",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 330,
+                "y": 909,
+                "width": 125,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R3-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Agricultural",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 590,
+                "y": 908,
+                "width": 287,
+                "height": 58
+              },
+              "page": 1,
+              "line_id": "1-R3-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 908,
+            "width": 798,
+            "height": 58
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.96,
+          "reading_order": 15
+        },
+        {
+          "text": "Name of Recorded Tenant",
+          "words": [
+            {
+              "text": "Name",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 79,
+                "y": 988,
+                "width": 149,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R9-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "of",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 245,
+                "y": 985,
+                "width": 50,
+                "height": 49
+              },
+              "page": 1,
+              "line_id": "1-R9-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Recorded",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 313,
+                "y": 987,
+                "width": 246,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R9-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Tenant",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 576,
+                "y": 987,
+                "width": 174,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R9-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 985,
+            "width": 671,
+            "height": 49
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9425,
+          "reading_order": 16
+        },
+        {
+          "text": "Ramesh Chandra Saha",
+          "words": [
+            {
+              "text": "Ramesh",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 908,
+                "y": 987,
+                "width": 209,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R10-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Chandra",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1137,
+                "y": 986,
+                "width": 218,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-R10-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Saha",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1374,
+                "y": 986,
+                "width": 131,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-R10-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 8,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 908,
+            "y": 986,
+            "width": 597,
+            "height": 48
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9567,
+          "reading_order": 17
+        },
+        {
+          "text": ":",
+          "words": [
+            {
+              "text": ":",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 825,
+                "y": 998,
+                "width": 10,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-R3-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 825,
+            "y": 998,
+            "width": 10,
+            "height": 35
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9,
+          "reading_order": 18
+        },
+        {
+          "text": "Late Haripada Saha",
+          "words": [
+            {
+              "text": "Late",
+              "confidence": 0.72,
+              "confidence_raw": 72.0,
+              "bbox": {
+                "x": 924,
+                "y": 1069,
+                "width": 109,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-R11-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Haripada",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 1053,
+                "y": 1067,
+                "width": 229,
+                "height": 58
+              },
+              "page": 1,
+              "line_id": "1-R11-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Saha",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1303,
+                "y": 1066,
+                "width": 130,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-R11-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 8,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 924,
+            "y": 1066,
+            "width": 509,
+            "height": 59
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.8667,
+          "reading_order": 19
+        },
+        {
+          "text": "Father's / Husband's Name",
+          "words": [
+            {
+              "text": "Father's",
+              "confidence": 0.21,
+              "confidence_raw": 21.0,
+              "bbox": {
+                "x": 79,
+                "y": 1067,
+                "width": 202,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R12-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "/",
+              "confidence": 0.93,
+              "confidence_raw": 93.0,
+              "bbox": {
+                "x": 307,
+                "y": 1068,
+                "width": 10,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R12-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Husband's",
+              "confidence": 0.12,
+              "confidence_raw": 12.0,
+              "bbox": {
+                "x": 334,
+                "y": 1068,
+                "width": 267,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R12-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Name",
+              "confidence": 0.87,
+              "confidence_raw": 87.0,
+              "bbox": {
+                "x": 621,
+                "y": 1068,
+                "width": 150,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R12-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 1067,
+            "width": 692,
+            "height": 47
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.5325,
+          "reading_order": 20
+        },
+        {
+          "text": ":",
+          "words": [
+            {
+              "text": ":",
+              "confidence": 0.87,
+              "confidence_raw": 87.0,
+              "bbox": {
+                "x": 825,
+                "y": 1079,
+                "width": 10,
+                "height": 33
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 825,
+            "y": 1079,
+            "width": 10,
+            "height": 33
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.87,
+          "reading_order": 21
+        },
+        {
+          "text": "Mutation No. : 1023 ad Bn aecpheiws",
+          "words": [
+            {
+              "text": "Mutation",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 79,
+                "y": 1428,
+                "width": 217,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "No.",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 318,
+                "y": 1428,
+                "width": 83,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 547,
+                "y": 1439,
+                "width": 10,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "1023",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 632,
+                "y": 1428,
+                "width": 124,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "ad",
+              "confidence": 0.85,
+              "confidence_raw": 85.0,
+              "bbox": {
+                "x": 1580,
+                "y": 1421,
+                "width": 51,
+                "height": 104
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Bn",
+              "confidence": 0.13,
+              "confidence_raw": 13.0,
+              "bbox": {
+                "x": 1665,
+                "y": 1420,
+                "width": 66,
+                "height": 105
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "aecpheiws",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 1770,
+                "y": 1420,
+                "width": 307,
+                "height": 105
+              },
+              "page": 1,
+              "line_id": "1-R3-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 1420,
+            "width": 1998,
+            "height": 105
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.6786,
+          "reading_order": 22
+        },
+        {
+          "text": "Land and Land Reforms Department",
+          "words": [
+            {
+              "text": "Land",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1535,
+                "y": 1483,
+                "width": 96,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-GAP-13-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "and",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1644,
+                "y": 1483,
+                "width": 73,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-GAP-13-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Land",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1730,
+                "y": 1472,
+                "width": 96,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-GAP-13-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Reforms",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1840,
+                "y": 1481,
+                "width": 166,
+                "height": 40
+              },
+              "page": 1,
+              "line_id": "1-GAP-13-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Department",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 2019,
+                "y": 1483,
+                "width": 228,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-GAP-13-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 1535,
+            "y": 1472,
+            "width": 712,
+            "height": 56
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.954,
+          "reading_order": 23
+        },
+        {
+          "text": "Date of Mutation : 12-06-2018 Comat oweleoan",
+          "words": [
+            {
+              "text": "Date",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 79,
+                "y": 1514,
+                "width": 117,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "of",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 212,
+                "y": 1514,
+                "width": 50,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Mutation",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 278,
+                "y": 1514,
+                "width": 215,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 547,
+                "y": 1527,
+                "width": 10,
+                "height": 33
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "12-06-2018",
+              "confidence": 0.86,
+              "confidence_raw": 86.0,
+              "bbox": {
+                "x": 632,
+                "y": 1514,
+                "width": 294,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Comat",
+              "confidence": 0.3,
+              "confidence_raw": 30.0,
+              "bbox": {
+                "x": 1535,
+                "y": 1484,
+                "width": 322,
+                "height": 97
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "oweleoan",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 1869,
+                "y": 1482,
+                "width": 378,
+                "height": 108
+              },
+              "page": 1,
+              "line_id": "1-R3-1-16",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 16,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 79,
+            "y": 1482,
+            "width": 2168,
+            "height": 108
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.7,
+          "reading_order": 24
+        },
+        {
+          "text": "Goverment of West Bengal",
+          "words": [
+            {
+              "text": "Goverment",
+              "confidence": 0.59,
+              "confidence_raw": 59.0,
+              "bbox": {
+                "x": 1612,
+                "y": 1543,
+                "width": 245,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-GAP-14-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "of",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1869,
+                "y": 1541,
+                "width": 38,
+                "height": 40
+              },
+              "page": 1,
+              "line_id": "1-GAP-14-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "West",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1919,
+                "y": 1543,
+                "width": 99,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-GAP-14-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Bengal",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 2032,
+                "y": 1542,
+                "width": 137,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-GAP-14-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 1612,
+            "y": 1541,
+            "width": 557,
+            "height": 49
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.865,
+          "reading_order": 25
+        },
+        {
+          "text": "— -PlotNo.",
+          "words": [
+            {
+              "text": "—",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 75,
+                "y": 1158,
+                "width": 2,
+                "height": 3
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "-PlotNo.",
+              "confidence": 0.08,
+              "confidence_raw": 8.0,
+              "bbox": {
+                "x": 179,
+                "y": 1189,
+                "width": 195,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 75,
+            "y": 1158,
+            "width": 299,
+            "height": 76
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.04,
+          "reading_order": 26
+        },
+        {
+          "text": "Remarks",
+          "words": [
+            {
+              "text": "Remarks",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1839,
+                "y": 1184,
+                "width": 218,
+                "height": 61
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-3-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 1839,
+            "y": 1184,
+            "width": 218,
+            "height": 61
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.95,
+          "reading_order": 27
+        },
+        {
+          "text": "Classification",
+          "words": [
+            {
+              "text": "Classification",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 635,
+                "y": 1188,
+                "width": 338,
+                "height": 46
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-1-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 635,
+            "y": 1188,
+            "width": 338,
+            "height": 46
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.95,
+          "reading_order": 28
+        },
+        {
+          "text": "Area (Acre)",
+          "words": [
+            {
+              "text": "Area",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1234,
+                "y": 1189,
+                "width": 117,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "(Acre)",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 1369,
+                "y": 1188,
+                "width": 152,
+                "height": 56
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 1234,
+            "y": 1188,
+            "width": 287,
+            "height": 56
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.95,
+          "reading_order": 29
+        },
+        {
+          "text": "; 112 :",
+          "words": [
+            {
+              "text": ";",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 75,
+                "y": 1265,
+                "width": 2,
+                "height": 2
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "112",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 226,
+                "y": 1265,
+                "width": 92,
+                "height": 82
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 484,
+                "y": 1265,
+                "width": 3,
+                "height": 2
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 75,
+            "y": 1265,
+            "width": 412,
+            "height": 82
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.32,
+          "reading_order": 30
+        },
+        {
+          "text": "we",
+          "words": [
+            {
+              "text": "we",
+              "confidence": 0.35,
+              "confidence_raw": 35.0,
+              "bbox": {
+                "x": 1637,
+                "y": 1265,
+                "width": 616,
+                "height": 107
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-3-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 1637,
+            "y": 1265,
+            "width": 616,
+            "height": 107
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.35,
+          "reading_order": 31
+        },
+        {
+          "text": "0.32",
+          "words": [
+            {
+              "text": "0.32",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1324,
+                "y": 1295,
+                "width": 108,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 1324,
+            "y": 1295,
+            "width": 108,
+            "height": 47
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.96,
+          "reading_order": 32
+        },
+        {
+          "text": "Bastu",
+          "words": [
+            {
+              "text": "Bastu",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 727,
+                "y": 1296,
+                "width": 140,
+                "height": 47
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-1-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 727,
+            "y": 1296,
+            "width": 140,
+            "height": 47
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.9,
+          "reading_order": 33
+        },
+        {
+          "text": "Be -__=— > — >>> MVUECHINEICHIN VF SYD ot Ourryor",
+          "words": [
+            {
+              "text": "Be",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 89,
+                "y": 1560,
+                "width": 142,
+                "height": 1
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "-__=—",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 332,
+                "y": 1560,
+                "width": 120,
+                "height": 1
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": ">",
+              "confidence": 0.17,
+              "confidence_raw": 17.0,
+              "bbox": {
+                "x": 637,
+                "y": 1560,
+                "width": 130,
+                "height": 1
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "—",
+              "confidence": 0.38,
+              "confidence_raw": 38.0,
+              "bbox": {
+                "x": 810,
+                "y": 1560,
+                "width": 16,
+                "height": 1
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 4,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": ">>>",
+              "confidence": 0.18,
+              "confidence_raw": 18.0,
+              "bbox": {
+                "x": 843,
+                "y": 1560,
+                "width": 73,
+                "height": 1
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 5,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "MVUECHINEICHIN",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 1612,
+                "y": 1560,
+                "width": 557,
+                "height": 31
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 6,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "VF",
+              "confidence": 0.51,
+              "confidence_raw": 51.0,
+              "bbox": {
+                "x": 1876,
+                "y": 1560,
+                "width": 30,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 7,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "SYD",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 1925,
+                "y": 1560,
+                "width": 51,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 8,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "ot",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 1984,
+                "y": 1560,
+                "width": 39,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 9,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Ourryor",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 2042,
+                "y": 1560,
+                "width": 129,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 10,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 89,
+            "y": 1560,
+            "width": 2082,
+            "height": 35
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.124,
+          "reading_order": 34
+        },
+        {
+          "text": "This is a computer generated copy. No signature is required.",
+          "words": [
+            {
+              "text": "This",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 484,
+                "y": 1654,
+                "width": 91,
+                "height": 39
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 1,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "is",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 589,
+                "y": 1654,
+                "width": 34,
+                "height": 39
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 2,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "a",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 651,
+                "y": 1664,
+                "width": 11,
+                "height": 29
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 3,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "computer",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 675,
+                "y": 1659,
+                "width": 205,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 4,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "generated",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 893,
+                "y": 1655,
+                "width": 212,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 5,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "copy.",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1119,
+                "y": 1664,
+                "width": 111,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 6,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "No",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1247,
+                "y": 1655,
+                "width": 59,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 7,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "signature",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1322,
+                "y": 1655,
+                "width": 198,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 8,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "is",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1536,
+                "y": 1654,
+                "width": 33,
+                "height": 39
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 9,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "required.",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 1584,
+                "y": 1654,
+                "width": 188,
+                "height": 48
+              },
+              "page": 1,
+              "line_id": "1-GAP-2-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 10,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 484,
+            "y": 1654,
+            "width": 1288,
+            "height": 49
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.96,
+          "reading_order": 35
+        }
+      ],
+      "mean_confidence": 0.7179,
+      "word_count": 125,
+      "character_count": 697,
+      "native_text_used": false,
+      "status": "SUCCESS",
+      "regions": [
+        {
+          "type": "HEADER",
+          "bbox": [
+            0,
+            0,
+            2320,
+            208
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 0,
+            "width": 2320,
+            "height": 208
+          },
+          "confidence": 0.75,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "MAIN_TABLE",
+          "bbox": [
+            68,
+            1150,
+            2261,
+            1380
+          ],
+          "bbox_xywh": {
+            "x": 68,
+            "y": 1150,
+            "width": 2193,
+            "height": 230
+          },
+          "confidence": 0.95,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "FOOTER",
+          "bbox": [
+            0,
+            1566,
+            2320,
+            1740
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 1566,
+            "width": 2320,
+            "height": 174
+          },
+          "confidence": 0.75,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            0,
+            0,
+            2320,
+            1740
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 0,
+            "width": 2320,
+            "height": 1740
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            163,
+            34,
+            321,
+            272
+          ],
+          "bbox_xywh": {
+            "x": 163,
+            "y": 34,
+            "width": 158,
+            "height": 238
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            1991,
+            62,
+            2230,
+            286
+          ],
+          "bbox_xywh": {
+            "x": 1991,
+            "y": 62,
+            "width": 239,
+            "height": 224
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            588,
+            74,
+            1690,
+            134
+          ],
+          "bbox_xywh": {
+            "x": 588,
+            "y": 74,
+            "width": 1102,
+            "height": 60
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            777,
+            171,
+            1500,
+            247
+          ],
+          "bbox_xywh": {
+            "x": 777,
+            "y": 171,
+            "width": 723,
+            "height": 76
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            602,
+            261,
+            1676,
+            333
+          ],
+          "bbox_xywh": {
+            "x": 602,
+            "y": 261,
+            "width": 1074,
+            "height": 72
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            64,
+            982,
+            765,
+            1037
+          ],
+          "bbox_xywh": {
+            "x": 64,
+            "y": 982,
+            "width": 701,
+            "height": 55
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            894,
+            983,
+            1519,
+            1036
+          ],
+          "bbox_xywh": {
+            "x": 894,
+            "y": 983,
+            "width": 625,
+            "height": 53
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            909,
+            1063,
+            1448,
+            1129
+          ],
+          "bbox_xywh": {
+            "x": 909,
+            "y": 1063,
+            "width": 539,
+            "height": 66
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            64,
+            1064,
+            785,
+            1118
+          ],
+          "bbox_xywh": {
+            "x": 64,
+            "y": 1064,
+            "width": 721,
+            "height": 54
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            1520,
+            1478,
+            2262,
+            1532
+          ],
+          "bbox_xywh": {
+            "x": 1520,
+            "y": 1478,
+            "width": 742,
+            "height": 54
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            1598,
+            1538,
+            2184,
+            1593
+          ],
+          "bbox_xywh": {
+            "x": 1598,
+            "y": 1538,
+            "width": 586,
+            "height": 55
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            468,
+            1651,
+            1788,
+            1706
+          ],
+          "bbox_xywh": {
+            "x": 468,
+            "y": 1651,
+            "width": 1320,
+            "height": 55
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        }
+      ],
+      "tables": [
+        {
+          "table_index": 1,
+          "bbox": {
+            "x": 68,
+            "y": 1150,
+            "width": 2193,
+            "height": 230
+          },
+          "rows": [
+            {
+              "row_index": 0,
+              "cells": [
+                {
+                  "row_index": 0,
+                  "column_index": 0,
+                  "text": "— -PlotNo.",
+                  "confidence": 0.04,
+                  "bbox": {
+                    "x": 71,
+                    "y": 1154,
+                    "width": 420,
+                    "height": 107
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 0,
+                  "column_index": 1,
+                  "text": "Classification",
+                  "confidence": 0.95,
+                  "bbox": {
+                    "x": 491,
+                    "y": 1154,
+                    "width": 632,
+                    "height": 107
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 0,
+                  "column_index": 2,
+                  "text": "Area (Acre)",
+                  "confidence": 0.95,
+                  "bbox": {
+                    "x": 1123,
+                    "y": 1154,
+                    "width": 510,
+                    "height": 107
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 0,
+                  "column_index": 3,
+                  "text": "Remarks",
+                  "confidence": 0.95,
+                  "bbox": {
+                    "x": 1633,
+                    "y": 1154,
+                    "width": 624,
+                    "height": 107
+                  },
+                  "page": 1
+                }
+              ],
+              "bbox": {
+                "x": 71,
+                "y": 1154,
+                "width": 2186,
+                "height": 107
+              },
+              "confidence": 0.7225,
+              "page": 1
+            },
+            {
+              "row_index": 1,
+              "cells": [
+                {
+                  "row_index": 1,
+                  "column_index": 0,
+                  "text": "; 112 :",
+                  "confidence": 0.32,
+                  "bbox": {
+                    "x": 71,
+                    "y": 1261,
+                    "width": 420,
+                    "height": 115
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 1,
+                  "column_index": 1,
+                  "text": "Bastu",
+                  "confidence": 0.9,
+                  "bbox": {
+                    "x": 491,
+                    "y": 1261,
+                    "width": 632,
+                    "height": 115
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 1,
+                  "column_index": 2,
+                  "text": "0.32",
+                  "confidence": 0.96,
+                  "bbox": {
+                    "x": 1123,
+                    "y": 1261,
+                    "width": 510,
+                    "height": 115
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 1,
+                  "column_index": 3,
+                  "text": "we",
+                  "confidence": 0.35,
+                  "bbox": {
+                    "x": 1633,
+                    "y": 1261,
+                    "width": 624,
+                    "height": 115
+                  },
+                  "page": 1
+                }
+              ],
+              "bbox": {
+                "x": 71,
+                "y": 1261,
+                "width": 2186,
+                "height": 115
+              },
+              "confidence": 0.6325,
+              "page": 1
+            }
+          ],
+          "structure_status": "RESOLVED",
+          "source": "ruling_line_grid",
+          "page": 1
+        }
+      ],
+      "table_structure_status": "RESOLVED",
+      "artifacts": [
+        {
+          "type": "seal",
+          "artifact_type": "seal",
+          "confidence": 0.6,
+          "bbox": {
+            "x": 2004,
+            "y": 64,
+            "width": 212,
+            "height": 221
+          },
+          "page": 1,
+          "source": "phase03_layout"
+        },
+        {
+          "type": "seal",
+          "artifact_type": "seal",
+          "confidence": 0.6,
+          "bbox": {
+            "x": 176,
+            "y": 36,
+            "width": 133,
+            "height": 235
+          },
+          "page": 1,
+          "source": "phase03_layout"
+        }
+      ],
+      "candidate_texts": [],
+      "numeric_tokens": [
+        {
+          "text": "112",
+          "confidence": 0.96,
+          "bbox": {
+            "x": 226,
+            "y": 1265,
+            "width": 92,
+            "height": 82
+          },
+          "page": 1,
+          "region": "MAIN_TABLE",
+          "needs_review": false
+        },
+        {
+          "text": "0.32",
+          "confidence": 0.96,
+          "bbox": {
+            "x": 1324,
+            "y": 1295,
+            "width": 108,
+            "height": 47
+          },
+          "page": 1,
+          "region": "MAIN_TABLE",
+          "needs_review": false
+        },
+        {
+          "text": "45",
+          "confidence": 0.96,
+          "bbox": {
+            "x": 570,
+            "y": 745,
+            "width": 64,
+            "height": 47
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "15-07-2023",
+          "confidence": 0.96,
+          "bbox": {
+            "x": 1978,
+            "y": 348,
+            "width": 266,
+            "height": 45
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "112",
+          "confidence": 0.95,
+          "bbox": {
+            "x": 573,
+            "y": 665,
+            "width": 88,
+            "height": 47
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "1023",
+          "confidence": 0.95,
+          "bbox": {
+            "x": 632,
+            "y": 1428,
+            "width": 124,
+            "height": 47
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "0.32",
+          "confidence": 0.92,
+          "bbox": {
+            "x": 571,
+            "y": 825,
+            "width": 110,
+            "height": 48
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "12-06-2018",
+          "confidence": 0.86,
+          "bbox": {
+            "x": 632,
+            "y": 1514,
+            "width": 294,
+            "height": 47
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "30",
+          "confidence": 0.02,
+          "bbox": {
+            "x": 2131,
+            "y": 64,
+            "width": 84,
+            "height": 96
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": true
+        }
+      ],
+      "scripts_present": [
+        "Latin"
+      ],
+      "layout_source": "phase03_layout",
+      "table_view_used": true,
+      "ocr": {
+        "text": "# GOVERNMENT OF WEST BENGAL ree\nDarnardA nf RDinhte (RnAR\\ a\nS\nOF 30\nie\nRecord of Rights (RoR)\na\nLand and Land Reforms Department\nDate : 15-07-2023\nDistrict : Nadia\nBlock : Krishnanagar - |\nMouza : Krishnanagar\nPlot No. : 112\nKhaitanNo. : 45\nArea : 0.32 Acre\nNature of Land Agricultural\nName of Recorded Tenant\nRamesh Chandra Saha\n:\nLate Haripada Saha\nFather's / Husband's Name\n:\nMutation No. : 1023 ad Bn aecpheiws\nLand and Land Reforms Department\nDate of Mutation : 12-06-2018 Comat oweleoan\nGoverment of West Bengal\n— -PlotNo.\nRemarks\nClassification\nArea (Acre)\n; 112 :\nwe\n0.32\nBastu\nBe -__=— > — >>> MVUECHINEICHIN VF SYD ot Ourryor\nThis is a computer generated copy. No signature is required.",
+        "word_count": 125,
+        "mean_confidence": 0.7179
+      },
+      "government_document_evidence": {
+        "header_detected": true,
+        "department_detected": true,
+        "government_terminology": [
+          "computer generated",
+          "government",
+          "no signature"
+        ],
+        "document_title_detected": false,
+        "emblem_region_detected": true,
+        "seal_detected": true,
+        "signature_detected": false,
+        "footer_legal_text_detected": true,
+        "evidence_score": 0.7143,
+        "matched_signals": [
+          "header",
+          "department",
+          "footer_legal",
+          "emblem",
+          "seal"
+        ]
+      },
+      "input_path": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000002~REP-SUB-38fd94e394c848ae\\page_001_processed.png"
+    }
+  ],
+  "full_text": "# GOVERNMENT OF WEST BENGAL ree\nDarnardA nf RDinhte (RnAR\\ a\nS\nOF 30\nie\nRecord of Rights (RoR)\na\nLand and Land Reforms Department\nDate : 15-07-2023\nDistrict : Nadia\nBlock : Krishnanagar - |\nMouza : Krishnanagar\nPlot No. : 112\nKhaitanNo. : 45\nArea : 0.32 Acre\nNature of Land Agricultural\nName of Recorded Tenant\nRamesh Chandra Saha\n:\nLate Haripada Saha\nFather's / Husband's Name\n:\nMutation No. : 1023 ad Bn aecpheiws\nLand and Land Reforms Department\nDate of Mutation : 12-06-2018 Comat oweleoan\nGoverment of West Bengal\n— -PlotNo.\nRemarks\nClassification\nArea (Acre)\n; 112 :\nwe\n0.32\nBastu\nBe -__=— > — >>> MVUECHINEICHIN VF SYD ot Ourryor\nThis is a computer generated copy. No signature is required.",
+  "next_phase": "PHASE_07_SEMANTIC_FIELD_EXTRACTION",
+  "timestamps": {
+    "started_at": "2026-09-15T01:54:16.697374"
+  },
+  "processing_time_seconds": 0.0,
+  "metrics": {
+    "mean_confidence": 0.7179,
+    "median_confidence": 0.93,
+    "low_confidence_word_count": 33,
+    "low_confidence_percentage": 26.4,
+    "total_words": 125,
+    "total_characters": 697,
+    "pages_processed": 1,
+    "pages_failed": 0
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-2026-000002~REP-SUB-f26b01015adc440c",
+  "document_id": "DOC-REP-SUB-f26b01015adc440c",
+  "language": {
+    "primary": "en",
+    "confidence": 0.99,
+    "alternatives": [
+      {
+        "language": "bn",
+        "confidence": 0.5086
+      }
+    ]
+  },
+  "script": {
+    "primary": "Latin",
+    "confidence": 0.99,
+    "alternatives": [
+      {
+        "script": "Bengali",
+        "confidence": 0.5086
+      }
+    ]
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.99
+    },
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.5086
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "eng"
+    ],
+    "preferred_language": "English",
+    "script": "Latin",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.99,
+      "sample": "page_001_original.png",
+      "detail": "image_located size=2320x1740 preview=provisional_ocr[eng+hin+ben] fused=en/Latin"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9414,
+      "sample": "GOVERNMENT OF WEST BENGAL নাশ Record of Rights (RoR) eres Land and Land Reforms Department a Date : 15-07-2023 District : Nadia Block : Krishnanagar - | Mouza :",
+      "detail": "script_counts={'Latin': 358, 'Bengali': 7}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9,
+      "sample": "GOVERNMENT OF WEST BENGAL নাশ Record of Rights (RoR) eres Land and Land Reforms Department a Date : 15-07-2023 District : Nadia Block : Krishnanagar - | Mouza :",
+      "detail": "terminology_hits={'en': 12}"
+    },
+    {
+      "source": "classification_context",
+      "language": "und",
+      "script": "Unknown",
+      "confidence": 0.0,
+      "sample": "RECORD_OF_RIGHTS",
+      "detail": "zero_weight_context_only"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-28T22:55:50.847947",
+    "completed_at": "2026-09-28T22:55:56.910557"
+  },
+  "processing_time_seconds": 6.0626,
+  "ingestion_id": "ING-REP-SUB-f26b01015adc440c",
+  "document_type": "RECORD_OF_RIGHTS",
+  "classification_confidence": 1.0
+}

@@ -1,8 +1,9 @@
 from fastapi import APIRouter
 
 from app.api.api_v1.uploads import router as upload_router
-from app.api.api_v1.gis import router as gis_router
+from app.api.api_v1.gis_demo import router as gis_router
 from app.api.api_v1.gis.routes import router as gis_db_router
+from app.api.api_v1.digitization import digitization_router
 
 api_router = APIRouter()
 
@@ -13,3 +14,6 @@ api_router.include_router(upload_router, prefix="/upload", tags=["upload"])
 api_router.include_router(gis_router, prefix="/gis", tags=["gis"])
 # PostGIS-backed parcel APIs from the Sniggy branch (requires DB).
 api_router.include_router(gis_db_router)
+# Real digitization pipeline (thin FastAPI bridge over app.ocr services;
+# same contracts as the Flask reference in app.ocr.api).
+api_router.include_router(digitization_router)

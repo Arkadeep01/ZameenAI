@@ -1,0 +1,62 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-M05-HI",
+  "document_id": "DOC-M05-HI",
+  "language": {
+    "primary": "hi",
+    "confidence": 0.99,
+    "alternatives": []
+  },
+  "script": {
+    "primary": "Devanagari",
+    "confidence": 0.99,
+    "alternatives": []
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.99
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "hin"
+    ],
+    "preferred_language": "Hindi",
+    "script": "Devanagari",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "ocr_preview",
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.95,
+      "sample": "््ड् उत्तर प्रदेश सरकार हु के डी भू-आलेख (खसरा/खतौनी) नि दिनांक : 8-03-2027 जनपद :. लखनऊ तहसील :. सरोजिनी नगर आम :. भढ़ववा खसरा संख्या... :. 256 खतौनी संख्या. :",
+      "detail": "script_counts={'Devanagari': 352}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.8,
+      "sample": "््ड् उत्तर प्रदेश सरकार हु के डी भू-आलेख (खसरा/खतौनी) नि दिनांक : 8-03-2027 जनपद :. लखनऊ तहसील :. सरोजिनी नगर आम :. भढ़ववा खसरा संख्या... :. 256 खतौनी संख्या. :",
+      "detail": "terminology_hits={'hi': 5}"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-20T15:19:00.422556",
+    "completed_at": "2026-09-20T15:19:00.424670"
+  },
+  "processing_time_seconds": 0.0021,
+  "ingestion_id": "ING-M05-HI",
+  "classification_confidence": 0.0
+}

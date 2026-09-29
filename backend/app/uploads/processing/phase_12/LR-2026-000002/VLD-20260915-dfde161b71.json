@@ -1,0 +1,631 @@
+{
+  "phase": "AUTOMATED_VALIDATION",
+  "status": "SUCCESS",
+  "validation_run_id": "VLD-20260915-dfde161b71",
+  "record_id": "LR-2026-000002",
+  "document_id": "DOC-2026-000002",
+  "ingestion_id": "ING-2026-000002",
+  "document_type": "RECORD_OF_RIGHTS",
+  "rules_version": "1.0.0",
+  "input_reference": {
+    "source_phase": "PHASE_08",
+    "record_id": "LR-2026-000002",
+    "document_id": "DOC-2026-000002",
+    "ingestion_id": "ING-2026-000002"
+  },
+  "validation_result": {
+    "summary": {
+      "total_checks": 30,
+      "passed": 16,
+      "warning": 2,
+      "error": 3,
+      "critical": 0,
+      "not_applicable": 3
+    },
+    "fields": {
+      "additional.remarks": [
+        {
+          "field": "additional.remarks",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "document.department": [
+        {
+          "field": "document.department",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Land and Land Reforms Department",
+          "original_value": "Land and Land Reforms Department",
+          "comparison_value": "Land and Land Reforms Department",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9098",
+            "method=DETERMINISTIC",
+            "source_page=1",
+            "source_label='Land and Land Reforms Department'"
+          ]
+        }
+      ],
+      "document.document_date": [
+        {
+          "field": "document.document_date",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "2023-07-15",
+          "original_value": "15-07-2023",
+          "comparison_value": "2023-07-15",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8947",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='Date'"
+          ]
+        }
+      ],
+      "document.document_title": [
+        {
+          "field": "document.document_title",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Record of Rights (RoR)",
+          "original_value": "Record of Rights (RoR)",
+          "comparison_value": "Record of Rights (RoR)",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9007",
+            "method=DETERMINISTIC",
+            "source_page=1",
+            "source_label='Record of Rights'"
+          ]
+        }
+      ],
+      "document.map_number": [
+        {
+          "field": "document.map_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.area": [
+        {
+          "field": "land.area",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": 0.32,
+          "original_value": "0.32",
+          "comparison_value": 0.32,
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9827",
+            "method=TABLE_CELL",
+            "source_page=1",
+            "source_label='Area (Acre)'"
+          ]
+        }
+      ],
+      "land.area_unit": [
+        {
+          "field": "land.area_unit",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "ACRE",
+          "comparison_value": "ACRE",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.7"
+          ]
+        }
+      ],
+      "land.khasra_number": [
+        {
+          "field": "land.khasra_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.khata_number": [
+        {
+          "field": "land.khata_number",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "45",
+          "original_value": "45",
+          "comparison_value": "45",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8864",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='Khaitan:'"
+          ]
+        }
+      ],
+      "land.land_type": [
+        {
+          "field": "land.land_type",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.nature_of_land": [
+        {
+          "field": "land.nature_of_land",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "HOMESTEAD",
+          "original_value": "Bastu",
+          "comparison_value": "HOMESTEAD",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9835",
+            "method=TABLE_CELL",
+            "source_page=1",
+            "source_label='Classification'"
+          ]
+        }
+      ],
+      "land.plot_number": [
+        {
+          "field": "land.plot_number",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "112",
+          "original_value": "112",
+          "comparison_value": "112",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9815",
+            "method=TABLE_CELL",
+            "source_page=1",
+            "source_label='Plot No.'"
+          ]
+        }
+      ],
+      "land.survey_number": [
+        {
+          "field": "land.survey_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.block": [
+        {
+          "field": "location.block",
+          "status": "UNREADABLE",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "The field's label was found in the document but its value could not be read.",
+          "evidence": [
+            "value_status=REQUIRED_BUT_UNREADABLE",
+            "applicability=REQUIRED"
+          ]
+        }
+      ],
+      "location.district": [
+        {
+          "field": "location.district",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Nadia",
+          "original_value": "Nadia",
+          "comparison_value": "Nadia",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8963",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='District:'"
+          ]
+        }
+      ],
+      "location.mouza": [
+        {
+          "field": "location.mouza",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Krishnanagar",
+          "original_value": "Krishnanagar",
+          "comparison_value": "Krishnanagar",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8953",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='Mouza:'"
+          ]
+        }
+      ],
+      "location.state": [
+        {
+          "field": "location.state",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "West Bengal",
+          "original_value": "WEST BENGAL",
+          "comparison_value": "West Bengal",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9007",
+            "method=DETERMINISTIC",
+            "source_page=1",
+            "source_label='State'"
+          ]
+        },
+        {
+          "field": "location.state",
+          "status": "WARNING",
+          "severity": "WARNING",
+          "rule": "LOCATION_HIERARCHY",
+          "reason": "Location hierarchy cannot be validated: no authoritative reference database is configured (env ZAMEENAI_VALIDATION_REFERENCE_DB). Never fabricated.",
+          "value": "West Bengal",
+          "original_value": "West Bengal",
+          "evidence": [
+            "state=West Bengal",
+            "district=Nadia",
+            "block=None",
+            "mouza=Krishnanagar",
+            "reference_data=UNAVAILABLE"
+          ]
+        }
+      ],
+      "location.tehsil": [
+        {
+          "field": "location.tehsil",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.village": [
+        {
+          "field": "location.village",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "mutation.mutation_date": [
+        {
+          "field": "mutation.mutation_date",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        },
+        {
+          "field": "mutation.mutation_date",
+          "status": "WARNING",
+          "severity": "WARNING",
+          "rule": "MUTATION",
+          "reason": "Mutation number is present but the mutation date is missing; mutation record is incomplete.",
+          "value": "1023",
+          "original_value": "1023",
+          "evidence": [
+            "mutation.mutation_number present, mutation_date absent"
+          ]
+        }
+      ],
+      "mutation.mutation_number": [
+        {
+          "field": "mutation.mutation_number",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=OPTIONAL).",
+          "value": "1023",
+          "original_value": "1023",
+          "comparison_value": "1023",
+          "evidence": [
+            "value_status=OPTIONAL_AND_PRESENT",
+            "confidence=0.8973",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='Mutation No.'"
+          ]
+        }
+      ],
+      "owner.co_owner": [
+        {
+          "field": "owner.co_owner",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "owner.father_husband_name": [
+        {
+          "field": "owner.father_husband_name",
+          "status": "CONFLICT",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Conflicting candidate values were extracted; Phase 12 never auto-resolves a conflict.",
+          "value": "Haripada Saha",
+          "original_value": "Late Haripada Saha",
+          "evidence": [
+            "value_status=CONFLICTING",
+            "applicability=REQUIRED",
+            {
+              "field": "owner.father_husband_name",
+              "value": "Pemty Conereted",
+              "confidence": 0.6942
+            }
+          ]
+        }
+      ],
+      "owner.name": [
+        {
+          "field": "owner.name",
+          "status": "UNREADABLE",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "The field's label was found in the document but its value could not be read.",
+          "evidence": [
+            "value_status=REQUIRED_BUT_UNREADABLE",
+            "applicability=REQUIRED"
+          ]
+        }
+      ],
+      "owner.recorded_tenant": [
+        {
+          "field": "owner.recorded_tenant",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Ramesh Chandra Saha",
+          "original_value": "Ramesh Chandra Saha",
+          "comparison_value": "Ramesh Chandra Saha",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8043",
+            "method=LABEL_VALUE_NEXT_LINE",
+            "source_page=1",
+            "source_label='Name of Recorded Tenant'"
+          ]
+        }
+      ],
+      "registration.document_number": [
+        {
+          "field": "registration.document_number",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ],
+      "registration.issue_date": [
+        {
+          "field": "registration.issue_date",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ],
+      "registration.registration_date": [
+        {
+          "field": "registration.registration_date",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ]
+    }
+  },
+  "anomalies": [
+    {
+      "category": "MUTATION_CONFLICT",
+      "severity": "WARNING",
+      "explanation": "A mutation is recorded but the owning party's name is not available; the mutation cannot be attributed.",
+      "field": "mutation.mutation_number",
+      "evidence": [
+        {
+          "mutation.mutation_number": "1023",
+          "owner.name": null
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000001 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "CONFLICTING_SEMANTIC_CANDIDATES",
+      "severity": "WARNING",
+      "explanation": "A same-line semantic interpretation still surfaced conflicting candidates (Phase 08 flagged the field).",
+      "field": "owner.father_husband_name",
+      "evidence": [
+        {
+          "chosen_value": "Haripada Saha",
+          "chosen_confidence": 0.8507,
+          "conflict_alternatives": [
+            {
+              "field": "owner.father_husband_name",
+              "value": "Pemty Conereted",
+              "confidence": 0.6942
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "duplicates": {
+    "status": "SUSPECTED",
+    "scope": "LOCAL_DATASET",
+    "matched_records": [
+      {
+        "matched_record_id": "LR-2026-000001",
+        "matched_document_id": "DOC-2026-000001",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      }
+    ]
+  },
+  "decision": "VALIDATION_FAILED",
+  "summary": "Validation found blocking errors (0 critical, 3 error).",
+  "next_phase": "PHASE_14_HUMAN_IN_THE_LOOP",
+  "needs_review": true,
+  "remediation": {
+    "required": true,
+    "reasons": [
+      {
+        "field": "location.block",
+        "reason": "UNREADABLE_FIELD",
+        "message": "Required field location.block unreadable; clearer evidence is required."
+      },
+      {
+        "field": "owner.father_husband_name",
+        "reason": "CONFLICTING_VALUES",
+        "message": "Conflicting values for owner.father_husband_name; human review required."
+      },
+      {
+        "field": "owner.name",
+        "reason": "UNREADABLE_FIELD",
+        "message": "Required field owner.name unreadable; clearer evidence is required."
+      }
+    ],
+    "next_phase": "PHASE_14_HUMAN_IN_THE_LOOP"
+  },
+  "hitl_1": {
+    "reason": "Phase 12 NEVER approves; every decision — including READY_FOR_HITL — is handed to a human reviewer (Phase 14).",
+    "handoff": {
+      "record_id": "LR-2026-000002",
+      "document_id": "DOC-2026-000002",
+      "validation_run_id": "VLD-20260915-dfde161b71",
+      "rules_version": "1.0.0",
+      "decision": "VALIDATION_FAILED",
+      "validation_summary": {
+        "total_checks": 30,
+        "passed": 16,
+        "warning": 2,
+        "error": 3,
+        "critical": 0,
+        "not_applicable": 3
+      },
+      "anomaly_count": 3,
+      "duplicate_status": "SUSPECTED",
+      "duplicate_matches": 1
+    },
+    "status": "PENDING_HUMAN_REVIEW"
+  },
+  "models": {
+    "rule_engine": "DETERMINISTIC",
+    "llm_used": false,
+    "rules_version": "1.0.0"
+  },
+  "timestamps": {
+    "started_at": "2026-09-15T13:23:43.800535+00:00",
+    "completed_at": "2026-09-15T13:23:43.800535+00:00"
+  },
+  "processing_time_seconds": 0.0065
+}

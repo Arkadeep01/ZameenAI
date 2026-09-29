@@ -1,0 +1,488 @@
+{
+  "phase": "AUTOMATED_VALIDATION",
+  "status": "SUCCESS",
+  "validation_run_id": "VLD-20260921-80fd842eda",
+  "record_id": "LR-2026-000006",
+  "document_id": "DOC-2026-000006",
+  "ingestion_id": "ING-2026-000006",
+  "document_type": "MUTATION_RECORD",
+  "rules_version": "1.0.0",
+  "input_reference": {
+    "source_phase": "PHASE_08",
+    "record_id": "LR-2026-000006",
+    "document_id": "DOC-2026-000006",
+    "ingestion_id": "ING-2026-000006",
+    "phase08_path": "D:\\Land Digitization\\uploads\\processing\\phase_08\\LR-2026-000006\\DOC-2026-000006_confidence_completeness.json"
+  },
+  "validation_result": {
+    "summary": {
+      "total_checks": 29,
+      "passed": 7,
+      "warning": 4,
+      "error": 1,
+      "critical": 1,
+      "not_applicable": 3
+    },
+    "fields": {
+      "additional.remarks": [
+        {
+          "field": "additional.remarks",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=OPTIONAL).",
+          "value": "112 0.32 বান্তু",
+          "original_value": "112 0.32 বান্তু",
+          "comparison_value": "112 0.32 বান্তু",
+          "evidence": [
+            "value_status=OPTIONAL_AND_PRESENT",
+            "confidence=0.7997",
+            "method=LABEL_VALUE_NEXT_LINE",
+            "source_page=1",
+            "source_label='মন্তব্য'"
+          ]
+        }
+      ],
+      "document.department": [
+        {
+          "field": "document.department",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "document.document_date": [
+        {
+          "field": "document.document_date",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=OPTIONAL).",
+          "value": "2023-07-15",
+          "original_value": "15-07-2023",
+          "comparison_value": "2023-07-15",
+          "evidence": [
+            "value_status=OPTIONAL_AND_PRESENT",
+            "confidence=0.895",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='তারিখ'"
+          ]
+        }
+      ],
+      "document.document_title": [
+        {
+          "field": "document.document_title",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "document.map_number": [
+        {
+          "field": "document.map_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.area": [
+        {
+          "field": "land.area",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.area_unit": [
+        {
+          "field": "land.area_unit",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.khasra_number": [
+        {
+          "field": "land.khasra_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.khata_number": [
+        {
+          "field": "land.khata_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.land_type": [
+        {
+          "field": "land.land_type",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.nature_of_land": [
+        {
+          "field": "land.nature_of_land",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.plot_number": [
+        {
+          "field": "land.plot_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.survey_number": [
+        {
+          "field": "land.survey_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.block": [
+        {
+          "field": "location.block",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.district": [
+        {
+          "field": "location.district",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Afra",
+          "original_value": "Afra",
+          "comparison_value": "Afra",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8947",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='জেলা'"
+          ]
+        }
+      ],
+      "location.mouza": [
+        {
+          "field": "location.mouza",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=OPTIONAL).",
+          "value": "কুষ্ণনণর",
+          "original_value": "কুষ্ণনণর",
+          "comparison_value": "কুষ্ণনণর",
+          "evidence": [
+            "value_status=OPTIONAL_AND_PRESENT",
+            "confidence=0.8947",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='মৌজা'"
+          ]
+        }
+      ],
+      "location.state": [
+        {
+          "field": "location.state",
+          "status": "MISSING",
+          "severity": "WARNING",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        },
+        {
+          "field": "location.state",
+          "status": "WARNING",
+          "severity": "WARNING",
+          "rule": "LOCATION_HIERARCHY",
+          "reason": "Location hierarchy cannot be validated: no authoritative reference database is configured (env ZAMEENAI_VALIDATION_REFERENCE_DB). Never fabricated.",
+          "value": "Afra",
+          "original_value": "Afra",
+          "evidence": [
+            "state=None",
+            "district=Afra",
+            "block=None",
+            "mouza=কুষ্ণনণর",
+            "reference_data=UNAVAILABLE"
+          ]
+        }
+      ],
+      "location.tehsil": [
+        {
+          "field": "location.tehsil",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.village": [
+        {
+          "field": "location.village",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "mutation.mutation_date": [
+        {
+          "field": "mutation.mutation_date",
+          "status": "MISSING",
+          "severity": "WARNING",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "mutation.mutation_number": [
+        {
+          "field": "mutation.mutation_number",
+          "status": "MISSING",
+          "severity": "WARNING",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "owner.co_owner": [
+        {
+          "field": "owner.co_owner",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "owner.father_husband_name": [
+        {
+          "field": "owner.father_husband_name",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "owner.name": [
+        {
+          "field": "owner.name",
+          "status": "MISSING",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "owner.recorded_tenant": [
+        {
+          "field": "owner.recorded_tenant",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "registration.document_number": [
+        {
+          "field": "registration.document_number",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ],
+      "registration.issue_date": [
+        {
+          "field": "registration.issue_date",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ],
+      "registration.registration_date": [
+        {
+          "field": "registration.registration_date",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ]
+    }
+  },
+  "anomalies": [],
+  "duplicates": {
+    "status": "CLEAR",
+    "scope": "LOCAL_DATASET",
+    "matched_records": []
+  },
+  "decision": "VALIDATION_FAILED",
+  "summary": "Validation found blocking errors (1 critical, 1 error).",
+  "next_phase": "PHASE_10_ANOMALY_DUPLICATE_DETECTION",
+  "needs_review": true,
+  "remediation": {
+    "required": true,
+    "reasons": [
+      {
+        "field": "document.document_title",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field document.document_title missing (severity CRITICAL)."
+      },
+      {
+        "field": "owner.name",
+        "reason": "MISSING_FIELD",
+        "message": "Required field owner.name missing (severity ERROR)."
+      }
+    ],
+    "next_phase": "PHASE_10_ANOMALY_DUPLICATE_DETECTION"
+  },
+  "hitl_1": {
+    "reason": "Phase 09 NEVER approves; every decision — including READY_FOR_HITL — is handed to a human reviewer (Phase 11 HITL-1).",
+    "handoff": {
+      "record_id": "LR-2026-000006",
+      "document_id": "DOC-2026-000006",
+      "validation_run_id": "VLD-20260921-80fd842eda",
+      "rules_version": "1.0.0",
+      "decision": "VALIDATION_FAILED",
+      "validation_summary": {
+        "total_checks": 29,
+        "passed": 7,
+        "warning": 4,
+        "error": 1,
+        "critical": 1,
+        "not_applicable": 3
+      },
+      "anomaly_count": 0,
+      "duplicate_status": "CLEAR",
+      "duplicate_matches": 0
+    },
+    "status": "PENDING_HUMAN_REVIEW"
+  },
+  "models": {
+    "rule_engine": "DETERMINISTIC",
+    "llm_used": false,
+    "rules_version": "1.0.0"
+  },
+  "timestamps": {
+    "started_at": "2026-09-21T11:25:00.909726+00:00",
+    "completed_at": "2026-09-21T11:25:00.908728+00:00"
+  },
+  "processing_time_seconds": 0.0695
+}

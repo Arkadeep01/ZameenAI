@@ -1,0 +1,13 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "record_id": "LR-2026-000138",
+  "document_id": "DOC-2026-000104",
+  "image_path": "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000035.png",
+  "detection_status": "DETECTED",
+  "providers": [
+    "local_script_detector"
+  ],
+  "gemini_live_translate_model": "gemini-3.5-live-translate-preview",
+  "gemini_live_translate_note": "Audio-only modality; NOT_APPLICABLE_FOR_DOCUMENT_INPUT — never invoked with document images.",
+  "saved_at": "2026-09-29T04:59:14.152470"
+}

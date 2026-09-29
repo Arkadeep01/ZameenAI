@@ -1,0 +1,14 @@
+{
+  "record_id": "LR-2026-TEST01",
+  "document_id": "DOC-2026-TEST01",
+  "ingestion_id": "ING-2026-TEST01",
+  "document": {},
+  "owner": {},
+  "land": {},
+  "location": {},
+  "registration": {},
+  "mutation": {},
+  "additional": {
+    "remarks": null
+  }
+}

@@ -1,0 +1,269 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "SUCCESS",
+  "record_id": "LR-DET-001",
+  "document_id": "DOC-DET-001",
+  "ingestion_id": "det_test",
+  "pages_processed": 1,
+  "strategy": "MODERATE",
+  "decision": "MODERATE",
+  "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
+  "quality_score": 55.0,
+  "quality_source": "phase02",
+  "operations_applied": [
+    "UPSCALE"
+  ],
+  "operations_skipped": [
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [],
+  "upscaled": true,
+  "scale_factor": 2.5,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "SUCCESS",
+      "strategy": "MODERATE",
+      "decision": "MODERATE",
+      "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
+      "quality_score": 55.0,
+      "quality_source": "phase02",
+      "rejection_reasons": [],
+      "upscaled": true,
+      "scale_factor": 2.5,
+      "original_dimensions": {
+        "width": 800,
+        "height": 600
+      },
+      "processed_dimensions": {
+        "width": 2000,
+        "height": 1500
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=55.0",
+          "input_metric": 55.0,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": true,
+          "reason": "width=800 target=2200 max_scale=2.5 scale=2.500",
+          "input_metric": 800.0,
+          "threshold": 2200.0
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "skew=0.20deg threshold=1.5deg",
+          "input_metric": 0.2,
+          "threshold": 1.5
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "brightness=0.700 band=[0.1, 0.95]",
+          "input_metric": 0.7,
+          "threshold": 0.95
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "contrast=0.600 threshold=0.4 (mild CLAHE 1.5)",
+          "input_metric": 0.6,
+          "threshold": 0.4
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "sharpness=0.700 threshold=0.55 (edge-preserving bilateral)",
+          "input_metric": 0.7,
+          "threshold": 0.55
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "sharpness=0.700 threshold=0.55 (conservative unsharp 0.35)",
+          "input_metric": 0.7,
+          "threshold": 0.55
+        }
+      ],
+      "regions_detected": [
+        {
+          "region_id": "HEADER-001",
+          "type": "HEADER",
+          "page": 1,
+          "bbox": [
+            0,
+            0,
+            2000,
+            180
+          ],
+          "confidence": 0.75
+        },
+        {
+          "region_id": "FOOTER-001",
+          "type": "FOOTER",
+          "page": 1,
+          "bbox": [
+            0,
+            1350,
+            2000,
+            1500
+          ],
+          "confidence": 0.75
+        }
+      ],
+      "metrics_before": {
+        "sharpness_normalized": 1.0,
+        "contrast_normalized": 0.4275,
+        "brightness_normalized": 0.4881,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 16772.95,
+        "width": 800,
+        "height": 600
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.6726,
+        "contrast_normalized": 0.3882,
+        "brightness_normalized": 0.4881,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 642.7,
+        "width": 2000,
+        "height": 1500
+      },
+      "output_files": {
+        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001\\page_001_original.png",
+        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-DET-001\\before\\page_001.png",
+        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-DET-001\\after\\page_001_upscaled.png",
+        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001\\page_001_processed.png"
+      },
+      "derivatives": {
+        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001\\page_001_processed.png"
+      },
+      "selected_derivative": "upscaled",
+      "improvement_score": 0.0295,
+      "processing_improvement_sufficient": true,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.5367,
+      "readability_after": 0.5662,
+      "candidate_evaluations": [
+        {
+          "name": "upscaled",
+          "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
+          "readability": {
+            "local_contrast": 0.3759,
+            "text_region_contrast": 0.3704,
+            "character_like_ratio": 0.0507,
+            "component_density": 0.1015,
+            "stroke_width_quality": 0.1236,
+            "noise_free_ratio": 0.9989,
+            "background_uniformity": 0.0,
+            "structure_preservation": 1.0,
+            "information_preservation": 1.0,
+            "overall": 0.5662
+          },
+          "readability_delta": 0.0295,
+          "operations_applied": [
+            "UPSCALE"
+          ],
+          "is_binary": false,
+          "is_selected": true,
+          "improvement_score": 0.0295
+        }
+      ],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=55.0",
+      "input_metric": 55.0,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": true,
+      "reason": "width=800 target=2200 max_scale=2.5 scale=2.500",
+      "input_metric": 800.0,
+      "threshold": 2200.0
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "skew=0.20deg threshold=1.5deg",
+      "input_metric": 0.2,
+      "threshold": 1.5
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "brightness=0.700 band=[0.1, 0.95]",
+      "input_metric": 0.7,
+      "threshold": 0.95
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "contrast=0.600 threshold=0.4 (mild CLAHE 1.5)",
+      "input_metric": 0.6,
+      "threshold": 0.4
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "sharpness=0.700 threshold=0.55 (edge-preserving bilateral)",
+      "input_metric": 0.7,
+      "threshold": 0.55
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "sharpness=0.700 threshold=0.55 (conservative unsharp 0.35)",
+      "input_metric": 0.7,
+      "threshold": 0.55
+    }
+  ],
+  "regions_detected": [
+    {
+      "region_id": "HEADER-001",
+      "type": "HEADER",
+      "page": 1,
+      "bbox": [
+        0,
+        0,
+        2000,
+        180
+      ],
+      "confidence": 0.75
+    },
+    {
+      "region_id": "FOOTER-001",
+      "type": "FOOTER",
+      "page": 1,
+      "bbox": [
+        0,
+        1350,
+        2000,
+        1500
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "next_phase": "DOCUMENT_CLASSIFICATION",
+  "timestamps": {
+    "started_at": "2026-09-29T05:49:00.857506",
+    "completed_at": "2026-09-29T05:49:07.794247"
+  },
+  "source_checksum": "e9cd981680ea5cc7bf9fa33dd1f6036a22378ef1ab8535fe6e0b8cf1448c64ee",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001"
+}

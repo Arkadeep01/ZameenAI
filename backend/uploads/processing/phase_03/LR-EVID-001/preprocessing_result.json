@@ -1,0 +1,605 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "SUCCESS",
+  "record_id": "LR-EVID-001",
+  "document_id": "DOC-EVID-001",
+  "ingestion_id": "evidence_test",
+  "pages_processed": 1,
+  "strategy": "MODERATE",
+  "decision": "MODERATE",
+  "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
+  "quality_score": 55.0,
+  "quality_source": "phase02",
+  "operations_applied": [
+    "UPSCALE"
+  ],
+  "operations_skipped": [
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [],
+  "upscaled": true,
+  "scale_factor": 2.5,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "SUCCESS",
+      "strategy": "MODERATE",
+      "decision": "MODERATE",
+      "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
+      "quality_score": 55.0,
+      "quality_source": "phase02",
+      "rejection_reasons": [],
+      "upscaled": true,
+      "scale_factor": 2.5,
+      "original_dimensions": {
+        "width": 800,
+        "height": 600
+      },
+      "processed_dimensions": {
+        "width": 2000,
+        "height": 1500
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=55.0",
+          "input_metric": 55.0,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": true,
+          "reason": "width=800 target=2200 max_scale=2.5 scale=2.500",
+          "input_metric": 800.0,
+          "threshold": 2200.0
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "skew=0.20deg threshold=1.5deg",
+          "input_metric": 0.2,
+          "threshold": 1.5
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "brightness=0.700 band=[0.1, 0.95]",
+          "input_metric": 0.7,
+          "threshold": 0.95
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "contrast=0.600 threshold=0.4 (mild CLAHE 1.5)",
+          "input_metric": 0.6,
+          "threshold": 0.4
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "sharpness=0.700 threshold=0.55 (edge-preserving bilateral)",
+          "input_metric": 0.7,
+          "threshold": 0.55
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "sharpness=0.700 threshold=0.55 (conservative unsharp 0.35)",
+          "input_metric": 0.7,
+          "threshold": 0.55
+        }
+      ],
+      "regions_detected": [
+        {
+          "region_id": "TEXT-001",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            615,
+            1187,
+            954,
+            1243
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-002",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            1187,
+            613,
+            1243
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-003",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            1087,
+            613,
+            1143
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-004",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            615,
+            987,
+            954,
+            1043
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-005",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            987,
+            613,
+            1043
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-006",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            887,
+            1210,
+            958
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-007",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            787,
+            1210,
+            858
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-008",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            610,
+            687,
+            1210,
+            758
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-009",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            687,
+            613,
+            743
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-010",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            587,
+            1210,
+            658
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-011",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            487,
+            1210,
+            558
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-012",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            387,
+            1210,
+            458
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-013",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            287,
+            1210,
+            358
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-014",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            90,
+            187,
+            1210,
+            258
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-015",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            670,
+            87,
+            1210,
+            158
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "HEADER-001",
+          "type": "HEADER",
+          "page": 1,
+          "bbox": [
+            0,
+            0,
+            2000,
+            180
+          ],
+          "confidence": 0.75
+        }
+      ],
+      "metrics_before": {
+        "sharpness_normalized": 0.8823,
+        "contrast_normalized": 0.9608,
+        "brightness_normalized": 0.9405,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 4838.4,
+        "width": 800,
+        "height": 600
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.5491,
+        "contrast_normalized": 0.9765,
+        "brightness_normalized": 0.9396,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 195.29,
+        "width": 2000,
+        "height": 1500
+      },
+      "output_files": {
+        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001\\page_001_original.png",
+        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-EVID-001\\before\\page_001.png",
+        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-EVID-001\\after\\page_001_upscaled.png",
+        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001\\page_001_processed.png"
+      },
+      "derivatives": {
+        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001\\page_001_processed.png"
+      },
+      "selected_derivative": "upscaled",
+      "improvement_score": -0.0155,
+      "processing_improvement_sufficient": true,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.8265,
+      "readability_after": 0.811,
+      "candidate_evaluations": [
+        {
+          "name": "upscaled",
+          "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
+          "readability": {
+            "local_contrast": 0.6811,
+            "text_region_contrast": 0.1805,
+            "character_like_ratio": 0.8108,
+            "component_density": 1.0,
+            "stroke_width_quality": 0.2047,
+            "noise_free_ratio": 1.0,
+            "background_uniformity": 1.0,
+            "structure_preservation": 1.0,
+            "information_preservation": 1.0,
+            "overall": 0.811
+          },
+          "readability_delta": -0.0155,
+          "operations_applied": [
+            "UPSCALE"
+          ],
+          "is_binary": false,
+          "is_selected": true,
+          "improvement_score": -0.0155
+        }
+      ],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=55.0",
+      "input_metric": 55.0,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": true,
+      "reason": "width=800 target=2200 max_scale=2.5 scale=2.500",
+      "input_metric": 800.0,
+      "threshold": 2200.0
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "skew=0.20deg threshold=1.5deg",
+      "input_metric": 0.2,
+      "threshold": 1.5
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "brightness=0.700 band=[0.1, 0.95]",
+      "input_metric": 0.7,
+      "threshold": 0.95
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "contrast=0.600 threshold=0.4 (mild CLAHE 1.5)",
+      "input_metric": 0.6,
+      "threshold": 0.4
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "sharpness=0.700 threshold=0.55 (edge-preserving bilateral)",
+      "input_metric": 0.7,
+      "threshold": 0.55
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "sharpness=0.700 threshold=0.55 (conservative unsharp 0.35)",
+      "input_metric": 0.7,
+      "threshold": 0.55
+    }
+  ],
+  "regions_detected": [
+    {
+      "region_id": "TEXT-001",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        615,
+        1187,
+        954,
+        1243
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-002",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        1187,
+        613,
+        1243
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-003",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        1087,
+        613,
+        1143
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-004",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        615,
+        987,
+        954,
+        1043
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-005",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        987,
+        613,
+        1043
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-006",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        887,
+        1210,
+        958
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-007",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        787,
+        1210,
+        858
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-008",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        610,
+        687,
+        1210,
+        758
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-009",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        687,
+        613,
+        743
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-010",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        587,
+        1210,
+        658
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-011",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        487,
+        1210,
+        558
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-012",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        387,
+        1210,
+        458
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-013",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        287,
+        1210,
+        358
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-014",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        90,
+        187,
+        1210,
+        258
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-015",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        670,
+        87,
+        1210,
+        158
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "HEADER-001",
+      "type": "HEADER",
+      "page": 1,
+      "bbox": [
+        0,
+        0,
+        2000,
+        180
+      ],
+      "confidence": 0.75
+    }
+  ],
+  "next_phase": "DOCUMENT_CLASSIFICATION",
+  "timestamps": {
+    "started_at": "2026-09-29T05:49:07.897245",
+    "completed_at": "2026-09-29T05:49:14.873297"
+  },
+  "source_checksum": "0ee8da9e9dc03bbac8e16e543c2fe939909de354069fe9c6feb0da126ca6395c",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001"
+}

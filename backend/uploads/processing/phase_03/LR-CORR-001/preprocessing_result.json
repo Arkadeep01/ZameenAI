@@ -1,0 +1,128 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "REJECTED",
+  "record_id": "LR-CORR-001",
+  "document_id": "DOC-CORR-001",
+  "ingestion_id": "corrupt_test",
+  "pages_processed": 1,
+  "strategy": "MINIMAL",
+  "decision": "REJECT",
+  "preprocessing_mode": "NONE",
+  "quality_score": null,
+  "quality_source": "phase02",
+  "operations_applied": [],
+  "operations_skipped": [
+    "UPSCALE",
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [
+    "UNREADABLE_DOCUMENT"
+  ],
+  "upscaled": false,
+  "scale_factor": 1.0,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "REJECTED",
+      "strategy": "LOW_QUALITY_RESTORATION",
+      "decision": "REJECT",
+      "preprocessing_mode": "NONE",
+      "quality_score": null,
+      "quality_source": "phase02",
+      "rejection_reasons": [
+        "UNREADABLE_DOCUMENT"
+      ],
+      "upscaled": false,
+      "scale_factor": 1.0,
+      "original_dimensions": {
+        "width": 0,
+        "height": 0
+      },
+      "processed_dimensions": {
+        "width": 0,
+        "height": 0
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=REJECT score=None reasons=UNREADABLE_DOCUMENT",
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": false,
+          "reason": "not attempted: page rejected (UNREADABLE_DOCUMENT)"
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "not attempted: page rejected (UNREADABLE_DOCUMENT)"
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "not attempted: page rejected (UNREADABLE_DOCUMENT)"
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "not attempted: page rejected (UNREADABLE_DOCUMENT)"
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "not attempted: page rejected (UNREADABLE_DOCUMENT)"
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "not attempted: page rejected (UNREADABLE_DOCUMENT)"
+        }
+      ],
+      "regions_detected": [],
+      "metrics_before": {
+        "sharpness_normalized": 0.0,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 0.0,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 0.0,
+        "width": 0,
+        "height": 0
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.0,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 0.0,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 0.0,
+        "width": 0,
+        "height": 0
+      },
+      "output_files": {},
+      "derivatives": {},
+      "selected_derivative": null,
+      "improvement_score": 0.0,
+      "processing_improvement_sufficient": false,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.0,
+      "readability_after": 0.0,
+      "candidate_evaluations": [],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [],
+  "regions_detected": [],
+  "next_phase": null,
+  "timestamps": {
+    "started_at": "2026-09-29T05:48:35.715509",
+    "completed_at": "2026-09-29T05:48:35.768451"
+  },
+  "source_checksum": "e1f758202631fc504ba45119fea9742a614945f4ec4efa679f9713e84a20b700",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-CORR-001"
+}

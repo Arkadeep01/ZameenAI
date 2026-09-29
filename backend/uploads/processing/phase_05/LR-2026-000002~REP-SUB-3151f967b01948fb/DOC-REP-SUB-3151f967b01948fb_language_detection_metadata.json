@@ -1,0 +1,13 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "record_id": "LR-2026-000002~REP-SUB-3151f967b01948fb",
+  "document_id": "DOC-REP-SUB-3151f967b01948fb",
+  "image_path": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000002~REP-SUB-3151f967b01948fb\\page_001_original.png",
+  "detection_status": "DETECTED",
+  "providers": [
+    "local_script_detector"
+  ],
+  "gemini_live_translate_model": "gemini-3.5-live-translate-preview",
+  "gemini_live_translate_note": "Audio-only modality; NOT_APPLICABLE_FOR_DOCUMENT_INPUT — never invoked with document images.",
+  "saved_at": "2026-09-22T16:45:03.124518"
+}

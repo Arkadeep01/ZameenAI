@@ -1,0 +1,98 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-2026-000107",
+  "document_id": "DOC-2026-000074",
+  "language": {
+    "primary": "en",
+    "confidence": 0.9633,
+    "alternatives": [
+      {
+        "language": "bn",
+        "confidence": 0.5178
+      },
+      {
+        "language": "hi",
+        "confidence": 0.5089
+      }
+    ]
+  },
+  "script": {
+    "primary": "Latin",
+    "confidence": 0.9633,
+    "alternatives": [
+      {
+        "script": "Bengali",
+        "confidence": 0.5178
+      },
+      {
+        "script": "Devanagari",
+        "confidence": 0.5089
+      }
+    ]
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9633
+    },
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.5178
+    },
+    {
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.5089
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "eng"
+    ],
+    "preferred_language": "English",
+    "script": "Latin",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9633,
+      "sample": "ING-2026-000107.png",
+      "detail": "image_located size=447x355 preview=provisional_ocr[eng+hin+ben] fused=en/Latin"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9233,
+      "sample": "* GOVERNMENT OF WEST BENGAL gy & Record of Rihts (Ra) ge Land and Land Reforms Department. Date: 1857205 meee Kee ee কটি Mae: गए Kai No ৷ ee O32 Ace না Apter Na",
+      "detail": "script_counts={'Latin': 190, 'Bengali': 8, 'Devanagari': 4}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.75,
+      "sample": "* GOVERNMENT OF WEST BENGAL gy & Record of Rihts (Ra) ge Land and Land Reforms Department. Date: 1857205 meee Kee ee কটি Mae: गए Kai No ৷ ee O32 Ace না Apter Na",
+      "detail": "terminology_hits={'en': 4}"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-22T16:20:52.253270",
+    "completed_at": "2026-09-22T16:20:55.211948"
+  },
+  "processing_time_seconds": 2.9587,
+  "ingestion_id": "ING-2026-000107",
+  "classification_confidence": 0.0
+}

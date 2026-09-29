@@ -1,0 +1,174 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "REJECTED",
+  "record_id": "LR-2026-000025",
+  "document_id": "DOC-2026-000025",
+  "ingestion_id": "ING-2026-000025",
+  "pages_processed": 1,
+  "strategy": "LOW_QUALITY_RESTORATION",
+  "decision": "REJECT",
+  "preprocessing_mode": "NONE",
+  "quality_score": 12.0,
+  "quality_source": "phase02",
+  "operations_applied": [],
+  "operations_skipped": [
+    "UPSCALE",
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [
+    "QUALITY_SCORE_BELOW_THRESHOLD",
+    "BLANK_PAGE",
+    "SEVERE_BLUR"
+  ],
+  "upscaled": false,
+  "scale_factor": 1.0,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "REJECTED",
+      "strategy": "LOW_QUALITY_RESTORATION",
+      "decision": "REJECT",
+      "preprocessing_mode": "NONE",
+      "quality_score": 27.0,
+      "quality_source": "phase02",
+      "rejection_reasons": [
+        "QUALITY_SCORE_BELOW_THRESHOLD",
+        "BLANK_PAGE",
+        "SEVERE_BLUR"
+      ],
+      "upscaled": false,
+      "scale_factor": 1.0,
+      "original_dimensions": {
+        "width": 800,
+        "height": 600
+      },
+      "processed_dimensions": {
+        "width": 800,
+        "height": 600
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=REJECT score=27.0 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR",
+          "input_metric": 27.0,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+        }
+      ],
+      "regions_detected": [],
+      "metrics_before": {
+        "sharpness_normalized": 0.0,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 1.0,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 0.0,
+        "width": 800,
+        "height": 600
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.0,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 1.0,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 0.0,
+        "width": 800,
+        "height": 600
+      },
+      "output_files": {
+        "original": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000025\\page_001_original.png",
+        "evidence_before": "D:\\Land Digitization\\uploads\\processing\\phase_03_evidence\\LR-2026-000025\\before\\page_001.png"
+      },
+      "derivatives": {},
+      "selected_derivative": null,
+      "improvement_score": 0.0,
+      "processing_improvement_sufficient": false,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.0,
+      "readability_after": 0.0,
+      "candidate_evaluations": [],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=REJECT score=27.0 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR",
+      "input_metric": 27.0,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
+    }
+  ],
+  "regions_detected": [],
+  "next_phase": null,
+  "timestamps": {
+    "started_at": "2026-09-22T12:51:59.299980",
+    "completed_at": "2026-09-22T12:51:59.385273"
+  },
+  "source_checksum": "e80e9721ef20acc685ba52b930e852004415126808ffd6494fa71ed7243b465e",
+  "output_directory": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000025"
+}

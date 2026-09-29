@@ -1,0 +1,5321 @@
+{
+  "phase": "OCR",
+  "status": "SUCCESS",
+  "record_id": "LR-2026-000006",
+  "document_id": "DOC-2026-000006",
+  "ingestion_id": "ING-2026-000006",
+  "engine": "TESSERACT",
+  "language": {
+    "language": "bn",
+    "script": "Bengali",
+    "confidence": 0.9403,
+    "multilingual": false,
+    "tesseract_codes": [
+      "ben"
+    ]
+  },
+  "input": {
+    "type": "IMAGE",
+    "original_path": "D:\\Land Digitization\\uploads\\originals\\ING-2026-000006.png",
+    "processed_path": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000006\\page_001_processed.png",
+    "input_paths": [
+      "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000006\\page_001_processed.png"
+    ]
+  },
+  "engines": {
+    "tesseract": "SUCCESS",
+    "surya": "UNAVAILABLE",
+    "roboflow": "SUCCESS"
+  },
+  "qr_status": "NOT_IMPLEMENTED",
+  "surya": {
+    "status": "UNAVAILABLE",
+    "reason": "surya_adapter_not_wired"
+  },
+  "roboflow": {
+    "status": "SUCCESS",
+    "model_id": "stamp-and-signature-detection-xqk9l-p0rwh/1",
+    "predictions": 0,
+    "artifacts": 0
+  },
+  "pages": [
+    {
+      "page": 1,
+      "page_number": 1,
+      "text": "রি পশ্চিমবঙ্গ সরকার ল্য |\n&\nপশ্চিমবঙ্গ\n৬\n=!\nকে pids\nভূমির APS (আর.ও.আর)\n31১৭\noe\nভূমি ও ভূমি সংস্কার দপ্তর\nতারিখ : 15-07-2023\nBw - 1\nখডিয়ান নম্বর\nজমির পরিমাণ\nরেকর্ডধারীর নাম : রলেশ চন্দ্র সাল্তা\nজমির ca\nপিল্তা/যামীর নাম : হুরিণদ ser প্রেয়াত)\nমিউটেশন vex\nমিউটেশনের তারিখ : 12-06-2018 এট একটি গপিচ onecers oF গেছন were Greer oe:\nজমির গ্রেণি\nপরিমাণ (5কর)\nদান নম্র\nমন্তব্য\n112\n0.32\nবান্তু\n: ভুমি ও ভূমি ema দপ্তর\nপশ্চিম ACSA\nজেলা : Afra\nব্লক :\nমৌজা : কুষ্ণনণর\nan নম্বর ১৮৮\n: 45\n: 0০.32 একর\n: কুদ্তিতমি\n1023",
+      "words": [
+        {
+          "text": "ও",
+          "confidence": 0.97,
+          "confidence_raw": 97.0,
+          "bbox": {
+            "x": 460,
+            "y": 148,
+            "width": 21,
+            "height": 23
+          },
+          "page": 1,
+          "line_id": "1-R7-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "ও",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 932,
+            "y": 579,
+            "width": 16,
+            "height": 18
+          },
+          "page": 1,
+          "line_id": "1-R2-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 6,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "সরকার",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 584,
+            "y": 34,
+            "width": 126,
+            "height": 31
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "দপ্তর",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 665,
+            "y": 148,
+            "width": 64,
+            "height": 25
+          },
+          "page": 1,
+          "line_id": "1-R7-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "15-07-2023",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 976,
+            "y": 157,
+            "width": 143,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-R8-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 8,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "45",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 259,
+            "y": 356,
+            "width": 31,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 4,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "112",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 127,
+            "y": 530,
+            "width": 42,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "নম্বর",
+          "confidence": 0.94,
+          "confidence_raw": 94.0,
+          "bbox": {
+            "x": 93,
+            "y": 320,
+            "width": 51,
+            "height": 20
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 2,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "0.32",
+          "confidence": 0.94,
+          "confidence_raw": 94.0,
+          "bbox": {
+            "x": 671,
+            "y": 530,
+            "width": 54,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "12-06-2018",
+          "confidence": 0.94,
+          "confidence_raw": 94.0,
+          "bbox": {
+            "x": 287,
+            "y": 611,
+            "width": 148,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "ভূমি",
+          "confidence": 0.93,
+          "confidence_raw": 93.0,
+          "bbox": {
+            "x": 956,
+            "y": 572,
+            "width": 41,
+            "height": 31
+          },
+          "page": 1,
+          "line_id": "1-R2-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 7,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "দপ্তর",
+          "confidence": 0.93,
+          "confidence_raw": 93.0,
+          "bbox": {
+            "x": 1084,
+            "y": 579,
+            "width": 49,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R2-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 9,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "এট",
+          "confidence": 0.93,
+          "confidence_raw": 93.0,
+          "bbox": {
+            "x": 456,
+            "y": 601,
+            "width": 26,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "নাম",
+          "confidence": 0.93,
+          "confidence_raw": 93.0,
+          "bbox": {
+            "x": 589,
+            "y": 407,
+            "width": 38,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R12-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "নাম",
+          "confidence": 0.93,
+          "confidence_raw": 93.0,
+          "bbox": {
+            "x": 589,
+            "y": 442,
+            "width": 38,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R14-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 221,
+            "y": 247,
+            "width": 4,
+            "height": 16
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 2,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "ভূমি",
+          "confidence": 0.92,
+          "confidence_raw": 92.0,
+          "bbox": {
+            "x": 494,
+            "y": 139,
+            "width": 54,
+            "height": 41
+          },
+          "page": 1,
+          "line_id": "1-R7-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "জমির",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 44,
+            "y": 426,
+            "width": 58,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R13-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "ভূমি",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 392,
+            "y": 140,
+            "width": 55,
+            "height": 40
+          },
+          "page": 1,
+          "line_id": "1-R7-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "সংস্কার",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 560,
+            "y": 148,
+            "width": 93,
+            "height": 25
+          },
+          "page": 1,
+          "line_id": "1-R7-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "(আর.ও.আর)",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 569,
+            "y": 87,
+            "width": 203,
+            "height": 41
+          },
+          "page": 1,
+          "line_id": "1-R6-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 641,
+            "y": 410,
+            "width": 4,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-R12-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 8,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 641,
+            "y": 446,
+            "width": 5,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-R14-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.91,
+          "confidence_raw": 91.0,
+          "bbox": {
+            "x": 957,
+            "y": 162,
+            "width": 5,
+            "height": 16
+          },
+          "page": 1,
+          "line_id": "1-R8-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 262,
+            "y": 580,
+            "width": 6,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-R2-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 3,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 221,
+            "y": 398,
+            "width": 5,
+            "height": 16
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 3,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "পরিমাণ",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 112,
+            "y": 387,
+            "width": 78,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R11-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 263,
+            "y": 616,
+            "width": 5,
+            "height": 16
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "পশ্চিমবঙ্গ",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 408,
+            "y": 24,
+            "width": 164,
+            "height": 41
+          },
+          "page": 1,
+          "line_id": "1-R4-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "রলেশ",
+          "confidence": 0.89,
+          "confidence_raw": 89.0,
+          "bbox": {
+            "x": 660,
+            "y": 407,
+            "width": 64,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R12-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 9,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.88,
+          "confidence_raw": 88.0,
+          "bbox": {
+            "x": 221,
+            "y": 285,
+            "width": 4,
+            "height": 17
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 2,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "একর",
+          "confidence": 0.88,
+          "confidence_raw": 88.0,
+          "bbox": {
+            "x": 327,
+            "y": 394,
+            "width": 58,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 5,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "ব্লক",
+          "confidence": 0.87,
+          "confidence_raw": 87.0,
+          "bbox": {
+            "x": 43,
+            "y": 230,
+            "width": 39,
+            "height": 42
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 1,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.87,
+          "confidence_raw": 87.0,
+          "bbox": {
+            "x": 221,
+            "y": 361,
+            "width": 4,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 3,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "প্রেয়াত)",
+          "confidence": 0.87,
+          "confidence_raw": 87.0,
+          "bbox": {
+            "x": 819,
+            "y": 440,
+            "width": 88,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R14-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 10,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "পরিমাণ",
+          "confidence": 0.86,
+          "confidence_raw": 86.0,
+          "bbox": {
+            "x": 612,
+            "y": 482,
+            "width": 85,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "1",
+          "confidence": 0.85,
+          "confidence_raw": 85.0,
+          "bbox": {
+            "x": 395,
+            "y": 242,
+            "width": 5,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-R9-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "ভুমি",
+          "confidence": 0.84,
+          "confidence_raw": 84.0,
+          "bbox": {
+            "x": 882,
+            "y": 572,
+            "width": 41,
+            "height": 32
+          },
+          "page": 1,
+          "line_id": "1-R2-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 5,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "মিউটেশন",
+          "confidence": 0.84,
+          "confidence_raw": 84.0,
+          "bbox": {
+            "x": 46,
+            "y": 569,
+            "width": 105,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R15-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "হুরিণদ",
+          "confidence": 0.84,
+          "confidence_raw": 84.0,
+          "bbox": {
+            "x": 661,
+            "y": 435,
+            "width": 81,
+            "height": 29
+          },
+          "page": 1,
+          "line_id": "1-R14-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 8,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "চন্দ্র",
+          "confidence": 0.84,
+          "confidence_raw": 84.0,
+          "bbox": {
+            "x": 735,
+            "y": 407,
+            "width": 44,
+            "height": 20
+          },
+          "page": 1,
+          "line_id": "1-R12-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 10,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "পশ্চিমবঙ্গ",
+          "confidence": 0.83,
+          "confidence_raw": 83.0,
+          "bbox": {
+            "x": 388,
+            "y": 24,
+            "width": 184,
+            "height": 60
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "জমির",
+          "confidence": 0.83,
+          "confidence_raw": 83.0,
+          "bbox": {
+            "x": 341,
+            "y": 482,
+            "width": 64,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-1-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "মন্তব্য",
+          "confidence": 0.83,
+          "confidence_raw": 83.0,
+          "bbox": {
+            "x": 951,
+            "y": 490,
+            "width": 61,
+            "height": 20
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-3-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "একটি",
+          "confidence": 0.82,
+          "confidence_raw": 82.0,
+          "bbox": {
+            "x": 491,
+            "y": 601,
+            "width": 42,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "ভূমির",
+          "confidence": 0.8,
+          "confidence_raw": 80.0,
+          "bbox": {
+            "x": 353,
+            "y": 82,
+            "width": 89,
+            "height": 50
+          },
+          "page": 1,
+          "line_id": "1-R6-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.79,
+          "confidence_raw": 79.0,
+          "bbox": {
+            "x": 221,
+            "y": 437,
+            "width": 4,
+            "height": 16
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 3,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "|",
+          "confidence": 0.79,
+          "confidence_raw": 79.0,
+          "bbox": {
+            "x": 1155,
+            "y": 0,
+            "width": 2,
+            "height": 84
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 5,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "সাল্তা",
+          "confidence": 0.79,
+          "confidence_raw": 79.0,
+          "bbox": {
+            "x": 790,
+            "y": 407,
+            "width": 52,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-R12-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 11,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "মিউটেশনের",
+          "confidence": 0.78,
+          "confidence_raw": 78.0,
+          "bbox": {
+            "x": 47,
+            "y": 605,
+            "width": 129,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "নম্র",
+          "confidence": 0.77,
+          "confidence_raw": 77.0,
+          "bbox": {
+            "x": 152,
+            "y": 490,
+            "width": 52,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "APS",
+          "confidence": 0.77,
+          "confidence_raw": 77.0,
+          "bbox": {
+            "x": 457,
+            "y": 82,
+            "width": 96,
+            "height": 39
+          },
+          "page": 1,
+          "line_id": "1-R6-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "দান",
+          "confidence": 0.76,
+          "confidence_raw": 76.0,
+          "bbox": {
+            "x": 101,
+            "y": 490,
+            "width": 40,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "-",
+          "confidence": 0.76,
+          "confidence_raw": 76.0,
+          "bbox": {
+            "x": 371,
+            "y": 252,
+            "width": 9,
+            "height": 4
+          },
+          "page": 1,
+          "line_id": "1-R9-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "তারিখ",
+          "confidence": 0.76,
+          "confidence_raw": 76.0,
+          "bbox": {
+            "x": 881,
+            "y": 152,
+            "width": 64,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R8-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "জমির",
+          "confidence": 0.74,
+          "confidence_raw": 74.0,
+          "bbox": {
+            "x": 44,
+            "y": 387,
+            "width": 58,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R11-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "1023",
+          "confidence": 0.73,
+          "confidence_raw": 73.0,
+          "bbox": {
+            "x": 287,
+            "y": 574,
+            "width": 60,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 4,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "বান্তু",
+          "confidence": 0.72,
+          "confidence_raw": 72.0,
+          "bbox": {
+            "x": 383,
+            "y": 531,
+            "width": 47,
+            "height": 25
+          },
+          "page": 1,
+          "line_id": "1-CELL-1-1-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": ":",
+          "confidence": 0.71,
+          "confidence_raw": 71.0,
+          "bbox": {
+            "x": 221,
+            "y": 209,
+            "width": 4,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 2,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "ca",
+          "confidence": 0.71,
+          "confidence_raw": 71.0,
+          "bbox": {
+            "x": 112,
+            "y": 426,
+            "width": 52,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-R13-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "0০.32",
+          "confidence": 0.69,
+          "confidence_raw": 69.0,
+          "bbox": {
+            "x": 260,
+            "y": 393,
+            "width": 55,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 4,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "১৮৮",
+          "confidence": 0.66,
+          "confidence_raw": 66.0,
+          "bbox": {
+            "x": 221,
+            "y": 318,
+            "width": 84,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 3,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "Afra",
+          "confidence": 0.65,
+          "confidence_raw": 65.0,
+          "bbox": {
+            "x": 258,
+            "y": 198,
+            "width": 62,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 3,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "কুষ্ণনণর",
+          "confidence": 0.63,
+          "confidence_raw": 63.0,
+          "bbox": {
+            "x": 259,
+            "y": 282,
+            "width": 98,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 3,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": false
+        },
+        {
+          "text": "an",
+          "confidence": 0.6,
+          "confidence_raw": 60.0,
+          "bbox": {
+            "x": 44,
+            "y": 320,
+            "width": 38,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 1,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "মৌজা",
+          "confidence": 0.56,
+          "confidence_raw": 56.0,
+          "bbox": {
+            "x": 40,
+            "y": 271,
+            "width": 62,
+            "height": 44
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 1,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "তারিখ",
+          "confidence": 0.56,
+          "confidence_raw": 56.0,
+          "bbox": {
+            "x": 186,
+            "y": 606,
+            "width": 67,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "জেলা",
+          "confidence": 0.55,
+          "confidence_raw": 55.0,
+          "bbox": {
+            "x": 44,
+            "y": 205,
+            "width": 57,
+            "height": 20
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 1,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "ser",
+          "confidence": 0.55,
+          "confidence_raw": 55.0,
+          "bbox": {
+            "x": 752,
+            "y": 442,
+            "width": 55,
+            "height": 23
+          },
+          "page": 1,
+          "line_id": "1-R14-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 9,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "রেকর্ডধারীর",
+          "confidence": 0.52,
+          "confidence_raw": 52.0,
+          "bbox": {
+            "x": 452,
+            "y": 400,
+            "width": 127,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R12-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "৬",
+          "confidence": 0.51,
+          "confidence_raw": 51.0,
+          "bbox": {
+            "x": 108,
+            "y": 65,
+            "width": 8,
+            "height": 10
+          },
+          "page": 1,
+          "line_id": "1-GAP-3-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "গেছন",
+          "confidence": 0.51,
+          "confidence_raw": 51.0,
+          "bbox": {
+            "x": 714,
+            "y": 601,
+            "width": 34,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 10,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "গ্রেণি",
+          "confidence": 0.5,
+          "confidence_raw": 50.0,
+          "bbox": {
+            "x": 416,
+            "y": 482,
+            "width": 56,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-1-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "কে",
+          "confidence": 0.48,
+          "confidence_raw": 48.0,
+          "bbox": {
+            "x": 1017,
+            "y": 77,
+            "width": 17,
+            "height": 17
+          },
+          "page": 1,
+          "line_id": "1-R5-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "31১৭",
+          "confidence": 0.45,
+          "confidence_raw": 45.0,
+          "bbox": {
+            "x": 1015,
+            "y": 86,
+            "width": 88,
+            "height": 42
+          },
+          "page": 1,
+          "line_id": "1-R5-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "খডিয়ান",
+          "confidence": 0.43,
+          "confidence_raw": 43.0,
+          "bbox": {
+            "x": 44,
+            "y": 350,
+            "width": 78,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R10-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "onecers",
+          "confidence": 0.43,
+          "confidence_raw": 43.0,
+          "bbox": {
+            "x": 605,
+            "y": 601,
+            "width": 58,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 8,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ল্য",
+          "confidence": 0.42,
+          "confidence_raw": 42.0,
+          "bbox": {
+            "x": 1006,
+            "y": 11,
+            "width": 101,
+            "height": 73
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 4,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "vex",
+          "confidence": 0.42,
+          "confidence_raw": 42.0,
+          "bbox": {
+            "x": 160,
+            "y": 577,
+            "width": 62,
+            "height": 18
+          },
+          "page": 1,
+          "line_id": "1-R15-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "&",
+          "confidence": 0.38,
+          "confidence_raw": 38.0,
+          "bbox": {
+            "x": 67,
+            "y": 15,
+            "width": 71,
+            "height": 114
+          },
+          "page": 1,
+          "line_id": "1-GAP-3-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "ema",
+          "confidence": 0.35,
+          "confidence_raw": 35.0,
+          "bbox": {
+            "x": 1004,
+            "y": 579,
+            "width": 72,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R2-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 8,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ACSA",
+          "confidence": 0.35,
+          "confidence_raw": 35.0,
+          "bbox": {
+            "x": 1023,
+            "y": 612,
+            "width": 65,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R2-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 15,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "oe",
+          "confidence": 0.31,
+          "confidence_raw": 31.0,
+          "bbox": {
+            "x": 75,
+            "y": 124,
+            "width": 55,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-GAP-3-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Bw",
+          "confidence": 0.3,
+          "confidence_raw": 30.0,
+          "bbox": {
+            "x": 259,
+            "y": 243,
+            "width": 99,
+            "height": 27
+          },
+          "page": 1,
+          "line_id": "1-R9-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "were",
+          "confidence": 0.3,
+          "confidence_raw": 30.0,
+          "bbox": {
+            "x": 759,
+            "y": 601,
+            "width": 41,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 11,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "oF",
+          "confidence": 0.29,
+          "confidence_raw": 29.0,
+          "bbox": {
+            "x": 677,
+            "y": 601,
+            "width": 22,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 9,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "রি",
+          "confidence": 0.25,
+          "confidence_raw": 25.0,
+          "bbox": {
+            "x": 72,
+            "y": 15,
+            "width": 60,
+            "height": 69
+          },
+          "page": 1,
+          "line_id": "1-GAP-0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "পশ্চিম",
+          "confidence": 0.22,
+          "confidence_raw": 22.0,
+          "bbox": {
+            "x": 927,
+            "y": 606,
+            "width": 88,
+            "height": 24
+          },
+          "page": 1,
+          "line_id": "1-R2-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 14,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "Greer",
+          "confidence": 0.2,
+          "confidence_raw": 20.0,
+          "bbox": {
+            "x": 813,
+            "y": 601,
+            "width": 44,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 12,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "oe:",
+          "confidence": 0.2,
+          "confidence_raw": 20.0,
+          "bbox": {
+            "x": 860,
+            "y": 601,
+            "width": 27,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 13,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "পিল্তা/যামীর",
+          "confidence": 0.15,
+          "confidence_raw": 15.0,
+          "bbox": {
+            "x": 452,
+            "y": 435,
+            "width": 126,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-R14-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "=!",
+          "confidence": 0.03,
+          "confidence_raw": 3.0,
+          "bbox": {
+            "x": 350,
+            "y": 66,
+            "width": 35,
+            "height": 36
+          },
+          "page": 1,
+          "line_id": "1-R6-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "কুদ্তিতমি",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 259,
+            "y": 426,
+            "width": 96,
+            "height": 35
+          },
+          "page": 1,
+          "line_id": "1-FULL-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 4,
+          "region": "FULL_PAGE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "(5কর)",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 707,
+            "y": 486,
+            "width": 78,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-CELL-0-2-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "নম্বর",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 132,
+            "y": 357,
+            "width": 50,
+            "height": 20
+          },
+          "page": 1,
+          "line_id": "1-R10-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "গপিচ",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 537,
+            "y": 601,
+            "width": 47,
+            "height": 43
+          },
+          "page": 1,
+          "line_id": "1-R16-1-15",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 15,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Bengali",
+          "needs_review": true
+        },
+        {
+          "text": "pids",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 1085,
+            "y": 73,
+            "width": 14,
+            "height": 24
+          },
+          "page": 1,
+          "line_id": "1-R5-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        }
+      ],
+      "lines": [
+        {
+          "text": "রি পশ্চিমবঙ্গ সরকার ল্য |",
+          "words": [
+            {
+              "text": "রি",
+              "confidence": 0.25,
+              "confidence_raw": 25.0,
+              "bbox": {
+                "x": 72,
+                "y": 15,
+                "width": 60,
+                "height": 69
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "পশ্চিমবঙ্গ",
+              "confidence": 0.83,
+              "confidence_raw": 83.0,
+              "bbox": {
+                "x": 388,
+                "y": 24,
+                "width": 184,
+                "height": 60
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "সরকার",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 584,
+                "y": 34,
+                "width": 126,
+                "height": 31
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ল্য",
+              "confidence": 0.42,
+              "confidence_raw": 42.0,
+              "bbox": {
+                "x": 1006,
+                "y": 11,
+                "width": 101,
+                "height": 73
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 4,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "|",
+              "confidence": 0.79,
+              "confidence_raw": 79.0,
+              "bbox": {
+                "x": 1155,
+                "y": 0,
+                "width": 2,
+                "height": 84
+              },
+              "page": 1,
+              "line_id": "1-GAP-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 5,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 72,
+            "y": 0,
+            "width": 1085,
+            "height": 84
+          },
+          "region": "HEADER",
+          "page": 1,
+          "confidence": 0.65,
+          "reading_order": 0
+        },
+        {
+          "text": "&",
+          "words": [
+            {
+              "text": "&",
+              "confidence": 0.38,
+              "confidence_raw": 38.0,
+              "bbox": {
+                "x": 67,
+                "y": 15,
+                "width": 71,
+                "height": 114
+              },
+              "page": 1,
+              "line_id": "1-GAP-3-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 67,
+            "y": 15,
+            "width": 71,
+            "height": 114
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.38,
+          "reading_order": 1
+        },
+        {
+          "text": "পশ্চিমবঙ্গ",
+          "words": [
+            {
+              "text": "পশ্চিমবঙ্গ",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 408,
+                "y": 24,
+                "width": 164,
+                "height": 41
+              },
+              "page": 1,
+              "line_id": "1-R4-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 408,
+            "y": 24,
+            "width": 164,
+            "height": 41
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.9,
+          "reading_order": 2
+        },
+        {
+          "text": "৬",
+          "words": [
+            {
+              "text": "৬",
+              "confidence": 0.51,
+              "confidence_raw": 51.0,
+              "bbox": {
+                "x": 108,
+                "y": 65,
+                "width": 8,
+                "height": 10
+              },
+              "page": 1,
+              "line_id": "1-GAP-3-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 108,
+            "y": 65,
+            "width": 8,
+            "height": 10
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.51,
+          "reading_order": 3
+        },
+        {
+          "text": "=!",
+          "words": [
+            {
+              "text": "=!",
+              "confidence": 0.03,
+              "confidence_raw": 3.0,
+              "bbox": {
+                "x": 350,
+                "y": 66,
+                "width": 35,
+                "height": 36
+              },
+              "page": 1,
+              "line_id": "1-R6-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 350,
+            "y": 66,
+            "width": 35,
+            "height": 36
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.03,
+          "reading_order": 4
+        },
+        {
+          "text": "কে pids",
+          "words": [
+            {
+              "text": "কে",
+              "confidence": 0.48,
+              "confidence_raw": 48.0,
+              "bbox": {
+                "x": 1017,
+                "y": 77,
+                "width": 17,
+                "height": 17
+              },
+              "page": 1,
+              "line_id": "1-R5-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "pids",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 1085,
+                "y": 73,
+                "width": 14,
+                "height": 24
+              },
+              "page": 1,
+              "line_id": "1-R5-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 1017,
+            "y": 73,
+            "width": 82,
+            "height": 24
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.24,
+          "reading_order": 5
+        },
+        {
+          "text": "ভূমির APS (আর.ও.আর)",
+          "words": [
+            {
+              "text": "ভূমির",
+              "confidence": 0.8,
+              "confidence_raw": 80.0,
+              "bbox": {
+                "x": 353,
+                "y": 82,
+                "width": 89,
+                "height": 50
+              },
+              "page": 1,
+              "line_id": "1-R6-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "APS",
+              "confidence": 0.77,
+              "confidence_raw": 77.0,
+              "bbox": {
+                "x": 457,
+                "y": 82,
+                "width": 96,
+                "height": 39
+              },
+              "page": 1,
+              "line_id": "1-R6-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "(আর.ও.আর)",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 569,
+                "y": 87,
+                "width": 203,
+                "height": 41
+              },
+              "page": 1,
+              "line_id": "1-R6-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 353,
+            "y": 82,
+            "width": 419,
+            "height": 50
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.8267,
+          "reading_order": 6
+        },
+        {
+          "text": "31১৭",
+          "words": [
+            {
+              "text": "31১৭",
+              "confidence": 0.45,
+              "confidence_raw": 45.0,
+              "bbox": {
+                "x": 1015,
+                "y": 86,
+                "width": 88,
+                "height": 42
+              },
+              "page": 1,
+              "line_id": "1-R5-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 1015,
+            "y": 86,
+            "width": 88,
+            "height": 42
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.45,
+          "reading_order": 7
+        },
+        {
+          "text": "oe",
+          "words": [
+            {
+              "text": "oe",
+              "confidence": 0.31,
+              "confidence_raw": 31.0,
+              "bbox": {
+                "x": 75,
+                "y": 124,
+                "width": 55,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-GAP-3-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 75,
+            "y": 124,
+            "width": 55,
+            "height": 15
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.31,
+          "reading_order": 8
+        },
+        {
+          "text": "ভূমি ও ভূমি সংস্কার দপ্তর",
+          "words": [
+            {
+              "text": "ভূমি",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 392,
+                "y": 140,
+                "width": 55,
+                "height": 40
+              },
+              "page": 1,
+              "line_id": "1-R7-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ও",
+              "confidence": 0.97,
+              "confidence_raw": 97.0,
+              "bbox": {
+                "x": 460,
+                "y": 148,
+                "width": 21,
+                "height": 23
+              },
+              "page": 1,
+              "line_id": "1-R7-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ভূমি",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 494,
+                "y": 139,
+                "width": 54,
+                "height": 41
+              },
+              "page": 1,
+              "line_id": "1-R7-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "সংস্কার",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 560,
+                "y": 148,
+                "width": 93,
+                "height": 25
+              },
+              "page": 1,
+              "line_id": "1-R7-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "দপ্তর",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 665,
+                "y": 148,
+                "width": 64,
+                "height": 25
+              },
+              "page": 1,
+              "line_id": "1-R7-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 392,
+            "y": 139,
+            "width": 337,
+            "height": 41
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.934,
+          "reading_order": 9
+        },
+        {
+          "text": "তারিখ : 15-07-2023",
+          "words": [
+            {
+              "text": "তারিখ",
+              "confidence": 0.76,
+              "confidence_raw": 76.0,
+              "bbox": {
+                "x": 881,
+                "y": 152,
+                "width": 64,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R8-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 957,
+                "y": 162,
+                "width": 5,
+                "height": 16
+              },
+              "page": 1,
+              "line_id": "1-R8-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "15-07-2023",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 976,
+                "y": 157,
+                "width": 143,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-R8-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 8,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 881,
+            "y": 152,
+            "width": 238,
+            "height": 26
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.8767,
+          "reading_order": 10
+        },
+        {
+          "text": "Bw - 1",
+          "words": [
+            {
+              "text": "Bw",
+              "confidence": 0.3,
+              "confidence_raw": 30.0,
+              "bbox": {
+                "x": 259,
+                "y": 243,
+                "width": 99,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R9-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "-",
+              "confidence": 0.76,
+              "confidence_raw": 76.0,
+              "bbox": {
+                "x": 371,
+                "y": 252,
+                "width": 9,
+                "height": 4
+              },
+              "page": 1,
+              "line_id": "1-R9-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "1",
+              "confidence": 0.85,
+              "confidence_raw": 85.0,
+              "bbox": {
+                "x": 395,
+                "y": 242,
+                "width": 5,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-R9-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 259,
+            "y": 242,
+            "width": 141,
+            "height": 28
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.6367,
+          "reading_order": 11
+        },
+        {
+          "text": "খডিয়ান নম্বর",
+          "words": [
+            {
+              "text": "খডিয়ান",
+              "confidence": 0.43,
+              "confidence_raw": 43.0,
+              "bbox": {
+                "x": 44,
+                "y": 350,
+                "width": 78,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R10-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "নম্বর",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 132,
+                "y": 357,
+                "width": 50,
+                "height": 20
+              },
+              "page": 1,
+              "line_id": "1-R10-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 44,
+            "y": 350,
+            "width": 138,
+            "height": 27
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.215,
+          "reading_order": 12
+        },
+        {
+          "text": "জমির পরিমাণ",
+          "words": [
+            {
+              "text": "জমির",
+              "confidence": 0.74,
+              "confidence_raw": 74.0,
+              "bbox": {
+                "x": 44,
+                "y": 387,
+                "width": 58,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R11-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "পরিমাণ",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 112,
+                "y": 387,
+                "width": 78,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R11-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 44,
+            "y": 387,
+            "width": 146,
+            "height": 27
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.82,
+          "reading_order": 13
+        },
+        {
+          "text": "রেকর্ডধারীর নাম : রলেশ চন্দ্র সাল্তা",
+          "words": [
+            {
+              "text": "রেকর্ডধারীর",
+              "confidence": 0.52,
+              "confidence_raw": 52.0,
+              "bbox": {
+                "x": 452,
+                "y": 400,
+                "width": 127,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R12-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "নাম",
+              "confidence": 0.93,
+              "confidence_raw": 93.0,
+              "bbox": {
+                "x": 589,
+                "y": 407,
+                "width": 38,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R12-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 641,
+                "y": 410,
+                "width": 4,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-R12-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 8,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "রলেশ",
+              "confidence": 0.89,
+              "confidence_raw": 89.0,
+              "bbox": {
+                "x": 660,
+                "y": 407,
+                "width": 64,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R12-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 9,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "চন্দ্র",
+              "confidence": 0.84,
+              "confidence_raw": 84.0,
+              "bbox": {
+                "x": 735,
+                "y": 407,
+                "width": 44,
+                "height": 20
+              },
+              "page": 1,
+              "line_id": "1-R12-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 10,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "সাল্তা",
+              "confidence": 0.79,
+              "confidence_raw": 79.0,
+              "bbox": {
+                "x": 790,
+                "y": 407,
+                "width": 52,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-R12-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 11,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 452,
+            "y": 400,
+            "width": 390,
+            "height": 28
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.8133,
+          "reading_order": 14
+        },
+        {
+          "text": "জমির ca",
+          "words": [
+            {
+              "text": "জমির",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 44,
+                "y": 426,
+                "width": 58,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R13-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ca",
+              "confidence": 0.71,
+              "confidence_raw": 71.0,
+              "bbox": {
+                "x": 112,
+                "y": 426,
+                "width": 52,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-R13-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 44,
+            "y": 426,
+            "width": 120,
+            "height": 28
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.81,
+          "reading_order": 15
+        },
+        {
+          "text": "পিল্তা/যামীর নাম : হুরিণদ ser প্রেয়াত)",
+          "words": [
+            {
+              "text": "পিল্তা/যামীর",
+              "confidence": 0.15,
+              "confidence_raw": 15.0,
+              "bbox": {
+                "x": 452,
+                "y": 435,
+                "width": 126,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-R14-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "নাম",
+              "confidence": 0.93,
+              "confidence_raw": 93.0,
+              "bbox": {
+                "x": 589,
+                "y": 442,
+                "width": 38,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R14-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.91,
+              "confidence_raw": 91.0,
+              "bbox": {
+                "x": 641,
+                "y": 446,
+                "width": 5,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-R14-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "হুরিণদ",
+              "confidence": 0.84,
+              "confidence_raw": 84.0,
+              "bbox": {
+                "x": 661,
+                "y": 435,
+                "width": 81,
+                "height": 29
+              },
+              "page": 1,
+              "line_id": "1-R14-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 8,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ser",
+              "confidence": 0.55,
+              "confidence_raw": 55.0,
+              "bbox": {
+                "x": 752,
+                "y": 442,
+                "width": 55,
+                "height": 23
+              },
+              "page": 1,
+              "line_id": "1-R14-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 9,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "প্রেয়াত)",
+              "confidence": 0.87,
+              "confidence_raw": 87.0,
+              "bbox": {
+                "x": 819,
+                "y": 440,
+                "width": 88,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R14-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 10,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 452,
+            "y": 435,
+            "width": 455,
+            "height": 32
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.7083,
+          "reading_order": 16
+        },
+        {
+          "text": "মিউটেশন vex",
+          "words": [
+            {
+              "text": "মিউটেশন",
+              "confidence": 0.84,
+              "confidence_raw": 84.0,
+              "bbox": {
+                "x": 46,
+                "y": 569,
+                "width": 105,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R15-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "vex",
+              "confidence": 0.42,
+              "confidence_raw": 42.0,
+              "bbox": {
+                "x": 160,
+                "y": 577,
+                "width": 62,
+                "height": 18
+              },
+              "page": 1,
+              "line_id": "1-R15-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 46,
+            "y": 569,
+            "width": 176,
+            "height": 27
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.63,
+          "reading_order": 17
+        },
+        {
+          "text": "মিউটেশনের তারিখ : 12-06-2018 এট একটি গপিচ onecers oF গেছন were Greer oe:",
+          "words": [
+            {
+              "text": "মিউটেশনের",
+              "confidence": 0.78,
+              "confidence_raw": 78.0,
+              "bbox": {
+                "x": 47,
+                "y": 605,
+                "width": 129,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "তারিখ",
+              "confidence": 0.56,
+              "confidence_raw": 56.0,
+              "bbox": {
+                "x": 186,
+                "y": 606,
+                "width": 67,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": ":",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 263,
+                "y": 616,
+                "width": 5,
+                "height": 16
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "12-06-2018",
+              "confidence": 0.94,
+              "confidence_raw": 94.0,
+              "bbox": {
+                "x": 287,
+                "y": 611,
+                "width": 148,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "এট",
+              "confidence": 0.93,
+              "confidence_raw": 93.0,
+              "bbox": {
+                "x": 456,
+                "y": 601,
+                "width": 26,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "একটি",
+              "confidence": 0.82,
+              "confidence_raw": 82.0,
+              "bbox": {
+                "x": 491,
+                "y": 601,
+                "width": 42,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "গপিচ",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 537,
+                "y": 601,
+                "width": 47,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "onecers",
+              "confidence": 0.43,
+              "confidence_raw": 43.0,
+              "bbox": {
+                "x": 605,
+                "y": 601,
+                "width": 58,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 8,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "oF",
+              "confidence": 0.29,
+              "confidence_raw": 29.0,
+              "bbox": {
+                "x": 677,
+                "y": 601,
+                "width": 22,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 9,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "গেছন",
+              "confidence": 0.51,
+              "confidence_raw": 51.0,
+              "bbox": {
+                "x": 714,
+                "y": 601,
+                "width": 34,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 10,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "were",
+              "confidence": 0.3,
+              "confidence_raw": 30.0,
+              "bbox": {
+                "x": 759,
+                "y": 601,
+                "width": 41,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 11,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Greer",
+              "confidence": 0.2,
+              "confidence_raw": 20.0,
+              "bbox": {
+                "x": 813,
+                "y": 601,
+                "width": 44,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 12,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "oe:",
+              "confidence": 0.2,
+              "confidence_raw": 20.0,
+              "bbox": {
+                "x": 860,
+                "y": 601,
+                "width": 27,
+                "height": 43
+              },
+              "page": 1,
+              "line_id": "1-R16-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 13,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 47,
+            "y": 601,
+            "width": 840,
+            "height": 43
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.5277,
+          "reading_order": 18
+        },
+        {
+          "text": "জমির গ্রেণি",
+          "words": [
+            {
+              "text": "জমির",
+              "confidence": 0.83,
+              "confidence_raw": 83.0,
+              "bbox": {
+                "x": 341,
+                "y": 482,
+                "width": 64,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-1-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "গ্রেণি",
+              "confidence": 0.5,
+              "confidence_raw": 50.0,
+              "bbox": {
+                "x": 416,
+                "y": 482,
+                "width": 56,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-1-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 341,
+            "y": 482,
+            "width": 131,
+            "height": 28
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.665,
+          "reading_order": 19
+        },
+        {
+          "text": "পরিমাণ (5কর)",
+          "words": [
+            {
+              "text": "পরিমাণ",
+              "confidence": 0.86,
+              "confidence_raw": 86.0,
+              "bbox": {
+                "x": 612,
+                "y": 482,
+                "width": 85,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "(5কর)",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 707,
+                "y": 486,
+                "width": 78,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 612,
+            "y": 482,
+            "width": 173,
+            "height": 32
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.43,
+          "reading_order": 20
+        },
+        {
+          "text": "দান নম্র",
+          "words": [
+            {
+              "text": "দান",
+              "confidence": 0.76,
+              "confidence_raw": 76.0,
+              "bbox": {
+                "x": 101,
+                "y": 490,
+                "width": 40,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "নম্র",
+              "confidence": 0.77,
+              "confidence_raw": 77.0,
+              "bbox": {
+                "x": 152,
+                "y": 490,
+                "width": 52,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 101,
+            "y": 490,
+            "width": 103,
+            "height": 19
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.765,
+          "reading_order": 21
+        },
+        {
+          "text": "মন্তব্য",
+          "words": [
+            {
+              "text": "মন্তব্য",
+              "confidence": 0.83,
+              "confidence_raw": 83.0,
+              "bbox": {
+                "x": 951,
+                "y": 490,
+                "width": 61,
+                "height": 20
+              },
+              "page": 1,
+              "line_id": "1-CELL-0-3-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 951,
+            "y": 490,
+            "width": 61,
+            "height": 20
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.83,
+          "reading_order": 22
+        },
+        {
+          "text": "112",
+          "words": [
+            {
+              "text": "112",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 127,
+                "y": 530,
+                "width": 42,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 127,
+            "y": 530,
+            "width": 42,
+            "height": 22
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.95,
+          "reading_order": 23
+        },
+        {
+          "text": "0.32",
+          "words": [
+            {
+              "text": "0.32",
+              "confidence": 0.94,
+              "confidence_raw": 94.0,
+              "bbox": {
+                "x": 671,
+                "y": 530,
+                "width": 54,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-2-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 671,
+            "y": 530,
+            "width": 54,
+            "height": 22
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.94,
+          "reading_order": 24
+        },
+        {
+          "text": "বান্তু",
+          "words": [
+            {
+              "text": "বান্তু",
+              "confidence": 0.72,
+              "confidence_raw": 72.0,
+              "bbox": {
+                "x": 383,
+                "y": 531,
+                "width": 47,
+                "height": 25
+              },
+              "page": 1,
+              "line_id": "1-CELL-1-1-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 383,
+            "y": 531,
+            "width": 47,
+            "height": 25
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.72,
+          "reading_order": 25
+        },
+        {
+          "text": ": ভুমি ও ভূমি ema দপ্তর",
+          "words": [
+            {
+              "text": ":",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 262,
+                "y": 580,
+                "width": 6,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-R2-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 3,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "ভুমি",
+              "confidence": 0.84,
+              "confidence_raw": 84.0,
+              "bbox": {
+                "x": 882,
+                "y": 572,
+                "width": 41,
+                "height": 32
+              },
+              "page": 1,
+              "line_id": "1-R2-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 5,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ও",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 932,
+                "y": 579,
+                "width": 16,
+                "height": 18
+              },
+              "page": 1,
+              "line_id": "1-R2-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 6,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ভূমি",
+              "confidence": 0.93,
+              "confidence_raw": 93.0,
+              "bbox": {
+                "x": 956,
+                "y": 572,
+                "width": 41,
+                "height": 31
+              },
+              "page": 1,
+              "line_id": "1-R2-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 7,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "ema",
+              "confidence": 0.35,
+              "confidence_raw": 35.0,
+              "bbox": {
+                "x": 1004,
+                "y": 579,
+                "width": 72,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R2-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 8,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "দপ্তর",
+              "confidence": 0.93,
+              "confidence_raw": 93.0,
+              "bbox": {
+                "x": 1084,
+                "y": 579,
+                "width": 49,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R2-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 9,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 262,
+            "y": 572,
+            "width": 871,
+            "height": 32
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.8183,
+          "reading_order": 26
+        },
+        {
+          "text": "পশ্চিম ACSA",
+          "words": [
+            {
+              "text": "পশ্চিম",
+              "confidence": 0.22,
+              "confidence_raw": 22.0,
+              "bbox": {
+                "x": 927,
+                "y": 606,
+                "width": 88,
+                "height": 24
+              },
+              "page": 1,
+              "line_id": "1-R2-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 14,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": "ACSA",
+              "confidence": 0.35,
+              "confidence_raw": 35.0,
+              "bbox": {
+                "x": 1023,
+                "y": 612,
+                "width": 65,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R2-1-15",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 15,
+              "word_num": 15,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 927,
+            "y": 606,
+            "width": 161,
+            "height": 25
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.285,
+          "reading_order": 27
+        },
+        {
+          "text": "জেলা : Afra",
+          "words": [
+            {
+              "text": "জেলা",
+              "confidence": 0.55,
+              "confidence_raw": 55.0,
+              "bbox": {
+                "x": 44,
+                "y": 205,
+                "width": 57,
+                "height": 20
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 1,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": ":",
+              "confidence": 0.71,
+              "confidence_raw": 71.0,
+              "bbox": {
+                "x": 221,
+                "y": 209,
+                "width": 4,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 2,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "Afra",
+              "confidence": 0.65,
+              "confidence_raw": 65.0,
+              "bbox": {
+                "x": 258,
+                "y": 198,
+                "width": 62,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 3,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 44,
+            "y": 198,
+            "width": 276,
+            "height": 27
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.6367,
+          "reading_order": 28
+        },
+        {
+          "text": "ব্লক :",
+          "words": [
+            {
+              "text": "ব্লক",
+              "confidence": 0.87,
+              "confidence_raw": 87.0,
+              "bbox": {
+                "x": 43,
+                "y": 230,
+                "width": 39,
+                "height": 42
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 1,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": ":",
+              "confidence": 0.92,
+              "confidence_raw": 92.0,
+              "bbox": {
+                "x": 221,
+                "y": 247,
+                "width": 4,
+                "height": 16
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 2,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 43,
+            "y": 230,
+            "width": 182,
+            "height": 42
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.895,
+          "reading_order": 29
+        },
+        {
+          "text": "মৌজা : কুষ্ণনণর",
+          "words": [
+            {
+              "text": "মৌজা",
+              "confidence": 0.56,
+              "confidence_raw": 56.0,
+              "bbox": {
+                "x": 40,
+                "y": 271,
+                "width": 62,
+                "height": 44
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 1,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            },
+            {
+              "text": ":",
+              "confidence": 0.88,
+              "confidence_raw": 88.0,
+              "bbox": {
+                "x": 221,
+                "y": 285,
+                "width": 4,
+                "height": 17
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 2,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "কুষ্ণনণর",
+              "confidence": 0.63,
+              "confidence_raw": 63.0,
+              "bbox": {
+                "x": 259,
+                "y": 282,
+                "width": 98,
+                "height": 27
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 3,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 40,
+            "y": 271,
+            "width": 317,
+            "height": 44
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.69,
+          "reading_order": 30
+        },
+        {
+          "text": "an নম্বর ১৮৮",
+          "words": [
+            {
+              "text": "an",
+              "confidence": 0.6,
+              "confidence_raw": 60.0,
+              "bbox": {
+                "x": 44,
+                "y": 320,
+                "width": 38,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 1,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "নম্বর",
+              "confidence": 0.94,
+              "confidence_raw": 94.0,
+              "bbox": {
+                "x": 93,
+                "y": 320,
+                "width": 51,
+                "height": 20
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 2,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "১৮৮",
+              "confidence": 0.66,
+              "confidence_raw": 66.0,
+              "bbox": {
+                "x": 221,
+                "y": 318,
+                "width": 84,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 3,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 44,
+            "y": 318,
+            "width": 261,
+            "height": 22
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.7333,
+          "reading_order": 31
+        },
+        {
+          "text": ": 45",
+          "words": [
+            {
+              "text": ":",
+              "confidence": 0.87,
+              "confidence_raw": 87.0,
+              "bbox": {
+                "x": 221,
+                "y": 361,
+                "width": 4,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 3,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "45",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 259,
+                "y": 356,
+                "width": 31,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 4,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 221,
+            "y": 356,
+            "width": 69,
+            "height": 21
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.91,
+          "reading_order": 32
+        },
+        {
+          "text": ": 0০.32 একর",
+          "words": [
+            {
+              "text": ":",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 221,
+                "y": 398,
+                "width": 5,
+                "height": 16
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 3,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "0০.32",
+              "confidence": 0.69,
+              "confidence_raw": 69.0,
+              "bbox": {
+                "x": 260,
+                "y": 393,
+                "width": 55,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 4,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            },
+            {
+              "text": "একর",
+              "confidence": 0.88,
+              "confidence_raw": 88.0,
+              "bbox": {
+                "x": 327,
+                "y": 394,
+                "width": 58,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 5,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 221,
+            "y": 393,
+            "width": 164,
+            "height": 22
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.8233,
+          "reading_order": 33
+        },
+        {
+          "text": ": কুদ্তিতমি",
+          "words": [
+            {
+              "text": ":",
+              "confidence": 0.79,
+              "confidence_raw": 79.0,
+              "bbox": {
+                "x": 221,
+                "y": 437,
+                "width": 4,
+                "height": 16
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 3,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "কুদ্তিতমি",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 259,
+                "y": 426,
+                "width": 96,
+                "height": 35
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 4,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "Bengali",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 221,
+            "y": 426,
+            "width": 134,
+            "height": 35
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.395,
+          "reading_order": 34
+        },
+        {
+          "text": "1023",
+          "words": [
+            {
+              "text": "1023",
+              "confidence": 0.73,
+              "confidence_raw": 73.0,
+              "bbox": {
+                "x": 287,
+                "y": 574,
+                "width": 60,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-FULL-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 4,
+              "region": "FULL_PAGE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 287,
+            "y": 574,
+            "width": 60,
+            "height": 22
+          },
+          "region": "FULL_PAGE",
+          "page": 1,
+          "confidence": 0.73,
+          "reading_order": 35
+        }
+      ],
+      "mean_confidence": 0.6738,
+      "word_count": 97,
+      "character_count": 503,
+      "native_text_used": false,
+      "status": "SUCCESS",
+      "regions": [
+        {
+          "type": "HEADER",
+          "bbox": [
+            0,
+            0,
+            1157,
+            78
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 0,
+            "width": 1157,
+            "height": 78
+          },
+          "confidence": 0.75,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "MAIN_TABLE",
+          "bbox": [
+            44,
+            473,
+            1123,
+            564
+          ],
+          "bbox_xywh": {
+            "x": 44,
+            "y": 473,
+            "width": 1079,
+            "height": 91
+          },
+          "confidence": 0.95,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "FOOTER",
+          "bbox": [
+            0,
+            587,
+            1157,
+            652
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 587,
+            "width": 1157,
+            "height": 65
+          },
+          "confidence": 0.75,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            53,
+            12,
+            152,
+            142
+          ],
+          "bbox_xywh": {
+            "x": 53,
+            "y": 12,
+            "width": 99,
+            "height": 130
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            393,
+            22,
+            725,
+            68
+          ],
+          "bbox_xywh": {
+            "x": 393,
+            "y": 22,
+            "width": 332,
+            "height": 46
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            995,
+            32,
+            1118,
+            131
+          ],
+          "bbox_xywh": {
+            "x": 995,
+            "y": 32,
+            "width": 123,
+            "height": 99
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            335,
+            79,
+            787,
+            134
+          ],
+          "bbox_xywh": {
+            "x": 335,
+            "y": 79,
+            "width": 452,
+            "height": 55
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            377,
+            137,
+            744,
+            183
+          ],
+          "bbox_xywh": {
+            "x": 377,
+            "y": 137,
+            "width": 367,
+            "height": 46
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            866,
+            150,
+            1134,
+            181
+          ],
+          "bbox_xywh": {
+            "x": 866,
+            "y": 150,
+            "width": 268,
+            "height": 31
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            244,
+            239,
+            415,
+            272
+          ],
+          "bbox_xywh": {
+            "x": 244,
+            "y": 239,
+            "width": 171,
+            "height": 33
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            29,
+            348,
+            197,
+            380
+          ],
+          "bbox_xywh": {
+            "x": 29,
+            "y": 348,
+            "width": 168,
+            "height": 32
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            29,
+            385,
+            205,
+            417
+          ],
+          "bbox_xywh": {
+            "x": 29,
+            "y": 385,
+            "width": 176,
+            "height": 32
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            438,
+            397,
+            856,
+            430
+          ],
+          "bbox_xywh": {
+            "x": 438,
+            "y": 397,
+            "width": 418,
+            "height": 33
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            30,
+            423,
+            179,
+            456
+          ],
+          "bbox_xywh": {
+            "x": 30,
+            "y": 423,
+            "width": 149,
+            "height": 33
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            438,
+            433,
+            921,
+            469
+          ],
+          "bbox_xywh": {
+            "x": 438,
+            "y": 433,
+            "width": 483,
+            "height": 36
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            32,
+            567,
+            237,
+            598
+          ],
+          "bbox_xywh": {
+            "x": 32,
+            "y": 567,
+            "width": 205,
+            "height": 31
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            32,
+            603,
+            902,
+            637
+          ],
+          "bbox_xywh": {
+            "x": 32,
+            "y": 603,
+            "width": 870,
+            "height": 34
+          },
+          "confidence": 0.7,
+          "source": "phase03_layout",
+          "page": 1
+        }
+      ],
+      "tables": [
+        {
+          "table_index": 1,
+          "bbox": {
+            "x": 44,
+            "y": 473,
+            "width": 1079,
+            "height": 91
+          },
+          "rows": [
+            {
+              "row_index": 0,
+              "cells": [
+                {
+                  "row_index": 0,
+                  "column_index": 0,
+                  "text": "দান নম্র",
+                  "confidence": 0.765,
+                  "bbox": {
+                    "x": 45,
+                    "y": 475,
+                    "width": 217,
+                    "height": 44
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 0,
+                  "column_index": 1,
+                  "text": "জমির গ্রেণি",
+                  "confidence": 0.665,
+                  "bbox": {
+                    "x": 262,
+                    "y": 475,
+                    "width": 289,
+                    "height": 44
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 0,
+                  "column_index": 2,
+                  "text": "পরিমাণ (5কর)",
+                  "confidence": 0.43,
+                  "bbox": {
+                    "x": 551,
+                    "y": 475,
+                    "width": 292,
+                    "height": 44
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 0,
+                  "column_index": 3,
+                  "text": "মন্তব্য",
+                  "confidence": 0.83,
+                  "bbox": {
+                    "x": 843,
+                    "y": 475,
+                    "width": 276,
+                    "height": 44
+                  },
+                  "page": 1
+                }
+              ],
+              "bbox": {
+                "x": 45,
+                "y": 475,
+                "width": 1074,
+                "height": 44
+              },
+              "confidence": 0.6725,
+              "page": 1
+            },
+            {
+              "row_index": 1,
+              "cells": [
+                {
+                  "row_index": 1,
+                  "column_index": 0,
+                  "text": "112",
+                  "confidence": 0.95,
+                  "bbox": {
+                    "x": 45,
+                    "y": 519,
+                    "width": 217,
+                    "height": 41
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 1,
+                  "column_index": 1,
+                  "text": "বান্তু",
+                  "confidence": 0.72,
+                  "bbox": {
+                    "x": 262,
+                    "y": 519,
+                    "width": 289,
+                    "height": 41
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 1,
+                  "column_index": 2,
+                  "text": "0.32",
+                  "confidence": 0.94,
+                  "bbox": {
+                    "x": 551,
+                    "y": 519,
+                    "width": 292,
+                    "height": 41
+                  },
+                  "page": 1
+                },
+                {
+                  "row_index": 1,
+                  "column_index": 3,
+                  "text": "",
+                  "confidence": 0.0,
+                  "bbox": {
+                    "x": 843,
+                    "y": 519,
+                    "width": 276,
+                    "height": 41
+                  },
+                  "page": 1
+                }
+              ],
+              "bbox": {
+                "x": 45,
+                "y": 519,
+                "width": 1074,
+                "height": 41
+              },
+              "confidence": 0.87,
+              "page": 1
+            }
+          ],
+          "structure_status": "RESOLVED",
+          "source": "ruling_line_grid",
+          "page": 1
+        }
+      ],
+      "table_structure_status": "RESOLVED",
+      "artifacts": [
+        {
+          "type": "seal",
+          "artifact_type": "seal",
+          "confidence": 0.6,
+          "bbox": {
+            "x": 1009,
+            "y": 34,
+            "width": 96,
+            "height": 95
+          },
+          "page": 1,
+          "source": "phase03_layout"
+        },
+        {
+          "type": "seal",
+          "artifact_type": "seal",
+          "confidence": 0.6,
+          "bbox": {
+            "x": 67,
+            "y": 14,
+            "width": 71,
+            "height": 125
+          },
+          "page": 1,
+          "source": "phase03_layout"
+        }
+      ],
+      "candidate_texts": [],
+      "numeric_tokens": [
+        {
+          "text": "15-07-2023",
+          "confidence": 0.96,
+          "bbox": {
+            "x": 976,
+            "y": 157,
+            "width": 143,
+            "height": 21
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "45",
+          "confidence": 0.95,
+          "bbox": {
+            "x": 259,
+            "y": 356,
+            "width": 31,
+            "height": 21
+          },
+          "page": 1,
+          "region": "FULL_PAGE",
+          "needs_review": false
+        },
+        {
+          "text": "112",
+          "confidence": 0.95,
+          "bbox": {
+            "x": 127,
+            "y": 530,
+            "width": 42,
+            "height": 22
+          },
+          "page": 1,
+          "region": "MAIN_TABLE",
+          "needs_review": false
+        },
+        {
+          "text": "0.32",
+          "confidence": 0.94,
+          "bbox": {
+            "x": 671,
+            "y": 530,
+            "width": 54,
+            "height": 22
+          },
+          "page": 1,
+          "region": "MAIN_TABLE",
+          "needs_review": false
+        },
+        {
+          "text": "12-06-2018",
+          "confidence": 0.94,
+          "bbox": {
+            "x": 287,
+            "y": 611,
+            "width": 148,
+            "height": 22
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": false
+        },
+        {
+          "text": "1023",
+          "confidence": 0.73,
+          "bbox": {
+            "x": 287,
+            "y": 574,
+            "width": 60,
+            "height": 22
+          },
+          "page": 1,
+          "region": "FULL_PAGE",
+          "needs_review": false
+        },
+        {
+          "text": "0০.32",
+          "confidence": 0.69,
+          "bbox": {
+            "x": 260,
+            "y": 393,
+            "width": 55,
+            "height": 22
+          },
+          "page": 1,
+          "region": "FULL_PAGE",
+          "needs_review": false
+        },
+        {
+          "text": "১৮৮",
+          "confidence": 0.66,
+          "bbox": {
+            "x": 221,
+            "y": 318,
+            "width": 84,
+            "height": 22
+          },
+          "page": 1,
+          "region": "FULL_PAGE",
+          "needs_review": false
+        },
+        {
+          "text": "31১৭",
+          "confidence": 0.45,
+          "bbox": {
+            "x": 1015,
+            "y": 86,
+            "width": 88,
+            "height": 42
+          },
+          "page": 1,
+          "region": "METADATA",
+          "needs_review": true
+        }
+      ],
+      "scripts_present": [
+        "Bengali",
+        "Latin"
+      ],
+      "layout_source": "phase03_layout",
+      "table_view_used": true,
+      "ocr": {
+        "text": "রি পশ্চিমবঙ্গ সরকার ল্য |\n&\nপশ্চিমবঙ্গ\n৬\n=!\nকে pids\nভূমির APS (আর.ও.আর)\n31১৭\noe\nভূমি ও ভূমি সংস্কার দপ্তর\nতারিখ : 15-07-2023\nBw - 1\nখডিয়ান নম্বর\nজমির পরিমাণ\nরেকর্ডধারীর নাম : রলেশ চন্দ্র সাল্তা\nজমির ca\nপিল্তা/যামীর নাম : হুরিণদ ser প্রেয়াত)\nমিউটেশন vex\nমিউটেশনের তারিখ : 12-06-2018 এট একটি গপিচ onecers oF গেছন were Greer oe:\nজমির গ্রেণি\nপরিমাণ (5কর)\nদান নম্র\nমন্তব্য\n112\n0.32\nবান্তু\n: ভুমি ও ভূমি ema দপ্তর\nপশ্চিম ACSA\nজেলা : Afra\nব্লক :\nমৌজা : কুষ্ণনণর\nan নম্বর ১৮৮\n: 45\n: 0০.32 একর\n: কুদ্তিতমি\n1023",
+        "word_count": 97,
+        "mean_confidence": 0.6738
+      },
+      "government_document_evidence": {
+        "header_detected": true,
+        "department_detected": true,
+        "government_terminology": [
+          "সরকার"
+        ],
+        "document_title_detected": false,
+        "emblem_region_detected": true,
+        "seal_detected": true,
+        "signature_detected": false,
+        "footer_legal_text_detected": false,
+        "evidence_score": 0.5714,
+        "matched_signals": [
+          "header",
+          "department",
+          "emblem",
+          "seal"
+        ]
+      },
+      "input_path": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000006\\page_001_processed.png"
+    }
+  ],
+  "full_text": "রি পশ্চিমবঙ্গ সরকার ল্য |\n&\nপশ্চিমবঙ্গ\n৬\n=!\nকে pids\nভূমির APS (আর.ও.আর)\n31১৭\noe\nভূমি ও ভূমি সংস্কার দপ্তর\nতারিখ : 15-07-2023\nBw - 1\nখডিয়ান নম্বর\nজমির পরিমাণ\nরেকর্ডধারীর নাম : রলেশ চন্দ্র সাল্তা\nজমির ca\nপিল্তা/যামীর নাম : হুরিণদ ser প্রেয়াত)\nমিউটেশন vex\nমিউটেশনের তারিখ : 12-06-2018 এট একটি গপিচ onecers oF গেছন were Greer oe:\nজমির গ্রেণি\nপরিমাণ (5কর)\nদান নম্র\nমন্তব্য\n112\n0.32\nবান্তু\n: ভুমি ও ভূমি ema দপ্তর\nপশ্চিম ACSA\nজেলা : Afra\nব্লক :\nমৌজা : কুষ্ণনণর\nan নম্বর ১৮৮\n: 45\n: 0০.32 একর\n: কুদ্তিতমি\n1023",
+  "next_phase": "PHASE_07_SEMANTIC_FIELD_EXTRACTION",
+  "timestamps": {
+    "started_at": "2026-09-21T16:44:18.384850"
+  },
+  "processing_time_seconds": 0.0,
+  "metrics": {
+    "mean_confidence": 0.6738,
+    "median_confidence": 0.79,
+    "low_confidence_word_count": 32,
+    "low_confidence_percentage": 32.9897,
+    "total_words": 97,
+    "total_characters": 503,
+    "pages_processed": 1,
+    "pages_failed": 0
+  }
+}

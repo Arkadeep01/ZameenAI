@@ -1,0 +1,62 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-M05-EN",
+  "document_id": "DOC-M05-EN",
+  "language": {
+    "primary": "en",
+    "confidence": 0.99,
+    "alternatives": []
+  },
+  "script": {
+    "primary": "Latin",
+    "confidence": 0.99,
+    "alternatives": []
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.99
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "eng"
+    ],
+    "preferred_language": "English",
+    "script": "Latin",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "ocr_preview",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.95,
+      "sample": "GOVERNMENT OF WEST BENGAL gee) Record of Rights (RoR) Bi Land and Land Reforms Department Date 15-07-2023 District 2 Nagia Block : Krishnanagar -1 Mouza : Krish",
+      "detail": "script_counts={'Latin': 350}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.9,
+      "sample": "GOVERNMENT OF WEST BENGAL gee) Record of Rights (RoR) Bi Land and Land Reforms Department Date 15-07-2023 District 2 Nagia Block : Krishnanagar -1 Mouza : Krish",
+      "detail": "terminology_hits={'en': 12}"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-20T15:18:38.023960",
+    "completed_at": "2026-09-20T15:18:38.025971"
+  },
+  "processing_time_seconds": 0.002,
+  "ingestion_id": "ING-M05-EN",
+  "classification_confidence": 0.0
+}

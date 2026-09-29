@@ -1,0 +1,568 @@
+{
+  "phase": "CONFIDENCE_COMPLETENESS",
+  "status": "REVIEW_REQUIRED",
+  "record_id": "LR-2026-000002~REP-SUB-f59fce756949435b",
+  "document_id": "DOC-REP-SUB-f59fce756949435b",
+  "ingestion_id": "ING-REP-SUB-f59fce756949435b",
+  "document_type": "RECORD_OF_RIGHTS",
+  "confidence": {
+    "overall": 0.8918,
+    "band": "HIGH"
+  },
+  "completeness": {
+    "score": 0.7516,
+    "band": "MEDIUM",
+    "applicable_fields": 25,
+    "present_fields": 15,
+    "missing_fields": 9,
+    "unreadable_fields": 1,
+    "not_applicable_fields": 3,
+    "critical_missing": [],
+    "important_missing": []
+  },
+  "fields": {
+    "owner.name": {
+      "field_name": "owner.name",
+      "value_status": "REQUIRED_BUT_UNREADABLE",
+      "confidence": 0.3,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "owner.father_husband_name": {
+      "field_name": "owner.father_husband_name",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.9007,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.81,
+        "ocr": 0.8262,
+        "evidence": 0.95,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Haripada Saha",
+      "raw_value": "Late Haripada Saha",
+      "method": "DETERMINISTIC",
+      "source_page": 1,
+      "source_label": "Late"
+    },
+    "owner.recorded_tenant": {
+      "field_name": "owner.recorded_tenant",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8043,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.693,
+        "ocr": 0.7069,
+        "evidence": 0.85,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Ramesh Chandra Saha",
+      "raw_value": "Ramesh Chandra Saha",
+      "method": "LABEL_VALUE_NEXT_LINE",
+      "source_page": 1,
+      "source_label": "Name of Recorded Tenant"
+    },
+    "owner.co_owner": {
+      "field_name": "owner.co_owner",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.survey_number": {
+      "field_name": "land.survey_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.khasra_number": {
+      "field_name": "land.khasra_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.plot_number": {
+      "field_name": "land.plot_number",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.896,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.8601,
+        "ocr": 0.8773,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "112",
+      "raw_value": "112",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Plot No."
+    },
+    "land.khata_number": {
+      "field_name": "land.khata_number",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8864,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.8411,
+        "ocr": 0.8579,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "45",
+      "raw_value": "45",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Khaitan:"
+    },
+    "land.area": {
+      "field_name": "land.area",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.9827,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.9578,
+        "ocr": 0.977,
+        "evidence": 1.0,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": 0.32,
+      "raw_value": "0.32",
+      "method": "TABLE_CELL",
+      "source_page": 1,
+      "source_label": "Area (Acre)"
+    },
+    "land.area_unit": {
+      "field_name": "land.area_unit",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.7,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false,
+      "value": "ACRE"
+    },
+    "land.nature_of_land": {
+      "field_name": "land.nature_of_land",
+      "value_status": "CONFLICTING",
+      "confidence": 0.9335,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.9593,
+        "ocr": 0.9785,
+        "evidence": 1.0,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 0.5
+      },
+      "in_conflict": true,
+      "value": "HOMESTEAD",
+      "raw_value": "Bastu",
+      "method": "TABLE_CELL",
+      "source_page": 1,
+      "source_label": "Classification",
+      "conflict_alternatives": [
+        {
+          "field": "land.nature_of_land",
+          "value": "AGRICULTURAL",
+          "confidence": 0.8449
+        }
+      ]
+    },
+    "land.land_type": {
+      "field_name": "land.land_type",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.state": {
+      "field_name": "location.state",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.9007,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.81,
+        "ocr": 0.8262,
+        "evidence": 0.95,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "West Bengal",
+      "raw_value": "WEST BENGAL",
+      "method": "DETERMINISTIC",
+      "source_page": 1,
+      "source_label": "State"
+    },
+    "location.district": {
+      "field_name": "location.district",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8963,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.8607,
+        "ocr": 0.8779,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Nadia",
+      "raw_value": "Nadia",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "District:"
+    },
+    "location.block": {
+      "field_name": "location.block",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8953,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.8588,
+        "ocr": 0.876,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Krishnanagar",
+      "raw_value": "Krishnanagar",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Block:"
+    },
+    "location.tehsil": {
+      "field_name": "location.tehsil",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.mouza": {
+      "field_name": "location.mouza",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8953,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.8588,
+        "ocr": 0.876,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Krishnanagar",
+      "raw_value": "Krishnanagar",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Mouza:"
+    },
+    "location.village": {
+      "field_name": "location.village",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.document_title": {
+      "field_name": "document.document_title",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.9007,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.81,
+        "ocr": 0.8262,
+        "evidence": 0.95,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Record of Rights (RoR)",
+      "raw_value": "Record of Rights (RoR)",
+      "method": "DETERMINISTIC",
+      "source_page": 1,
+      "source_label": "Record of Rights"
+    },
+    "document.department": {
+      "field_name": "document.department",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.9098,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.828,
+        "ocr": 0.8446,
+        "evidence": 0.95,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Land and Land Reforms Department",
+      "raw_value": "Land and Land Reforms Department",
+      "method": "DETERMINISTIC",
+      "source_page": 1,
+      "source_label": "Land and Land Reforms Department"
+    },
+    "document.document_date": {
+      "field_name": "document.document_date",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8947,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.8575,
+        "ocr": 0.8747,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "2023-07-15",
+      "raw_value": "15-07-2023",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Date"
+    },
+    "document.map_number": {
+      "field_name": "document.map_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "mutation.mutation_number": {
+      "field_name": "mutation.mutation_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "mutation.mutation_date": {
+      "field_name": "mutation.mutation_date",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.document_number": {
+      "field_name": "registration.document_number",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.registration_date": {
+      "field_name": "registration.registration_date",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.issue_date": {
+      "field_name": "registration.issue_date",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "additional.remarks": {
+      "field_name": "additional.remarks",
+      "value_status": "OPTIONAL_AND_PRESENT",
+      "confidence": 0.9812,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.9547,
+        "ocr": 0.9738,
+        "evidence": 1.0,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "we",
+      "raw_value": "we",
+      "method": "TABLE_CELL",
+      "source_page": 1,
+      "source_label": "Remarks"
+    }
+  },
+  "missing_fields": [
+    "owner.co_owner",
+    "land.survey_number",
+    "land.khasra_number",
+    "land.land_type",
+    "location.tehsil",
+    "location.village",
+    "document.map_number",
+    "mutation.mutation_number",
+    "mutation.mutation_date"
+  ],
+  "unreadable_fields": [
+    "owner.name"
+  ],
+  "conflicting_fields": [
+    "land.nature_of_land"
+  ],
+  "critical_issues": [],
+  "needs_review": true,
+  "next_phase": "PHASE_12_AUTOMATED_VALIDATION",
+  "models": {
+    "indicbart": "DISABLED",
+    "mistral": "UNAVAILABLE"
+  },
+  "timestamps": {
+    "started_at": "2026-09-15T01:59:40.550984",
+    "completed_at": "2026-09-14T20:29:41.963831+00:00"
+  },
+  "processing_time_seconds": 0.0247,
+  "remediation": {
+    "required": false,
+    "reasons": [
+      {
+        "field": "owner.name",
+        "reason": "UNREADABLE_FIELD",
+        "message": "Label for 'owner.name' found in document but value could not be read."
+      },
+      {
+        "field": "land.nature_of_land",
+        "reason": "CONFLICTING_VALUES",
+        "message": "Multiple values proposed for 'land.nature_of_land'; human review required.",
+        "page": 1
+      }
+    ]
+  }
+}

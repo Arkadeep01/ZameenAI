@@ -1,0 +1,168 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "REJECTED",
+  "record_id": "LR-TINY-001",
+  "document_id": "DOC-TINY-001",
+  "ingestion_id": "tiny_test",
+  "pages_processed": 1,
+  "strategy": "LOW_QUALITY_RESTORATION",
+  "decision": "REJECT",
+  "preprocessing_mode": "NONE",
+  "quality_score": null,
+  "quality_source": "phase02",
+  "operations_applied": [],
+  "operations_skipped": [
+    "UPSCALE",
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [
+    "LOW_RESOLUTION"
+  ],
+  "upscaled": false,
+  "scale_factor": 1.0,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "REJECTED",
+      "strategy": "LOW_QUALITY_RESTORATION",
+      "decision": "REJECT",
+      "preprocessing_mode": "NONE",
+      "quality_score": null,
+      "quality_source": "phase02",
+      "rejection_reasons": [
+        "LOW_RESOLUTION"
+      ],
+      "upscaled": false,
+      "scale_factor": 1.0,
+      "original_dimensions": {
+        "width": 80,
+        "height": 60
+      },
+      "processed_dimensions": {
+        "width": 80,
+        "height": 60
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=REJECT score=None reasons=LOW_RESOLUTION",
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": false,
+          "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+        }
+      ],
+      "regions_detected": [],
+      "metrics_before": {
+        "sharpness_normalized": 0.8532,
+        "contrast_normalized": 0.9608,
+        "brightness_normalized": 0.9549,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 3655.46,
+        "width": 80,
+        "height": 60
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.8532,
+        "contrast_normalized": 0.9608,
+        "brightness_normalized": 0.9549,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 3655.46,
+        "width": 80,
+        "height": 60
+      },
+      "output_files": {
+        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-TINY-001\\page_001_original.png",
+        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-TINY-001\\before\\page_001.png"
+      },
+      "derivatives": {},
+      "selected_derivative": null,
+      "improvement_score": 0.0,
+      "processing_improvement_sufficient": false,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.0,
+      "readability_after": 0.0,
+      "candidate_evaluations": [],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=REJECT score=None reasons=LOW_RESOLUTION",
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": false,
+      "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "not attempted: page rejected (LOW_RESOLUTION)"
+    }
+  ],
+  "regions_detected": [],
+  "next_phase": null,
+  "timestamps": {
+    "started_at": "2026-09-29T05:48:35.784036",
+    "completed_at": "2026-09-29T05:48:35.838014"
+  },
+  "source_checksum": "3d2f2e4ad1bec4a4940005be91b07a04f37fdb13c3eb39e8703e260d99d02e75",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-TINY-001"
+}

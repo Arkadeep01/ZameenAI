@@ -1,0 +1,186 @@
+{
+  "phase": "HITL_1_VERIFICATION",
+  "status": "READY_FOR_HITL",
+  "hitl1_id": "HITL1-20260922-dfd77d0597",
+  "record_id": "LR-2026-000002",
+  "document_id": "DOC-2026-000002",
+  "ingestion_id": "ING-2026-000002",
+  "validation_run_id": "VLD-20260922-a3fa84f651",
+  "stage_id": "ADP-20260922-63367f367d",
+  "field_snapshot": {
+    "owner.name": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_UNREADABLE"
+    },
+    "owner.father_husband_name": {
+      "value": "Haripada Saha",
+      "raw_value": "Late Haripada Saha",
+      "value_status": "CONFLICTING"
+    },
+    "owner.recorded_tenant": {
+      "value": "Ramesh Chandra Saha",
+      "raw_value": "Ramesh Chandra Saha",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "owner.co_owner": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.survey_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.khasra_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.plot_number": {
+      "value": "112",
+      "raw_value": "112",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "land.khata_number": {
+      "value": "45",
+      "raw_value": "45",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "land.area": {
+      "value": 0.32,
+      "raw_value": "0.32",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "land.area_unit": {
+      "value": "ACRE",
+      "raw_value": null,
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "land.nature_of_land": {
+      "value": "HOMESTEAD",
+      "raw_value": "Bastu",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "land.land_type": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "location.state": {
+      "value": "West Bengal",
+      "raw_value": "WEST BENGAL",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "location.district": {
+      "value": "Nadia",
+      "raw_value": "Nadia",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "location.block": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_UNREADABLE"
+    },
+    "location.tehsil": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "location.mouza": {
+      "value": "Krishnanagar",
+      "raw_value": "Krishnanagar",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "location.village": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "document.document_title": {
+      "value": "Record of Rights (RoR)",
+      "raw_value": "Record of Rights (RoR)",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "document.department": {
+      "value": "Land and Land Reforms Department",
+      "raw_value": "Land and Land Reforms Department",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "document.document_date": {
+      "value": "2023-07-15",
+      "raw_value": "15-07-2023",
+      "value_status": "REQUIRED_AND_PRESENT"
+    },
+    "document.map_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "mutation.mutation_number": {
+      "value": "1023",
+      "raw_value": "1023",
+      "value_status": "OPTIONAL_AND_PRESENT"
+    },
+    "mutation.mutation_date": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "registration.document_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "NOT_APPLICABLE"
+    },
+    "registration.registration_date": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "NOT_APPLICABLE"
+    },
+    "registration.issue_date": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "NOT_APPLICABLE"
+    },
+    "additional.remarks": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    }
+  },
+  "flagged_fields": [
+    "location.block",
+    "owner.father_husband_name",
+    "owner.name"
+  ],
+  "field_reviews": {},
+  "notes": [],
+  "history": [
+    {
+      "from": "",
+      "to": "READY_FOR_HITL",
+      "by": "pipeline",
+      "at": "2026-09-22T02:09:25.394985+00:00",
+      "reason": "opened from validation run VLD-20260922-a3fa84f651"
+    }
+  ],
+  "evidence": {
+    "validation_decision": "VALIDATION_FAILED",
+    "validation_summary": {
+      "total_checks": 30,
+      "passed": 16,
+      "warning": 2,
+      "error": 3,
+      "critical": 0,
+      "not_applicable": 3
+    },
+    "duplicate_status": "SUSPECTED",
+    "anomaly_count": 4,
+    "phase08_status": "REVIEW_REQUIRED"
+  },
+  "timestamps": {
+    "started_at": "2026-09-22T02:09:25.394985+00:00",
+    "opened_at": "2026-09-22T02:09:25.394985+00:00"
+  }
+}

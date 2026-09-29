@@ -1,0 +1,107 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-2026-000003",
+  "document_id": "DOC-2026-000003",
+  "language": {
+    "primary": "hi",
+    "confidence": 0.9288,
+    "alternatives": [
+      {
+        "language": "en",
+        "confidence": 0.5441
+      },
+      {
+        "language": "bn",
+        "confidence": 0.5171
+      }
+    ]
+  },
+  "script": {
+    "primary": "Devanagari",
+    "confidence": 0.9288,
+    "alternatives": [
+      {
+        "script": "Latin",
+        "confidence": 0.5441
+      },
+      {
+        "script": "Bengali",
+        "confidence": 0.5171
+      }
+    ]
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.9288
+    },
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.5441
+    },
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.5171
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "hin"
+    ],
+    "preferred_language": "Hindi",
+    "script": "Devanagari",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.9288,
+      "sample": "page_001_original.png",
+      "detail": "image_located size=445x349 preview=provisional_ocr[eng+hin+ben] fused=hi/Devanagari"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.8888,
+      "sample": "& उत्तर प्रदेश सरकार a NY by) भू-आलेख (खसरा/खतौनी) ia दिनॉक : 18-03-2021 जनपद :. लखनऊ तहसील 2. सरोजिनी नगर जाम : भढ़ठ्या warden .. : 256 खतौनी संख्या. : 78 भूमि",
+      "detail": "script_counts={'Devanagari': 273, 'Latin': 31, 'Bengali': 12}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.75,
+      "sample": "& उत्तर प्रदेश सरकार a NY by) भू-आलेख (खसरा/खतौनी) ia दिनॉक : 18-03-2021 जनपद :. लखनऊ तहसील 2. सरोजिनी नगर जाम : भढ़ठ्या warden .. : 256 खतौनी संख्या. : 78 भूमि",
+      "detail": "terminology_hits={'hi': 4}"
+    },
+    {
+      "source": "classification_context",
+      "language": "und",
+      "script": "Unknown",
+      "confidence": 0.0,
+      "sample": "UNKNOWN",
+      "detail": "zero_weight_context_only"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-13T17:12:40.344026",
+    "completed_at": "2026-09-13T17:12:42.779723"
+  },
+  "processing_time_seconds": 2.4357,
+  "ingestion_id": "ING-2026-000003",
+  "document_type": "UNKNOWN",
+  "classification_confidence": 0.0
+}

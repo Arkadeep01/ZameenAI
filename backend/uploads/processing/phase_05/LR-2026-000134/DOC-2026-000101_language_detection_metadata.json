@@ -1,0 +1,13 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "record_id": "LR-2026-000134",
+  "document_id": "DOC-2026-000101",
+  "image_path": "D:\\Land Digitization\\uploads\\originals\\ING-2026-000143.png",
+  "detection_status": "DETECTED",
+  "providers": [
+    "local_script_detector"
+  ],
+  "gemini_live_translate_model": "gemini-3.5-live-translate-preview",
+  "gemini_live_translate_note": "Audio-only modality; NOT_APPLICABLE_FOR_DOCUMENT_INPUT — never invoked with document images.",
+  "saved_at": "2026-09-23T18:55:47.958035"
+}

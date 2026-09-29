@@ -1,0 +1,107 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "DETECTED",
+  "record_id": "LR-2026-000006",
+  "document_id": "DOC-2026-000006",
+  "language": {
+    "primary": "bn",
+    "confidence": 0.9403,
+    "alternatives": [
+      {
+        "language": "en",
+        "confidence": 0.535
+      },
+      {
+        "language": "hi",
+        "confidence": 0.5248
+      }
+    ]
+  },
+  "script": {
+    "primary": "Bengali",
+    "confidence": 0.9403,
+    "alternatives": [
+      {
+        "script": "Latin",
+        "confidence": 0.535
+      },
+      {
+        "script": "Devanagari",
+        "confidence": 0.5248
+      }
+    ]
+  },
+  "multilingual": false,
+  "detected_languages": [
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.9403
+    },
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.535
+    },
+    {
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.5248
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "ben"
+    ],
+    "preferred_language": "Bengali",
+    "script": "Bengali",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.9403,
+      "sample": "page_001_original.png",
+      "detail": "image_located size=463x261 preview=provisional_ocr[eng+hin+ben] fused=bn/Bengali"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.8903,
+      "sample": "পশ্চিমবঙ্গ সরকার ঝর ভূমির রেকর্ড (আর.ও.আর) নর ভূমি ও ভূমি সংস্কার দপ্তর তারিখ : 15-07-2023 জেলা नमिया লক : কৃষ্ণনগর - 1 oan : কৃষ্ণনগর দাগ নম্বর 12 बहियान ন্বর ",
+      "detail": "script_counts={'Bengali': 268, 'Devanagari': 17, 'Latin': 24}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.85,
+      "sample": "পশ্চিমবঙ্গ সরকার ঝর ভূমির রেকর্ড (আর.ও.আর) নর ভূমি ও ভূমি সংস্কার দপ্তর তারিখ : 15-07-2023 জেলা नमिया লক : কৃষ্ণনগর - 1 oan : কৃষ্ণনগর দাগ নম্বর 12 बहियान ন্বর ",
+      "detail": "terminology_hits={'bn': 6}"
+    },
+    {
+      "source": "classification_context",
+      "language": "und",
+      "script": "Unknown",
+      "confidence": 0.0,
+      "sample": "MUTATION_RECORD",
+      "detail": "zero_weight_context_only"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-21T16:44:15.596885",
+    "completed_at": "2026-09-21T16:44:18.314932"
+  },
+  "processing_time_seconds": 2.718,
+  "ingestion_id": "ING-2026-000006",
+  "document_type": "MUTATION_RECORD",
+  "classification_confidence": 0.0
+}

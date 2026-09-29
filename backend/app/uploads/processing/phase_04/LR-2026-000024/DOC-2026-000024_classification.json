@@ -1,0 +1,20 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-2026-000024",
+  "document_id": "DOC-2026-000024",
+  "ingestion_id": "ING-2026-000024",
+  "predicted_document_type": "LAND_RECORD",
+  "confidence": 1.0,
+  "classification_status": "HIGH_CONFIDENCE",
+  "evidence": [
+    "LAND RECORD",
+    "LAND RECORD DOCUMENT"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-20T16:23:09.597122",
+    "completed_at": "2026-09-20T16:23:09.597122"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

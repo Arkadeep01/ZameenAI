@@ -1,0 +1,182 @@
+{
+  "phase": "HITL_1_VERIFICATION",
+  "status": "READY_FOR_HITL",
+  "hitl1_id": "HITL1-20260921-6312e02d90",
+  "record_id": "LR-2026-000005",
+  "document_id": "DOC-2026-000005",
+  "ingestion_id": "ING-2026-000005",
+  "validation_run_id": "VLD-20260921-c92b8edea9",
+  "stage_id": "ADP-20260921-472b2a2935",
+  "field_snapshot": {
+    "owner.name": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_MISSING"
+    },
+    "owner.father_husband_name": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "owner.recorded_tenant": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "owner.co_owner": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.survey_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.khasra_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.plot_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.khata_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.area": {
+      "value": 0.25,
+      "raw_value": "0.250",
+      "value_status": "OPTIONAL_AND_PRESENT"
+    },
+    "land.area_unit": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.nature_of_land": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "land.land_type": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "location.state": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_MISSING"
+    },
+    "location.district": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_MISSING"
+    },
+    "location.block": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "location.tehsil": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "location.mouza": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "location.village": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "document.document_title": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_MISSING"
+    },
+    "document.department": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "document.document_date": {
+      "value": "8-03-202",
+      "raw_value": "8-03-202",
+      "value_status": "OPTIONAL_AND_PRESENT"
+    },
+    "document.map_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "OPTIONAL_AND_MISSING"
+    },
+    "mutation.mutation_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_MISSING"
+    },
+    "mutation.mutation_date": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "REQUIRED_BUT_MISSING"
+    },
+    "registration.document_number": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "NOT_APPLICABLE"
+    },
+    "registration.registration_date": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "NOT_APPLICABLE"
+    },
+    "registration.issue_date": {
+      "value": null,
+      "raw_value": null,
+      "value_status": "NOT_APPLICABLE"
+    },
+    "additional.remarks": {
+      "value": "लिसनणलावाओा",
+      "raw_value": "लिसनणलावाओा",
+      "value_status": "OPTIONAL_AND_PRESENT"
+    }
+  },
+  "flagged_fields": [],
+  "field_reviews": {},
+  "notes": [],
+  "history": [
+    {
+      "from": "",
+      "to": "READY_FOR_HITL",
+      "by": "acceptance",
+      "at": "2026-09-21T11:14:11.892472+00:00",
+      "reason": "opened from validation run VLD-20260921-c92b8edea9"
+    }
+  ],
+  "evidence": {
+    "validation_decision": "VALIDATION_FAILED",
+    "validation_summary": {
+      "total_checks": 29,
+      "passed": 5,
+      "warning": 3,
+      "error": 4,
+      "critical": 1,
+      "not_applicable": 3
+    },
+    "duplicate_status": "CLEAR",
+    "anomaly_count": 0,
+    "phase08_status": "REMEDIATION_REQUIRED"
+  },
+  "timestamps": {
+    "started_at": "2026-09-21T11:14:11.890472+00:00",
+    "opened_at": "2026-09-21T11:14:11.890472+00:00"
+  }
+}
