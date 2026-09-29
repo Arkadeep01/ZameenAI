@@ -30,7 +30,7 @@ class ResubmissionService:
         originals_dir: Optional[Path] = None,
         phase09_service: Optional[Any] = None,
     ) -> None:
-        from src.phase09_uploader_remediation import UploaderRemediationService
+        from ..remediation.service import UploaderRemediationService
 
         self.storage_dir = storage_dir or PHASE_10_STORAGE_DIR
         self.storage_dir.mkdir(parents=True, exist_ok=True)
@@ -118,11 +118,7 @@ class ResubmissionService:
         Returns dict with mime_type/page_count on success or None on failure
         coupled with an error_code via the caller's re-check.
         """
-        from src.phase01_ingestion import (
-            FileValidator,
-            PDFValidator,
-            ImageValidator,
-        )
+        from ..ingestion.validators import FileValidator, PDFValidator, ImageValidator
 
         ext = Path(filename).suffix.lower()
         if ext not in SUPPORTED_UPLOAD_EXTENSIONS:

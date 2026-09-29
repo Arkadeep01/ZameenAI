@@ -25,28 +25,13 @@ from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase03_ai_document_preprocessing import (
-    ALL_OPERATIONS,
-    CLEAR_THRESHOLD,
-    MODERATE_THRESHOLD,
-    MAX_SCALE,
-    TARGET_WIDTH,
-    AIDocumentPreprocessingService,
-    ImageMetricsCalculator,
-    ImageProcessor,
-    LayoutAndRegionDetector,
-    LowQualityRestorationPipeline,
-    PageDecision,
-    PreprocessingDecisionEngine,
-    PreprocessingMode,
-    PreprocessingResult,
-    PreprocessingStatus,
-    PageDimensions,
-    PageMetrics,
-    OperationResult,
-    RejectionReason,
-    SUPPORTED_EXTENSIONS,
-)
+from app.ocr.preprocessing.ai_models import ALL_OPERATIONS, CLEAR_THRESHOLD, MODERATE_THRESHOLD, MAX_SCALE, TARGET_WIDTH, PageDecision, PreprocessingMode, PreprocessingResult, PreprocessingStatus, PageDimensions, PageMetrics, OperationResult, RejectionReason, SUPPORTED_EXTENSIONS
+from app.ocr.preprocessing.ai_service import AIDocumentPreprocessingService
+from app.ocr.preprocessing.metrics import ImageMetricsCalculator
+from app.ocr.preprocessing.image_ops import ImageProcessor
+from app.ocr.preprocessing.layout import LayoutAndRegionDetector
+from app.ocr.preprocessing.restoration import LowQualityRestorationPipeline
+from app.ocr.preprocessing.decision import PreprocessingDecisionEngine
 
 
 SAMPLES_DIR = Path("uploads/samples")
@@ -569,7 +554,7 @@ class TestAIDocumentPreprocessingService:
 
     def test_phase03_to_phase04_handoff(self):
         """Accepted output feeds Phase 04 classification (regions + IDs)."""
-        from src.phase04_document_classification import DocumentClassificationService
+        from app.ocr.classification.service import DocumentClassificationService
         self._save_png("handoff_test.png", self._text_image())
         result = self.service.preprocess_document(
             record_id="LR-HO-001", document_id="DOC-HO-001",
@@ -632,7 +617,7 @@ class TestRealSampleValidation:
         shutil.rmtree(self.temp_dir, ignore_errors=True)
 
     def _run_sample(self, source_name, target_id):
-        from src.phase02_quality_check import DocumentQualityCheckService
+        from app.ocr.quality.service import DocumentQualityCheckService
         source = SAMPLES_DIR / source_name
         if not source.exists():
             pytest.skip(f"Sample {source_name} not found")

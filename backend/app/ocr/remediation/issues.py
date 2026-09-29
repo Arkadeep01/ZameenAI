@@ -60,7 +60,7 @@ def _new_id(prefix: str) -> str:
 
 def _field_priority_level(field_name: str) -> str:
     try:
-        from src.phase08_confidence_completeness import FIELD_PRIORITY as _P08_FIELD_PRIORITY
+        from ..confidence.models import FIELD_PRIORITY as _P08_FIELD_PRIORITY
     except ImportError:
         return "OPTIONAL"
     for label, cfg in _P08_FIELD_PRIORITY.items():

@@ -18,12 +18,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase11_hitl_verification import (
-    FieldReviewAction,
-    Hitl1Status,
-    Hitl1Service,
-    get_hitl1_service,
-)
+from app.ocr.hitl.models import FieldReviewAction, Hitl1Status
+from app.ocr.hitl.service import Hitl1Service, get_hitl1_service
 
 
 def _svc(tmp_path=None):

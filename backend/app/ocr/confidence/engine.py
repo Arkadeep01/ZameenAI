@@ -22,7 +22,7 @@ def _field_priority(field_name: str) -> Tuple[str, float]:
 
 def _field_aliases(field_name: str) -> List[str]:
     try:
-        from src.phase07_semantic_field_extraction import LABEL_ALIASES, MULTILINGUAL_ALIASES
+        from ..extraction.terminology import LABEL_ALIASES, MULTILINGUAL_ALIASES
     except ImportError:
         return []
     aliases = []
@@ -290,7 +290,7 @@ class ConfidenceCompletenessEngine:
         ocr_text: str = "",
     ) -> ConfidenceCompletenessResult:
         try:
-            from src.phase07_semantic_field_extraction import FIELD_APPLICABILITY, ALL_CANONICAL_FIELDS
+            from ..extraction.terminology import FIELD_APPLICABILITY, ALL_CANONICAL_FIELDS
         except ImportError as exc:
             return ConfidenceCompletenessResult(
                 record_id=record_id,

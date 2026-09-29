@@ -14,35 +14,11 @@ import pytest
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase07_semantic_field_extraction import (
-    SemanticExtractionService,
-    SemanticExtractor,
-    LandRecordExtractor,
-    ExtractionStatus,
-    FieldStatus,
-    ExtractionMethod,
-    ExtractionResult,
-    ExtractedRecord,
-    FieldMetadata,
-    BoundingBox,
-    ExtractionSource,
-    normalize_label,
-    normalize_date,
-    normalize_area,
-    normalize_nature_of_land,
-    normalize_name,
-    extract_number,
-    is_valid_date_candidate,
-    is_reasonable_person_name,
-    is_reasonable_numeric_field,
-    is_reasonable_location,
-    is_reasonable_document_title,
-    is_reasonable_area_value,
-    LABEL_ALIASES,
-    PHASE_07_STORAGE_DIR,
-    OCRWord,
-    OCRRow,
-)
+from app.ocr.extraction.pipeline import SemanticExtractionService, LandRecordExtractor
+from app.ocr.extraction.evidence import SemanticExtractor, OCRWord, OCRRow
+from app.ocr.extraction.models import ExtractionStatus, FieldStatus, ExtractionMethod, ExtractionResult, ExtractedRecord, FieldMetadata, BoundingBox, ExtractionSource, PHASE_07_STORAGE_DIR
+from app.ocr.extraction.terminology import normalize_label, LABEL_ALIASES
+from app.ocr.extraction.normalization import normalize_date, normalize_area, normalize_nature_of_land, normalize_name, extract_number, is_valid_date_candidate, is_reasonable_person_name, is_reasonable_numeric_field, is_reasonable_location, is_reasonable_document_title, is_reasonable_area_value
 
 
 class TestNormalization:

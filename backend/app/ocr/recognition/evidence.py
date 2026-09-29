@@ -94,7 +94,7 @@ def numeric_tokens(words: List[OCRWord]) -> List[NumericToken]:
 def scripts_present(words: List[OCRWord]) -> List[str]:
     """Distinct scripts observed in page words (evidence, no translation)."""
     try:
-        from src.phase05_language_and_script_detection import count_scripts
+        from ..language.script_detection import count_scripts
         counts = count_scripts(" ".join(w.text for w in words))
         return sorted(counts)
     except Exception:

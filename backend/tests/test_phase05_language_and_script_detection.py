@@ -25,19 +25,10 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase05_language_and_script_detection import (
-    GEMINI_LIVE_TRANSLATE_MODEL,
-    DetectionStatus,
-    APIStatus,
-    GeminiDocumentLanguageProvider,
-    GeminiLiveTranslateProvider,
-    LanguageAndScriptDetectionService,
-    LanguageDetectionResult,
-    LocalScriptDetector,
-    build_ocr_routing,
-    count_scripts,
-    fuse_evidence,
-)
+from app.ocr.language.lang_models import GEMINI_LIVE_TRANSLATE_MODEL, DetectionStatus, APIStatus, LanguageDetectionResult
+from app.ocr.language.providers import GeminiDocumentLanguageProvider, GeminiLiveTranslateProvider, LocalScriptDetector
+from app.ocr.language.lang_service import LanguageAndScriptDetectionService
+from app.ocr.language.script_detection import build_ocr_routing, count_scripts, fuse_evidence
 
 
 # ---------------------------------------------------------------------------
@@ -529,7 +520,8 @@ ENHANCED_SAMPLE = SAMPLES_DIR / "test sample english enhanced.png"
 
 
 def _run_ingest_then_detect(sample_path: Path):
-    from src.phase01_ingestion import DocumentIngestionService, IngestionStatus
+    from app.ocr.ingestion.service import DocumentIngestionService
+    from app.ocr.ingestion.models import IngestionStatus
 
     data = sample_path.read_bytes()
     ingestion = DocumentIngestionService()

@@ -19,8 +19,8 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase01_ingestion import DocumentIngestionService
-from src.phase02_quality_check import DocumentQualityCheckService
+from app.ocr.ingestion.service import DocumentIngestionService
+from app.ocr.quality.service import DocumentQualityCheckService
 
 
 class TestPhase01ToPhase02Chain:

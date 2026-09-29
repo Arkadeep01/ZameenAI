@@ -55,7 +55,7 @@ def run_surya_local(
     cmd = [
         probe["python"],
         "-m",
-        "src.phase06_surya_local",
+        "app.ocr.core.surya_runner",
         "recognize",
         "--image",
         str(image_path),

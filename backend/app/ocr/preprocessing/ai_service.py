@@ -690,7 +690,7 @@ class AIDocumentPreprocessingService:
         """
         if quality_result is None:
             try:
-                from src.phase02_quality_check import DocumentQualityCheckService
+                from ..quality.service import DocumentQualityCheckService
                 service = DocumentQualityCheckService(storage_dir=self.storage_dir)
                 return service.check_quality(record_id, document_id, ingestion_id).to_dict()
             except Exception as exc:

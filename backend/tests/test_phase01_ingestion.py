@@ -27,19 +27,10 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase01_ingestion import (
-    DocumentIngestionService,
-    IngestionStatus,
-    ErrorCode,
-    IDGenerator,
-    FileValidator,
-    PDFValidator,
-    ImageValidator,
-    ChecksumGenerator,
-    SUPPORTED_EXTENSIONS,
-    MAX_UPLOAD_SIZE_BYTES,
-    reset_ingestion_service,
-)
+from app.ocr.ingestion.service import DocumentIngestionService, reset_ingestion_service
+from app.ocr.ingestion.models import IngestionStatus, ErrorCode, SUPPORTED_EXTENSIONS, MAX_UPLOAD_SIZE_BYTES
+from app.ocr.ingestion.ids import IDGenerator
+from app.ocr.ingestion.validators import FileValidator, PDFValidator, ImageValidator, ChecksumGenerator
 
 
 class TestFileValidator:

@@ -22,16 +22,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
 
-from src.phase08_confidence_completeness import (
-    ConfidenceCompletenessEngine,
-    ConfidenceCompletenessService,
-    RecordStatus,
-    FieldValueStatus,
-    ConfidenceBand,
-    RemediationReason,
-    CONFIDENCE_WEIGHTS,
-    FIELD_PRIORITY,
-)
+from app.ocr.confidence.engine import ConfidenceCompletenessEngine
+from app.ocr.confidence.service import ConfidenceCompletenessService
+from app.ocr.confidence.models import RecordStatus, FieldValueStatus, ConfidenceBand, RemediationReason, CONFIDENCE_WEIGHTS, FIELD_PRIORITY
 
 
 # ---------------------------------------------------------------------------

@@ -373,9 +373,7 @@ def anomaly_duplicate_stage():
     standalone on the Phase 08 assessment (record_id/document_id/
     ingestion_id). Never fabricates; failures are explicit.
     """
-    from src.phase10_anomaly_duplicate_detection import (
-        get_anomaly_duplicate_stage_service,
-    )
+    from ..anomaly.stage import get_anomaly_duplicate_stage_service
 
     data = request.get_json(silent=True)
 
@@ -406,9 +404,7 @@ def anomaly_duplicate_stage():
 @app.route("/api/digitization/anomaly-duplicate/<stage_id>", methods=["GET"])
 def get_anomaly_duplicate_stage(stage_id):
     """Phase 10 - Fetch an anomaly/duplicate stage record by id."""
-    from src.phase10_anomaly_duplicate_detection import (
-        get_anomaly_duplicate_stage_service,
-    )
+    from ..anomaly.stage import get_anomaly_duplicate_stage_service
 
     service = get_anomaly_duplicate_stage_service()
     result = service.get_stage(stage_id)
@@ -424,7 +420,7 @@ def get_anomaly_duplicate_stage(stage_id):
 @app.route("/api/digitization/hitl-1/open", methods=["POST"])
 def hitl1_open():
     """Phase 11 - Open an HITL-1 verification session from a validation run."""
-    from src.phase11_hitl_verification import get_hitl1_service
+    from ..hitl.service import get_hitl1_service
 
     data = request.get_json(silent=True)
 
@@ -454,7 +450,7 @@ def hitl1_open():
 @app.route("/api/digitization/hitl-1/<hitl1_id>", methods=["GET"])
 def hitl1_get(hitl1_id):
     """Phase 11 - Fetch an HITL-1 session by id."""
-    from src.phase11_hitl_verification import get_hitl1_service
+    from ..hitl.service import get_hitl1_service
 
     service = get_hitl1_service()
     result = service.get_session(hitl1_id)
@@ -470,7 +466,7 @@ def hitl1_get(hitl1_id):
 @app.route("/api/digitization/hitl-1/<hitl1_id>/review-field", methods=["POST"])
 def hitl1_review_field(hitl1_id):
     """Phase 11 - Record one field review (VERIFY/CORRECT/UNRESOLVED)."""
-    from src.phase11_hitl_verification import get_hitl1_service
+    from ..hitl.service import get_hitl1_service
 
     data = request.get_json(silent=True)
 
@@ -509,7 +505,7 @@ def hitl1_submit(hitl1_id):
     VERIFIED requires all flagged fields dispositioned; CORRECTION_REQUIRED
     and REJECTED require a reason.
     """
-    from src.phase11_hitl_verification import get_hitl1_service
+    from ..hitl.service import get_hitl1_service
 
     data = request.get_json(silent=True)
 

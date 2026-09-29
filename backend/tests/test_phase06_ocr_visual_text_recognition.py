@@ -19,33 +19,14 @@ import pytest
 from PIL import Image, ImageDraw, ImageFont
 from unittest.mock import patch, MagicMock
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
-
-from src.phase06_ocr_visual_text_recognition import (
-    OCRService,
-    OCRResult,
-    OCRStatus,
-    OCRBoundingBox,
-    OCRWord,
-    OCRLine,
-    PageOCRResult,
-    OCRMetrics,
-    ArtifactDetection,
-    DocumentRegion,
-    GovernmentEvidence,
-    build_lines,
-    detect_artifacts,
-    surya_layout,
-    perform_ocr,
-)
-from src.phase05_ocr_configuration import (
-    OCRConfigurationService,
-    ConfigurationStatus,
-    REGION_PSM,
-    TESSERACT_LANG_MAP,
-    read_roboflow_model_id,
-    resolve_ocr_languages,
-)
+from app.ocr.recognition.service import OCRService, perform_ocr
+from app.ocr.recognition.models import OCRResult, OCRStatus, OCRBoundingBox, OCRWord, OCRLine, PageOCRResult, OCRMetrics, ArtifactDetection, DocumentRegion, GovernmentEvidence
+from app.ocr.recognition.words import build_lines
+from app.ocr.recognition.artifacts import detect_artifacts
+from app.ocr.recognition.layout import surya_layout
+from app.ocr.ocr_config.service import OCRConfigurationService
+from app.ocr.ocr_config.models import ConfigurationStatus, REGION_PSM, TESSERACT_LANG_MAP
+from app.ocr.ocr_config.probes import read_roboflow_model_id, resolve_ocr_languages
 
 
 def _text_image(lines=None, size=(700, 1000), font_size=40,
@@ -596,10 +577,7 @@ class TestRoboflowIntegration:
     """9-11. Existing Roboflow module reused; fallbacks never crash OCR."""
 
     def test_09_uses_existing_module_model(self):
-        from src.phase05_ocr_configuration import (
-            ROBOFLOW_MODEL_ID,
-            ROBOFLOW_API_URL,
-        )
+        from app.ocr.ocr_config.models import ROBOFLOW_MODEL_ID, ROBOFLOW_API_URL
         model_id, api_url = read_roboflow_model_id()
         assert model_id == ROBOFLOW_MODEL_ID
         assert api_url == ROBOFLOW_API_URL
@@ -701,7 +679,7 @@ class TestHandoffMultilingualQRPreservation:
     """16-20. Handoff compat, multilingual honesty, QR deferral, preservation."""
 
     def test_16_phase06_to_phase07_handoff(self, service, workdir):
-        from src.phase07_semantic_field_extraction import SemanticExtractor
+        from app.ocr.extraction.evidence import SemanticExtractor
         img_path = workdir / "handoff.png"
         _text_image(["Khatian No 45 Plot No 112"]).save(img_path)
         result = service.perform_ocr(
@@ -765,9 +743,11 @@ class TestHandoffMultilingualQRPreservation:
         assert cfg_pkg.is_dir()
         assert {p.name for p in cfg_pkg.glob("*.py")} == {
             "__init__.py", "models.py", "probes.py", "service.py"}
-        assert not list(ocr.glob("phase06_ocr_configuration.py"))
-        assert (ocr / "phase05_ocr_configuration.py").is_file()
-        assert (ocr / "phase06_ocr_visual_text_recognition.py").is_file()
+        # Migrated phase facades removed: responsibility packages are the
+        # only implementation (no phaseXX_*.py in the final architecture).
+        assert not list(ocr.glob("phase*.py"))
+        assert (ocr / "ocr_config" / "service.py").is_file()
+        assert (ocr / "recognition" / "service.py").is_file()
         # Single Tesseract engine implementation.
         engines = [p for p in (ocr / "core").glob("*.py")
                    if "run_real_ocr" in p.read_text(encoding="utf-8")]

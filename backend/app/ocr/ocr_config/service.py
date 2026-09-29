@@ -38,7 +38,7 @@ class OCRConfigurationService:
         Returns:
             The predicted document type or 'UNKNOWN' if not found.
         """
-        from src.phase04_document_classification import CLASSIFICATION_STORAGE_DIR
+        from ..classification.models import CLASSIFICATION_STORAGE_DIR
 
         base_path = storage_path or CLASSIFICATION_STORAGE_DIR
         classification_path = base_path / record_id / f"{document_id}_classification.json"
@@ -64,7 +64,7 @@ class OCRConfigurationService:
         ``page_*_processed.png`` / ``page_*_upscaled.png`` when the decision
         record is absent (older Phase 03 outputs).
         """
-        from src.phase03_ai_document_preprocessing import PROCESSING_STORAGE_DIR
+        from ..preprocessing.ai_models import PROCESSING_STORAGE_DIR
 
         processed_dir = PROCESSING_STORAGE_DIR / record_id
         if not processed_dir.exists():
@@ -101,16 +101,10 @@ class OCRConfigurationService:
         record_id: str,
         ingestion_id: str,
     ) -> Optional[str]:
-        """Get the original document path from Phase 01."""
-        from src import phase01_ingestion
-
-        original_dir = Path(
-            getattr(
-                phase01_ingestion,
-                "INGESTION_STORAGE_DIR",
-                APP_DIR / "uploads" / "ingestion",
-            )
-        )
+        """Get the original document path from the ingestion store."""
+        # INGESTION_STORAGE_DIR was never defined by the ingestion package;
+        # the legacy code always fell back to this default — preserved verbatim.
+        original_dir = APP_DIR / "uploads" / "ingestion"
 
         if not original_dir.exists():
             return None

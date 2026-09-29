@@ -109,7 +109,7 @@ def _read_title_band_text(
 
         from PIL import Image as _PILImage  # type: ignore
 
-        from src.ocr import run_real_ocr as _run_real_ocr
+        from ..core.tesseract_engine import run_real_ocr as _run_real_ocr
 
         for image_path in candidate_paths:
             try:

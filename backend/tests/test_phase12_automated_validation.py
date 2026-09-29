@@ -15,28 +15,13 @@ from pathlib import Path
 
 import pytest
 
-from src.phase09_automated_validation import (
-    NEXT_PHASE,
-    AutomatedValidationEngine,
-    AutomatedValidationService,
-    RuleCategory,
-    ValidationDecision,
-    ValidationErrorCode,
-    ValidationFieldStatus,
-    ValidationRunResult,
-    get_automated_validation_service,
-)
-from src.phase10_anomaly_duplicate_detection import (
-    DuplicateDetectionEngine,
-    DuplicateMatchType,
-    DuplicateStatus,
-    build_record_profile,
-    normalize_identifier,
-    normalize_name,
-    numeric_core,
-    compare_name,
-)
-from src.phase08_confidence_completeness import FieldValueStatus
+from app.ocr.validation.models import NEXT_PHASE, RuleCategory, ValidationDecision, ValidationErrorCode, ValidationFieldStatus, ValidationRunResult
+from app.ocr.validation.engine import AutomatedValidationEngine
+from app.ocr.validation.service import AutomatedValidationService, get_automated_validation_service
+from app.ocr.anomaly.engines import DuplicateDetectionEngine
+from app.ocr.anomaly.models import DuplicateMatchType, DuplicateStatus
+from app.ocr.anomaly.normalize import build_record_profile, normalize_identifier, normalize_name, numeric_core, compare_name
+from app.ocr.confidence.models import FieldValueStatus
 
 
 # ---------------------------------------------------------------------------

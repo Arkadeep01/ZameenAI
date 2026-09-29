@@ -25,7 +25,7 @@ logger = logging.getLogger(__name__)
 def _candidate_image_paths(
     record_id: str, document_id: str, ingestion_id: Optional[str]
 ) -> List[Path]:
-    from src.phase03_ai_document_preprocessing import PROCESSING_STORAGE_DIR
+    from ..preprocessing.ai_models import PROCESSING_STORAGE_DIR
 
     project_root = APP_DIR
     candidates: List[Path] = []
@@ -123,14 +123,14 @@ def _available_tesseract_langs() -> List[str]:
         return ["eng"]
 
 def _provisional_ocr_text(image_path: Path) -> Tuple[str, str]:
-    """Best-effort provisional OCR preview via the SHARED ``src.ocr`` helper.
+    """Best-effort provisional OCR preview via the shared tesseract engine.
 
     This is evidence gathering, not Phase 06 OCR: a short preview string
     used only for script statistics. Returns (text, langs_used).
     """
     try:
         from PIL import Image  # type: ignore
-        from src.ocr import run_real_ocr  # reuse — never duplicate OCR code
+        from ..core.tesseract_engine import run_real_ocr
     except ImportError:
         return "", ""
     try:

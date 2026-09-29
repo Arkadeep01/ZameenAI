@@ -27,22 +27,12 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase11_reprocessing import (
-    ReprocessingService,
-    ReprocessingStatus,
-    ReprocessingDecision,
-    ErrorCategory,
-    ReprocessingErrorCode,
-)
-from src.phase09_uploader_remediation import (
-    UploaderRemediationService,
-    RemediationStatus,
-)
-from src.phase10_resubmission import (
-    ResubmissionService,
-    SubmissionStatus,
-    SubmissionType,
-)
+from app.ocr.reprocessing.service import ReprocessingService
+from app.ocr.reprocessing.models import ReprocessingStatus, ReprocessingDecision, ErrorCategory, ReprocessingErrorCode
+from app.ocr.remediation.service import UploaderRemediationService
+from app.ocr.remediation.models import RemediationStatus
+from app.ocr.resubmission.service import ResubmissionService
+from app.ocr.resubmission.models import SubmissionStatus, SubmissionType
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -292,7 +282,7 @@ class TestEnrollmentAndIdempotency:
         # seed an in-progress run record so the idempotency guard blocks a
         # second enrollment for the same submission
         sub = engine._get_submission_internal(enroll.submission_id)
-        from src.phase11_reprocessing import new_run_record
+        from app.ocr.reprocessing.file_helpers import new_run_record
         run = new_run_record(
             reprocessing_id="REP-INPROGRESS-xx",
             submission=sub,
@@ -939,9 +929,7 @@ class TestRealRoRE2E:
         # --- clean this record's prior E2E artifacts so the chain re-runs
         #     fresh (repeatable); pipeline leaf phases still hit real stores.
         import shutil
-        from src.phase11_reprocessing import (
-            PHASE_09_STORAGE_DIR, PHASE_10_STORAGE_DIR, PHASE_11_STORAGE_DIR,
-        )
+        from app.ocr.reprocessing.models import PHASE_09_STORAGE_DIR, PHASE_10_STORAGE_DIR, PHASE_11_STORAGE_DIR
         for root in (PHASE_09_STORAGE_DIR, PHASE_10_STORAGE_DIR, PHASE_11_STORAGE_DIR):
             rec_dir = root / RECORD
             if rec_dir.exists():

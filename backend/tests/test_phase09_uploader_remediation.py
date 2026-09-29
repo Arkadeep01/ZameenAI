@@ -19,17 +19,9 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
 
-from src.phase09_uploader_remediation import (
-    build_remediation_issues,
-    decide_remediation,
-    UploaderRemediationService,
-    RemediationStatus,
-    RemediationDecisionStatus,
-    RemediationErrorCode,
-    Severity,
-    MAX_UPLOAD_SIZE_MB,
-    MAX_FILES_PER_SUBMIT,
-)
+from app.ocr.remediation.issues import build_remediation_issues, decide_remediation
+from app.ocr.remediation.service import UploaderRemediationService
+from app.ocr.remediation.models import RemediationStatus, RemediationDecisionStatus, RemediationErrorCode, Severity, MAX_UPLOAD_SIZE_MB, MAX_FILES_PER_SUBMIT
 
 
 # ---------------------------------------------------------------------------

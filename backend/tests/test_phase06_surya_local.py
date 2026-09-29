@@ -18,14 +18,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase06_surya_local import (
-    SURYA_LABEL_TO_REGION,
-    check_surya_local,
-    is_surya_local_enabled,
-    map_blocks_to_regions,
-    resolve_llama_server,
-    run_surya_local,
-)
+from app.ocr.core.surya_config import SURYA_LABEL_TO_REGION, check_surya_local, is_surya_local_enabled, resolve_llama_server
+from app.ocr.core.surya_adapter import map_blocks_to_regions, run_surya_local
 
 SAMPLE = (
     Path(__file__).parent.parent
@@ -98,7 +92,8 @@ class TestSuryaLocalDisabled:
         _clear_surya_env(monkeypatch)
         from PIL import Image, ImageDraw
 
-        from src.phase06_ocr_visual_text_recognition import OCRService, OCRStatus
+        from app.ocr.recognition.service import OCRService
+        from app.ocr.recognition.models import OCRStatus
 
         img = tmp_path / "tess_only.png"
         canvas = Image.new("RGB", (700, 300), color=(255, 255, 255))
@@ -254,10 +249,8 @@ class TestPhase07Handoff:
         _clear_surya_env(monkeypatch)
         from PIL import Image
 
-        from src.phase06_ocr_visual_text_recognition import OCRService
-        from src.phase07_semantic_field_extraction import (
-            SemanticExtractionPipeline,
-        )
+        from app.ocr.recognition.service import OCRService
+        from app.ocr.extraction.pipeline import SemanticExtractionPipeline
 
         img = tmp_path / "handoff.png"
         Image.new("RGB", (700, 300), color=(255, 255, 255)).save(img)

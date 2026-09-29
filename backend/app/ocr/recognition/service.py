@@ -177,7 +177,7 @@ class OCRService:
 
     def get_original_path(self, ingestion_id: str) -> Optional[str]:
         """Get original document path from Phase 01."""
-        from src.phase01_ingestion import DocumentIngestionService
+        from ..ingestion.service import DocumentIngestionService
         storage = DocumentIngestionService()
         original_dir = storage.storage_dir
 
@@ -195,7 +195,7 @@ class OCRService:
         _, processed = phase03_page_data(record_id)
         if processed:
             return processed
-        from src.phase03_ai_document_preprocessing import PROCESSING_STORAGE_DIR
+        from ..preprocessing.ai_models import PROCESSING_STORAGE_DIR
 
         processed_dir = PROCESSING_STORAGE_DIR / record_id
         if not processed_dir.exists():

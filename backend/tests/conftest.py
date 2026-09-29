@@ -16,10 +16,6 @@ os.environ.setdefault("LLM_PROVIDER", "mistral")
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-import app.ocr
-if "src" not in sys.modules:
-    sys.modules["src"] = app.ocr
-
 from app.ocr.flask_api_reference import app as flask_app
 
 

@@ -86,9 +86,7 @@ class Hitl1Service:
     # -- loaders (read-only; upstream outputs never mutated) ---------------
 
     def _load_validation_run(self, validation_run_id: str) -> Optional[Dict[str, Any]]:
-        from src.phase09_automated_validation import (
-            get_automated_validation_service,
-        )
+        from ..validation.service import get_automated_validation_service
 
         try:
             return get_automated_validation_service().get_validation_run(
@@ -117,9 +115,7 @@ class Hitl1Service:
 
     def _latest_stage_id(self, record_id: str) -> Optional[str]:
         try:
-            from src.phase10_anomaly_duplicate_detection import (
-                PHASE_10_STORAGE_DIR,
-            )
+            from ..anomaly.models import PHASE_10_STORAGE_DIR
 
             record_dir = PHASE_10_STORAGE_DIR / record_id
             if not record_dir.is_dir():

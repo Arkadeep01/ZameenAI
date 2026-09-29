@@ -24,19 +24,12 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase04_document_classification import (
-    DocumentClassificationService,
-    DocumentType,
-    ClassificationStatus,
-    ClassificationResult,
-    PageClassification,
-    CONFIDENCE_HIGH_THRESHOLD,
-    CONFIDENCE_REVIEW_THRESHOLD,
-    _analyze_title_header,
-    _classify_from_text,
-)
-from src.phase01_ingestion import DocumentIngestionService, IngestionStatus
-from src.phase02_quality_check import DocumentQualityCheckService
+from app.ocr.classification.service import DocumentClassificationService
+from app.ocr.classification.models import DocumentType, ClassificationStatus, ClassificationResult, PageClassification, CONFIDENCE_HIGH_THRESHOLD, CONFIDENCE_REVIEW_THRESHOLD
+from app.ocr.classification.classifiers import _analyze_title_header, _classify_from_text
+from app.ocr.ingestion.service import DocumentIngestionService
+from app.ocr.ingestion.models import IngestionStatus
+from app.ocr.quality.service import DocumentQualityCheckService
 
 
 def _tid(prefix: str = "TEST") -> tuple:
@@ -117,7 +110,7 @@ class TestKeywordMap:
 
     def test_keyword_map_has_all_types(self):
         """Keyword map should contain all document types."""
-        from src.phase04_document_classification import KEYWORD_MAP
+        from app.ocr.classification.models import KEYWORD_MAP
 
         expected_types = {
             "LAND_RECORD",
@@ -135,7 +128,7 @@ class TestKeywordMap:
 
     def test_record_of_rights_keywords(self):
         """Record of Rights should have expected keywords."""
-        from src.phase04_document_classification import KEYWORD_MAP
+        from app.ocr.classification.models import KEYWORD_MAP
 
         k = KEYWORD_MAP[DocumentType.RECORD_OF_RIGHTS]
         assert any("KHATIAN" in kw.upper() for kw in k["keywords"])
@@ -204,28 +197,28 @@ class TestDetermineClassificationStatus:
 
     def test_high_confidence(self):
         """Confidence >= 0.85 should be HIGH_CONFIDENCE."""
-        from src.phase04_document_classification import _determine_classification_status
+        from app.ocr.classification.classifiers import _determine_classification_status
 
         status = _determine_classification_status(0.90)
         assert status == ClassificationStatus.HIGH_CONFIDENCE
 
     def test_review_confidence(self):
         """Confidence 0.60-0.849 should be REVIEW_REQUIRED."""
-        from src.phase04_document_classification import _determine_classification_status
+        from app.ocr.classification.classifiers import _determine_classification_status
 
         status = _determine_classification_status(0.70)
         assert status == ClassificationStatus.REVIEW_REQUIRED
 
     def test_low_confidence(self):
         """Confidence 0.0 < x < 0.60 should be LOW_CONFIDENCE."""
-        from src.phase04_document_classification import _determine_classification_status
+        from app.ocr.classification.classifiers import _determine_classification_status
 
         status = _determine_classification_status(0.40)
         assert status == ClassificationStatus.LOW_CONFIDENCE
 
     def test_very_low_confidence(self):
         """Confidence 0.0 should be AMBIGUOUS."""
-        from src.phase04_document_classification import _determine_classification_status
+        from app.ocr.classification.classifiers import _determine_classification_status
 
         status = _determine_classification_status(0.0)
         assert status == ClassificationStatus.AMBIGUOUS

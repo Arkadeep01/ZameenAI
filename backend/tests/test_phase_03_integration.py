@@ -19,9 +19,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase01_ingestion import DocumentIngestionService
-from src.phase02_quality_check import DocumentQualityCheckService
-from src.phase03_ai_document_preprocessing import AIDocumentPreprocessingService
+from app.ocr.ingestion.service import DocumentIngestionService
+from app.ocr.quality.service import DocumentQualityCheckService
+from app.ocr.preprocessing.ai_service import AIDocumentPreprocessingService
 
 
 class TestPhase01ToPhase02ToPhase03Chain:

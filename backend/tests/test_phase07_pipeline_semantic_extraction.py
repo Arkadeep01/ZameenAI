@@ -21,30 +21,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase07_semantic_field_extraction import (
-    OCRDocument,
-    CandidateGenerator,
-    CandidateReconciler,
-    FieldValidator,
-    SemanticExtractionPipeline,
-    ExtractionStatus,
-    FieldStatus,
-    ExtractionMethod,
-    EvidenceCandidate,
-    MistralExtractor,
-    OllamaExtractor,
-    normalize_date,
-    normalize_area,
-    normalize_name,
-    extract_number,
-    pick_best_label,
-    clean_value,
-    resolve_aliases,
-    _ground_llm_candidates,
-    _llm_provider,
-    _strip_think_blocks,
-    _extract_json_object,
-)
+from app.ocr.extraction.evidence import OCRDocument
+from app.ocr.extraction.candidates import CandidateGenerator, CandidateReconciler, FieldValidator
+from app.ocr.extraction.pipeline import SemanticExtractionPipeline
+from app.ocr.extraction.models import ExtractionStatus, FieldStatus, ExtractionMethod, EvidenceCandidate
+from app.ocr.extraction.llm import MistralExtractor, OllamaExtractor, _ground_llm_candidates, _llm_provider, _strip_think_blocks, _extract_json_object
+from app.ocr.extraction.normalization import normalize_date, normalize_area, normalize_name, extract_number, pick_best_label, clean_value
+from app.ocr.extraction.terminology import resolve_aliases
 
 
 def _word(text, x, y, line_num, word_num, conf=0.9, page=1):

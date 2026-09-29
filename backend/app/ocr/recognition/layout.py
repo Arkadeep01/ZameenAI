@@ -103,7 +103,7 @@ def phase03_page_data(record_id: str) -> Tuple[List[Dict[str, Any]], List[str]]:
     Regions carry Phase 03 bboxes ([x1, y1, x2, y2]) and types
     (TABLE / TEXT_REGION / HEADER / FOOTER / EMBLEM_OR_STAMP).
     """
-    from src.phase03_ai_document_preprocessing import PROCESSING_STORAGE_DIR
+    from ..preprocessing.ai_models import PROCESSING_STORAGE_DIR
 
     regions: List[Dict[str, Any]] = []
     processed: List[str] = []

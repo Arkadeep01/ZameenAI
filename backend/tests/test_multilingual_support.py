@@ -25,22 +25,11 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.multilingual_registry import (
-    FIELD_ALIASES,
-    LANGUAGE_REGISTRY,
-    NUMERAL_MAP,
-    SCHEDULED_LANGUAGES,
-    SCRIPT_LANGUAGES,
-    SCRIPT_RANGES,
-    SCRIPT_TO_LANGUAGE,
-    SUPPORTED_LANGUAGES,
-    build_capability_matrix,
-    normalize_numerals,
-)
-from src.phase05_language_and_script_detection import (
-    DetectionStatus,
-    LanguageAndScriptDetectionService,
-)
+from app.ocr.language.registry import FIELD_ALIASES, LANGUAGE_REGISTRY, NUMERAL_MAP, SCHEDULED_LANGUAGES, SCRIPT_LANGUAGES, SCRIPT_RANGES, SCRIPT_TO_LANGUAGE, SUPPORTED_LANGUAGES
+from app.ocr.language.capability import build_capability_matrix
+from app.ocr.language.numerals import normalize_numerals
+from app.ocr.language.lang_models import DetectionStatus
+from app.ocr.language.lang_service import LanguageAndScriptDetectionService
 
 
 # ---------------------------------------------------------------------------
@@ -268,7 +257,7 @@ class TestDetectionCoverage:
 
 class TestPhase07Wiring:
     def test_aliases_merged_into_multilingual_aliases(self):
-        import src.phase07_semantic_field_extraction as phase07
+        from app.ocr.extraction import terminology as phase07
         merged = phase07.MULTILINGUAL_ALIASES
         assert any("ஏக்கர்" in a for a in merged["land.area_unit"])
         assert any("खतियान" in a or "खाता" in a for a in merged["land.khata_number"])
@@ -277,13 +266,13 @@ class TestPhase07Wiring:
         assert "mutation.mutation_number" in merged
 
     def test_date_normalization_indic_numeral(self):
-        import src.phase07_semantic_field_extraction as phase07
+        from app.ocr.extraction import normalization as phase07
         assert phase07.normalize_date("१२-०६-२०१८") == "2018-06-12"
         assert phase07.normalize_date("১২-০৬-২০১৮") == "2018-06-12"
         assert phase07.normalize_date("۱۲-۰۶-۲۰۱۸") == "2018-06-12"
 
     def test_area_normalization_native_scripts(self):
-        import src.phase07_semantic_field_extraction as phase07
+        from app.ocr.extraction import normalization as phase07
         value, unit = phase07.normalize_area("क्षेत्रफल ०.३२ एकड़")
         assert value == pytest.approx(0.32)
         assert unit == "ACRE"
@@ -295,17 +284,17 @@ class TestPhase07Wiring:
         assert unit == "ACRE"
 
     def test_extract_number_indic_digits(self):
-        import src.phase07_semantic_field_extraction as phase07
+        from app.ocr.extraction import normalization as phase07
         assert phase07.extract_number("१०७") == "107"
         assert phase07.extract_number("౧౦౭") == "107"
         assert phase07.extract_number("१२३") == "123"
 
     def test_valid_date_candidate_indic(self):
-        import src.phase07_semantic_field_extraction as phase07
+        from app.ocr.extraction import normalization as phase07
         assert phase07.is_valid_date_candidate("१२-०६-२०१८") is True
 
     def test_reasonable_numeric_field_indic(self):
-        import src.phase07_semantic_field_extraction as phase07
+        from app.ocr.extraction import normalization as phase07
         assert phase07.is_reasonable_numeric_field("१०७") is True
 
 
@@ -362,7 +351,8 @@ _REAL_BN = BASE / "uploads" / "test sample bengali medium.png"
 
 
 def _run_real_detect(sample: Path, tmp_path):
-    from src.phase01_ingestion import DocumentIngestionService, IngestionStatus
+    from app.ocr.ingestion.service import DocumentIngestionService
+    from app.ocr.ingestion.models import IngestionStatus
     data = sample.read_bytes()
     ingested = DocumentIngestionService().ingest(data, sample.name)
     assert ingested.status == IngestionStatus.SUCCESS

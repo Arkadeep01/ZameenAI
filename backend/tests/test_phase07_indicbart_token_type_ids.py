@@ -27,10 +27,7 @@ import pytest
 import sys
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase07_semantic_field_extraction import (
-    IndicBARTNormalizer,
-    _indicbart_supported_input_keys,
-)
+from app.ocr.extraction.llm import IndicBARTNormalizer, _indicbart_supported_input_keys
 
 
 class _StubEncoder:

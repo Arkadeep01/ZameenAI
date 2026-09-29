@@ -78,7 +78,7 @@ class UploaderRemediationService:
             return json.load(f)
 
     def _evaluate_phase08(self, record_id: str, document_id: str, ingestion_id: str) -> Dict[str, Any]:
-        from src.phase08_confidence_completeness import ConfidenceCompletenessService
+        from ..confidence.service import ConfidenceCompletenessService
 
         result = ConfidenceCompletenessService().evaluate(
             record_id=record_id,
@@ -495,11 +495,7 @@ class UploaderRemediationService:
         Checks: extension, size, MIME magic header, readability, PDF/image
         decode + page count. Duplicate detection is handled by the caller.
         """
-        from src.phase01_ingestion import (
-            FileValidator,
-            PDFValidator,
-            ImageValidator,
-        )
+        from ..ingestion.validators import FileValidator, PDFValidator, ImageValidator
 
         ext = Path(filename).suffix.lower()
         if ext not in SUPPORTED_UPLOAD_EXTENSIONS:

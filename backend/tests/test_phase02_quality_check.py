@@ -33,18 +33,10 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase02_quality_check import (
-    DocumentQualityCheckService,
-    QualityStatus,
-    DocumentQualityStatus,
-    Phase02ErrorCode,
-    ImageQualityAnalyzer,
-    PDFPageLoader,
-    ImagePageLoader,
-    BLANK_THRESHOLD,
-    BLUR_THRESHOLD,
-    get_quality_service,
-)
+from app.ocr.quality.service import DocumentQualityCheckService, get_quality_service
+from app.ocr.quality.models import QualityStatus, DocumentQualityStatus, Phase02ErrorCode, BLANK_THRESHOLD, BLUR_THRESHOLD
+from app.ocr.quality.metrics import ImageQualityAnalyzer
+from app.ocr.quality.loaders import PDFPageLoader, ImagePageLoader
 
 
 class TestImageQualityAnalyzer:
@@ -193,7 +185,7 @@ class TestDocumentQualityCheckService:
     def test_01_valid_pdf(self):
         pdf_data = self._create_pdf_with_text(page_count=3)
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(pdf_data, "test.pdf")
 
@@ -211,7 +203,7 @@ class TestDocumentQualityCheckService:
     def test_02_valid_jpg(self):
         jpg_data = self._create_image(format='JPEG')
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(jpg_data, "test.jpg")
 
@@ -228,7 +220,7 @@ class TestDocumentQualityCheckService:
     def test_03_valid_png(self):
         png_data = self._create_image(format='PNG')
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(png_data, "test.png")
 
@@ -245,7 +237,7 @@ class TestDocumentQualityCheckService:
     def test_04_valid_tiff(self):
         tiff_data = self._create_image(format='TIFF')
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(tiff_data, "test.tiff")
 
@@ -260,7 +252,7 @@ class TestDocumentQualityCheckService:
         assert result.status in ["SUCCESS", "FAILED"], "Should return a valid status"
 
     def test_05_corrupted_pdf(self):
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
 
         try:
@@ -281,7 +273,7 @@ class TestDocumentQualityCheckService:
     def test_06_unreadable_image(self):
         invalid_data = b"\x89PNG\r\n\x1a\n\x00\x00\x00\x0d"
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(invalid_data, "invalid.png")
 
@@ -299,7 +291,7 @@ class TestDocumentQualityCheckService:
     def test_07_blank_page_detection(self):
         blank_data = self._create_blank_image()
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(blank_data, "blank.png")
 
@@ -318,7 +310,7 @@ class TestDocumentQualityCheckService:
     def test_08_low_resolution(self):
         lowres_data = self._create_image(size=(200, 200))
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(lowres_data, "lowres.png")
 
@@ -336,7 +328,7 @@ class TestDocumentQualityCheckService:
     def test_09_multi_page_document(self):
         pdf_data = self._create_pdf_with_text(page_count=3)
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(pdf_data, "multipage.pdf")
 
@@ -354,7 +346,7 @@ class TestDocumentQualityCheckService:
     def test_10_quality_score_deterministic(self):
         img_data = self._create_document_image_with_text("Test")
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(img_data, "doc.png")
 
@@ -388,7 +380,7 @@ class TestDocumentQualityCheckService:
     def test_12_quality_result_structure(self):
         pdf_data = self._create_pdf_with_text(page_count=1)
 
-        from src.phase01_ingestion import DocumentIngestionService
+        from app.ocr.ingestion.service import DocumentIngestionService
         ingestion_service = DocumentIngestionService(storage_dir=Path(self.temp_dir))
         ingest_result = ingestion_service.ingest(pdf_data, "test.pdf")
 

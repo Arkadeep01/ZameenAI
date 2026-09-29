@@ -15,13 +15,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
-from src.phase10_anomaly_duplicate_detection import (
-    AnomalyDuplicateStageService,
-    AnomalyDuplicateStageResult,
-    StageWorkflowState,
-    decide_workflow_state,
-    get_anomaly_duplicate_stage_service,
-)
+from app.ocr.anomaly.stage import AnomalyDuplicateStageService, decide_workflow_state, get_anomaly_duplicate_stage_service
+from app.ocr.anomaly.models import AnomalyDuplicateStageResult, StageWorkflowState
 
 
 def _svc(tmp_path=None):

@@ -210,7 +210,7 @@ class ReprocessingService:
             )
 
         # FAILED -> QUEUED_FOR_REPROCESSING -> PROCESSING (allowed transitions).
-        from src.phase10_resubmission import ResubmissionService
+        from ..resubmission.service import ResubmissionService
         rsvc = ResubmissionService(
             storage_dir=self.phase10_dir, phase09_dir=self.phase09_dir,
         )
@@ -243,25 +243,25 @@ class ReprocessingService:
     # -- submission / remediation wiring ------------------------------------
 
     def _get_submission_internal(self, submission_id: str) -> Optional[Dict[str, Any]]:
-        from src.phase10_resubmission import ResubmissionService
+        from ..resubmission.service import ResubmissionService
         return ResubmissionService(
             storage_dir=self.phase10_dir, phase09_dir=self.phase09_dir,
         ).get_submission_internal(submission_id)
 
     def _advance_submission(self, submission_id: str, status: str, note: str, by: str) -> None:
-        from src.phase10_resubmission import ResubmissionService
+        from ..resubmission.service import ResubmissionService
         ResubmissionService(
             storage_dir=self.phase10_dir, phase09_dir=self.phase09_dir,
         ).update_resubmission_status(submission_id, status, by=by, note=note)
 
     def _set_remediation(self, record_id: str, remediation_id: str, status: str, note: str) -> None:
-        from src.phase09_uploader_remediation import UploaderRemediationService
+        from ..remediation.service import UploaderRemediationService
         UploaderRemediationService(
             storage_dir=self.phase09_dir, phase08_dir=self.phase08_dir,
         ).set_remediation_status(record_id, remediation_id, status, note=note)
 
     def _get_remediation_internal(self, record_id: str, remediation_id: str) -> Optional[Dict[str, Any]]:
-        from src.phase09_uploader_remediation import UploaderRemediationService
+        from ..remediation.service import UploaderRemediationService
         return UploaderRemediationService(
             storage_dir=self.phase09_dir, phase08_dir=self.phase08_dir,
         ).get_remediation_internal(record_id, remediation_id)
@@ -489,7 +489,7 @@ class ReprocessingService:
 
     def _phase02(self, scope_record: str, scope_doc: str, scope_ing: str) -> Dict[str, Any]:
         try:
-            from src.phase02_quality_check import DocumentQualityCheckService
+            from ..quality.service import DocumentQualityCheckService
             result = DocumentQualityCheckService().check_quality(
                 scope_record, scope_doc, scope_ing).to_dict()
         except Exception as exc:
@@ -516,7 +516,7 @@ class ReprocessingService:
     def _phase03(self, scope_record: str, scope_doc: str, scope_ing: str,
                  quality_dict: Dict[str, Any]) -> Dict[str, Any]:
         try:
-            from src.phase03_ai_document_preprocessing import AIDocumentPreprocessingService
+            from ..preprocessing.ai_service import AIDocumentPreprocessingService
             result = AIDocumentPreprocessingService().preprocess_document(
                 record_id=scope_record, document_id=scope_doc,
                 ingestion_id=scope_ing, quality_result=quality_dict, force=True).to_dict()
@@ -546,7 +546,7 @@ class ReprocessingService:
     def _phase04(self, scope_record: str, scope_doc: str, scope_ing: str,
                  fallback_document_type: Optional[str] = None) -> Dict[str, Any]:
         try:
-            from src.phase04_document_classification import DocumentClassificationService
+            from ..classification.service import DocumentClassificationService
             result = DocumentClassificationService().classify(
                 record_id=scope_record, document_id=scope_doc,
                 ingestion_id=scope_ing).to_dict()
@@ -579,7 +579,7 @@ class ReprocessingService:
     def _phase05(self, scope_record: str, scope_doc: str, scope_ing: str,
                  document_type: str, classification_confidence: float) -> Dict[str, Any]:
         try:
-            from src.phase05_language_and_script_detection import LanguageAndScriptDetectionService
+            from ..language.lang_service import LanguageAndScriptDetectionService
             result = LanguageAndScriptDetectionService().detect(
                 record_id=scope_record, document_id=scope_doc,
                 classification_id=None, ingestion_id=scope_ing,
@@ -602,7 +602,8 @@ class ReprocessingService:
                  classification_confidence: float,
                  language_detection: Dict[str, Any]) -> Dict[str, Any]:
         try:
-            from src.phase05_ocr_configuration import OCRConfigurationService, ConfigurationStatus
+            from ..ocr_config.service import OCRConfigurationService
+            from ..ocr_config.models import ConfigurationStatus
             config = OCRConfigurationService().configure_ocr(
                 record_id=scope_record, document_id=scope_doc,
                 ingestion_id=scope_ing, document_type=document_type,
@@ -629,7 +630,8 @@ class ReprocessingService:
         input_paths = configuration.get("input_paths") or None
 
         try:
-            from src.phase06_ocr_visual_text_recognition import OCRService, OCRStatus
+            from ..recognition.service import OCRService
+            from ..recognition.models import OCRStatus
             result = OCRService().perform_ocr(
                 record_id=scope_record, document_id=scope_doc,
                 ingestion_id=scope_ing, engine="TESSERACT",
@@ -659,7 +661,7 @@ class ReprocessingService:
 
     def _phase07(self, scope_record: str, scope_doc: str, scope_ing: str) -> Dict[str, Any]:
         try:
-            from src.phase07_semantic_field_extraction import SemanticExtractionService
+            from ..extraction.pipeline import SemanticExtractionService
             result = SemanticExtractionService().extract_fields(
                 record_id=scope_record, document_id=scope_doc,
                 ingestion_id=scope_ing).to_dict()
@@ -684,7 +686,7 @@ class ReprocessingService:
 
     def _phase08(self, scope_record: str, scope_doc: str, scope_ing: str) -> Dict[str, Any]:
         try:
-            from src.phase08_confidence_completeness import ConfidenceCompletenessService
+            from ..confidence.service import ConfidenceCompletenessService
             result = ConfidenceCompletenessService().evaluate(
                 record_id=scope_record, document_id=scope_doc,
                 ingestion_id=scope_ing).to_dict()
@@ -880,7 +882,7 @@ class ReprocessingService:
 
     def _assess_issues(self, record_id: str, remediation_id: str,
                        old_fields: Dict[str, Any], new_fields: Dict[str, Any]) -> List[Dict[str, Any]]:
-        from src.phase09_uploader_remediation import UploaderRemediationService
+        from ..remediation.service import UploaderRemediationService
         svc = UploaderRemediationService(
             storage_dir=self.phase09_dir, phase08_dir=self.phase08_dir,
         )

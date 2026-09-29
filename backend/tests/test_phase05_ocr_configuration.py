@@ -5,21 +5,9 @@ Tests for Phase 06 - OCR Configuration / Routing
 import pytest
 from unittest.mock import patch, MagicMock
 from pathlib import Path
-import sys
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
-
-from src.phase05_ocr_configuration import (
-    OCRConfigurationService,
-    OCRConfigurationResult,
-    OCRConfiguration,
-    OCRRouting,
-    OCREngine,
-    InputSource,
-    ConfigurationStatus,
-    PageOCRMode,
-    create_configuration,
-)
+from app.ocr.ocr_config.service import OCRConfigurationService, create_configuration
+from app.ocr.ocr_config.models import OCRConfigurationResult, OCRConfiguration, OCRRouting, OCREngine, InputSource, ConfigurationStatus, PageOCRMode
 
 
 class TestOCRConfigurationService:

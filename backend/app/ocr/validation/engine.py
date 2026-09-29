@@ -424,7 +424,7 @@ class AutomatedValidationEngine:
             # treat every canonical field as OPTIONAL (no hard failures) and
             # surface an honest reference-data warning.
             applicability = {}
-            from src.phase07_semantic_field_extraction import ALL_CANONICAL_FIELDS
+            from ..extraction.terminology import ALL_CANONICAL_FIELDS
             applicability = {f: "OPTIONAL" for f in ALL_CANONICAL_FIELDS}
             for f in (phase08 or {}).get("fields", {}):
                 applicability.setdefault(f, "OPTIONAL")

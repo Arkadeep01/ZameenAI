@@ -24,22 +24,10 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 import pytest
 
-from src.phase10_resubmission import (
-    ResubmissionService,
-    SubmissionStatus,
-    SubmissionType,
-    SubmissionSource,
-    PageAction,
-    ResubmissionErrorCode,
-    MAX_UPLOAD_SIZE_MB,
-    MAX_FILES_PER_SUBMISSION,
-)
-from src.phase09_uploader_remediation import (
-    UploaderRemediationService,
-    RemediationDecisionStatus,
-    RemediationStatus,
-    RemediationErrorCode,
-)
+from app.ocr.resubmission.service import ResubmissionService
+from app.ocr.resubmission.models import SubmissionStatus, SubmissionType, SubmissionSource, PageAction, ResubmissionErrorCode, MAX_UPLOAD_SIZE_MB, MAX_FILES_PER_SUBMISSION
+from app.ocr.remediation.service import UploaderRemediationService
+from app.ocr.remediation.models import RemediationDecisionStatus, RemediationStatus, RemediationErrorCode
 
 
 # ---------------------------------------------------------------------------
