@@ -4,12 +4,13 @@ import {
   useNavigate,
   useSearch,
 } from "@tanstack/react-router";
+import Breadcrumbs from "../components/common/Breadcrumbs";
+import { citizenCrumbs } from "../config/citizenBreadcrumbs";
 
 import {
   ArrowLeft,
   ArrowRight,
   Banknote,
-  Check,
   CheckCircle2,
   ChevronDown,
   CircleHelp,
@@ -35,6 +36,11 @@ import { gisParcels } from "../utils/gisMockData";
 
 import type { Parcel } from "../types/gis";
 import type { ReactNode } from "react";
+import StatusBadge from "../components/common/StatusBadge";
+
+import AcquisitionTimeline from "../components/citizen/acquisition/AcquisitionTimeline";
+import { useCitizenAcquisitionCases } from "../services/acquisition";
+import type { AcquisitionCase } from "../services/acquisition";
 
 /* ========================================================================= */
 /* ROUTE                                                                     */
@@ -56,6 +62,22 @@ export const Route = createFileRoute("/citizen/land-details")({
 });
 
 /* ========================================================================= */
+/* HELPERS                                                                    */
+/* ========================================================================= */
+
+/**
+ * Normalises a khasra reference for comparison between the GIS parcel record
+ * (e.g. "184/2" / "Khasra No. 184/2") and the acquisition case record
+ * (e.g. "Khasra 184/2").
+ */
+function normalizeKhasra(value?: string | null): string {
+  return (value ?? "")
+    .replace(/khasra\s*(no\.?)?/gi, "")
+    .replace(/\s+/g, "")
+    .toLowerCase();
+}
+
+/* ========================================================================= */
 /* PAGE                                                                       */
 /* ========================================================================= */
 
@@ -65,6 +87,15 @@ function LandDetailsPage() {
   const search = useSearch({
     from: "/citizen/land-details",
   });
+
+  /* ----------------------------------------------------------------------- */
+  /* ACQUISITION CASE (drives the shared Citizen Portal acquisition timeline) */
+  /* ----------------------------------------------------------------------- */
+
+  const {
+    data: acquisitionCases = [],
+    isLoading: isAcquisitionLoading,
+  } = useCitizenAcquisitionCases();
 
   /* ----------------------------------------------------------------------- */
   /* PARCEL                                                                    */
@@ -93,13 +124,13 @@ function LandDetailsPage() {
 
   if (!parcel) {
     return (
-      <div className="flex min-h-screen items-center justify-center bg-[#f5f8fa] px-4">
+      <div className="flex w-full min-w-0 flex-1 items-center justify-center bg-[#EAF3FC] px-4 py-10">
         <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
           <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-slate-400">
             <Info size={26} />
           </div>
 
-          <h1 className="mt-5 text-xl font-bold text-[#173c56]">
+          <h1 className="mt-5 text-xl font-bold text-[#062B52]">
             Land Record Not Found
           </h1>
 
@@ -115,7 +146,7 @@ function LandDetailsPage() {
                 to: "/citizen/my-land",
               })
             }
-            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#123f5c] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0d3048]"
+            className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[#062B52] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0C396E]"
           >
             <ArrowLeft size={16} />
             Back to My Land
@@ -130,6 +161,32 @@ function LandDetailsPage() {
   /* ----------------------------------------------------------------------- */
 
   const isAcquisition = parcel.status === "acquisition";
+
+  /*
+   * Resolve the acquisition case that owns this parcel so the shared Citizen
+   * Portal `AcquisitionTimeline` renders real, existing data (never mocked
+   * stage values local to this page).
+   */
+  const acquisitionCase = useMemo<AcquisitionCase | null>(() => {
+    if (!isAcquisition || acquisitionCases.length === 0) return null;
+
+    const parcelKhasra = normalizeKhasra(parcel.khasraNumber);
+
+    return (
+      acquisitionCases.find(
+        (c) =>
+          Boolean(c.surveyNumber) &&
+          Boolean(parcel.cadastralId) &&
+          c.surveyNumber === parcel.cadastralId,
+      ) ??
+      acquisitionCases.find(
+        (c) =>
+          Boolean(parcelKhasra) &&
+          normalizeKhasra(c.khasraNumber) === parcelKhasra,
+      ) ??
+      null
+    );
+  }, [isAcquisition, acquisitionCases, parcel]);
 
   const area = `${Number(parcel.area ?? 0).toFixed(2)} ${
     parcel.areaUnit ?? "Acres"
@@ -157,12 +214,6 @@ function LandDetailsPage() {
   /* NAVIGATION                                                                */
   /* ----------------------------------------------------------------------- */
 
-  const goBack = () => {
-    navigate({
-      to: "/citizen/my-land",
-    });
-  };
-
   const openMap = () => {
     navigate({
       to: "/citizen/my-land-map",
@@ -186,29 +237,20 @@ function LandDetailsPage() {
   /* ----------------------------------------------------------------------- */
 
   return (
-    <div className="min-h-screen w-full bg-[#f5f8fa] text-slate-800">
-      <main className="mx-auto w-full max-w-[1480px] px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7">
+    <div className="w-full min-w-0 bg-[#EAF3FC] text-slate-800">
+      <div className="w-full min-w-0 px-4 py-5 sm:px-6 sm:py-6 lg:px-8 lg:py-7 space-y-6">
         {/* ================================================================= */}
         {/* BREADCRUMB                                                        */}
         {/* ================================================================= */}
 
         <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-2 text-xs">
-            <button
-              type="button"
-              onClick={goBack}
-              className="font-medium text-slate-500 transition hover:text-[#123f5c]"
-            >
-              My Land
-            </button>
+          <div className="flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1">
+            <Breadcrumbs
+              items={citizenCrumbs("/citizen/land-details")}
+              className="min-w-0"
+            />
 
-            <span className="text-slate-300">/</span>
-
-            <span className="font-semibold text-[#123f5c]">Land Details</span>
-
-            <span className="text-slate-300">/</span>
-
-            <span className="rounded-md bg-[#e5f2f8] px-2 py-1 font-semibold text-[#174b69]">
+            <span className="shrink-0 text-xs font-medium text-slate-500">
               Parcel {parcel.id}
             </span>
           </div>
@@ -227,20 +269,17 @@ function LandDetailsPage() {
           <div className="p-5 sm:p-6 lg:p-7">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex min-w-0 items-start gap-4">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#123f5c] text-white shadow-sm sm:h-14 sm:w-14">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#062B52] text-white shadow-sm sm:h-14 sm:w-14">
                   <Landmark size={25} />
                 </div>
 
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h1 className="text-2xl font-bold tracking-tight text-[#173c56] sm:text-3xl">
+                    <h1 className="text-xl font-bold tracking-tight text-[#062B52] sm:text-2xl">
                       Land Details
                     </h1>
 
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-1 text-xs font-semibold text-emerald-700">
-                      <ShieldCheck size={13} />
-                      Official Record
-                    </span>
+                    <StatusBadge status="Official Record" />
                   </div>
 
                   <p className="mt-1.5 text-sm text-slate-500">
@@ -248,7 +287,7 @@ function LandDetailsPage() {
                   </p>
 
                   <div className="mt-3 flex flex-wrap items-center gap-2">
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-[#f0f7fa] px-2.5 py-1.5 text-xs font-semibold text-[#174b69]">
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-[#EAF3FC] px-2.5 py-1.5 text-xs font-semibold text-[#062B52]">
                       <MapPin size={13} />
                       {village}, {district}
                     </span>
@@ -263,7 +302,7 @@ function LandDetailsPage() {
               <div className="flex flex-col gap-2 sm:flex-row lg:shrink-0">
                 <button
                   type="button"
-                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#174b69] transition-all hover:-translate-y-0.5 hover:border-[#b9d9e8] hover:bg-[#f5fbfd] hover:shadow-sm"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-[#062B52] transition-all hover:-translate-y-0.5 hover:border-[#b9d9e8] hover:bg-[#EAF3FC] hover:shadow-sm"
                 >
                   <Download size={16} />
                   Download PDF
@@ -272,7 +311,7 @@ function LandDetailsPage() {
                 <button
                   type="button"
                   onClick={openMap}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#123f5c] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#0c3048] hover:shadow-md"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#062B52] px-4 py-2.5 text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-[#0C396E] hover:shadow-md"
                 >
                   <Map size={16} />
                   View on Map
@@ -339,9 +378,7 @@ function LandDetailsPage() {
                       Acquisition Process Active
                     </h2>
 
-                    <span className="rounded-full bg-amber-100 px-2.5 py-0.5 text-xs font-semibold text-amber-800">
-                      Action may be required
-                    </span>
+                    <StatusBadge status="Action Required" />
                   </div>
 
                   <p className="mt-1 text-sm leading-5 text-amber-900/70">
@@ -353,7 +390,7 @@ function LandDetailsPage() {
 
               <button
                 type="button"
-                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#123f5c] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#0c3048]"
+                className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#062B52] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#0C396E]"
               >
                 View Acquisition Status
                 <ArrowRight size={14} />
@@ -432,14 +469,14 @@ function LandDetailsPage() {
 
             {/* LAND CLASSIFICATION */}
 
-            <div className="mt-5 rounded-xl border border-[#d9ebf2] bg-[#f5fbfd] p-4">
+            <div className="mt-5 rounded-xl border border-[#EAF3FC] bg-[#EAF3FC] p-4">
               <div className="flex items-start gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#dff0f7] text-[#174b69]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#062B52]">
                   <Info size={17} />
                 </div>
 
                 <div>
-                  <p className="text-sm font-bold text-[#173c56]">
+                  <p className="text-sm font-bold text-[#062B52]">
                     Land Classification
                   </p>
 
@@ -482,12 +519,12 @@ function LandDetailsPage() {
             <div className="mt-5 overflow-hidden rounded-xl border border-slate-200">
               <div className="flex flex-col gap-2 border-b border-slate-200 bg-white px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
                 <div className="flex items-center gap-2">
-                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[#e7f4f9] text-[#174b69]">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-md bg-[#EAF3FC] text-[#062B52]">
                     <Map size={14} />
                   </div>
 
                   <div>
-                    <p className="text-xs font-bold text-[#173c56]">
+                    <p className="text-xs font-bold text-[#062B52]">
                       Parcel Boundary
                     </p>
 
@@ -497,7 +534,7 @@ function LandDetailsPage() {
                   </div>
                 </div>
 
-                <span className="w-fit rounded-full bg-[#e8f5fa] px-2.5 py-1 text-xs font-semibold text-[#174b69]">
+                <span className="w-fit rounded-full bg-[#EAF3FC] px-2.5 py-1 text-xs font-semibold text-[#062B52]">
                   Parcel {parcel.id}
                 </span>
               </div>
@@ -515,7 +552,7 @@ function LandDetailsPage() {
             <button
               type="button"
               onClick={openMap}
-              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#cfe4ed] bg-[#f3fafc] px-4 py-2.5 text-xs font-bold text-[#174b69] transition-all hover:bg-[#e6f5fa] hover:shadow-sm"
+              className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-lg border border-[#cfe4ed] bg-[#EAF3FC] px-4 py-2.5 text-xs font-bold text-[#062B52] transition-all hover:bg-[#EAF3FC] hover:shadow-sm"
             >
               <Map size={15} />
               Open Full Interactive Map
@@ -543,9 +580,9 @@ function LandDetailsPage() {
 
             {/* PRIMARY OWNER */}
 
-            <div className="mt-5 rounded-xl bg-[#f1f8fb] p-4">
+            <div className="mt-5 rounded-xl bg-[#EAF3FC] p-4">
               <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#d9ebf3] text-[#174b69]">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#EAF3FC] text-[#062B52]">
                   <UserRound size={20} />
                 </div>
 
@@ -554,7 +591,7 @@ function LandDetailsPage() {
                     Primary Owner
                   </p>
 
-                  <h3 className="mt-0.5 truncate text-base font-bold text-[#173c56]">
+                  <h3 className="mt-0.5 truncate text-base font-bold text-[#062B52]">
                     Rajesh Kumar Sharma
                   </h3>
                 </div>
@@ -572,7 +609,7 @@ function LandDetailsPage() {
                 <div>
                   <p className="text-xs text-slate-400">Ownership</p>
 
-                  <p className="mt-1 text-xs font-semibold text-[#174b69]">
+                  <p className="mt-1 text-xs font-semibold text-[#062B52]">
                     50%
                   </p>
                 </div>
@@ -583,7 +620,7 @@ function LandDetailsPage() {
 
             <div className="mt-5">
               <div className="flex items-center justify-between">
-                <p className="text-xs font-bold text-[#173c56]">
+                <p className="text-xs font-bold text-[#062B52]">
                   Registered Co-owners
                 </p>
 
@@ -609,8 +646,8 @@ function LandDetailsPage() {
               </div>
             </div>
 
-            <div className="mt-4 flex gap-2 rounded-lg border border-[#d9ebf2] bg-[#f5fbfd] p-3">
-              <Info size={15} className="mt-0.5 shrink-0 text-[#174b69]" />
+            <div className="mt-4 flex gap-2 rounded-lg border border-[#EAF3FC] bg-[#EAF3FC] p-3">
+              <Info size={15} className="mt-0.5 shrink-0 text-[#062B52]" />
 
               <p className="text-xs leading-relaxed text-slate-500">
                 Ownership shares shown above are based on the current registered
@@ -659,7 +696,7 @@ function LandDetailsPage() {
 
             <button
               type="button"
-              className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-[#174b69] transition hover:bg-[#eef8fb]"
+              className="mt-4 flex w-full items-center justify-center gap-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs font-bold text-[#062B52] transition hover:bg-[#EAF3FC]"
             >
               View All Land Documents
               <ArrowRight size={14} />
@@ -668,121 +705,26 @@ function LandDetailsPage() {
         </div>
 
         {/* ================================================================= */}
-        {/* ACQUISITION TIMELINE                                               */}
+        {/* ACQUISITION STATUS TIMELINE                                          */}
+        {/* Shared Citizen Portal component — identical to the Acquisition     */}
+        {/* Status page (vertical statutory timeline + progressive reveal).     */}
         {/* ================================================================= */}
 
-        {isAcquisition && (
+        {isAcquisition && isAcquisitionLoading && (
           <section className="mt-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <div className="flex items-center gap-2">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-100 text-amber-700">
-                    <Gavel size={18} />
-                  </div>
-
-                  <div>
-                    <h2 className="text-base font-bold text-[#173c56] sm:text-lg">
-                      Acquisition Status
-                    </h2>
-
-                    <p className="text-xs text-slate-500">
-                      Current stage of the government acquisition process
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <span className="w-fit rounded-full bg-amber-100 px-3 py-1.5 text-xs font-bold text-amber-800">
-                Stage 4 of 6 · In Progress
-              </span>
+            <div className="space-y-5 animate-pulse">
+              <div className="h-6 w-64 rounded bg-slate-200" />
+              <div className="h-3 w-80 max-w-full rounded bg-slate-100" />
+              <div className="h-24 w-full rounded-xl bg-slate-100" />
+              <div className="h-24 w-full rounded-xl bg-slate-100" />
+              <div className="h-24 w-full rounded-xl bg-slate-100" />
             </div>
+          </section>
+        )}
 
-            {/* TIMELINE */}
-
-            <div className="mt-7 overflow-x-auto pb-2">
-              <div className="flex min-w-[760px] items-start">
-                <TimelineStep
-                  number="1"
-                  title="Land Identified"
-                  subtitle="Completed"
-                  complete
-                />
-
-                <TimelineLine complete />
-
-                <TimelineStep
-                  number="2"
-                  title="Verification"
-                  subtitle="Completed"
-                  complete
-                />
-
-                <TimelineLine complete />
-
-                <TimelineStep
-                  number="3"
-                  title="Notice Issued"
-                  subtitle="10 Sept 2026"
-                  complete
-                />
-
-                <TimelineLine active />
-
-                <TimelineStep
-                  number="4"
-                  title="Valuation"
-                  subtitle="In Progress"
-                  active
-                />
-
-                <TimelineLine />
-
-                <TimelineStep
-                  number="5"
-                  title="Award Approval"
-                  subtitle="Upcoming"
-                />
-
-                <TimelineLine />
-
-                <TimelineStep
-                  number="6"
-                  title="Final Payment"
-                  subtitle="Upcoming"
-                />
-              </div>
-            </div>
-
-            <div className="mt-5 rounded-xl bg-[#f4fafc] p-4">
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-                <div className="flex gap-3">
-                  <CircleHelp
-                    size={18}
-                    className="mt-0.5 shrink-0 text-[#174b69]"
-                  />
-
-                  <div>
-                    <p className="text-sm font-bold text-[#173c56]">
-                      What happens next?
-                    </p>
-
-                    <p className="mt-1 max-w-3xl text-xs leading-5 text-slate-500">
-                      The government authority is currently assessing the
-                      applicable land valuation. You will receive an official
-                      notification when the valuation award is published.
-                    </p>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#123f5c] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#0c3048]"
-                >
-                  View Compensation
-                  <ArrowRight size={14} />
-                </button>
-              </div>
-            </div>
+        {isAcquisition && !isAcquisitionLoading && acquisitionCase && (
+          <section className="mt-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+            <AcquisitionTimeline stages={acquisitionCase.stages} />
           </section>
         )}
 
@@ -800,11 +742,9 @@ function LandDetailsPage() {
 
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-800">
-                      ACTION REQUIRED
-                    </span>
+                    <StatusBadge status="Action Required" size="md" />
 
-                    <h2 className="text-sm font-bold text-[#173c56] sm:text-base">
+                    <h2 className="text-sm font-bold text-[#062B52] sm:text-base">
                       Verify Bank Details for Compensation
                     </h2>
                   </div>
@@ -818,7 +758,7 @@ function LandDetailsPage() {
 
               <button
                 type="button"
-                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#123f5c] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#0c3048]"
+                className="inline-flex shrink-0 items-center justify-center gap-2 rounded-lg bg-[#062B52] px-4 py-2.5 text-xs font-bold text-white transition hover:bg-[#0C396E]"
               >
                 <Wallet size={15} />
                 Submit Bank Details
@@ -833,7 +773,7 @@ function LandDetailsPage() {
 
         <section className="mt-7">
           <div>
-            <h2 className="text-xl font-bold text-[#173c56]">Land Services</h2>
+            <h2 className="text-xl font-bold text-[#062B52]">Land Services</h2>
 
             <p className="mt-1 text-sm text-slate-500">
               Quickly access services related to this land record.
@@ -882,12 +822,12 @@ function LandDetailsPage() {
             className="flex w-full items-center justify-between gap-3 px-4 py-3.5 text-left transition hover:bg-slate-50 sm:px-5"
           >
             <div className="flex items-center gap-3">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#e8f4f8] text-[#174b69]">
+              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#062B52]">
                 <ShieldCheck size={16} />
               </div>
 
               <div>
-                <p className="text-xs font-bold text-[#173c56]">
+                <p className="text-xs font-bold text-[#062B52]">
                   Official Record &amp; Audit Information
                 </p>
 
@@ -905,7 +845,7 @@ function LandDetailsPage() {
         {/* HELP                                                               */}
         {/* ================================================================= */}
 
-        <section className="mt-4 rounded-2xl border border-[#d8eaf1] bg-[#f1f9fc] p-5 sm:p-6">
+        <section className="mt-4 rounded-2xl border border-[#d8eaf1] bg-[#EAF3FC] p-5 sm:p-6">
           <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
             <div className="flex items-start gap-3">
               <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700">
@@ -913,7 +853,7 @@ function LandDetailsPage() {
               </div>
 
               <div>
-                <h2 className="text-sm font-bold text-[#173c56] sm:text-base">
+                <h2 className="text-sm font-bold text-[#062B52] sm:text-base">
                   Need help with your land record?
                 </h2>
 
@@ -936,7 +876,7 @@ function LandDetailsPage() {
 
               <button
                 type="button"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-[#173c56] transition hover:bg-slate-50"
+                className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-[#062B52] transition hover:bg-slate-50"
               >
                 <Landmark size={15} />
                 Find Tehsil Office
@@ -956,7 +896,7 @@ function LandDetailsPage() {
             Revenue Office.
           </p>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
@@ -979,12 +919,12 @@ function SectionHeader({
   return (
     <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
       <div className="flex items-start gap-3">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#e8f4f8] text-[#174b69]">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#062B52]">
           {icon}
         </div>
 
         <div>
-          <h2 className="text-base font-bold text-[#173c56] sm:text-lg">
+          <h2 className="text-base font-bold text-[#062B52] sm:text-lg">
             {title}
           </h2>
 
@@ -993,7 +933,7 @@ function SectionHeader({
       </div>
 
       {badge && (
-        <span className="w-fit rounded-full bg-[#edf7fa] px-2.5 py-1 text-xs font-semibold text-[#174b69]">
+        <span className="w-fit rounded-full bg-[#edf7fa] px-2.5 py-1 text-xs font-semibold text-[#062B52]">
           {badge}
         </span>
       )}
@@ -1025,7 +965,7 @@ function StatItem({
             ? "bg-amber-100 text-amber-700"
             : status === "success"
               ? "bg-emerald-100 text-emerald-700"
-              : "bg-[#e8f4f8] text-[#174b69]",
+              : "bg-[#EAF3FC] text-[#062B52]",
         ].join(" ")}
       >
         {icon}
@@ -1043,7 +983,7 @@ function StatItem({
               ? "text-amber-800"
               : status === "success"
                 ? "text-emerald-700"
-                : "text-[#173c56]",
+                : "text-[#062B52]",
           ].join(" ")}
         >
           {value}
@@ -1076,7 +1016,7 @@ function DetailField({
             "flex h-7 w-7 items-center justify-center rounded-md",
             success
               ? "bg-emerald-50 text-emerald-600"
-              : "bg-[#eef7fa] text-[#174b69]",
+              : "bg-[#EAF3FC] text-[#062B52]",
           ].join(" ")}
         >
           {icon}
@@ -1090,7 +1030,7 @@ function DetailField({
       <p
         className={[
           "mt-3 text-sm font-bold",
-          success ? "text-emerald-700" : "text-[#294c63]",
+          success ? "text-emerald-700" : "text-[#062B52]",
         ].join(" ")}
       >
         {value}
@@ -1110,7 +1050,7 @@ function LocationField({ label, value }: { label: string; value: string }) {
         {label}
       </p>
 
-      <p className="mt-1 text-xs font-bold leading-5 text-[#294c63]">{value}</p>
+      <p className="mt-1 text-xs font-bold leading-5 text-[#062B52]">{value}</p>
     </div>
   );
 }
@@ -1132,17 +1072,17 @@ function OwnerRow({
 }) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-slate-200 p-3 transition-all hover:border-[#c8e0e9] hover:bg-[#fbfdfe]">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#e2f0f5] text-xs font-bold text-[#174b69]">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EAF3FC] text-xs font-bold text-[#062B52]">
         {initials}
       </div>
 
       <div className="min-w-0 flex-1">
-        <p className="truncate text-xs font-bold text-[#294c63]">{name}</p>
+        <p className="truncate text-xs font-bold text-[#062B52]">{name}</p>
 
         <p className="mt-0.5 text-xs text-slate-400">{relation}</p>
       </div>
 
-      <span className="shrink-0 rounded-full bg-[#eef7fa] px-2.5 py-1 text-xs font-semibold text-[#174b69]">
+      <span className="shrink-0 rounded-full bg-[#EAF3FC] px-2.5 py-1 text-xs font-semibold text-[#062B52]">
         {share}
       </span>
     </div>
@@ -1176,7 +1116,7 @@ function DocumentCard({
             "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
             warning
               ? "bg-amber-100 text-amber-700"
-              : "bg-[#e8f4f8] text-[#174b69]",
+              : "bg-[#EAF3FC] text-[#062B52]",
           ].join(" ")}
         >
           {icon}
@@ -1184,20 +1124,11 @@ function DocumentCard({
 
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-2">
-            <p className="text-sm font-bold text-[#294c63]">{title}</p>
+            <p className="text-sm font-bold text-[#062B52]">{title}</p>
 
-            {verified && (
-              <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2.5 py-0.5 text-xs font-semibold text-emerald-700">
-                <Check size={11} />
-                Verified
-              </span>
-            )}
+            {verified && <StatusBadge status="Verified" withIcon={false} />}
 
-            {warning && (
-              <span className="rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-semibold text-amber-700">
-                Important
-              </span>
-            )}
+            {warning && <StatusBadge status="Important" withIcon={false} />}
           </div>
 
           <p className="mt-0.5 text-xs text-slate-400">{description}</p>
@@ -1208,7 +1139,7 @@ function DocumentCard({
         <div className="flex shrink-0 gap-2">
           <button
             type="button"
-            className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-[#174b69] transition hover:bg-slate-50"
+            className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-xs font-semibold text-[#062B52] transition hover:bg-slate-50"
           >
             <ExternalLink size={13} />
             View
@@ -1216,7 +1147,7 @@ function DocumentCard({
 
           <button
             type="button"
-            className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#123f5c] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#0c3048]"
+            className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-[#062B52] px-3 py-2 text-xs font-semibold text-white transition hover:bg-[#0C396E]"
           >
             <Download size={13} />
             Download
@@ -1224,77 +1155,6 @@ function DocumentCard({
         </div>
       </div>
     </div>
-  );
-}
-
-/* ========================================================================= */
-/* TIMELINE STEP                                                              */
-/* ========================================================================= */
-
-function TimelineStep({
-  number,
-  title,
-  subtitle,
-  complete = false,
-  active = false,
-}: {
-  number: string;
-  title: string;
-  subtitle: string;
-  complete?: boolean;
-  active?: boolean;
-}) {
-  return (
-    <div className="flex w-[110px] shrink-0 flex-col items-center text-center">
-      <div
-        className={[
-          "flex h-9 w-9 items-center justify-center rounded-full text-xs font-bold",
-          complete
-            ? "bg-emerald-600 text-white"
-            : active
-              ? "bg-amber-600 text-white ring-4 ring-amber-100"
-              : "bg-slate-100 text-slate-400",
-        ].join(" ")}
-      >
-        {complete ? <Check size={16} /> : number}
-      </div>
-
-      <p
-        className={[
-          "mt-2 text-xs font-bold",
-          complete
-            ? "text-emerald-700"
-            : active
-              ? "text-amber-700"
-              : "text-slate-500",
-        ].join(" ")}
-      >
-        {title}
-      </p>
-
-      <p className="mt-0.5 text-xs text-slate-400">{subtitle}</p>
-    </div>
-  );
-}
-
-/* ========================================================================= */
-/* TIMELINE LINE                                                              */
-/* ========================================================================= */
-
-function TimelineLine({
-  complete = false,
-  active = false,
-}: {
-  complete?: boolean;
-  active?: boolean;
-}) {
-  return (
-    <div
-      className={[
-        "mt-[18px] h-0.5 min-w-[35px] flex-1",
-        complete ? "bg-emerald-500" : active ? "bg-amber-400" : "bg-slate-200",
-      ].join(" ")}
-    />
   );
 }
 
@@ -1321,17 +1181,17 @@ function ActionCard({
       onClick={onClick}
       className="group flex min-h-[165px] flex-col rounded-2xl border border-slate-200 bg-white p-5 text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-[#c5dfe9] hover:shadow-md"
     >
-      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#e8f4f8] text-[#174b69] transition-all duration-200 group-hover:bg-[#123f5c] group-hover:text-white">
+      <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#EAF3FC] text-[#062B52] transition-all duration-200 group-hover:bg-[#0C396E] group-hover:text-white">
         {icon}
       </div>
 
-      <h3 className="mt-4 text-sm font-bold text-[#173c56]">{title}</h3>
+      <h3 className="mt-4 text-sm font-bold text-[#062B52]">{title}</h3>
 
       <p className="mt-2 flex-1 text-xs leading-5 text-slate-500">
         {description}
       </p>
 
-      <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#123f5c] transition-all group-hover:gap-2.5">
+      <span className="mt-4 inline-flex items-center gap-1.5 text-xs font-bold text-[#062B52] transition-all group-hover:gap-2.5">
         {action}
         <ArrowRight size={13} />
       </span>

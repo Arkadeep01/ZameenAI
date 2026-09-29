@@ -15,12 +15,14 @@ interface MapControlsProps {
   satellite: boolean;
   onSatelliteChange: () => void;
   defaultCenter?: [number, number];
+  compact?: boolean;
 }
 
 export default function MapControls({
   satellite,
   onSatelliteChange,
   defaultCenter,
+  compact = false,
 }: MapControlsProps) {
   const map = useMap();
 
@@ -186,7 +188,7 @@ export default function MapControls({
           >
             <Popup autoPan={true}>
               <div className="min-w-[170px] p-1 text-xs">
-                <div className="flex items-center gap-1.5 font-bold text-[#123a57]">
+                <div className="flex items-center gap-1.5 font-bold text-[#062B52]">
                   <span className="inline-block h-2.5 w-2.5 rounded-full bg-blue-600 animate-pulse" />
                   My Location
                 </div>
@@ -206,91 +208,147 @@ export default function MapControls({
       )}
 
       {/* ================================================================ */}
-      {/* ZOOM                                                               */}
+      {/* ZOOM CONTROLS                                                     */}
       {/* ================================================================ */}
 
-      <div className="absolute right-3 top-3 z-[1000] overflow-hidden rounded-lg border border-slate-200/90 bg-white shadow-md">
+      <div
+        className={`absolute z-[1000] overflow-hidden rounded-lg border border-slate-200/90 bg-white/95 shadow-md backdrop-blur-xs ${
+          compact ? "right-2.5 top-2.5" : "right-3 top-3"
+        }`}
+      >
         <button
           type="button"
           onClick={zoomIn}
           aria-label="Zoom in"
-          className="flex h-8 w-8 items-center justify-center border-b border-slate-100 text-[#123a57] transition hover:bg-slate-50 active:bg-slate-100"
+          className={`flex items-center justify-center border-b border-slate-100 text-[#062B52] transition hover:bg-slate-50 active:bg-slate-100 ${
+            compact ? "h-7 w-7" : "h-8 w-8"
+          }`}
         >
-          <Plus size={16} />
+          <Plus size={compact ? 14 : 16} />
         </button>
 
         <button
           type="button"
           onClick={zoomOut}
           aria-label="Zoom out"
-          className="flex h-8 w-8 items-center justify-center text-[#123a57] transition hover:bg-slate-50 active:bg-slate-100"
+          className={`flex items-center justify-center text-[#062B52] transition hover:bg-slate-50 active:bg-slate-100 ${
+            compact ? "h-7 w-7" : "h-8 w-8"
+          }`}
         >
-          <Minus size={16} />
+          <Minus size={compact ? 14 : 16} />
         </button>
       </div>
 
       {/* ================================================================ */}
-      {/* OTHER CONTROLS                                                    */}
+      {/* OTHER CONTROLS (COMPACT HORIZONTAL OR STANDARD VERTICAL)          */}
       {/* ================================================================ */}
 
-      <div className="absolute right-3 top-[85px] z-[1000] flex flex-col gap-1.5">
-        <button
-          type="button"
-          onClick={locate}
-          className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-bold shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ${
-            userLocation
-              ? "border-blue-400 bg-blue-50 text-blue-800"
-              : "border-slate-200 bg-white text-[#123a57] hover:bg-slate-50"
-          }`}
-        >
-          {isLocating ? (
-            <Loader2 size={15} className="animate-spin text-blue-600" />
-          ) : (
-            <LocateFixed
-              size={15}
-              className={userLocation ? "text-blue-600" : ""}
-            />
-          )}
+      {compact ? (
+        <div className="absolute right-2.5 bottom-2.5 z-[1000] flex items-center gap-1.5">
+          <button
+            type="button"
+            onClick={onSatelliteChange}
+            title={satellite ? "Switch to Street View" : "Switch to Satellite View"}
+            className="flex h-6 sm:h-7 items-center gap-1 rounded-md border border-white/90 bg-white/95 px-2 text-[10px] sm:text-[11px] font-bold text-[#062B52] shadow-md backdrop-blur-xs transition hover:bg-slate-50"
+          >
+            <Satellite size={12} className="text-[#1261A8]" />
+            <span>{satellite ? "Street" : "Satellite"}</span>
+          </button>
 
-          <span className="hidden sm:inline">My Location</span>
-        </button>
+          <button
+            type="button"
+            onClick={locate}
+            title="My Location"
+            className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-md border border-white/90 bg-white/95 text-[#062B52] shadow-md backdrop-blur-xs transition hover:bg-slate-50"
+          >
+            {isLocating ? (
+              <Loader2 size={12} className="animate-spin text-blue-600" />
+            ) : (
+              <LocateFixed
+                size={12}
+                className={userLocation ? "text-blue-600" : ""}
+              />
+            )}
+          </button>
 
-        <button
-          type="button"
-          onClick={onSatelliteChange}
-          className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-bold shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ${
-            satellite
-              ? "border-[#0c3b5d] bg-[#0c3b5d] text-white"
-              : "border-slate-200 bg-white text-[#123a57]"
-          }`}
-        >
-          <Satellite size={15} />
+          <button
+            type="button"
+            onClick={reset}
+            title="Reset View"
+            className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-md border border-white/90 bg-white/95 text-[#062B52] shadow-md backdrop-blur-xs transition hover:bg-slate-50"
+          >
+            <RotateCcw size={12} />
+          </button>
 
-          <span className="hidden sm:inline">
-            {satellite ? "Street View" : "Satellite View"}
-          </span>
-        </button>
+          <button
+            type="button"
+            onClick={fullscreen}
+            title="Fullscreen"
+            className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-md border border-white/90 bg-white/95 text-[#062B52] shadow-md backdrop-blur-xs transition hover:bg-slate-50"
+          >
+            <Maximize2 size={12} />
+          </button>
+        </div>
+      ) : (
+        <div className="absolute right-3 top-[85px] z-[1000] flex flex-col gap-1.5">
+          <button
+            type="button"
+            onClick={locate}
+            className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-bold shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ${
+              userLocation
+                ? "border-blue-400 bg-blue-50 text-blue-800"
+                : "border-slate-200 bg-white text-[#062B52] hover:bg-slate-50"
+            }`}
+          >
+            {isLocating ? (
+              <Loader2 size={15} className="animate-spin text-blue-600" />
+            ) : (
+              <LocateFixed
+                size={15}
+                className={userLocation ? "text-blue-600" : ""}
+              />
+            )}
 
-        <button
-          type="button"
-          onClick={reset}
-          className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-[#123a57] shadow-md transition-all hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-lg active:translate-y-0"
-        >
-          <RotateCcw size={15} />
+            <span className="hidden sm:inline">My Location</span>
+          </button>
 
-          <span className="hidden sm:inline">Reset</span>
-        </button>
+          <button
+            type="button"
+            onClick={onSatelliteChange}
+            className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-bold shadow-md transition-all hover:-translate-y-0.5 hover:shadow-lg active:translate-y-0 ${
+              satellite
+                ? "border-[#062B52] bg-[#062B52] text-white"
+                : "border-slate-200 bg-white text-[#062B52] hover:bg-slate-50"
+            }`}
+          >
+            <Satellite size={15} />
 
-        <button
-          type="button"
-          onClick={fullscreen}
-          className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-[#123a57] shadow-md transition-all hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-lg active:translate-y-0"
-        >
-          <Maximize2 size={15} />
+            <span className="hidden sm:inline">
+              {satellite ? "Street View" : "Satellite View"}
+            </span>
+          </button>
 
-          <span className="hidden sm:inline">Fullscreen</span>
-        </button>
-      </div>
+          <button
+            type="button"
+            onClick={reset}
+            className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-[#062B52] shadow-md transition-all hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-lg active:translate-y-0"
+          >
+            <RotateCcw size={15} />
+
+            <span className="hidden sm:inline">Reset</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={fullscreen}
+            className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-bold text-[#062B52] shadow-md transition-all hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow-lg active:translate-y-0"
+          >
+            <Maximize2 size={15} />
+
+            <span className="hidden sm:inline">Fullscreen</span>
+          </button>
+        </div>
+      )}
     </>
   );
 }

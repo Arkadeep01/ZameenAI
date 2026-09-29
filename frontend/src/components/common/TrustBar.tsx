@@ -1,7 +1,7 @@
 import React from 'react';
 import { TRUST_PARTNERS } from '../../utils/portalData';
 import { Language } from '../../utils/types';
-import { Shield, Building, Landmark, Server, Map, Layers } from 'lucide-react';
+import { Building, Landmark, Server, Map, Layers } from 'lucide-react';
 
 interface TrustBarProps {
   lang: Language;

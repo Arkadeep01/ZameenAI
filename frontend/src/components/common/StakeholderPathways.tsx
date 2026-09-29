@@ -3,18 +3,16 @@ import { useNavigate } from '@tanstack/react-router';
 import { STAKEHOLDER_PERSONAS } from '../../utils/portalData';
 import { PERSONA_TO_PORTAL } from '../../utils/portals';
 import { PersonaInfo, Language } from '../../utils/types';
-import { 
-  Users, 
-  UserCheck, 
-  ArrowRight, 
-  Building, 
-  MapPin, 
-  FileCheck, 
-  Award, 
-  TrendingUp, 
-  ShieldAlert, 
-  HelpCircle,
-  ExternalLink
+import {
+  Users,
+  UserCheck,
+  ArrowRight,
+  Building,
+  MapPin,
+  FileCheck,
+  Award,
+  TrendingUp,
+  ShieldAlert,
 } from 'lucide-react';
 
 interface StakeholderPathwaysProps {

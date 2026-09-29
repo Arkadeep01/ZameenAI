@@ -10,56 +10,44 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as AdminRouteImport } from './routes/admin'
-import { Route as ApproverRouteImport } from './routes/approver'
 import { Route as CitizenRouteImport } from './routes/citizen'
-import { Route as DeskValidatorRouteImport } from './routes/desk-validator'
-import { Route as ExecutiveRouteImport } from './routes/executive'
-import { Route as FieldOfficerRouteImport } from './routes/field-officer'
 import { Route as FindMyLandRouteImport } from './routes/find-my-land'
 import { Route as GisRouteImport } from './routes/gis'
-import { Route as PiaRouteImport } from './routes/pia'
 import { Route as UploadsRouteImport } from './routes/uploads'
 import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
+import { Route as CitizenAcquisitionRouteImport } from './routes/citizen.acquisition'
+import { Route as CitizenAcquisitionStatusRouteImport } from './routes/citizen.acquisition-status'
+import { Route as CitizenActivityRouteImport } from './routes/citizen.activity'
+import { Route as CitizenCompensationRouteImport } from './routes/citizen.compensation'
 import { Route as CitizenDashboardRouteImport } from './routes/citizen.dashboard'
 import { Route as CitizenDigitalizationsRouteImport } from './routes/citizen.digitalizations'
+import { Route as CitizenDigitizedRecordsRouteImport } from './routes/citizen.digitized-records'
+import { Route as CitizenDocumentsRouteImport } from './routes/citizen.documents'
+import { Route as CitizenFindLandRouteImport } from './routes/citizen.find-land'
+import { Route as CitizenFindMyLandRouteImport } from './routes/citizen.find-my-land'
+import { Route as CitizenLandAcquisitionRouteImport } from './routes/citizen.land-acquisition'
 import { Route as CitizenLandDetailsRouteImport } from './routes/citizen.land-details'
+import { Route as CitizenMyDocumentsRouteImport } from './routes/citizen.my-documents'
 import { Route as CitizenMyLandRouteImport } from './routes/citizen.my-land'
+import { Route as CitizenMyLandAcquisitionRouteImport } from './routes/citizen.my-land-acquisition'
 import { Route as CitizenMyLandMapRouteImport } from './routes/citizen.my-land-map'
+import { Route as CitizenNoticesRouteImport } from './routes/citizen.notices'
+import { Route as CitizenPreferencesRouteImport } from './routes/citizen.preferences'
+import { Route as CitizenProcessingStatusRouteImport } from './routes/citizen.processing-status'
+import { Route as CitizenProfileRouteImport } from './routes/citizen.profile'
+import { Route as CitizenRehabilitationRouteImport } from './routes/citizen.rehabilitation'
+import { Route as CitizenSecurityRouteImport } from './routes/citizen.security'
+import { Route as CitizenSettingsRouteImport } from './routes/citizen.settings'
+import { Route as CitizenSupportRouteImport } from './routes/citizen.support'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminRoute = AdminRouteImport.update({
-  id: '/admin',
-  path: '/admin',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ApproverRoute = ApproverRouteImport.update({
-  id: '/approver',
-  path: '/approver',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const CitizenRoute = CitizenRouteImport.update({
   id: '/citizen',
   path: '/citizen',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DeskValidatorRoute = DeskValidatorRouteImport.update({
-  id: '/desk-validator',
-  path: '/desk-validator',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ExecutiveRoute = ExecutiveRouteImport.update({
-  id: '/executive',
-  path: '/executive',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FieldOfficerRoute = FieldOfficerRouteImport.update({
-  id: '/field-officer',
-  path: '/field-officer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FindMyLandRoute = FindMyLandRouteImport.update({
@@ -72,11 +60,6 @@ const GisRoute = GisRouteImport.update({
   path: '/gis',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PiaRoute = PiaRouteImport.update({
-  id: '/pia',
-  path: '/pia',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const UploadsRoute = UploadsRouteImport.update({
   id: '/uploads',
   path: '/uploads',
@@ -85,6 +68,27 @@ const UploadsRoute = UploadsRouteImport.update({
 const CitizenIndexRoute = CitizenIndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenAcquisitionRoute = CitizenAcquisitionRouteImport.update({
+  id: '/acquisition',
+  path: '/acquisition',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenAcquisitionStatusRoute =
+  CitizenAcquisitionStatusRouteImport.update({
+    id: '/acquisition-status',
+    path: '/acquisition-status',
+    getParentRoute: () => CitizenRoute,
+  } as any)
+const CitizenActivityRoute = CitizenActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenCompensationRoute = CitizenCompensationRouteImport.update({
+  id: '/compensation',
+  path: '/compensation',
   getParentRoute: () => CitizenRoute,
 } as any)
 const CitizenDashboardRoute = CitizenDashboardRouteImport.update({
@@ -97,9 +101,39 @@ const CitizenDigitalizationsRoute = CitizenDigitalizationsRouteImport.update({
   path: '/digitalizations',
   getParentRoute: () => CitizenRoute,
 } as any)
+const CitizenDigitizedRecordsRoute = CitizenDigitizedRecordsRouteImport.update({
+  id: '/digitized-records',
+  path: '/digitized-records',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenDocumentsRoute = CitizenDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenFindLandRoute = CitizenFindLandRouteImport.update({
+  id: '/find-land',
+  path: '/find-land',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenFindMyLandRoute = CitizenFindMyLandRouteImport.update({
+  id: '/find-my-land',
+  path: '/find-my-land',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenLandAcquisitionRoute = CitizenLandAcquisitionRouteImport.update({
+  id: '/land-acquisition',
+  path: '/land-acquisition',
+  getParentRoute: () => CitizenRoute,
+} as any)
 const CitizenLandDetailsRoute = CitizenLandDetailsRouteImport.update({
   id: '/land-details',
   path: '/land-details',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenMyDocumentsRoute = CitizenMyDocumentsRouteImport.update({
+  id: '/my-documents',
+  path: '/my-documents',
   getParentRoute: () => CitizenRoute,
 } as any)
 const CitizenMyLandRoute = CitizenMyLandRouteImport.update({
@@ -107,139 +141,257 @@ const CitizenMyLandRoute = CitizenMyLandRouteImport.update({
   path: '/my-land',
   getParentRoute: () => CitizenRoute,
 } as any)
+const CitizenMyLandAcquisitionRoute =
+  CitizenMyLandAcquisitionRouteImport.update({
+    id: '/my-land-acquisition',
+    path: '/my-land-acquisition',
+    getParentRoute: () => CitizenRoute,
+  } as any)
 const CitizenMyLandMapRoute = CitizenMyLandMapRouteImport.update({
   id: '/my-land-map',
   path: '/my-land-map',
   getParentRoute: () => CitizenRoute,
 } as any)
+const CitizenNoticesRoute = CitizenNoticesRouteImport.update({
+  id: '/notices',
+  path: '/notices',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenPreferencesRoute = CitizenPreferencesRouteImport.update({
+  id: '/preferences',
+  path: '/preferences',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenProcessingStatusRoute = CitizenProcessingStatusRouteImport.update({
+  id: '/processing-status',
+  path: '/processing-status',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenProfileRoute = CitizenProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenRehabilitationRoute = CitizenRehabilitationRouteImport.update({
+  id: '/rehabilitation',
+  path: '/rehabilitation',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenSecurityRoute = CitizenSecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenSettingsRoute = CitizenSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => CitizenRoute,
+} as any)
+const CitizenSupportRoute = CitizenSupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => CitizenRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/approver': typeof ApproverRoute
   '/citizen': typeof CitizenRouteWithChildren
-  '/desk-validator': typeof DeskValidatorRoute
-  '/executive': typeof ExecutiveRoute
-  '/field-officer': typeof FieldOfficerRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
-  '/pia': typeof PiaRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/acquisition': typeof CitizenAcquisitionRoute
+  '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
+  '/citizen/activity': typeof CitizenActivityRoute
+  '/citizen/compensation': typeof CitizenCompensationRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
   '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
+  '/citizen/digitized-records': typeof CitizenDigitizedRecordsRoute
+  '/citizen/documents': typeof CitizenDocumentsRoute
+  '/citizen/find-land': typeof CitizenFindLandRoute
+  '/citizen/find-my-land': typeof CitizenFindMyLandRoute
+  '/citizen/land-acquisition': typeof CitizenLandAcquisitionRoute
   '/citizen/land-details': typeof CitizenLandDetailsRoute
+  '/citizen/my-documents': typeof CitizenMyDocumentsRoute
   '/citizen/my-land': typeof CitizenMyLandRoute
+  '/citizen/my-land-acquisition': typeof CitizenMyLandAcquisitionRoute
   '/citizen/my-land-map': typeof CitizenMyLandMapRoute
+  '/citizen/notices': typeof CitizenNoticesRoute
+  '/citizen/preferences': typeof CitizenPreferencesRoute
+  '/citizen/processing-status': typeof CitizenProcessingStatusRoute
+  '/citizen/profile': typeof CitizenProfileRoute
+  '/citizen/rehabilitation': typeof CitizenRehabilitationRoute
+  '/citizen/security': typeof CitizenSecurityRoute
+  '/citizen/settings': typeof CitizenSettingsRoute
+  '/citizen/support': typeof CitizenSupportRoute
   '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/approver': typeof ApproverRoute
-  '/desk-validator': typeof DeskValidatorRoute
-  '/executive': typeof ExecutiveRoute
-  '/field-officer': typeof FieldOfficerRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
-  '/pia': typeof PiaRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/acquisition': typeof CitizenAcquisitionRoute
+  '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
+  '/citizen/activity': typeof CitizenActivityRoute
+  '/citizen/compensation': typeof CitizenCompensationRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
   '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
+  '/citizen/digitized-records': typeof CitizenDigitizedRecordsRoute
+  '/citizen/documents': typeof CitizenDocumentsRoute
+  '/citizen/find-land': typeof CitizenFindLandRoute
+  '/citizen/find-my-land': typeof CitizenFindMyLandRoute
+  '/citizen/land-acquisition': typeof CitizenLandAcquisitionRoute
   '/citizen/land-details': typeof CitizenLandDetailsRoute
+  '/citizen/my-documents': typeof CitizenMyDocumentsRoute
   '/citizen/my-land': typeof CitizenMyLandRoute
+  '/citizen/my-land-acquisition': typeof CitizenMyLandAcquisitionRoute
   '/citizen/my-land-map': typeof CitizenMyLandMapRoute
+  '/citizen/notices': typeof CitizenNoticesRoute
+  '/citizen/preferences': typeof CitizenPreferencesRoute
+  '/citizen/processing-status': typeof CitizenProcessingStatusRoute
+  '/citizen/profile': typeof CitizenProfileRoute
+  '/citizen/rehabilitation': typeof CitizenRehabilitationRoute
+  '/citizen/security': typeof CitizenSecurityRoute
+  '/citizen/settings': typeof CitizenSettingsRoute
+  '/citizen/support': typeof CitizenSupportRoute
   '/citizen': typeof CitizenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/admin': typeof AdminRoute
-  '/approver': typeof ApproverRoute
   '/citizen': typeof CitizenRouteWithChildren
-  '/desk-validator': typeof DeskValidatorRoute
-  '/executive': typeof ExecutiveRoute
-  '/field-officer': typeof FieldOfficerRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
-  '/pia': typeof PiaRoute
   '/uploads': typeof UploadsRoute
+  '/citizen/acquisition': typeof CitizenAcquisitionRoute
+  '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
+  '/citizen/activity': typeof CitizenActivityRoute
+  '/citizen/compensation': typeof CitizenCompensationRoute
   '/citizen/dashboard': typeof CitizenDashboardRoute
   '/citizen/digitalizations': typeof CitizenDigitalizationsRoute
+  '/citizen/digitized-records': typeof CitizenDigitizedRecordsRoute
+  '/citizen/documents': typeof CitizenDocumentsRoute
+  '/citizen/find-land': typeof CitizenFindLandRoute
+  '/citizen/find-my-land': typeof CitizenFindMyLandRoute
+  '/citizen/land-acquisition': typeof CitizenLandAcquisitionRoute
   '/citizen/land-details': typeof CitizenLandDetailsRoute
+  '/citizen/my-documents': typeof CitizenMyDocumentsRoute
   '/citizen/my-land': typeof CitizenMyLandRoute
+  '/citizen/my-land-acquisition': typeof CitizenMyLandAcquisitionRoute
   '/citizen/my-land-map': typeof CitizenMyLandMapRoute
+  '/citizen/notices': typeof CitizenNoticesRoute
+  '/citizen/preferences': typeof CitizenPreferencesRoute
+  '/citizen/processing-status': typeof CitizenProcessingStatusRoute
+  '/citizen/profile': typeof CitizenProfileRoute
+  '/citizen/rehabilitation': typeof CitizenRehabilitationRoute
+  '/citizen/security': typeof CitizenSecurityRoute
+  '/citizen/settings': typeof CitizenSettingsRoute
+  '/citizen/support': typeof CitizenSupportRoute
   '/citizen/': typeof CitizenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
-    | '/admin'
-    | '/approver'
     | '/citizen'
-    | '/desk-validator'
-    | '/executive'
-    | '/field-officer'
     | '/find-my-land'
     | '/gis'
-    | '/pia'
     | '/uploads'
+    | '/citizen/acquisition'
+    | '/citizen/acquisition-status'
+    | '/citizen/activity'
+    | '/citizen/compensation'
     | '/citizen/dashboard'
     | '/citizen/digitalizations'
+    | '/citizen/digitized-records'
+    | '/citizen/documents'
+    | '/citizen/find-land'
+    | '/citizen/find-my-land'
+    | '/citizen/land-acquisition'
     | '/citizen/land-details'
+    | '/citizen/my-documents'
     | '/citizen/my-land'
+    | '/citizen/my-land-acquisition'
     | '/citizen/my-land-map'
+    | '/citizen/notices'
+    | '/citizen/preferences'
+    | '/citizen/processing-status'
+    | '/citizen/profile'
+    | '/citizen/rehabilitation'
+    | '/citizen/security'
+    | '/citizen/settings'
+    | '/citizen/support'
     | '/citizen/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/admin'
-    | '/approver'
-    | '/desk-validator'
-    | '/executive'
-    | '/field-officer'
     | '/find-my-land'
     | '/gis'
-    | '/pia'
     | '/uploads'
+    | '/citizen/acquisition'
+    | '/citizen/acquisition-status'
+    | '/citizen/activity'
+    | '/citizen/compensation'
     | '/citizen/dashboard'
     | '/citizen/digitalizations'
+    | '/citizen/digitized-records'
+    | '/citizen/documents'
+    | '/citizen/find-land'
+    | '/citizen/find-my-land'
+    | '/citizen/land-acquisition'
     | '/citizen/land-details'
+    | '/citizen/my-documents'
     | '/citizen/my-land'
+    | '/citizen/my-land-acquisition'
     | '/citizen/my-land-map'
+    | '/citizen/notices'
+    | '/citizen/preferences'
+    | '/citizen/processing-status'
+    | '/citizen/profile'
+    | '/citizen/rehabilitation'
+    | '/citizen/security'
+    | '/citizen/settings'
+    | '/citizen/support'
     | '/citizen'
   id:
     | '__root__'
     | '/'
-    | '/admin'
-    | '/approver'
     | '/citizen'
-    | '/desk-validator'
-    | '/executive'
-    | '/field-officer'
     | '/find-my-land'
     | '/gis'
-    | '/pia'
     | '/uploads'
+    | '/citizen/acquisition'
+    | '/citizen/acquisition-status'
+    | '/citizen/activity'
+    | '/citizen/compensation'
     | '/citizen/dashboard'
     | '/citizen/digitalizations'
+    | '/citizen/digitized-records'
+    | '/citizen/documents'
+    | '/citizen/find-land'
+    | '/citizen/find-my-land'
+    | '/citizen/land-acquisition'
     | '/citizen/land-details'
+    | '/citizen/my-documents'
     | '/citizen/my-land'
+    | '/citizen/my-land-acquisition'
     | '/citizen/my-land-map'
+    | '/citizen/notices'
+    | '/citizen/preferences'
+    | '/citizen/processing-status'
+    | '/citizen/profile'
+    | '/citizen/rehabilitation'
+    | '/citizen/security'
+    | '/citizen/settings'
+    | '/citizen/support'
     | '/citizen/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AdminRoute: typeof AdminRoute
-  ApproverRoute: typeof ApproverRoute
   CitizenRoute: typeof CitizenRouteWithChildren
-  DeskValidatorRoute: typeof DeskValidatorRoute
-  ExecutiveRoute: typeof ExecutiveRoute
-  FieldOfficerRoute: typeof FieldOfficerRoute
   FindMyLandRoute: typeof FindMyLandRoute
   GisRoute: typeof GisRoute
-  PiaRoute: typeof PiaRoute
   UploadsRoute: typeof UploadsRoute
 }
 
@@ -252,46 +404,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin': {
-      id: '/admin'
-      path: '/admin'
-      fullPath: '/admin'
-      preLoaderRoute: typeof AdminRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/approver': {
-      id: '/approver'
-      path: '/approver'
-      fullPath: '/approver'
-      preLoaderRoute: typeof ApproverRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/citizen': {
       id: '/citizen'
       path: '/citizen'
       fullPath: '/citizen'
       preLoaderRoute: typeof CitizenRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/desk-validator': {
-      id: '/desk-validator'
-      path: '/desk-validator'
-      fullPath: '/desk-validator'
-      preLoaderRoute: typeof DeskValidatorRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/executive': {
-      id: '/executive'
-      path: '/executive'
-      fullPath: '/executive'
-      preLoaderRoute: typeof ExecutiveRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/field-officer': {
-      id: '/field-officer'
-      path: '/field-officer'
-      fullPath: '/field-officer'
-      preLoaderRoute: typeof FieldOfficerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/find-my-land': {
@@ -308,13 +425,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GisRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pia': {
-      id: '/pia'
-      path: '/pia'
-      fullPath: '/pia'
-      preLoaderRoute: typeof PiaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/uploads': {
       id: '/uploads'
       path: '/uploads'
@@ -327,6 +437,34 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/citizen/'
       preLoaderRoute: typeof CitizenIndexRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/acquisition': {
+      id: '/citizen/acquisition'
+      path: '/acquisition'
+      fullPath: '/citizen/acquisition'
+      preLoaderRoute: typeof CitizenAcquisitionRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/acquisition-status': {
+      id: '/citizen/acquisition-status'
+      path: '/acquisition-status'
+      fullPath: '/citizen/acquisition-status'
+      preLoaderRoute: typeof CitizenAcquisitionStatusRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/activity': {
+      id: '/citizen/activity'
+      path: '/activity'
+      fullPath: '/citizen/activity'
+      preLoaderRoute: typeof CitizenActivityRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/compensation': {
+      id: '/citizen/compensation'
+      path: '/compensation'
+      fullPath: '/citizen/compensation'
+      preLoaderRoute: typeof CitizenCompensationRouteImport
       parentRoute: typeof CitizenRoute
     }
     '/citizen/dashboard': {
@@ -343,11 +481,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitizenDigitalizationsRouteImport
       parentRoute: typeof CitizenRoute
     }
+    '/citizen/digitized-records': {
+      id: '/citizen/digitized-records'
+      path: '/digitized-records'
+      fullPath: '/citizen/digitized-records'
+      preLoaderRoute: typeof CitizenDigitizedRecordsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/documents': {
+      id: '/citizen/documents'
+      path: '/documents'
+      fullPath: '/citizen/documents'
+      preLoaderRoute: typeof CitizenDocumentsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/find-land': {
+      id: '/citizen/find-land'
+      path: '/find-land'
+      fullPath: '/citizen/find-land'
+      preLoaderRoute: typeof CitizenFindLandRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/find-my-land': {
+      id: '/citizen/find-my-land'
+      path: '/find-my-land'
+      fullPath: '/citizen/find-my-land'
+      preLoaderRoute: typeof CitizenFindMyLandRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/land-acquisition': {
+      id: '/citizen/land-acquisition'
+      path: '/land-acquisition'
+      fullPath: '/citizen/land-acquisition'
+      preLoaderRoute: typeof CitizenLandAcquisitionRouteImport
+      parentRoute: typeof CitizenRoute
+    }
     '/citizen/land-details': {
       id: '/citizen/land-details'
       path: '/land-details'
       fullPath: '/citizen/land-details'
       preLoaderRoute: typeof CitizenLandDetailsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/my-documents': {
+      id: '/citizen/my-documents'
+      path: '/my-documents'
+      fullPath: '/citizen/my-documents'
+      preLoaderRoute: typeof CitizenMyDocumentsRouteImport
       parentRoute: typeof CitizenRoute
     }
     '/citizen/my-land': {
@@ -357,6 +537,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitizenMyLandRouteImport
       parentRoute: typeof CitizenRoute
     }
+    '/citizen/my-land-acquisition': {
+      id: '/citizen/my-land-acquisition'
+      path: '/my-land-acquisition'
+      fullPath: '/citizen/my-land-acquisition'
+      preLoaderRoute: typeof CitizenMyLandAcquisitionRouteImport
+      parentRoute: typeof CitizenRoute
+    }
     '/citizen/my-land-map': {
       id: '/citizen/my-land-map'
       path: '/my-land-map'
@@ -364,24 +551,118 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitizenMyLandMapRouteImport
       parentRoute: typeof CitizenRoute
     }
+    '/citizen/notices': {
+      id: '/citizen/notices'
+      path: '/notices'
+      fullPath: '/citizen/notices'
+      preLoaderRoute: typeof CitizenNoticesRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/preferences': {
+      id: '/citizen/preferences'
+      path: '/preferences'
+      fullPath: '/citizen/preferences'
+      preLoaderRoute: typeof CitizenPreferencesRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/processing-status': {
+      id: '/citizen/processing-status'
+      path: '/processing-status'
+      fullPath: '/citizen/processing-status'
+      preLoaderRoute: typeof CitizenProcessingStatusRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/profile': {
+      id: '/citizen/profile'
+      path: '/profile'
+      fullPath: '/citizen/profile'
+      preLoaderRoute: typeof CitizenProfileRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/rehabilitation': {
+      id: '/citizen/rehabilitation'
+      path: '/rehabilitation'
+      fullPath: '/citizen/rehabilitation'
+      preLoaderRoute: typeof CitizenRehabilitationRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/security': {
+      id: '/citizen/security'
+      path: '/security'
+      fullPath: '/citizen/security'
+      preLoaderRoute: typeof CitizenSecurityRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/settings': {
+      id: '/citizen/settings'
+      path: '/settings'
+      fullPath: '/citizen/settings'
+      preLoaderRoute: typeof CitizenSettingsRouteImport
+      parentRoute: typeof CitizenRoute
+    }
+    '/citizen/support': {
+      id: '/citizen/support'
+      path: '/support'
+      fullPath: '/citizen/support'
+      preLoaderRoute: typeof CitizenSupportRouteImport
+      parentRoute: typeof CitizenRoute
+    }
   }
 }
 
 interface CitizenRouteChildren {
+  CitizenAcquisitionRoute: typeof CitizenAcquisitionRoute
+  CitizenAcquisitionStatusRoute: typeof CitizenAcquisitionStatusRoute
+  CitizenActivityRoute: typeof CitizenActivityRoute
+  CitizenCompensationRoute: typeof CitizenCompensationRoute
   CitizenDashboardRoute: typeof CitizenDashboardRoute
   CitizenDigitalizationsRoute: typeof CitizenDigitalizationsRoute
+  CitizenDigitizedRecordsRoute: typeof CitizenDigitizedRecordsRoute
+  CitizenDocumentsRoute: typeof CitizenDocumentsRoute
+  CitizenFindLandRoute: typeof CitizenFindLandRoute
+  CitizenFindMyLandRoute: typeof CitizenFindMyLandRoute
+  CitizenLandAcquisitionRoute: typeof CitizenLandAcquisitionRoute
   CitizenLandDetailsRoute: typeof CitizenLandDetailsRoute
+  CitizenMyDocumentsRoute: typeof CitizenMyDocumentsRoute
   CitizenMyLandRoute: typeof CitizenMyLandRoute
+  CitizenMyLandAcquisitionRoute: typeof CitizenMyLandAcquisitionRoute
   CitizenMyLandMapRoute: typeof CitizenMyLandMapRoute
+  CitizenNoticesRoute: typeof CitizenNoticesRoute
+  CitizenPreferencesRoute: typeof CitizenPreferencesRoute
+  CitizenProcessingStatusRoute: typeof CitizenProcessingStatusRoute
+  CitizenProfileRoute: typeof CitizenProfileRoute
+  CitizenRehabilitationRoute: typeof CitizenRehabilitationRoute
+  CitizenSecurityRoute: typeof CitizenSecurityRoute
+  CitizenSettingsRoute: typeof CitizenSettingsRoute
+  CitizenSupportRoute: typeof CitizenSupportRoute
   CitizenIndexRoute: typeof CitizenIndexRoute
 }
 
 const CitizenRouteChildren: CitizenRouteChildren = {
+  CitizenAcquisitionRoute: CitizenAcquisitionRoute,
+  CitizenAcquisitionStatusRoute: CitizenAcquisitionStatusRoute,
+  CitizenActivityRoute: CitizenActivityRoute,
+  CitizenCompensationRoute: CitizenCompensationRoute,
   CitizenDashboardRoute: CitizenDashboardRoute,
   CitizenDigitalizationsRoute: CitizenDigitalizationsRoute,
+  CitizenDigitizedRecordsRoute: CitizenDigitizedRecordsRoute,
+  CitizenDocumentsRoute: CitizenDocumentsRoute,
+  CitizenFindLandRoute: CitizenFindLandRoute,
+  CitizenFindMyLandRoute: CitizenFindMyLandRoute,
+  CitizenLandAcquisitionRoute: CitizenLandAcquisitionRoute,
   CitizenLandDetailsRoute: CitizenLandDetailsRoute,
+  CitizenMyDocumentsRoute: CitizenMyDocumentsRoute,
   CitizenMyLandRoute: CitizenMyLandRoute,
+  CitizenMyLandAcquisitionRoute: CitizenMyLandAcquisitionRoute,
   CitizenMyLandMapRoute: CitizenMyLandMapRoute,
+  CitizenNoticesRoute: CitizenNoticesRoute,
+  CitizenPreferencesRoute: CitizenPreferencesRoute,
+  CitizenProcessingStatusRoute: CitizenProcessingStatusRoute,
+  CitizenProfileRoute: CitizenProfileRoute,
+  CitizenRehabilitationRoute: CitizenRehabilitationRoute,
+  CitizenSecurityRoute: CitizenSecurityRoute,
+  CitizenSettingsRoute: CitizenSettingsRoute,
+  CitizenSupportRoute: CitizenSupportRoute,
   CitizenIndexRoute: CitizenIndexRoute,
 }
 
@@ -390,15 +671,9 @@ const CitizenRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AdminRoute: AdminRoute,
-  ApproverRoute: ApproverRoute,
   CitizenRoute: CitizenRouteWithChildren,
-  DeskValidatorRoute: DeskValidatorRoute,
-  ExecutiveRoute: ExecutiveRoute,
-  FieldOfficerRoute: FieldOfficerRoute,
   FindMyLandRoute: FindMyLandRoute,
   GisRoute: GisRoute,
-  PiaRoute: PiaRoute,
   UploadsRoute: UploadsRoute,
 }
 export const routeTree = rootRouteImport

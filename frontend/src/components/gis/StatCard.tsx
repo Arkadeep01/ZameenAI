@@ -53,7 +53,7 @@ export default function StatCard({
               "transition-transform duration-200",
               "group-hover:scale-105",
 
-              !isWarning && !isDanger && "bg-[#edf7fc] text-[#286582]",
+              !isWarning && !isDanger && "bg-[#EAF3FC] text-[#286582]",
 
               isWarning && "bg-amber-100 text-amber-700",
 
@@ -78,7 +78,7 @@ export default function StatCard({
             className={[
               "text-3xl sm:text-4xl font-extrabold leading-none tracking-tight",
 
-              !isWarning && !isDanger && "text-[#173b55]",
+              !isWarning && !isDanger && "text-[#062B52]",
 
               isWarning && "text-amber-700",
 
@@ -121,7 +121,7 @@ export default function StatCard({
         {isDanger && (
           <button
             type="button"
-            className="mt-3 inline-flex items-center justify-center rounded-lg bg-[#14384f] px-3.5 py-1.5 text-xs font-bold text-white transition-all duration-200 hover:bg-[#0b2b3e] hover:shadow-sm active:scale-[0.98]"
+            className="mt-3 inline-flex items-center justify-center rounded-lg bg-[#062B52] px-3.5 py-1.5 text-xs font-bold text-white transition-all duration-200 hover:bg-[#0C396E] hover:shadow-sm active:scale-[0.98]"
           >
             Resolve Action →
           </button>
