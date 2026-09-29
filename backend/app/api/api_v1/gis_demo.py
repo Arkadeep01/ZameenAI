@@ -3,6 +3,12 @@ from typing import Optional
 
 router = APIRouter()
 
+# DEMO-ONLY mock parcels (SIH prototype static GeoJSON). The production path
+# is /api/gis/db/* (PostGIS) + /api/gis/links/* (record linkage). These demo
+# routes are retained for backward compatibility with the Vite GIS map but
+# every response is explicitly flagged demo:true so no consumer mistakes
+# them for real cadastral data.
+
 # Status values per TECHSPEC.md Section 34 ("Parcel Status")
 PARCEL_STATUS_COLORS = {
     "NOTIFIED": "#dc2626",             # red — pending
@@ -131,6 +137,8 @@ async def list_parcels(status: Optional[str] = Query(None, description="Filter b
 
     return {
         "type": "FeatureCollection",
+        "demo": True,
+        "warning": "Demo-only static parcels; production data lives at /api/gis/db/*.",
         "features": [_to_feature(p) for p in parcels],
     }
 
@@ -141,7 +149,9 @@ async def get_parcel(parcel_id: str):
     parcel = next((p for p in DUMMY_PARCELS if p["id"] == parcel_id), None)
     if not parcel:
         raise HTTPException(status_code=404, detail="Parcel not found")
-    return _to_feature(parcel)
+    feature = _to_feature(parcel)
+    feature["demo"] = True
+    return feature
 
 
 @router.get("/layers")
