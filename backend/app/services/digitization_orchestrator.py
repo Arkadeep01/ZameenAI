@@ -101,7 +101,15 @@ class DigitizationOrchestrator:
     # ------------------------------------------------------------------
     def start_job(self, file_content: bytes, filename: str,
                   created_by: Optional[str] = None,
-                  run_pipeline: bool = True) -> dict[str, Any]:
+                  run_pipeline: bool = True,
+                  owner: Optional[dict] = None) -> dict[str, Any]:
+        """Ingest a document and start a digitization job.
+
+        ``owner`` (the authenticated principal) is bound to the record as soon
+        as the job row is persisted and *before* the pipeline runs, so the
+        record is never processed while unassigned and a binding failure stops
+        the run instead of leaving a processed but ownerless record.
+        """
         from app.ocr.ingestion.service import get_ingestion_service
 
         ingestion = get_ingestion_service().ingest(file_content, filename or "document")
@@ -118,6 +126,15 @@ class DigitizationOrchestrator:
                               filename, data, created_by)
         self._audit(created_by, "DIGITIZATION_START", "digitization_job", job_id,
                     new_state="QUEUED", meta={"record_id": record_id})
+        if owner is not None and record_id:
+            from app.services.ownership_service import register_record
+
+            register_record(record_id=record_id,
+                            document_id=document_id,
+                            job_id=job_id,
+                            owner_id=str(owner.get("id", "")),
+                            owner_username=str(owner.get("username", "")),
+                            project_id=(owner.get("project_ids") or ["1"])[0])
         if not run_pipeline:
             return {"job_id": job_id, "record_id": record_id, "document_id": document_id,
                     "ingestion_id": ingestion_id, "status": "QUEUED",

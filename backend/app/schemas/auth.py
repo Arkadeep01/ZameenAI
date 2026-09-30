@@ -12,8 +12,26 @@ class LoginRequest(BaseModel):
 
 class TokenResponse(BaseModel):
     access_token: str
+    refresh_token: str = ""
     token_type: str = "bearer"
     expires_in_minutes: int
+
+
+class RefreshRequest(BaseModel):
+    refresh_token: str = Field(..., min_length=1)
+
+
+class LogoutRequest(BaseModel):
+    refresh_token: str = ""
+
+
+class OtpRequest(BaseModel):
+    username: str = Field(..., min_length=1)
+
+
+class OtpVerifyRequest(BaseModel):
+    username: str = Field(..., min_length=1)
+    otp: str = Field(..., min_length=4, max_length=8)
 
 
 class CurrentUserResponse(BaseModel):

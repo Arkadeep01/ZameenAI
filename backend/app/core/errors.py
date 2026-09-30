@@ -50,15 +50,38 @@ def error_body(*, code: str, message: str, status_code: int,
 def register_error_handlers(app: FastAPI) -> None:
     @app.exception_handler(StarletteHTTPException)
     async def _http_exc(request: Request, exc: StarletteHTTPException) -> JSONResponse:
-        code = "FORBIDDEN" if exc.status_code == 403 else (
-            "UNAUTHORIZED" if exc.status_code == 401 else (
-                "NOT_FOUND" if exc.status_code == 404 else "HTTP_ERROR"))
+        detail = exc.detail
+        code: str
+        message: str
+        if isinstance(detail, dict):
+            code = str(detail.get("code", "HTTP_ERROR"))
+            message = str(detail.get("message", code))
+            rid = detail.get("request_id") or getattr(request.state, "request_id", None)
+        else:
+            rid = getattr(request.state, "request_id", None)
+            if exc.status_code == 401:
+                code = "AUTHENTICATION_REQUIRED"
+            elif exc.status_code == 403:
+                code = "PERMISSION_DENIED"
+            elif exc.status_code == 404:
+                code = "RESOURCE_NOT_FOUND"
+            else:
+                code = "FORBIDDEN" if exc.status_code == 403 else (
+                    "UNAUTHORIZED" if exc.status_code == 401 else (
+                        "NOT_FOUND" if exc.status_code == 404 else "HTTP_ERROR"))
+            message = str(detail)
+        # Canonical mapping: legacy envelopes -> canonical codes.
+        if code == "UNAUTHORIZED":
+            code = "AUTHENTICATION_REQUIRED"
+        elif code == "FORBIDDEN":
+            code = "PERMISSION_DENIED"
+        elif code == "NOT_FOUND":
+            code = "RESOURCE_NOT_FOUND"
         logger.warning("HTTP %s %s -> %s: %s", request.method, request.url.path,
-                       exc.status_code, exc.detail)
+                       exc.status_code, message)
         return JSONResponse(
-            error_body(code=code, message=str(exc.detail),
-                       status_code=exc.status_code,
-                       request_id=getattr(request.state, "request_id", None)),
+            error_body(code=code, message=sanitize_detail(message),
+                       status_code=exc.status_code, request_id=rid),
             status_code=exc.status_code)
 
     @app.exception_handler(RequestValidationError)

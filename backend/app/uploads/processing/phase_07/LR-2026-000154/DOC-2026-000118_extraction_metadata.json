@@ -1,0 +1,447 @@
+{
+  "phase": "SEMANTIC_FIELD_EXTRACTION",
+  "status": "PARTIAL_SUCCESS",
+  "record_id": "LR-2026-000154",
+  "document_id": "DOC-2026-000118",
+  "ingestion_id": "ING-2026-000066",
+  "document_type": "RECORD_OF_RIGHTS",
+  "classification_confidence": 1.0,
+  "extracted_record": {
+    "record_id": "LR-2026-000154",
+    "document_id": "DOC-2026-000118",
+    "ingestion_id": "ING-2026-000066",
+    "document": {
+      "document_title": "Record of Rights (RoR)",
+      "department": "Land and Land Reforms Department",
+      "document_date": "2023-07-15"
+    },
+    "owner": {
+      "father_husband_name": "Haripada Saha",
+      "recorded_tenant": "Ramesh Chandra Saha"
+    },
+    "land": {
+      "plot_number": "112",
+      "khata_number": "45",
+      "area": 0.32,
+      "area_unit": "ACRE",
+      "nature_of_land": "AGRICULTURAL"
+    },
+    "location": {
+      "state": "West Bengal",
+      "district": "Nadia",
+      "block": "Krishnanagar - I",
+      "mouza": "Krishnanagar"
+    },
+    "registration": {},
+    "mutation": {
+      "mutation_number": "1023",
+      "mutation_date": "2018-06-12"
+    },
+    "additional": {}
+  },
+  "field_metadata": {
+    "document.document_title": {
+      "field_name": "document.document_title",
+      "status": "EXTRACTED",
+      "confidence": 0.81,
+      "source": {
+        "page": 1,
+        "label": "Record of Rights",
+        "text": "document header text",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "method": "DETERMINISTIC",
+      "raw_value": "Record of Rights (RoR)",
+      "normalized_value": "Record of Rights (RoR)"
+    },
+    "document.department": {
+      "field_name": "document.department",
+      "status": "EXTRACTED",
+      "confidence": 0.828,
+      "source": {
+        "page": 1,
+        "label": "Land and Land Reforms Department",
+        "text": "document header text",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "method": "DETERMINISTIC",
+      "raw_value": "Land and Land Reforms Department",
+      "normalized_value": "Land and Land Reforms Department"
+    },
+    "document.document_date": {
+      "field_name": "document.document_date",
+      "status": "EXTRACTED",
+      "confidence": 0.8575,
+      "source": {
+        "page": 1,
+        "label": "Date",
+        "text": "Date : 15-07-2023",
+        "bbox": {
+          "x": 912,
+          "y": 174,
+          "width": 210,
+          "height": 22
+        }
+      },
+      "method": "LABEL_VALUE_SAME_LINE",
+      "raw_value": "15-07-2023",
+      "normalized_value": "2023-07-15"
+    },
+    "document.map_number": {
+      "field_name": "document.map_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.state": {
+      "field_name": "location.state",
+      "status": "EXTRACTED",
+      "confidence": 0.81,
+      "source": {
+        "page": 1,
+        "label": "State",
+        "text": "government header",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "method": "DETERMINISTIC",
+      "raw_value": "WEST BENGAL",
+      "normalized_value": "West Bengal"
+    },
+    "location.district": {
+      "field_name": "location.district",
+      "status": "EXTRACTED",
+      "confidence": 0.8607,
+      "source": {
+        "page": 1,
+        "label": "District:",
+        "text": "District : Nadia",
+        "bbox": {
+          "x": 36,
+          "y": 206,
+          "width": 322,
+          "height": 37
+        }
+      },
+      "method": "LABEL_VALUE_SAME_LINE",
+      "raw_value": "Nadia",
+      "normalized_value": "Nadia"
+    },
+    "location.block": {
+      "field_name": "location.block",
+      "status": "EXTRACTED",
+      "confidence": 0.6432,
+      "source": {
+        "page": 1,
+        "label": "Block:",
+        "text": "Block :",
+        "bbox": {
+          "x": 40,
+          "y": 252,
+          "width": 208,
+          "height": 23
+        }
+      },
+      "method": "LABEL_VALUE_SPATIAL",
+      "raw_value": "Krishnanagar - I",
+      "normalized_value": "Krishnanagar - I"
+    },
+    "location.tehsil": {
+      "field_name": "location.tehsil",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.mouza": {
+      "field_name": "location.mouza",
+      "status": "EXTRACTED",
+      "confidence": 0.8588,
+      "source": {
+        "page": 1,
+        "label": "Mouza:",
+        "text": "Mouza : Krishnanagar",
+        "bbox": {
+          "x": 40,
+          "y": 289,
+          "width": 415,
+          "height": 38
+        }
+      },
+      "method": "LABEL_VALUE_SAME_LINE",
+      "raw_value": "Krishnanagar",
+      "normalized_value": "Krishnanagar"
+    },
+    "location.village": {
+      "field_name": "location.village",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.survey_number": {
+      "field_name": "land.survey_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.khasra_number": {
+      "field_name": "land.khasra_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.plot_number": {
+      "field_name": "land.plot_number",
+      "status": "EXTRACTED",
+      "confidence": 0.9553,
+      "source": {
+        "page": 1,
+        "label": "Plot No.",
+        "text": "table[1] r1 c0",
+        "bbox": {
+          "x": 35,
+          "y": 630,
+          "width": 210,
+          "height": 58
+        }
+      },
+      "method": "TABLE_CELL",
+      "raw_value": "112",
+      "normalized_value": "112"
+    },
+    "land.khata_number": {
+      "field_name": "land.khata_number",
+      "status": "EXTRACTED",
+      "confidence": 0.8411,
+      "source": {
+        "page": 1,
+        "label": "Khaitan:",
+        "text": "KhaitanNo. : 45",
+        "bbox": {
+          "x": 40,
+          "y": 373,
+          "width": 277,
+          "height": 23
+        }
+      },
+      "method": "LABEL_VALUE_SAME_LINE",
+      "raw_value": "45",
+      "normalized_value": "45"
+    },
+    "land.area": {
+      "field_name": "land.area",
+      "status": "EXTRACTED",
+      "confidence": 0.9578,
+      "source": {
+        "page": 1,
+        "label": "Area (Acre)",
+        "text": "table[1] r1 c2",
+        "bbox": {
+          "x": 561,
+          "y": 630,
+          "width": 255,
+          "height": 58
+        }
+      },
+      "method": "TABLE_CELL",
+      "raw_value": "0.32",
+      "normalized_value": 0.32
+    },
+    "land.nature_of_land": {
+      "field_name": "land.nature_of_land",
+      "status": "EXTRACTED",
+      "confidence": 0.6475,
+      "source": {
+        "page": 1,
+        "label": "Nature of Land",
+        "text": "Nature of Land",
+        "bbox": {
+          "x": 40,
+          "y": 454,
+          "width": 187,
+          "height": 24
+        }
+      },
+      "method": "LABEL_VALUE_SPATIAL",
+      "raw_value": "Agricultural",
+      "normalized_value": "AGRICULTURAL"
+    },
+    "land.land_type": {
+      "field_name": "land.land_type",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "owner.name": {
+      "field_name": "owner.name",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "owner.father_husband_name": {
+      "field_name": "owner.father_husband_name",
+      "status": "EXTRACTED",
+      "confidence": 0.81,
+      "source": {
+        "page": 1,
+        "label": "Late",
+        "text": "Late Haripada Saha",
+        "bbox": {
+          "x": 462,
+          "y": 533,
+          "width": 254,
+          "height": 30
+        }
+      },
+      "method": "DETERMINISTIC",
+      "raw_value": "Late Haripada Saha",
+      "normalized_value": "Haripada Saha"
+    },
+    "owner.co_owner": {
+      "field_name": "owner.co_owner",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "owner.recorded_tenant": {
+      "field_name": "owner.recorded_tenant",
+      "status": "EXTRACTED",
+      "confidence": 0.693,
+      "source": {
+        "page": 1,
+        "label": "Name of Recorded Tenant",
+        "text": "Name of Recorded Tenant",
+        "bbox": {
+          "x": 40,
+          "y": 493,
+          "width": 335,
+          "height": 24
+        }
+      },
+      "method": "LABEL_VALUE_NEXT_LINE",
+      "raw_value": "Ramesh Chandra Saha",
+      "normalized_value": "Ramesh Chandra Saha"
+    },
+    "mutation.mutation_number": {
+      "field_name": "mutation.mutation_number",
+      "status": "EXTRACTED",
+      "confidence": 0.8626,
+      "source": {
+        "page": 1,
+        "label": "Mutation No.",
+        "text": "Mutation No. : 1023",
+        "bbox": {
+          "x": 40,
+          "y": 714,
+          "width": 338,
+          "height": 24
+        }
+      },
+      "method": "LABEL_VALUE_SAME_LINE",
+      "raw_value": "1023",
+      "normalized_value": "1023"
+    },
+    "mutation.mutation_date": {
+      "field_name": "mutation.mutation_date",
+      "status": "EXTRACTED",
+      "confidence": 0.6485,
+      "source": {
+        "page": 1,
+        "label": "Date of Mutation",
+        "text": "Date of Mutation :",
+        "bbox": {
+          "x": 40,
+          "y": 757,
+          "width": 238,
+          "height": 23
+        }
+      },
+      "method": "LABEL_VALUE_SPATIAL",
+      "raw_value": "12-06-2018",
+      "normalized_value": "2018-06-12"
+    },
+    "registration.document_number": {
+      "field_name": "registration.document_number",
+      "status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "method": "DETERMINISTIC"
+    },
+    "registration.registration_date": {
+      "field_name": "registration.registration_date",
+      "status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "method": "DETERMINISTIC"
+    },
+    "registration.issue_date": {
+      "field_name": "registration.issue_date",
+      "status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "method": "DETERMINISTIC"
+    },
+    "additional.remarks": {
+      "field_name": "additional.remarks",
+      "status": "MISSING",
+      "confidence": 0.0
+    }
+  },
+  "completeness": {
+    "fields_expected": 27,
+    "fields_extracted": 15,
+    "fields_missing": 9,
+    "fields_not_applicable": 3
+  },
+  "next_phase": "PHASE_08_CONFIDENCE_COMPLETENESS",
+  "timestamps": {
+    "started_at": "2026-09-29T23:20:35.366179"
+  },
+  "processing_time_seconds": 0.0,
+  "models": {
+    "indicbart": "DISABLED",
+    "mistral": "UNAVAILABLE",
+    "ollama": "UNAVAILABLE"
+  },
+  "unresolved_fields": [
+    "document.map_number",
+    "location.tehsil",
+    "location.village",
+    "land.survey_number",
+    "land.khasra_number",
+    "land.land_type",
+    "owner.name",
+    "owner.co_owner",
+    "registration.document_number",
+    "registration.registration_date",
+    "registration.issue_date",
+    "additional.remarks"
+  ],
+  "conflicts": [
+    {
+      "field": "land.nature_of_land",
+      "selected": "AGRICULTURAL",
+      "alternatives": [
+        {
+          "field": "land.nature_of_land",
+          "value": "HOMESTEAD",
+          "confidence": 0.9593
+        }
+      ]
+    },
+    {
+      "field": "owner.father_husband_name",
+      "selected": "Haripada Saha",
+      "alternatives": [
+        {
+          "field": "owner.father_husband_name",
+          "value": "Pemty Conereted",
+          "confidence": 0.6942
+        }
+      ]
+    }
+  ],
+  "needs_review": true
+}

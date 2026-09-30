@@ -238,8 +238,8 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:48:36.251142",
-    "completed_at": "2026-09-29T05:48:53.837237"
+    "started_at": "2026-09-30T03:41:49.878963",
+    "completed_at": "2026-09-30T03:42:30.730648"
   },
   "source_checksum": "dbbc67d92164562303695b6011fdca81718c87d48d31e0905cdf8324bff88c92",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-LARGE-001"

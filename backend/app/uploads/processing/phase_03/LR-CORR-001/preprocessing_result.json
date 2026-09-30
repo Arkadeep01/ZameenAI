@@ -120,8 +120,8 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T05:48:35.715509",
-    "completed_at": "2026-09-29T05:48:35.768451"
+    "started_at": "2026-09-30T03:41:49.277804",
+    "completed_at": "2026-09-30T03:41:49.312698"
   },
   "source_checksum": "e1f758202631fc504ba45119fea9742a614945f4ec4efa679f9713e84a20b700",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-CORR-001"

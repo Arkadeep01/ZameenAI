@@ -1,0 +1,682 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "SUCCESS",
+  "record_id": "LR-2026-000150",
+  "document_id": "DOC-2026-000114",
+  "ingestion_id": "ING-2026-000062",
+  "pages_processed": 1,
+  "strategy": "MODERATE",
+  "decision": "MODERATE",
+  "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
+  "quality_score": 57.76,
+  "quality_source": "phase02",
+  "operations_applied": [
+    "UPSCALE"
+  ],
+  "operations_skipped": [
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [],
+  "upscaled": true,
+  "scale_factor": 2.4989,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "SUCCESS",
+      "strategy": "MODERATE",
+      "decision": "MODERATE",
+      "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
+      "quality_score": 62.76,
+      "quality_source": "phase02",
+      "rejection_reasons": [],
+      "upscaled": true,
+      "scale_factor": 2.4989,
+      "original_dimensions": {
+        "width": 447,
+        "height": 355
+      },
+      "processed_dimensions": {
+        "width": 1117,
+        "height": 887
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=62.76",
+          "input_metric": 62.76,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": true,
+          "reason": "width=447 target=2200 max_scale=2.5 scale=2.499",
+          "input_metric": 447.0,
+          "threshold": 2200.0
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "skew=0.00deg threshold=1.5deg",
+          "input_metric": 0.0,
+          "threshold": 1.5
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "brightness=0.842 band=[0.1, 0.95]",
+          "input_metric": 0.8424,
+          "threshold": 0.95
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "contrast=0.447 threshold=0.4 (mild CLAHE 1.5)",
+          "input_metric": 0.4471,
+          "threshold": 0.4
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "sharpness=0.792 threshold=0.55 (edge-preserving bilateral)",
+          "input_metric": 0.7915,
+          "threshold": 0.55
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "sharpness=0.792 threshold=0.55 (conservative unsharp 0.35)",
+          "input_metric": 0.7915,
+          "threshold": 0.55
+        }
+      ],
+      "regions_detected": [
+        {
+          "region_id": "TABLE-001",
+          "type": "TABLE",
+          "page": 1,
+          "bbox": [
+            52,
+            605,
+            1086,
+            712
+          ],
+          "confidence": 0.95
+        },
+        {
+          "region_id": "TEXT-001",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            431,
+            858,
+            1117,
+            887
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-002",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            193,
+            831,
+            933,
+            864
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-003",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            43,
+            772,
+            469,
+            802
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-004",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            43,
+            731,
+            369,
+            758
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-005",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            0,
+            555,
+            1117,
+            778
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-006",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            43,
+            503,
+            748,
+            541
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-007",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            0,
+            466,
+            264,
+            513
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-008",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            0,
+            349,
+            246,
+            423
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-009",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            256,
+            252,
+            717,
+            294
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-010",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            813,
+            188,
+            1094,
+            228
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-011",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            319,
+            137,
+            831,
+            170
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-012",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            391,
+            93,
+            766,
+            128
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-013",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            867,
+            58,
+            1104,
+            162
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-014",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            285,
+            44,
+            889,
+            74
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "TEXT-015",
+          "type": "TEXT_REGION",
+          "page": 1,
+          "bbox": [
+            80,
+            26,
+            180,
+            129
+          ],
+          "confidence": 0.7
+        },
+        {
+          "region_id": "HEADER-001",
+          "type": "HEADER",
+          "page": 1,
+          "bbox": [
+            0,
+            0,
+            1117,
+            106
+          ],
+          "confidence": 0.75
+        },
+        {
+          "region_id": "FOOTER-001",
+          "type": "FOOTER",
+          "page": 1,
+          "bbox": [
+            0,
+            799,
+            1117,
+            887
+          ],
+          "confidence": 0.75
+        },
+        {
+          "region_id": "ARTIFACT-001",
+          "type": "EMBLEM_OR_STAMP",
+          "page": 1,
+          "bbox": [
+            976,
+            60,
+            1073,
+            161
+          ],
+          "confidence": 0.6
+        }
+      ],
+      "metrics_before": {
+        "sharpness_normalized": 0.7915,
+        "contrast_normalized": 0.4471,
+        "brightness_normalized": 0.8424,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 2020.12,
+        "width": 447,
+        "height": 355
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.4623,
+        "contrast_normalized": 0.4353,
+        "brightness_normalized": 0.8424,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 84.22,
+        "width": 1117,
+        "height": 887
+      },
+      "output_files": {
+        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000150\\page_001_original.png",
+        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000150\\before\\page_001.png",
+        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000150\\after\\page_001_upscaled.png",
+        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000150\\page_001_processed.png"
+      },
+      "derivatives": {
+        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000150\\page_001_processed.png"
+      },
+      "selected_derivative": "upscaled",
+      "improvement_score": -0.0563,
+      "processing_improvement_sufficient": true,
+      "table_detected": true,
+      "table_bbox": [
+        52,
+        605,
+        1086,
+        712
+      ],
+      "readability_before": 0.7612,
+      "readability_after": 0.7049,
+      "candidate_evaluations": [
+        {
+          "name": "upscaled",
+          "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
+          "readability": {
+            "local_contrast": 0.2914,
+            "text_region_contrast": 0.1279,
+            "character_like_ratio": 0.4516,
+            "component_density": 0.9032,
+            "stroke_width_quality": 0.2709,
+            "noise_free_ratio": 0.9991,
+            "background_uniformity": 0.8971,
+            "structure_preservation": 1.0,
+            "information_preservation": 1.0,
+            "overall": 0.7049
+          },
+          "readability_delta": -0.0563,
+          "operations_applied": [
+            "UPSCALE"
+          ],
+          "is_binary": false,
+          "is_selected": true,
+          "improvement_score": -0.0563
+        }
+      ],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=62.76",
+      "input_metric": 62.76,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": true,
+      "reason": "width=447 target=2200 max_scale=2.5 scale=2.499",
+      "input_metric": 447.0,
+      "threshold": 2200.0
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "skew=0.00deg threshold=1.5deg",
+      "input_metric": 0.0,
+      "threshold": 1.5
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "brightness=0.842 band=[0.1, 0.95]",
+      "input_metric": 0.8424,
+      "threshold": 0.95
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "contrast=0.447 threshold=0.4 (mild CLAHE 1.5)",
+      "input_metric": 0.4471,
+      "threshold": 0.4
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "sharpness=0.792 threshold=0.55 (edge-preserving bilateral)",
+      "input_metric": 0.7915,
+      "threshold": 0.55
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "sharpness=0.792 threshold=0.55 (conservative unsharp 0.35)",
+      "input_metric": 0.7915,
+      "threshold": 0.55
+    }
+  ],
+  "regions_detected": [
+    {
+      "region_id": "TABLE-001",
+      "type": "TABLE",
+      "page": 1,
+      "bbox": [
+        52,
+        605,
+        1086,
+        712
+      ],
+      "confidence": 0.95
+    },
+    {
+      "region_id": "TEXT-001",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        431,
+        858,
+        1117,
+        887
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-002",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        193,
+        831,
+        933,
+        864
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-003",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        43,
+        772,
+        469,
+        802
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-004",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        43,
+        731,
+        369,
+        758
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-005",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        0,
+        555,
+        1117,
+        778
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-006",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        43,
+        503,
+        748,
+        541
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-007",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        0,
+        466,
+        264,
+        513
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-008",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        0,
+        349,
+        246,
+        423
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-009",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        256,
+        252,
+        717,
+        294
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-010",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        813,
+        188,
+        1094,
+        228
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-011",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        319,
+        137,
+        831,
+        170
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-012",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        391,
+        93,
+        766,
+        128
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-013",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        867,
+        58,
+        1104,
+        162
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-014",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        285,
+        44,
+        889,
+        74
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "TEXT-015",
+      "type": "TEXT_REGION",
+      "page": 1,
+      "bbox": [
+        80,
+        26,
+        180,
+        129
+      ],
+      "confidence": 0.7
+    },
+    {
+      "region_id": "HEADER-001",
+      "type": "HEADER",
+      "page": 1,
+      "bbox": [
+        0,
+        0,
+        1117,
+        106
+      ],
+      "confidence": 0.75
+    },
+    {
+      "region_id": "FOOTER-001",
+      "type": "FOOTER",
+      "page": 1,
+      "bbox": [
+        0,
+        799,
+        1117,
+        887
+      ],
+      "confidence": 0.75
+    },
+    {
+      "region_id": "ARTIFACT-001",
+      "type": "EMBLEM_OR_STAMP",
+      "page": 1,
+      "bbox": [
+        976,
+        60,
+        1073,
+        161
+      ],
+      "confidence": 0.6
+    }
+  ],
+  "next_phase": "DOCUMENT_CLASSIFICATION",
+  "timestamps": {
+    "started_at": "2026-09-29T23:19:57.373604",
+    "completed_at": "2026-09-29T23:19:59.531162"
+  },
+  "source_checksum": "b80ad9680f864b9ae30226c031293b688f5f80d44b20dbc165188bbcd7f23f68",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000150"
+}

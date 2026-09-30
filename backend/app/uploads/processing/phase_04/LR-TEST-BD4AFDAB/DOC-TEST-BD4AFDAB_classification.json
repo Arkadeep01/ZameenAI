@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-BD4AFDAB",
+  "document_id": "DOC-TEST-BD4AFDAB",
+  "ingestion_id": "ING-TEST-BD4AFDAB",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T02:03:26.163368",
+    "completed_at": "2026-09-30T02:03:26.163962"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

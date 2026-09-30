@@ -1,7 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useMutation } from '@tanstack/react-query'
 import { useState, ChangeEvent, FormEvent } from 'react'
-import axios, { AxiosProgressEvent } from 'axios'
+import { AxiosProgressEvent } from 'axios'
+import { apiClient } from '../api/client'
+import { PermissionGuard, RequireRole } from '../auth/guards'
+import { PERMISSIONS } from '../auth/permissions'
 
 export const Route = createFileRoute("/uploads")({
   component: FileUploadRoute,
@@ -19,7 +22,7 @@ const uploadFileAPI = async ({ file, onProgress }: UploadArgs) => {
   formData.append('file', file)
 
   // Replace '/api/upload' with your actual backend endpoint
-  const response = await axios.post('/api/upload', formData, {
+  const response = await apiClient.post('/api/upload', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },
@@ -29,7 +32,7 @@ const uploadFileAPI = async ({ file, onProgress }: UploadArgs) => {
   return response.data
 }
 
-function FileUploadRoute() {
+function UploadInner() {
   const [file, setFile] = useState<File | null>(null)
   const [progress, setProgress] = useState<number>(0)
 
@@ -130,5 +133,27 @@ function FileUploadRoute() {
         </form>
       </div>
     </div>
+  )
+}
+
+function FileUploadRoute() {
+  return (
+    <RequireRole roles={["pia", "field_officer", "desk_validator", "system_admin"]}>
+      {/* Action-level gate: the backend enforces DOCUMENT.UPLOAD (403), this
+          prevents the user from even attempting an unauthorized upload. */}
+      <PermissionGuard
+        permission={PERMISSIONS.DOCUMENT_UPLOAD}
+        fallback={
+          <div className="mx-auto mt-16 max-w-md rounded-xl border border-amber-200 bg-amber-50 p-6 text-center">
+            <p className="font-bold text-amber-800">Upload not permitted</p>
+            <p className="mt-1 text-sm text-amber-700">
+              Your role does not hold DOCUMENT.UPLOAD.
+            </p>
+          </div>
+        }
+      >
+        <UploadInner />
+      </PermissionGuard>
+    </RequireRole>
   )
 }

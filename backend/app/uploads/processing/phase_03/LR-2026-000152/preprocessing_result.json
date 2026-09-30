@@ -1,0 +1,170 @@
+{
+  "phase": "AI_DOCUMENT_PREPROCESSING",
+  "status": "REJECTED",
+  "record_id": "LR-2026-000152",
+  "document_id": "DOC-2026-000116",
+  "ingestion_id": "ING-2026-000064",
+  "pages_processed": 1,
+  "strategy": "LOW_QUALITY_RESTORATION",
+  "decision": "REJECT",
+  "preprocessing_mode": "NONE",
+  "quality_score": 43.73,
+  "quality_source": "phase02",
+  "operations_applied": [],
+  "operations_skipped": [
+    "UPSCALE",
+    "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
+    "DENOISE",
+    "SHARPEN"
+  ],
+  "rejection_reasons": [
+    "QUALITY_SCORE_BELOW_THRESHOLD"
+  ],
+  "upscaled": false,
+  "scale_factor": 1.0,
+  "pages": [
+    {
+      "page_number": 1,
+      "status": "REJECTED",
+      "strategy": "LOW_QUALITY_RESTORATION",
+      "decision": "REJECT",
+      "preprocessing_mode": "NONE",
+      "quality_score": 48.73,
+      "quality_source": "phase02",
+      "rejection_reasons": [
+        "QUALITY_SCORE_BELOW_THRESHOLD"
+      ],
+      "upscaled": false,
+      "scale_factor": 1.0,
+      "original_dimensions": {
+        "width": 464,
+        "height": 354
+      },
+      "processed_dimensions": {
+        "width": 464,
+        "height": 354
+      },
+      "operations": [
+        {
+          "operation": "preprocessing_decision",
+          "applied": true,
+          "reason": "decision=REJECT score=48.73 reasons=QUALITY_SCORE_BELOW_THRESHOLD",
+          "input_metric": 48.73,
+          "confidence": 1.0
+        },
+        {
+          "operation": "UPSCALE",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+        },
+        {
+          "operation": "DESKEW",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+        },
+        {
+          "operation": "BRIGHTNESS_CORRECTION",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+        },
+        {
+          "operation": "CONTRAST_ENHANCEMENT",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+        },
+        {
+          "operation": "DENOISE",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+        },
+        {
+          "operation": "SHARPEN",
+          "applied": false,
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+        }
+      ],
+      "regions_detected": [],
+      "metrics_before": {
+        "sharpness_normalized": 0.4802,
+        "contrast_normalized": 0.298,
+        "brightness_normalized": 0.7571,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 100.26,
+        "width": 464,
+        "height": 354
+      },
+      "metrics_after": {
+        "sharpness_normalized": 0.4802,
+        "contrast_normalized": 0.298,
+        "brightness_normalized": 0.7571,
+        "skew_angle_degrees": 0.0,
+        "blur_score": 100.26,
+        "width": 464,
+        "height": 354
+      },
+      "output_files": {
+        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000152\\page_001_original.png",
+        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000152\\before\\page_001.png"
+      },
+      "derivatives": {},
+      "selected_derivative": null,
+      "improvement_score": 0.0,
+      "processing_improvement_sufficient": false,
+      "table_detected": false,
+      "table_bbox": null,
+      "readability_before": 0.0,
+      "readability_after": 0.0,
+      "candidate_evaluations": [],
+      "rejected_candidates": []
+    }
+  ],
+  "operations": [
+    {
+      "operation": "preprocessing_decision",
+      "applied": true,
+      "reason": "decision=REJECT score=48.73 reasons=QUALITY_SCORE_BELOW_THRESHOLD",
+      "input_metric": 48.73,
+      "confidence": 1.0
+    },
+    {
+      "operation": "UPSCALE",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+    },
+    {
+      "operation": "DESKEW",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+    },
+    {
+      "operation": "BRIGHTNESS_CORRECTION",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+    },
+    {
+      "operation": "CONTRAST_ENHANCEMENT",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+    },
+    {
+      "operation": "DENOISE",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+    },
+    {
+      "operation": "SHARPEN",
+      "applied": false,
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD)"
+    }
+  ],
+  "regions_detected": [],
+  "next_phase": null,
+  "timestamps": {
+    "started_at": "2026-09-29T23:20:15.156463",
+    "completed_at": "2026-09-29T23:20:15.344826"
+  },
+  "source_checksum": "8668245c71cd23077ca2ff4afc96daeb41a17a63b24b709a1f89309b02258aaf",
+  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000152"
+}

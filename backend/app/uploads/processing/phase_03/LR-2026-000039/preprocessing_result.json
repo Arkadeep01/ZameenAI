@@ -4,11 +4,11 @@
   "record_id": "LR-2026-000039",
   "document_id": "DOC-2026-000039",
   "ingestion_id": "ING-2026-000039",
-  "pages_processed": 3,
+  "pages_processed": 1,
   "strategy": "LOW_QUALITY_RESTORATION",
   "decision": "REJECT",
   "preprocessing_mode": "NONE",
-  "quality_score": 18.05,
+  "quality_score": 12.0,
   "quality_source": "phase02",
   "operations_applied": [],
   "operations_skipped": [
@@ -21,7 +21,8 @@
   ],
   "rejection_reasons": [
     "QUALITY_SCORE_BELOW_THRESHOLD",
-    "BLANK_PAGE"
+    "BLANK_PAGE",
+    "SEVERE_BLUR"
   ],
   "upscaled": false,
   "scale_factor": 1.0,
@@ -32,273 +33,84 @@
       "strategy": "LOW_QUALITY_RESTORATION",
       "decision": "REJECT",
       "preprocessing_mode": "NONE",
-      "quality_score": 32.94,
+      "quality_score": 27.0,
       "quality_source": "phase02",
       "rejection_reasons": [
         "QUALITY_SCORE_BELOW_THRESHOLD",
-        "BLANK_PAGE"
+        "BLANK_PAGE",
+        "SEVERE_BLUR"
       ],
       "upscaled": false,
       "scale_factor": 1.0,
       "original_dimensions": {
-        "width": 1190,
-        "height": 1684
+        "width": 800,
+        "height": 600
       },
       "processed_dimensions": {
-        "width": 1190,
-        "height": 1684
+        "width": 800,
+        "height": 600
       },
       "operations": [
         {
           "operation": "preprocessing_decision",
           "applied": true,
-          "reason": "decision=REJECT score=32.94 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE",
-          "input_metric": 32.94,
+          "reason": "decision=REJECT score=27.0 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR",
+          "input_metric": 27.0,
           "confidence": 1.0
         },
         {
           "operation": "UPSCALE",
           "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
         },
         {
           "operation": "DESKEW",
           "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
         },
         {
           "operation": "BRIGHTNESS_CORRECTION",
           "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
         },
         {
           "operation": "CONTRAST_ENHANCEMENT",
           "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
         },
         {
           "operation": "DENOISE",
           "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
         },
         {
           "operation": "SHARPEN",
           "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
         }
       ],
       "regions_detected": [],
       "metrics_before": {
-        "sharpness_normalized": 0.3545,
+        "sharpness_normalized": 0.0,
         "contrast_normalized": 0.0,
-        "brightness_normalized": 0.9997,
+        "brightness_normalized": 1.0,
         "skew_angle_degrees": 0.0,
-        "blur_score": 29.23,
-        "width": 1190,
-        "height": 1684
+        "blur_score": 0.0,
+        "width": 800,
+        "height": 600
       },
       "metrics_after": {
-        "sharpness_normalized": 0.3545,
+        "sharpness_normalized": 0.0,
         "contrast_normalized": 0.0,
-        "brightness_normalized": 0.9997,
+        "brightness_normalized": 1.0,
         "skew_angle_degrees": 0.0,
-        "blur_score": 29.23,
-        "width": 1190,
-        "height": 1684
+        "blur_score": 0.0,
+        "width": 800,
+        "height": 600
       },
       "output_files": {
         "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039\\page_001_original.png",
         "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000039\\before\\page_001.png"
-      },
-      "derivatives": {},
-      "selected_derivative": null,
-      "improvement_score": 0.0,
-      "processing_improvement_sufficient": false,
-      "table_detected": false,
-      "table_bbox": null,
-      "readability_before": 0.0,
-      "readability_after": 0.0,
-      "candidate_evaluations": [],
-      "rejected_candidates": []
-    },
-    {
-      "page_number": 2,
-      "status": "REJECTED",
-      "strategy": "LOW_QUALITY_RESTORATION",
-      "decision": "REJECT",
-      "preprocessing_mode": "NONE",
-      "quality_score": 33.11,
-      "quality_source": "phase02",
-      "rejection_reasons": [
-        "QUALITY_SCORE_BELOW_THRESHOLD",
-        "BLANK_PAGE"
-      ],
-      "upscaled": false,
-      "scale_factor": 1.0,
-      "original_dimensions": {
-        "width": 1190,
-        "height": 1684
-      },
-      "processed_dimensions": {
-        "width": 1190,
-        "height": 1684
-      },
-      "operations": [
-        {
-          "operation": "preprocessing_decision",
-          "applied": true,
-          "reason": "decision=REJECT score=33.11 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE",
-          "input_metric": 33.11,
-          "confidence": 1.0
-        },
-        {
-          "operation": "UPSCALE",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "DESKEW",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "BRIGHTNESS_CORRECTION",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "CONTRAST_ENHANCEMENT",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "DENOISE",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "SHARPEN",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        }
-      ],
-      "regions_detected": [],
-      "metrics_before": {
-        "sharpness_normalized": 0.364,
-        "contrast_normalized": 0.0,
-        "brightness_normalized": 0.9997,
-        "skew_angle_degrees": 0.0,
-        "blur_score": 32.12,
-        "width": 1190,
-        "height": 1684
-      },
-      "metrics_after": {
-        "sharpness_normalized": 0.364,
-        "contrast_normalized": 0.0,
-        "brightness_normalized": 0.9997,
-        "skew_angle_degrees": 0.0,
-        "blur_score": 32.12,
-        "width": 1190,
-        "height": 1684
-      },
-      "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039\\page_002_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000039\\before\\page_002.png"
-      },
-      "derivatives": {},
-      "selected_derivative": null,
-      "improvement_score": 0.0,
-      "processing_improvement_sufficient": false,
-      "table_detected": false,
-      "table_bbox": null,
-      "readability_before": 0.0,
-      "readability_after": 0.0,
-      "candidate_evaluations": [],
-      "rejected_candidates": []
-    },
-    {
-      "page_number": 3,
-      "status": "REJECTED",
-      "strategy": "LOW_QUALITY_RESTORATION",
-      "decision": "REJECT",
-      "preprocessing_mode": "NONE",
-      "quality_score": 33.1,
-      "quality_source": "phase02",
-      "rejection_reasons": [
-        "QUALITY_SCORE_BELOW_THRESHOLD",
-        "BLANK_PAGE"
-      ],
-      "upscaled": false,
-      "scale_factor": 1.0,
-      "original_dimensions": {
-        "width": 1190,
-        "height": 1684
-      },
-      "processed_dimensions": {
-        "width": 1190,
-        "height": 1684
-      },
-      "operations": [
-        {
-          "operation": "preprocessing_decision",
-          "applied": true,
-          "reason": "decision=REJECT score=33.1 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE",
-          "input_metric": 33.1,
-          "confidence": 1.0
-        },
-        {
-          "operation": "UPSCALE",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "DESKEW",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "BRIGHTNESS_CORRECTION",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "CONTRAST_ENHANCEMENT",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "DENOISE",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        },
-        {
-          "operation": "SHARPEN",
-          "applied": false,
-          "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-        }
-      ],
-      "regions_detected": [],
-      "metrics_before": {
-        "sharpness_normalized": 0.3627,
-        "contrast_normalized": 0.0,
-        "brightness_normalized": 0.9997,
-        "skew_angle_degrees": 0.0,
-        "blur_score": 31.7,
-        "width": 1190,
-        "height": 1684
-      },
-      "metrics_after": {
-        "sharpness_normalized": 0.3627,
-        "contrast_normalized": 0.0,
-        "brightness_normalized": 0.9997,
-        "skew_angle_degrees": 0.0,
-        "blur_score": 31.7,
-        "width": 1190,
-        "height": 1684
-      },
-      "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039\\page_003_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000039\\before\\page_003.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -316,121 +128,47 @@
     {
       "operation": "preprocessing_decision",
       "applied": true,
-      "reason": "decision=REJECT score=32.94 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE",
-      "input_metric": 32.94,
+      "reason": "decision=REJECT score=27.0 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR",
+      "input_metric": 27.0,
       "confidence": 1.0
     },
     {
       "operation": "UPSCALE",
       "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
     },
     {
       "operation": "DESKEW",
       "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
     },
     {
       "operation": "BRIGHTNESS_CORRECTION",
       "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
     },
     {
       "operation": "CONTRAST_ENHANCEMENT",
       "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
     },
     {
       "operation": "DENOISE",
       "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
     },
     {
       "operation": "SHARPEN",
       "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "preprocessing_decision",
-      "applied": true,
-      "reason": "decision=REJECT score=33.11 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE",
-      "input_metric": 33.11,
-      "confidence": 1.0
-    },
-    {
-      "operation": "UPSCALE",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "DESKEW",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "BRIGHTNESS_CORRECTION",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "CONTRAST_ENHANCEMENT",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "DENOISE",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "SHARPEN",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "preprocessing_decision",
-      "applied": true,
-      "reason": "decision=REJECT score=33.1 reasons=QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE",
-      "input_metric": 33.1,
-      "confidence": 1.0
-    },
-    {
-      "operation": "UPSCALE",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "DESKEW",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "BRIGHTNESS_CORRECTION",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "CONTRAST_ENHANCEMENT",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "DENOISE",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
-    },
-    {
-      "operation": "SHARPEN",
-      "applied": false,
-      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE)"
+      "reason": "not attempted: page rejected (QUALITY_SCORE_BELOW_THRESHOLD,BLANK_PAGE,SEVERE_BLUR)"
     }
   ],
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T06:00:53.415009",
-    "completed_at": "2026-09-29T06:00:58.264963"
+    "started_at": "2026-09-30T02:13:47.145694",
+    "completed_at": "2026-09-30T02:13:47.374574"
   },
-  "source_checksum": "9cec49ea4c283f2e513325c5cb98d2035d80ab18534fa807ec8bd23c183ff6b3",
+  "source_checksum": "e80e9721ef20acc685ba52b930e852004415126808ffd6494fa71ed7243b465e",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039"
 }

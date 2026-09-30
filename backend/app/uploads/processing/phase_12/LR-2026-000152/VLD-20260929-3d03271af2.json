@@ -1,0 +1,510 @@
+{
+  "phase": "AUTOMATED_VALIDATION",
+  "status": "SUCCESS",
+  "validation_run_id": "VLD-20260929-3d03271af2",
+  "record_id": "LR-2026-000152",
+  "document_id": "DOC-2026-000116",
+  "ingestion_id": "ING-2026-000064",
+  "document_type": "RECORD_OF_RIGHTS",
+  "rules_version": "1.0.0",
+  "input_reference": {
+    "source_phase": "PHASE_08",
+    "record_id": "LR-2026-000152",
+    "document_id": "DOC-2026-000116",
+    "ingestion_id": "ING-2026-000064",
+    "phase08_path": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_08\\LR-2026-000152\\DOC-2026-000116_confidence_completeness.json"
+  },
+  "validation_result": {
+    "summary": {
+      "total_checks": 28,
+      "passed": 5,
+      "warning": 1,
+      "error": 4,
+      "critical": 8,
+      "not_applicable": 3
+    },
+    "fields": {
+      "additional.remarks": [
+        {
+          "field": "additional.remarks",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "document.department": [
+        {
+          "field": "document.department",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "document.document_date": [
+        {
+          "field": "document.document_date",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "document.document_title": [
+        {
+          "field": "document.document_title",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Record of Rights (RoR)",
+          "original_value": "Record of Rights (RoR)",
+          "comparison_value": "Record of Rights (RoR)",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.9007",
+            "method=DETERMINISTIC",
+            "source_page=1",
+            "source_label='Record of Rights'"
+          ]
+        }
+      ],
+      "document.map_number": [
+        {
+          "field": "document.map_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.area": [
+        {
+          "field": "land.area",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "land.area_unit": [
+        {
+          "field": "land.area_unit",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "land.khasra_number": [
+        {
+          "field": "land.khasra_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.khata_number": [
+        {
+          "field": "land.khata_number",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "land.land_type": [
+        {
+          "field": "land.land_type",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "land.nature_of_land": [
+        {
+          "field": "land.nature_of_land",
+          "status": "MISSING",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "land.plot_number": [
+        {
+          "field": "land.plot_number",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "land.survey_number": [
+        {
+          "field": "land.survey_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.block": [
+        {
+          "field": "location.block",
+          "status": "MISSING",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "location.district": [
+        {
+          "field": "location.district",
+          "status": "MISSING",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "location.mouza": [
+        {
+          "field": "location.mouza",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "location.state": [
+        {
+          "field": "location.state",
+          "status": "MISSING",
+          "severity": "WARNING",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "location.tehsil": [
+        {
+          "field": "location.tehsil",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "location.village": [
+        {
+          "field": "location.village",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "mutation.mutation_date": [
+        {
+          "field": "mutation.mutation_date",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "mutation.mutation_number": [
+        {
+          "field": "mutation.mutation_number",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "owner.co_owner": [
+        {
+          "field": "owner.co_owner",
+          "status": "MISSING",
+          "severity": "INFO",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=OPTIONAL; no value was extracted.",
+          "evidence": [
+            "applicability=OPTIONAL",
+            "value_status=OPTIONAL_AND_MISSING"
+          ]
+        }
+      ],
+      "owner.father_husband_name": [
+        {
+          "field": "owner.father_husband_name",
+          "status": "VALID",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Present and passes data-type/format/range checks (applicability=REQUIRED).",
+          "value": "Late Margate Saha Eaves",
+          "original_value": "Late Margate Saha eaves",
+          "comparison_value": "Late Margate Saha Eaves",
+          "evidence": [
+            "value_status=REQUIRED_AND_PRESENT",
+            "confidence=0.8874",
+            "method=LABEL_VALUE_SAME_LINE",
+            "source_page=1",
+            "source_label='Father Name'"
+          ]
+        }
+      ],
+      "owner.name": [
+        {
+          "field": "owner.name",
+          "status": "UNREADABLE",
+          "severity": "ERROR",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "The field's label was found in the document but its value could not be read.",
+          "evidence": [
+            "value_status=REQUIRED_BUT_UNREADABLE",
+            "applicability=REQUIRED"
+          ]
+        }
+      ],
+      "owner.recorded_tenant": [
+        {
+          "field": "owner.recorded_tenant",
+          "status": "MISSING",
+          "severity": "CRITICAL",
+          "rule": "REQUIRED_PRESENCE",
+          "reason": "Applicability=REQUIRED; no value was extracted.",
+          "evidence": [
+            "applicability=REQUIRED",
+            "value_status=REQUIRED_BUT_MISSING"
+          ]
+        }
+      ],
+      "registration.document_number": [
+        {
+          "field": "registration.document_number",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ],
+      "registration.issue_date": [
+        {
+          "field": "registration.issue_date",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ],
+      "registration.registration_date": [
+        {
+          "field": "registration.registration_date",
+          "status": "NOT_APPLICABLE",
+          "severity": "NONE",
+          "rule": "APPLICABILITY_AWARE",
+          "reason": "Field is NOT_APPLICABLE for this document type (applicability=NOT_APPLICABLE).",
+          "evidence": [
+            "value_status=NOT_APPLICABLE"
+          ]
+        }
+      ]
+    }
+  },
+  "anomalies": [],
+  "duplicates": {
+    "status": "CLEAR",
+    "scope": "LOCAL_DATASET",
+    "matched_records": []
+  },
+  "decision": "VALIDATION_FAILED",
+  "summary": "Validation found blocking errors (8 critical, 4 error).",
+  "next_phase": "PHASE_10_ANOMALY_DUPLICATE_DETECTION",
+  "needs_review": true,
+  "remediation": {
+    "required": true,
+    "reasons": [
+      {
+        "field": "document.department",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field document.department missing (severity CRITICAL)."
+      },
+      {
+        "field": "document.document_date",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field document.document_date missing (severity CRITICAL)."
+      },
+      {
+        "field": "land.area",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field land.area missing (severity CRITICAL)."
+      },
+      {
+        "field": "land.area_unit",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field land.area_unit missing (severity CRITICAL)."
+      },
+      {
+        "field": "land.khata_number",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field land.khata_number missing (severity CRITICAL)."
+      },
+      {
+        "field": "land.nature_of_land",
+        "reason": "MISSING_FIELD",
+        "message": "Required field land.nature_of_land missing (severity ERROR)."
+      },
+      {
+        "field": "land.plot_number",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field land.plot_number missing (severity CRITICAL)."
+      },
+      {
+        "field": "location.block",
+        "reason": "MISSING_FIELD",
+        "message": "Required field location.block missing (severity ERROR)."
+      },
+      {
+        "field": "location.district",
+        "reason": "MISSING_FIELD",
+        "message": "Required field location.district missing (severity ERROR)."
+      },
+      {
+        "field": "location.mouza",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field location.mouza missing (severity CRITICAL)."
+      },
+      {
+        "field": "owner.name",
+        "reason": "UNREADABLE_FIELD",
+        "message": "Required field owner.name unreadable; clearer evidence is required."
+      },
+      {
+        "field": "owner.recorded_tenant",
+        "reason": "CRITICAL_FIELD_MISSING",
+        "message": "Required field owner.recorded_tenant missing (severity CRITICAL)."
+      }
+    ],
+    "next_phase": "PHASE_10_ANOMALY_DUPLICATE_DETECTION"
+  },
+  "hitl_1": {
+    "reason": "Phase 09 NEVER approves; every decision — including READY_FOR_HITL — is handed to a human reviewer (Phase 11 HITL-1).",
+    "handoff": {
+      "record_id": "LR-2026-000152",
+      "document_id": "DOC-2026-000116",
+      "validation_run_id": "VLD-20260929-3d03271af2",
+      "rules_version": "1.0.0",
+      "decision": "VALIDATION_FAILED",
+      "validation_summary": {
+        "total_checks": 28,
+        "passed": 5,
+        "warning": 1,
+        "error": 4,
+        "critical": 8,
+        "not_applicable": 3
+      },
+      "anomaly_count": 0,
+      "duplicate_status": "CLEAR",
+      "duplicate_matches": 0
+    },
+    "status": "PENDING_HUMAN_REVIEW"
+  },
+  "models": {
+    "rule_engine": "DETERMINISTIC",
+    "llm_used": false,
+    "rules_version": "1.0.0"
+  },
+  "timestamps": {
+    "started_at": "2026-09-29T17:50:19.738088+00:00",
+    "completed_at": "2026-09-29T17:50:19.738052+00:00"
+  },
+  "processing_time_seconds": 0.0261
+}

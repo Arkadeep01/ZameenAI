@@ -2,9 +2,14 @@ import React, { useState } from "react";
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 import CitizenSidebar from "../components/common/Sidebar";
 import CitizenTopBar from "../components/common/TopBar";
+import { RequireRole } from "../auth/guards";
 
 export const Route = createFileRoute("/citizen")({
-  component: CitizenLayout,
+  component: () => (
+    <RequireRole roles={["citizen", "system_admin"]}>
+      <CitizenLayout />
+    </RequireRole>
+  ),
 });
 
 /**

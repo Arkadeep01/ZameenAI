@@ -1,0 +1,19 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-D63FE77F",
+  "document_id": "DOC-TEST-D63FE77F",
+  "ingestion_id": "ING-TEST-D63FE77F",
+  "predicted_document_type": "RECORD_OF_RIGHTS",
+  "confidence": 0.7375,
+  "classification_status": "REVIEW_REQUIRED",
+  "evidence": [
+    "RECORD OF RIGHTS"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T03:43:44.815377",
+    "completed_at": "2026-09-30T03:43:44.815580"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

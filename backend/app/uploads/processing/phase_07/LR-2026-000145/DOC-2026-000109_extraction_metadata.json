@@ -1,0 +1,244 @@
+{
+  "phase": "SEMANTIC_FIELD_EXTRACTION",
+  "status": "PARTIAL_SUCCESS",
+  "record_id": "LR-2026-000145",
+  "document_id": "DOC-2026-000109",
+  "ingestion_id": "ING-2026-000057",
+  "document_type": "RECORD_OF_RIGHTS",
+  "classification_confidence": 0.0,
+  "extracted_record": {
+    "record_id": "LR-2026-000145",
+    "document_id": "DOC-2026-000109",
+    "ingestion_id": "ING-2026-000057",
+    "document": {
+      "document_title": "Record of Rights (RoR)"
+    },
+    "owner": {
+      "father_husband_name": "Late Margate Saha Eaves"
+    },
+    "land": {},
+    "location": {},
+    "registration": {},
+    "mutation": {},
+    "additional": {}
+  },
+  "field_metadata": {
+    "document.document_title": {
+      "field_name": "document.document_title",
+      "status": "EXTRACTED",
+      "confidence": 0.81,
+      "source": {
+        "page": 1,
+        "label": "Record of Rights",
+        "text": "document header text",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        }
+      },
+      "method": "DETERMINISTIC",
+      "raw_value": "Record of Rights (RoR)",
+      "normalized_value": "Record of Rights (RoR)"
+    },
+    "document.department": {
+      "field_name": "document.department",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "document.document_date": {
+      "field_name": "document.document_date",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "document.map_number": {
+      "field_name": "document.map_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.state": {
+      "field_name": "location.state",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.district": {
+      "field_name": "location.district",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.block": {
+      "field_name": "location.block",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.tehsil": {
+      "field_name": "location.tehsil",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.mouza": {
+      "field_name": "location.mouza",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "location.village": {
+      "field_name": "location.village",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.survey_number": {
+      "field_name": "land.survey_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.khasra_number": {
+      "field_name": "land.khasra_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.plot_number": {
+      "field_name": "land.plot_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.khata_number": {
+      "field_name": "land.khata_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.area": {
+      "field_name": "land.area",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.area_unit": {
+      "field_name": "land.area_unit",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.nature_of_land": {
+      "field_name": "land.nature_of_land",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "land.land_type": {
+      "field_name": "land.land_type",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "owner.name": {
+      "field_name": "owner.name",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "owner.father_husband_name": {
+      "field_name": "owner.father_husband_name",
+      "status": "EXTRACTED",
+      "confidence": 0.843,
+      "source": {
+        "page": 1,
+        "label": "Father Name",
+        "text": "Pater\u2019 /thchan\u00bb Name : Late Margate Saha eaves",
+        "bbox": {
+          "x": 20,
+          "y": 218,
+          "width": 425,
+          "height": 26
+        }
+      },
+      "method": "LABEL_VALUE_SAME_LINE",
+      "raw_value": "Late Margate Saha eaves",
+      "normalized_value": "Late Margate Saha Eaves"
+    },
+    "owner.co_owner": {
+      "field_name": "owner.co_owner",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "owner.recorded_tenant": {
+      "field_name": "owner.recorded_tenant",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "mutation.mutation_number": {
+      "field_name": "mutation.mutation_number",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "mutation.mutation_date": {
+      "field_name": "mutation.mutation_date",
+      "status": "MISSING",
+      "confidence": 0.0
+    },
+    "registration.document_number": {
+      "field_name": "registration.document_number",
+      "status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "method": "DETERMINISTIC"
+    },
+    "registration.registration_date": {
+      "field_name": "registration.registration_date",
+      "status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "method": "DETERMINISTIC"
+    },
+    "registration.issue_date": {
+      "field_name": "registration.issue_date",
+      "status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "method": "DETERMINISTIC"
+    },
+    "additional.remarks": {
+      "field_name": "additional.remarks",
+      "status": "MISSING",
+      "confidence": 0.0
+    }
+  },
+  "completeness": {
+    "fields_expected": 28,
+    "fields_extracted": 2,
+    "fields_missing": 23,
+    "fields_not_applicable": 3
+  },
+  "next_phase": "PHASE_08_CONFIDENCE_COMPLETENESS",
+  "timestamps": {
+    "started_at": "2026-09-29T23:18:54.007465"
+  },
+  "processing_time_seconds": 0.0,
+  "models": {
+    "indicbart": "DISABLED",
+    "mistral": "UNAVAILABLE",
+    "ollama": "UNAVAILABLE"
+  },
+  "unresolved_fields": [
+    "document.department",
+    "document.document_date",
+    "document.map_number",
+    "location.state",
+    "location.district",
+    "location.block",
+    "location.tehsil",
+    "location.mouza",
+    "location.village",
+    "land.survey_number",
+    "land.khasra_number",
+    "land.plot_number",
+    "land.khata_number",
+    "land.area",
+    "land.area_unit",
+    "land.nature_of_land",
+    "land.land_type",
+    "owner.name",
+    "owner.co_owner",
+    "owner.recorded_tenant",
+    "mutation.mutation_number",
+    "mutation.mutation_date",
+    "registration.document_number",
+    "registration.registration_date",
+    "registration.issue_date",
+    "additional.remarks"
+  ],
+  "conflicts": [],
+  "needs_review": false
+}

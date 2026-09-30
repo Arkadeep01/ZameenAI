@@ -597,8 +597,8 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:07.897245",
-    "completed_at": "2026-09-29T05:49:14.873297"
+    "started_at": "2026-09-30T03:43:06.123943",
+    "completed_at": "2026-09-30T03:43:23.593742"
   },
   "source_checksum": "0ee8da9e9dc03bbac8e16e543c2fe939909de354069fe9c6feb0da126ca6395c",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001"

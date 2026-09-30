@@ -68,7 +68,9 @@ class WorkflowService:
 
     # -- HITL decision ----------------------------------------------------
     def hitl_decision(self, *, hitl_id: str, decision: str, reviewer: str,
-                      notes: str = "", actor_role: str = "") -> dict[str, Any]:
+                      notes: str = "", actor_role: str = "",
+                      request_id: Optional[str] = None,
+                      ip_address: Optional[str] = None) -> dict[str, Any]:
         from app.ocr.hitl.service import get_hitl1_service
 
         check = sm.can_transition(sm.UNDER_REVIEW, decision.upper(), role=actor_role)
@@ -86,7 +88,8 @@ class WorkflowService:
                     "message": body.get("error_message"), "hitl": body}
         self._mirror_hitl(body)
         self._audit(reviewer, actor_role, "HITL_DECISION", "hitl_review", hitl_id,
-                    new_state=body.get("status"), meta={"decision": decision})
+                    new_state=body.get("status"), meta={"decision": decision},
+                    request_id=request_id, ip_address=ip_address)
         if body.get("status") == "VERIFIED":
             canonical = self.materialize_canonical(body.get("record_id", ""), verified_by=reviewer)
             body["canonical_record"] = canonical

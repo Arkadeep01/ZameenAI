@@ -10,10 +10,51 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ApproverRouteImport } from './routes/approver'
 import { Route as CitizenRouteImport } from './routes/citizen'
+import { Route as DeskValidatorRouteImport } from './routes/desk-validator'
+import { Route as ExecutiveRouteImport } from './routes/executive'
+import { Route as FieldOfficerRouteImport } from './routes/field-officer'
 import { Route as FindMyLandRouteImport } from './routes/find-my-land'
 import { Route as GisRouteImport } from './routes/gis'
+import { Route as PiaRouteImport } from './routes/pia'
 import { Route as UploadsRouteImport } from './routes/uploads'
+import { Route as AdminIndexRouteImport } from './routes/admin.index'
+import { Route as AdminAuditLogsRouteImport } from './routes/admin.audit-logs'
+import { Route as AdminDashboardRouteImport } from './routes/admin.dashboard'
+import { Route as AdminDepartmentsRouteImport } from './routes/admin.departments'
+import { Route as AdminDistrictsRouteImport } from './routes/admin.districts'
+import { Route as AdminDocumentsRouteImport } from './routes/admin.documents'
+import { Route as AdminIntegrationsRouteImport } from './routes/admin.integrations'
+import { Route as AdminJurisdictionsRouteImport } from './routes/admin.jurisdictions'
+import { Route as AdminNotificationsRouteImport } from './routes/admin.notifications'
+import { Route as AdminPermissionMatrixRouteImport } from './routes/admin.permission-matrix'
+import { Route as AdminPermissionsRouteImport } from './routes/admin.permissions'
+import { Route as AdminProfileRouteImport } from './routes/admin.profile'
+import { Route as AdminProjectsRouteImport } from './routes/admin.projects'
+import { Route as AdminRolesRouteImport } from './routes/admin.roles'
+import { Route as AdminSettingsRouteImport } from './routes/admin.settings'
+import { Route as AdminStatesRouteImport } from './routes/admin.states'
+import { Route as AdminSystemMonitorRouteImport } from './routes/admin.system-monitor'
+import { Route as AdminUserActivityRouteImport } from './routes/admin.user-activity'
+import { Route as AdminUsersRouteImport } from './routes/admin.users'
+import { Route as AdminUsersNewRouteImport } from './routes/admin.users-new'
+import { Route as AdminWorkflowsRouteImport } from './routes/admin.workflows'
+import { Route as ApproverIndexRouteImport } from './routes/approver.index'
+import { Route as ApproverAllRouteImport } from './routes/approver.all'
+import { Route as ApproverApprovedRouteImport } from './routes/approver.approved'
+import { Route as ApproverAuditRouteImport } from './routes/approver.audit'
+import { Route as ApproverCompensationRouteImport } from './routes/approver.compensation'
+import { Route as ApproverContestedRouteImport } from './routes/approver.contested'
+import { Route as ApproverDashboardRouteImport } from './routes/approver.dashboard'
+import { Route as ApproverDocketRouteImport } from './routes/approver.docket'
+import { Route as ApproverNoticesRouteImport } from './routes/approver.notices'
+import { Route as ApproverObjectionsRouteImport } from './routes/approver.objections'
+import { Route as ApproverPendingRouteImport } from './routes/approver.pending'
+import { Route as ApproverPossessionRouteImport } from './routes/approver.possession'
+import { Route as ApproverPowersRouteImport } from './routes/approver.powers'
+import { Route as ApproverStayedRouteImport } from './routes/approver.stayed'
 import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
 import { Route as CitizenAcquisitionRouteImport } from './routes/citizen.acquisition'
 import { Route as CitizenAcquisitionStatusRouteImport } from './routes/citizen.acquisition-status'
@@ -39,15 +80,94 @@ import { Route as CitizenRehabilitationRouteImport } from './routes/citizen.reha
 import { Route as CitizenSecurityRouteImport } from './routes/citizen.security'
 import { Route as CitizenSettingsRouteImport } from './routes/citizen.settings'
 import { Route as CitizenSupportRouteImport } from './routes/citizen.support'
+import { Route as DeskValidatorIndexRouteImport } from './routes/desk-validator.index'
+import { Route as DeskValidatorAssignedRouteImport } from './routes/desk-validator.assigned'
+import { Route as DeskValidatorAuditRouteImport } from './routes/desk-validator.audit'
+import { Route as DeskValidatorDashboardRouteImport } from './routes/desk-validator.dashboard'
+import { Route as DeskValidatorDossierRouteImport } from './routes/desk-validator.dossier'
+import { Route as DeskValidatorFieldRouteImport } from './routes/desk-validator.field'
+import { Route as DeskValidatorNotificationsRouteImport } from './routes/desk-validator.notifications'
+import { Route as DeskValidatorProfileRouteImport } from './routes/desk-validator.profile'
+import { Route as DeskValidatorQueueRouteImport } from './routes/desk-validator.queue'
+import { Route as DeskValidatorReturnedRouteImport } from './routes/desk-validator.returned'
+import { Route as DeskValidatorValidatedRouteImport } from './routes/desk-validator.validated'
+import { Route as DeskValidatorWorkspaceRouteImport } from './routes/desk-validator.workspace'
+import { Route as ExecutiveIndexRouteImport } from './routes/executive.index'
+import { Route as ExecutiveAlertsRouteImport } from './routes/executive.alerts'
+import { Route as ExecutiveBottlenecksRouteImport } from './routes/executive.bottlenecks'
+import { Route as ExecutiveComparisonRouteImport } from './routes/executive.comparison'
+import { Route as ExecutiveCompensationRouteImport } from './routes/executive.compensation'
+import { Route as ExecutiveCorridorsRouteImport } from './routes/executive.corridors'
+import { Route as ExecutiveDashboardRouteImport } from './routes/executive.dashboard'
+import { Route as ExecutiveDistrictsRouteImport } from './routes/executive.districts'
+import { Route as ExecutiveGisRouteImport } from './routes/executive.gis'
+import { Route as ExecutiveNationalRouteImport } from './routes/executive.national'
+import { Route as ExecutivePossessionRouteImport } from './routes/executive.possession'
+import { Route as ExecutivePredictiveRouteImport } from './routes/executive.predictive'
+import { Route as ExecutiveProfileRouteImport } from './routes/executive.profile'
+import { Route as ExecutiveProgramRouteImport } from './routes/executive.program'
+import { Route as ExecutiveReportsRouteImport } from './routes/executive.reports'
+import { Route as ExecutiveRrRouteImport } from './routes/executive.rr'
+import { Route as ExecutiveStatesRouteImport } from './routes/executive.states'
+import { Route as ExecutiveTimelineRouteImport } from './routes/executive.timeline'
+import { Route as FieldOfficerIndexRouteImport } from './routes/field-officer.index'
+import { Route as FieldOfficerAssignmentsRouteImport } from './routes/field-officer.assignments'
+import { Route as FieldOfficerCompletedRouteImport } from './routes/field-officer.completed'
+import { Route as FieldOfficerDashboardRouteImport } from './routes/field-officer.dashboard'
+import { Route as FieldOfficerMapRouteImport } from './routes/field-officer.map'
+import { Route as FieldOfficerMismatchesRouteImport } from './routes/field-officer.mismatches'
+import { Route as FieldOfficerNotificationsRouteImport } from './routes/field-officer.notifications'
+import { Route as FieldOfficerProfileRouteImport } from './routes/field-officer.profile'
+import { Route as FieldOfficerSyncRouteImport } from './routes/field-officer.sync'
+import { Route as FieldOfficerVerifyRouteImport } from './routes/field-officer.verify'
+import { Route as PiaIndexRouteImport } from './routes/pia.index'
+import { Route as PiaCasesRouteImport } from './routes/pia.cases'
+import { Route as PiaDashboardRouteImport } from './routes/pia.dashboard'
+import { Route as PiaDocumentsRouteImport } from './routes/pia.documents'
+import { Route as PiaGisRouteImport } from './routes/pia.gis'
+import { Route as PiaHelpRouteImport } from './routes/pia.help'
+import { Route as PiaMilestonesRouteImport } from './routes/pia.milestones'
+import { Route as PiaNotificationsRouteImport } from './routes/pia.notifications'
+import { Route as PiaOfficerRouteImport } from './routes/pia.officer'
+import { Route as PiaProfileRouteImport } from './routes/pia.profile'
+import { Route as PiaProjectsRouteImport } from './routes/pia.projects'
+import { Route as PiaProposalRouteImport } from './routes/pia.proposal'
+import { Route as PiaReportsRouteImport } from './routes/pia.reports'
+import { Route as PiaWorkflowRouteImport } from './routes/pia.workflow'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApproverRoute = ApproverRouteImport.update({
+  id: '/approver',
+  path: '/approver',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CitizenRoute = CitizenRouteImport.update({
   id: '/citizen',
   path: '/citizen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeskValidatorRoute = DeskValidatorRouteImport.update({
+  id: '/desk-validator',
+  path: '/desk-validator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecutiveRoute = ExecutiveRouteImport.update({
+  id: '/executive',
+  path: '/executive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FieldOfficerRoute = FieldOfficerRouteImport.update({
+  id: '/field-officer',
+  path: '/field-officer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FindMyLandRoute = FindMyLandRouteImport.update({
@@ -60,10 +180,190 @@ const GisRoute = GisRouteImport.update({
   path: '/gis',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PiaRoute = PiaRouteImport.update({
+  id: '/pia',
+  path: '/pia',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const UploadsRoute = UploadsRouteImport.update({
   id: '/uploads',
   path: '/uploads',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminAuditLogsRoute = AdminAuditLogsRouteImport.update({
+  id: '/audit-logs',
+  path: '/audit-logs',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDashboardRoute = AdminDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDepartmentsRoute = AdminDepartmentsRouteImport.update({
+  id: '/departments',
+  path: '/departments',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDistrictsRoute = AdminDistrictsRouteImport.update({
+  id: '/districts',
+  path: '/districts',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminDocumentsRoute = AdminDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminIntegrationsRoute = AdminIntegrationsRouteImport.update({
+  id: '/integrations',
+  path: '/integrations',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminJurisdictionsRoute = AdminJurisdictionsRouteImport.update({
+  id: '/jurisdictions',
+  path: '/jurisdictions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminNotificationsRoute = AdminNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPermissionMatrixRoute = AdminPermissionMatrixRouteImport.update({
+  id: '/permission-matrix',
+  path: '/permission-matrix',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminPermissionsRoute = AdminPermissionsRouteImport.update({
+  id: '/permissions',
+  path: '/permissions',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProfileRoute = AdminProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminProjectsRoute = AdminProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminRolesRoute = AdminRolesRouteImport.update({
+  id: '/roles',
+  path: '/roles',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSettingsRoute = AdminSettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminStatesRoute = AdminStatesRouteImport.update({
+  id: '/states',
+  path: '/states',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminSystemMonitorRoute = AdminSystemMonitorRouteImport.update({
+  id: '/system-monitor',
+  path: '/system-monitor',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUserActivityRoute = AdminUserActivityRouteImport.update({
+  id: '/user-activity',
+  path: '/user-activity',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersRoute = AdminUsersRouteImport.update({
+  id: '/users',
+  path: '/users',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminUsersNewRoute = AdminUsersNewRouteImport.update({
+  id: '/users-new',
+  path: '/users-new',
+  getParentRoute: () => AdminRoute,
+} as any)
+const AdminWorkflowsRoute = AdminWorkflowsRouteImport.update({
+  id: '/workflows',
+  path: '/workflows',
+  getParentRoute: () => AdminRoute,
+} as any)
+const ApproverIndexRoute = ApproverIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverAllRoute = ApproverAllRouteImport.update({
+  id: '/all',
+  path: '/all',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverApprovedRoute = ApproverApprovedRouteImport.update({
+  id: '/approved',
+  path: '/approved',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverAuditRoute = ApproverAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverCompensationRoute = ApproverCompensationRouteImport.update({
+  id: '/compensation',
+  path: '/compensation',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverContestedRoute = ApproverContestedRouteImport.update({
+  id: '/contested',
+  path: '/contested',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverDashboardRoute = ApproverDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverDocketRoute = ApproverDocketRouteImport.update({
+  id: '/docket',
+  path: '/docket',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverNoticesRoute = ApproverNoticesRouteImport.update({
+  id: '/notices',
+  path: '/notices',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverObjectionsRoute = ApproverObjectionsRouteImport.update({
+  id: '/objections',
+  path: '/objections',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverPendingRoute = ApproverPendingRouteImport.update({
+  id: '/pending',
+  path: '/pending',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverPossessionRoute = ApproverPossessionRouteImport.update({
+  id: '/possession',
+  path: '/possession',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverPowersRoute = ApproverPowersRouteImport.update({
+  id: '/powers',
+  path: '/powers',
+  getParentRoute: () => ApproverRoute,
+} as any)
+const ApproverStayedRoute = ApproverStayedRouteImport.update({
+  id: '/stayed',
+  path: '/stayed',
+  getParentRoute: () => ApproverRoute,
 } as any)
 const CitizenIndexRoute = CitizenIndexRouteImport.update({
   id: '/',
@@ -192,13 +492,324 @@ const CitizenSupportRoute = CitizenSupportRouteImport.update({
   path: '/support',
   getParentRoute: () => CitizenRoute,
 } as any)
+const DeskValidatorIndexRoute = DeskValidatorIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorAssignedRoute = DeskValidatorAssignedRouteImport.update({
+  id: '/assigned',
+  path: '/assigned',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorAuditRoute = DeskValidatorAuditRouteImport.update({
+  id: '/audit',
+  path: '/audit',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorDashboardRoute = DeskValidatorDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorDossierRoute = DeskValidatorDossierRouteImport.update({
+  id: '/dossier',
+  path: '/dossier',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorFieldRoute = DeskValidatorFieldRouteImport.update({
+  id: '/field',
+  path: '/field',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorNotificationsRoute =
+  DeskValidatorNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => DeskValidatorRoute,
+  } as any)
+const DeskValidatorProfileRoute = DeskValidatorProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorQueueRoute = DeskValidatorQueueRouteImport.update({
+  id: '/queue',
+  path: '/queue',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorReturnedRoute = DeskValidatorReturnedRouteImport.update({
+  id: '/returned',
+  path: '/returned',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorValidatedRoute = DeskValidatorValidatedRouteImport.update({
+  id: '/validated',
+  path: '/validated',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const DeskValidatorWorkspaceRoute = DeskValidatorWorkspaceRouteImport.update({
+  id: '/workspace',
+  path: '/workspace',
+  getParentRoute: () => DeskValidatorRoute,
+} as any)
+const ExecutiveIndexRoute = ExecutiveIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveAlertsRoute = ExecutiveAlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveBottlenecksRoute = ExecutiveBottlenecksRouteImport.update({
+  id: '/bottlenecks',
+  path: '/bottlenecks',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveComparisonRoute = ExecutiveComparisonRouteImport.update({
+  id: '/comparison',
+  path: '/comparison',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveCompensationRoute = ExecutiveCompensationRouteImport.update({
+  id: '/compensation',
+  path: '/compensation',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveCorridorsRoute = ExecutiveCorridorsRouteImport.update({
+  id: '/corridors',
+  path: '/corridors',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveDashboardRoute = ExecutiveDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveDistrictsRoute = ExecutiveDistrictsRouteImport.update({
+  id: '/districts',
+  path: '/districts',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveGisRoute = ExecutiveGisRouteImport.update({
+  id: '/gis',
+  path: '/gis',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveNationalRoute = ExecutiveNationalRouteImport.update({
+  id: '/national',
+  path: '/national',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutivePossessionRoute = ExecutivePossessionRouteImport.update({
+  id: '/possession',
+  path: '/possession',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutivePredictiveRoute = ExecutivePredictiveRouteImport.update({
+  id: '/predictive',
+  path: '/predictive',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveProfileRoute = ExecutiveProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveProgramRoute = ExecutiveProgramRouteImport.update({
+  id: '/program',
+  path: '/program',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveReportsRoute = ExecutiveReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveRrRoute = ExecutiveRrRouteImport.update({
+  id: '/rr',
+  path: '/rr',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveStatesRoute = ExecutiveStatesRouteImport.update({
+  id: '/states',
+  path: '/states',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const ExecutiveTimelineRoute = ExecutiveTimelineRouteImport.update({
+  id: '/timeline',
+  path: '/timeline',
+  getParentRoute: () => ExecutiveRoute,
+} as any)
+const FieldOfficerIndexRoute = FieldOfficerIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerAssignmentsRoute = FieldOfficerAssignmentsRouteImport.update({
+  id: '/assignments',
+  path: '/assignments',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerCompletedRoute = FieldOfficerCompletedRouteImport.update({
+  id: '/completed',
+  path: '/completed',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerDashboardRoute = FieldOfficerDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerMapRoute = FieldOfficerMapRouteImport.update({
+  id: '/map',
+  path: '/map',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerMismatchesRoute = FieldOfficerMismatchesRouteImport.update({
+  id: '/mismatches',
+  path: '/mismatches',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerNotificationsRoute =
+  FieldOfficerNotificationsRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => FieldOfficerRoute,
+  } as any)
+const FieldOfficerProfileRoute = FieldOfficerProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerSyncRoute = FieldOfficerSyncRouteImport.update({
+  id: '/sync',
+  path: '/sync',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const FieldOfficerVerifyRoute = FieldOfficerVerifyRouteImport.update({
+  id: '/verify',
+  path: '/verify',
+  getParentRoute: () => FieldOfficerRoute,
+} as any)
+const PiaIndexRoute = PiaIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaCasesRoute = PiaCasesRouteImport.update({
+  id: '/cases',
+  path: '/cases',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaDashboardRoute = PiaDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaDocumentsRoute = PiaDocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaGisRoute = PiaGisRouteImport.update({
+  id: '/gis',
+  path: '/gis',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaHelpRoute = PiaHelpRouteImport.update({
+  id: '/help',
+  path: '/help',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaMilestonesRoute = PiaMilestonesRouteImport.update({
+  id: '/milestones',
+  path: '/milestones',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaNotificationsRoute = PiaNotificationsRouteImport.update({
+  id: '/notifications',
+  path: '/notifications',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaOfficerRoute = PiaOfficerRouteImport.update({
+  id: '/officer',
+  path: '/officer',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaProfileRoute = PiaProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaProjectsRoute = PiaProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaProposalRoute = PiaProposalRouteImport.update({
+  id: '/proposal',
+  path: '/proposal',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaReportsRoute = PiaReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => PiaRoute,
+} as any)
+const PiaWorkflowRoute = PiaWorkflowRouteImport.update({
+  id: '/workflow',
+  path: '/workflow',
+  getParentRoute: () => PiaRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/approver': typeof ApproverRouteWithChildren
   '/citizen': typeof CitizenRouteWithChildren
+  '/desk-validator': typeof DeskValidatorRouteWithChildren
+  '/executive': typeof ExecutiveRouteWithChildren
+  '/field-officer': typeof FieldOfficerRouteWithChildren
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
+  '/pia': typeof PiaRouteWithChildren
   '/uploads': typeof UploadsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/departments': typeof AdminDepartmentsRoute
+  '/admin/districts': typeof AdminDistrictsRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/integrations': typeof AdminIntegrationsRoute
+  '/admin/jurisdictions': typeof AdminJurisdictionsRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/permission-matrix': typeof AdminPermissionMatrixRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/admin/profile': typeof AdminProfileRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/states': typeof AdminStatesRoute
+  '/admin/system-monitor': typeof AdminSystemMonitorRoute
+  '/admin/user-activity': typeof AdminUserActivityRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/users-new': typeof AdminUsersNewRoute
+  '/admin/workflows': typeof AdminWorkflowsRoute
+  '/approver/all': typeof ApproverAllRoute
+  '/approver/approved': typeof ApproverApprovedRoute
+  '/approver/audit': typeof ApproverAuditRoute
+  '/approver/compensation': typeof ApproverCompensationRoute
+  '/approver/contested': typeof ApproverContestedRoute
+  '/approver/dashboard': typeof ApproverDashboardRoute
+  '/approver/docket': typeof ApproverDocketRoute
+  '/approver/notices': typeof ApproverNoticesRoute
+  '/approver/objections': typeof ApproverObjectionsRoute
+  '/approver/pending': typeof ApproverPendingRoute
+  '/approver/possession': typeof ApproverPossessionRoute
+  '/approver/powers': typeof ApproverPowersRoute
+  '/approver/stayed': typeof ApproverStayedRoute
   '/citizen/acquisition': typeof CitizenAcquisitionRoute
   '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
   '/citizen/activity': typeof CitizenActivityRoute
@@ -223,13 +834,102 @@ export interface FileRoutesByFullPath {
   '/citizen/security': typeof CitizenSecurityRoute
   '/citizen/settings': typeof CitizenSettingsRoute
   '/citizen/support': typeof CitizenSupportRoute
+  '/desk-validator/assigned': typeof DeskValidatorAssignedRoute
+  '/desk-validator/audit': typeof DeskValidatorAuditRoute
+  '/desk-validator/dashboard': typeof DeskValidatorDashboardRoute
+  '/desk-validator/dossier': typeof DeskValidatorDossierRoute
+  '/desk-validator/field': typeof DeskValidatorFieldRoute
+  '/desk-validator/notifications': typeof DeskValidatorNotificationsRoute
+  '/desk-validator/profile': typeof DeskValidatorProfileRoute
+  '/desk-validator/queue': typeof DeskValidatorQueueRoute
+  '/desk-validator/returned': typeof DeskValidatorReturnedRoute
+  '/desk-validator/validated': typeof DeskValidatorValidatedRoute
+  '/desk-validator/workspace': typeof DeskValidatorWorkspaceRoute
+  '/executive/alerts': typeof ExecutiveAlertsRoute
+  '/executive/bottlenecks': typeof ExecutiveBottlenecksRoute
+  '/executive/comparison': typeof ExecutiveComparisonRoute
+  '/executive/compensation': typeof ExecutiveCompensationRoute
+  '/executive/corridors': typeof ExecutiveCorridorsRoute
+  '/executive/dashboard': typeof ExecutiveDashboardRoute
+  '/executive/districts': typeof ExecutiveDistrictsRoute
+  '/executive/gis': typeof ExecutiveGisRoute
+  '/executive/national': typeof ExecutiveNationalRoute
+  '/executive/possession': typeof ExecutivePossessionRoute
+  '/executive/predictive': typeof ExecutivePredictiveRoute
+  '/executive/profile': typeof ExecutiveProfileRoute
+  '/executive/program': typeof ExecutiveProgramRoute
+  '/executive/reports': typeof ExecutiveReportsRoute
+  '/executive/rr': typeof ExecutiveRrRoute
+  '/executive/states': typeof ExecutiveStatesRoute
+  '/executive/timeline': typeof ExecutiveTimelineRoute
+  '/field-officer/assignments': typeof FieldOfficerAssignmentsRoute
+  '/field-officer/completed': typeof FieldOfficerCompletedRoute
+  '/field-officer/dashboard': typeof FieldOfficerDashboardRoute
+  '/field-officer/map': typeof FieldOfficerMapRoute
+  '/field-officer/mismatches': typeof FieldOfficerMismatchesRoute
+  '/field-officer/notifications': typeof FieldOfficerNotificationsRoute
+  '/field-officer/profile': typeof FieldOfficerProfileRoute
+  '/field-officer/sync': typeof FieldOfficerSyncRoute
+  '/field-officer/verify': typeof FieldOfficerVerifyRoute
+  '/pia/cases': typeof PiaCasesRoute
+  '/pia/dashboard': typeof PiaDashboardRoute
+  '/pia/documents': typeof PiaDocumentsRoute
+  '/pia/gis': typeof PiaGisRoute
+  '/pia/help': typeof PiaHelpRoute
+  '/pia/milestones': typeof PiaMilestonesRoute
+  '/pia/notifications': typeof PiaNotificationsRoute
+  '/pia/officer': typeof PiaOfficerRoute
+  '/pia/profile': typeof PiaProfileRoute
+  '/pia/projects': typeof PiaProjectsRoute
+  '/pia/proposal': typeof PiaProposalRoute
+  '/pia/reports': typeof PiaReportsRoute
+  '/pia/workflow': typeof PiaWorkflowRoute
+  '/admin/': typeof AdminIndexRoute
+  '/approver/': typeof ApproverIndexRoute
   '/citizen/': typeof CitizenIndexRoute
+  '/desk-validator/': typeof DeskValidatorIndexRoute
+  '/executive/': typeof ExecutiveIndexRoute
+  '/field-officer/': typeof FieldOfficerIndexRoute
+  '/pia/': typeof PiaIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
   '/uploads': typeof UploadsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/departments': typeof AdminDepartmentsRoute
+  '/admin/districts': typeof AdminDistrictsRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/integrations': typeof AdminIntegrationsRoute
+  '/admin/jurisdictions': typeof AdminJurisdictionsRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/permission-matrix': typeof AdminPermissionMatrixRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/admin/profile': typeof AdminProfileRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/states': typeof AdminStatesRoute
+  '/admin/system-monitor': typeof AdminSystemMonitorRoute
+  '/admin/user-activity': typeof AdminUserActivityRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/users-new': typeof AdminUsersNewRoute
+  '/admin/workflows': typeof AdminWorkflowsRoute
+  '/approver/all': typeof ApproverAllRoute
+  '/approver/approved': typeof ApproverApprovedRoute
+  '/approver/audit': typeof ApproverAuditRoute
+  '/approver/compensation': typeof ApproverCompensationRoute
+  '/approver/contested': typeof ApproverContestedRoute
+  '/approver/dashboard': typeof ApproverDashboardRoute
+  '/approver/docket': typeof ApproverDocketRoute
+  '/approver/notices': typeof ApproverNoticesRoute
+  '/approver/objections': typeof ApproverObjectionsRoute
+  '/approver/pending': typeof ApproverPendingRoute
+  '/approver/possession': typeof ApproverPossessionRoute
+  '/approver/powers': typeof ApproverPowersRoute
+  '/approver/stayed': typeof ApproverStayedRoute
   '/citizen/acquisition': typeof CitizenAcquisitionRoute
   '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
   '/citizen/activity': typeof CitizenActivityRoute
@@ -254,15 +954,110 @@ export interface FileRoutesByTo {
   '/citizen/security': typeof CitizenSecurityRoute
   '/citizen/settings': typeof CitizenSettingsRoute
   '/citizen/support': typeof CitizenSupportRoute
+  '/desk-validator/assigned': typeof DeskValidatorAssignedRoute
+  '/desk-validator/audit': typeof DeskValidatorAuditRoute
+  '/desk-validator/dashboard': typeof DeskValidatorDashboardRoute
+  '/desk-validator/dossier': typeof DeskValidatorDossierRoute
+  '/desk-validator/field': typeof DeskValidatorFieldRoute
+  '/desk-validator/notifications': typeof DeskValidatorNotificationsRoute
+  '/desk-validator/profile': typeof DeskValidatorProfileRoute
+  '/desk-validator/queue': typeof DeskValidatorQueueRoute
+  '/desk-validator/returned': typeof DeskValidatorReturnedRoute
+  '/desk-validator/validated': typeof DeskValidatorValidatedRoute
+  '/desk-validator/workspace': typeof DeskValidatorWorkspaceRoute
+  '/executive/alerts': typeof ExecutiveAlertsRoute
+  '/executive/bottlenecks': typeof ExecutiveBottlenecksRoute
+  '/executive/comparison': typeof ExecutiveComparisonRoute
+  '/executive/compensation': typeof ExecutiveCompensationRoute
+  '/executive/corridors': typeof ExecutiveCorridorsRoute
+  '/executive/dashboard': typeof ExecutiveDashboardRoute
+  '/executive/districts': typeof ExecutiveDistrictsRoute
+  '/executive/gis': typeof ExecutiveGisRoute
+  '/executive/national': typeof ExecutiveNationalRoute
+  '/executive/possession': typeof ExecutivePossessionRoute
+  '/executive/predictive': typeof ExecutivePredictiveRoute
+  '/executive/profile': typeof ExecutiveProfileRoute
+  '/executive/program': typeof ExecutiveProgramRoute
+  '/executive/reports': typeof ExecutiveReportsRoute
+  '/executive/rr': typeof ExecutiveRrRoute
+  '/executive/states': typeof ExecutiveStatesRoute
+  '/executive/timeline': typeof ExecutiveTimelineRoute
+  '/field-officer/assignments': typeof FieldOfficerAssignmentsRoute
+  '/field-officer/completed': typeof FieldOfficerCompletedRoute
+  '/field-officer/dashboard': typeof FieldOfficerDashboardRoute
+  '/field-officer/map': typeof FieldOfficerMapRoute
+  '/field-officer/mismatches': typeof FieldOfficerMismatchesRoute
+  '/field-officer/notifications': typeof FieldOfficerNotificationsRoute
+  '/field-officer/profile': typeof FieldOfficerProfileRoute
+  '/field-officer/sync': typeof FieldOfficerSyncRoute
+  '/field-officer/verify': typeof FieldOfficerVerifyRoute
+  '/pia/cases': typeof PiaCasesRoute
+  '/pia/dashboard': typeof PiaDashboardRoute
+  '/pia/documents': typeof PiaDocumentsRoute
+  '/pia/gis': typeof PiaGisRoute
+  '/pia/help': typeof PiaHelpRoute
+  '/pia/milestones': typeof PiaMilestonesRoute
+  '/pia/notifications': typeof PiaNotificationsRoute
+  '/pia/officer': typeof PiaOfficerRoute
+  '/pia/profile': typeof PiaProfileRoute
+  '/pia/projects': typeof PiaProjectsRoute
+  '/pia/proposal': typeof PiaProposalRoute
+  '/pia/reports': typeof PiaReportsRoute
+  '/pia/workflow': typeof PiaWorkflowRoute
+  '/admin': typeof AdminIndexRoute
+  '/approver': typeof ApproverIndexRoute
   '/citizen': typeof CitizenIndexRoute
+  '/desk-validator': typeof DeskValidatorIndexRoute
+  '/executive': typeof ExecutiveIndexRoute
+  '/field-officer': typeof FieldOfficerIndexRoute
+  '/pia': typeof PiaIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteWithChildren
+  '/approver': typeof ApproverRouteWithChildren
   '/citizen': typeof CitizenRouteWithChildren
+  '/desk-validator': typeof DeskValidatorRouteWithChildren
+  '/executive': typeof ExecutiveRouteWithChildren
+  '/field-officer': typeof FieldOfficerRouteWithChildren
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
+  '/pia': typeof PiaRouteWithChildren
   '/uploads': typeof UploadsRoute
+  '/admin/audit-logs': typeof AdminAuditLogsRoute
+  '/admin/dashboard': typeof AdminDashboardRoute
+  '/admin/departments': typeof AdminDepartmentsRoute
+  '/admin/districts': typeof AdminDistrictsRoute
+  '/admin/documents': typeof AdminDocumentsRoute
+  '/admin/integrations': typeof AdminIntegrationsRoute
+  '/admin/jurisdictions': typeof AdminJurisdictionsRoute
+  '/admin/notifications': typeof AdminNotificationsRoute
+  '/admin/permission-matrix': typeof AdminPermissionMatrixRoute
+  '/admin/permissions': typeof AdminPermissionsRoute
+  '/admin/profile': typeof AdminProfileRoute
+  '/admin/projects': typeof AdminProjectsRoute
+  '/admin/roles': typeof AdminRolesRoute
+  '/admin/settings': typeof AdminSettingsRoute
+  '/admin/states': typeof AdminStatesRoute
+  '/admin/system-monitor': typeof AdminSystemMonitorRoute
+  '/admin/user-activity': typeof AdminUserActivityRoute
+  '/admin/users': typeof AdminUsersRoute
+  '/admin/users-new': typeof AdminUsersNewRoute
+  '/admin/workflows': typeof AdminWorkflowsRoute
+  '/approver/all': typeof ApproverAllRoute
+  '/approver/approved': typeof ApproverApprovedRoute
+  '/approver/audit': typeof ApproverAuditRoute
+  '/approver/compensation': typeof ApproverCompensationRoute
+  '/approver/contested': typeof ApproverContestedRoute
+  '/approver/dashboard': typeof ApproverDashboardRoute
+  '/approver/docket': typeof ApproverDocketRoute
+  '/approver/notices': typeof ApproverNoticesRoute
+  '/approver/objections': typeof ApproverObjectionsRoute
+  '/approver/pending': typeof ApproverPendingRoute
+  '/approver/possession': typeof ApproverPossessionRoute
+  '/approver/powers': typeof ApproverPowersRoute
+  '/approver/stayed': typeof ApproverStayedRoute
   '/citizen/acquisition': typeof CitizenAcquisitionRoute
   '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
   '/citizen/activity': typeof CitizenActivityRoute
@@ -287,16 +1082,111 @@ export interface FileRoutesById {
   '/citizen/security': typeof CitizenSecurityRoute
   '/citizen/settings': typeof CitizenSettingsRoute
   '/citizen/support': typeof CitizenSupportRoute
+  '/desk-validator/assigned': typeof DeskValidatorAssignedRoute
+  '/desk-validator/audit': typeof DeskValidatorAuditRoute
+  '/desk-validator/dashboard': typeof DeskValidatorDashboardRoute
+  '/desk-validator/dossier': typeof DeskValidatorDossierRoute
+  '/desk-validator/field': typeof DeskValidatorFieldRoute
+  '/desk-validator/notifications': typeof DeskValidatorNotificationsRoute
+  '/desk-validator/profile': typeof DeskValidatorProfileRoute
+  '/desk-validator/queue': typeof DeskValidatorQueueRoute
+  '/desk-validator/returned': typeof DeskValidatorReturnedRoute
+  '/desk-validator/validated': typeof DeskValidatorValidatedRoute
+  '/desk-validator/workspace': typeof DeskValidatorWorkspaceRoute
+  '/executive/alerts': typeof ExecutiveAlertsRoute
+  '/executive/bottlenecks': typeof ExecutiveBottlenecksRoute
+  '/executive/comparison': typeof ExecutiveComparisonRoute
+  '/executive/compensation': typeof ExecutiveCompensationRoute
+  '/executive/corridors': typeof ExecutiveCorridorsRoute
+  '/executive/dashboard': typeof ExecutiveDashboardRoute
+  '/executive/districts': typeof ExecutiveDistrictsRoute
+  '/executive/gis': typeof ExecutiveGisRoute
+  '/executive/national': typeof ExecutiveNationalRoute
+  '/executive/possession': typeof ExecutivePossessionRoute
+  '/executive/predictive': typeof ExecutivePredictiveRoute
+  '/executive/profile': typeof ExecutiveProfileRoute
+  '/executive/program': typeof ExecutiveProgramRoute
+  '/executive/reports': typeof ExecutiveReportsRoute
+  '/executive/rr': typeof ExecutiveRrRoute
+  '/executive/states': typeof ExecutiveStatesRoute
+  '/executive/timeline': typeof ExecutiveTimelineRoute
+  '/field-officer/assignments': typeof FieldOfficerAssignmentsRoute
+  '/field-officer/completed': typeof FieldOfficerCompletedRoute
+  '/field-officer/dashboard': typeof FieldOfficerDashboardRoute
+  '/field-officer/map': typeof FieldOfficerMapRoute
+  '/field-officer/mismatches': typeof FieldOfficerMismatchesRoute
+  '/field-officer/notifications': typeof FieldOfficerNotificationsRoute
+  '/field-officer/profile': typeof FieldOfficerProfileRoute
+  '/field-officer/sync': typeof FieldOfficerSyncRoute
+  '/field-officer/verify': typeof FieldOfficerVerifyRoute
+  '/pia/cases': typeof PiaCasesRoute
+  '/pia/dashboard': typeof PiaDashboardRoute
+  '/pia/documents': typeof PiaDocumentsRoute
+  '/pia/gis': typeof PiaGisRoute
+  '/pia/help': typeof PiaHelpRoute
+  '/pia/milestones': typeof PiaMilestonesRoute
+  '/pia/notifications': typeof PiaNotificationsRoute
+  '/pia/officer': typeof PiaOfficerRoute
+  '/pia/profile': typeof PiaProfileRoute
+  '/pia/projects': typeof PiaProjectsRoute
+  '/pia/proposal': typeof PiaProposalRoute
+  '/pia/reports': typeof PiaReportsRoute
+  '/pia/workflow': typeof PiaWorkflowRoute
+  '/admin/': typeof AdminIndexRoute
+  '/approver/': typeof ApproverIndexRoute
   '/citizen/': typeof CitizenIndexRoute
+  '/desk-validator/': typeof DeskValidatorIndexRoute
+  '/executive/': typeof ExecutiveIndexRoute
+  '/field-officer/': typeof FieldOfficerIndexRoute
+  '/pia/': typeof PiaIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
+    | '/approver'
     | '/citizen'
+    | '/desk-validator'
+    | '/executive'
+    | '/field-officer'
     | '/find-my-land'
     | '/gis'
+    | '/pia'
     | '/uploads'
+    | '/admin/audit-logs'
+    | '/admin/dashboard'
+    | '/admin/departments'
+    | '/admin/districts'
+    | '/admin/documents'
+    | '/admin/integrations'
+    | '/admin/jurisdictions'
+    | '/admin/notifications'
+    | '/admin/permission-matrix'
+    | '/admin/permissions'
+    | '/admin/profile'
+    | '/admin/projects'
+    | '/admin/roles'
+    | '/admin/settings'
+    | '/admin/states'
+    | '/admin/system-monitor'
+    | '/admin/user-activity'
+    | '/admin/users'
+    | '/admin/users-new'
+    | '/admin/workflows'
+    | '/approver/all'
+    | '/approver/approved'
+    | '/approver/audit'
+    | '/approver/compensation'
+    | '/approver/contested'
+    | '/approver/dashboard'
+    | '/approver/docket'
+    | '/approver/notices'
+    | '/approver/objections'
+    | '/approver/pending'
+    | '/approver/possession'
+    | '/approver/powers'
+    | '/approver/stayed'
     | '/citizen/acquisition'
     | '/citizen/acquisition-status'
     | '/citizen/activity'
@@ -321,13 +1211,102 @@ export interface FileRouteTypes {
     | '/citizen/security'
     | '/citizen/settings'
     | '/citizen/support'
+    | '/desk-validator/assigned'
+    | '/desk-validator/audit'
+    | '/desk-validator/dashboard'
+    | '/desk-validator/dossier'
+    | '/desk-validator/field'
+    | '/desk-validator/notifications'
+    | '/desk-validator/profile'
+    | '/desk-validator/queue'
+    | '/desk-validator/returned'
+    | '/desk-validator/validated'
+    | '/desk-validator/workspace'
+    | '/executive/alerts'
+    | '/executive/bottlenecks'
+    | '/executive/comparison'
+    | '/executive/compensation'
+    | '/executive/corridors'
+    | '/executive/dashboard'
+    | '/executive/districts'
+    | '/executive/gis'
+    | '/executive/national'
+    | '/executive/possession'
+    | '/executive/predictive'
+    | '/executive/profile'
+    | '/executive/program'
+    | '/executive/reports'
+    | '/executive/rr'
+    | '/executive/states'
+    | '/executive/timeline'
+    | '/field-officer/assignments'
+    | '/field-officer/completed'
+    | '/field-officer/dashboard'
+    | '/field-officer/map'
+    | '/field-officer/mismatches'
+    | '/field-officer/notifications'
+    | '/field-officer/profile'
+    | '/field-officer/sync'
+    | '/field-officer/verify'
+    | '/pia/cases'
+    | '/pia/dashboard'
+    | '/pia/documents'
+    | '/pia/gis'
+    | '/pia/help'
+    | '/pia/milestones'
+    | '/pia/notifications'
+    | '/pia/officer'
+    | '/pia/profile'
+    | '/pia/projects'
+    | '/pia/proposal'
+    | '/pia/reports'
+    | '/pia/workflow'
+    | '/admin/'
+    | '/approver/'
     | '/citizen/'
+    | '/desk-validator/'
+    | '/executive/'
+    | '/field-officer/'
+    | '/pia/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/find-my-land'
     | '/gis'
     | '/uploads'
+    | '/admin/audit-logs'
+    | '/admin/dashboard'
+    | '/admin/departments'
+    | '/admin/districts'
+    | '/admin/documents'
+    | '/admin/integrations'
+    | '/admin/jurisdictions'
+    | '/admin/notifications'
+    | '/admin/permission-matrix'
+    | '/admin/permissions'
+    | '/admin/profile'
+    | '/admin/projects'
+    | '/admin/roles'
+    | '/admin/settings'
+    | '/admin/states'
+    | '/admin/system-monitor'
+    | '/admin/user-activity'
+    | '/admin/users'
+    | '/admin/users-new'
+    | '/admin/workflows'
+    | '/approver/all'
+    | '/approver/approved'
+    | '/approver/audit'
+    | '/approver/compensation'
+    | '/approver/contested'
+    | '/approver/dashboard'
+    | '/approver/docket'
+    | '/approver/notices'
+    | '/approver/objections'
+    | '/approver/pending'
+    | '/approver/possession'
+    | '/approver/powers'
+    | '/approver/stayed'
     | '/citizen/acquisition'
     | '/citizen/acquisition-status'
     | '/citizen/activity'
@@ -352,14 +1331,109 @@ export interface FileRouteTypes {
     | '/citizen/security'
     | '/citizen/settings'
     | '/citizen/support'
+    | '/desk-validator/assigned'
+    | '/desk-validator/audit'
+    | '/desk-validator/dashboard'
+    | '/desk-validator/dossier'
+    | '/desk-validator/field'
+    | '/desk-validator/notifications'
+    | '/desk-validator/profile'
+    | '/desk-validator/queue'
+    | '/desk-validator/returned'
+    | '/desk-validator/validated'
+    | '/desk-validator/workspace'
+    | '/executive/alerts'
+    | '/executive/bottlenecks'
+    | '/executive/comparison'
+    | '/executive/compensation'
+    | '/executive/corridors'
+    | '/executive/dashboard'
+    | '/executive/districts'
+    | '/executive/gis'
+    | '/executive/national'
+    | '/executive/possession'
+    | '/executive/predictive'
+    | '/executive/profile'
+    | '/executive/program'
+    | '/executive/reports'
+    | '/executive/rr'
+    | '/executive/states'
+    | '/executive/timeline'
+    | '/field-officer/assignments'
+    | '/field-officer/completed'
+    | '/field-officer/dashboard'
+    | '/field-officer/map'
+    | '/field-officer/mismatches'
+    | '/field-officer/notifications'
+    | '/field-officer/profile'
+    | '/field-officer/sync'
+    | '/field-officer/verify'
+    | '/pia/cases'
+    | '/pia/dashboard'
+    | '/pia/documents'
+    | '/pia/gis'
+    | '/pia/help'
+    | '/pia/milestones'
+    | '/pia/notifications'
+    | '/pia/officer'
+    | '/pia/profile'
+    | '/pia/projects'
+    | '/pia/proposal'
+    | '/pia/reports'
+    | '/pia/workflow'
+    | '/admin'
+    | '/approver'
     | '/citizen'
+    | '/desk-validator'
+    | '/executive'
+    | '/field-officer'
+    | '/pia'
   id:
     | '__root__'
     | '/'
+    | '/admin'
+    | '/approver'
     | '/citizen'
+    | '/desk-validator'
+    | '/executive'
+    | '/field-officer'
     | '/find-my-land'
     | '/gis'
+    | '/pia'
     | '/uploads'
+    | '/admin/audit-logs'
+    | '/admin/dashboard'
+    | '/admin/departments'
+    | '/admin/districts'
+    | '/admin/documents'
+    | '/admin/integrations'
+    | '/admin/jurisdictions'
+    | '/admin/notifications'
+    | '/admin/permission-matrix'
+    | '/admin/permissions'
+    | '/admin/profile'
+    | '/admin/projects'
+    | '/admin/roles'
+    | '/admin/settings'
+    | '/admin/states'
+    | '/admin/system-monitor'
+    | '/admin/user-activity'
+    | '/admin/users'
+    | '/admin/users-new'
+    | '/admin/workflows'
+    | '/approver/all'
+    | '/approver/approved'
+    | '/approver/audit'
+    | '/approver/compensation'
+    | '/approver/contested'
+    | '/approver/dashboard'
+    | '/approver/docket'
+    | '/approver/notices'
+    | '/approver/objections'
+    | '/approver/pending'
+    | '/approver/possession'
+    | '/approver/powers'
+    | '/approver/stayed'
     | '/citizen/acquisition'
     | '/citizen/acquisition-status'
     | '/citizen/activity'
@@ -384,14 +1458,76 @@ export interface FileRouteTypes {
     | '/citizen/security'
     | '/citizen/settings'
     | '/citizen/support'
+    | '/desk-validator/assigned'
+    | '/desk-validator/audit'
+    | '/desk-validator/dashboard'
+    | '/desk-validator/dossier'
+    | '/desk-validator/field'
+    | '/desk-validator/notifications'
+    | '/desk-validator/profile'
+    | '/desk-validator/queue'
+    | '/desk-validator/returned'
+    | '/desk-validator/validated'
+    | '/desk-validator/workspace'
+    | '/executive/alerts'
+    | '/executive/bottlenecks'
+    | '/executive/comparison'
+    | '/executive/compensation'
+    | '/executive/corridors'
+    | '/executive/dashboard'
+    | '/executive/districts'
+    | '/executive/gis'
+    | '/executive/national'
+    | '/executive/possession'
+    | '/executive/predictive'
+    | '/executive/profile'
+    | '/executive/program'
+    | '/executive/reports'
+    | '/executive/rr'
+    | '/executive/states'
+    | '/executive/timeline'
+    | '/field-officer/assignments'
+    | '/field-officer/completed'
+    | '/field-officer/dashboard'
+    | '/field-officer/map'
+    | '/field-officer/mismatches'
+    | '/field-officer/notifications'
+    | '/field-officer/profile'
+    | '/field-officer/sync'
+    | '/field-officer/verify'
+    | '/pia/cases'
+    | '/pia/dashboard'
+    | '/pia/documents'
+    | '/pia/gis'
+    | '/pia/help'
+    | '/pia/milestones'
+    | '/pia/notifications'
+    | '/pia/officer'
+    | '/pia/profile'
+    | '/pia/projects'
+    | '/pia/proposal'
+    | '/pia/reports'
+    | '/pia/workflow'
+    | '/admin/'
+    | '/approver/'
     | '/citizen/'
+    | '/desk-validator/'
+    | '/executive/'
+    | '/field-officer/'
+    | '/pia/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRouteWithChildren
+  ApproverRoute: typeof ApproverRouteWithChildren
   CitizenRoute: typeof CitizenRouteWithChildren
+  DeskValidatorRoute: typeof DeskValidatorRouteWithChildren
+  ExecutiveRoute: typeof ExecutiveRouteWithChildren
+  FieldOfficerRoute: typeof FieldOfficerRouteWithChildren
   FindMyLandRoute: typeof FindMyLandRoute
   GisRoute: typeof GisRoute
+  PiaRoute: typeof PiaRouteWithChildren
   UploadsRoute: typeof UploadsRoute
 }
 
@@ -404,11 +1540,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approver': {
+      id: '/approver'
+      path: '/approver'
+      fullPath: '/approver'
+      preLoaderRoute: typeof ApproverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/citizen': {
       id: '/citizen'
       path: '/citizen'
       fullPath: '/citizen'
       preLoaderRoute: typeof CitizenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/desk-validator': {
+      id: '/desk-validator'
+      path: '/desk-validator'
+      fullPath: '/desk-validator'
+      preLoaderRoute: typeof DeskValidatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executive': {
+      id: '/executive'
+      path: '/executive'
+      fullPath: '/executive'
+      preLoaderRoute: typeof ExecutiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/field-officer': {
+      id: '/field-officer'
+      path: '/field-officer'
+      fullPath: '/field-officer'
+      preLoaderRoute: typeof FieldOfficerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/find-my-land': {
@@ -425,12 +1596,264 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GisRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pia': {
+      id: '/pia'
+      path: '/pia'
+      fullPath: '/pia'
+      preLoaderRoute: typeof PiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/uploads': {
       id: '/uploads'
       path: '/uploads'
       fullPath: '/uploads'
       preLoaderRoute: typeof UploadsRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/audit-logs': {
+      id: '/admin/audit-logs'
+      path: '/audit-logs'
+      fullPath: '/admin/audit-logs'
+      preLoaderRoute: typeof AdminAuditLogsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/dashboard': {
+      id: '/admin/dashboard'
+      path: '/dashboard'
+      fullPath: '/admin/dashboard'
+      preLoaderRoute: typeof AdminDashboardRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/departments': {
+      id: '/admin/departments'
+      path: '/departments'
+      fullPath: '/admin/departments'
+      preLoaderRoute: typeof AdminDepartmentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/districts': {
+      id: '/admin/districts'
+      path: '/districts'
+      fullPath: '/admin/districts'
+      preLoaderRoute: typeof AdminDistrictsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/documents': {
+      id: '/admin/documents'
+      path: '/documents'
+      fullPath: '/admin/documents'
+      preLoaderRoute: typeof AdminDocumentsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/integrations': {
+      id: '/admin/integrations'
+      path: '/integrations'
+      fullPath: '/admin/integrations'
+      preLoaderRoute: typeof AdminIntegrationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/jurisdictions': {
+      id: '/admin/jurisdictions'
+      path: '/jurisdictions'
+      fullPath: '/admin/jurisdictions'
+      preLoaderRoute: typeof AdminJurisdictionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/notifications': {
+      id: '/admin/notifications'
+      path: '/notifications'
+      fullPath: '/admin/notifications'
+      preLoaderRoute: typeof AdminNotificationsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/permission-matrix': {
+      id: '/admin/permission-matrix'
+      path: '/permission-matrix'
+      fullPath: '/admin/permission-matrix'
+      preLoaderRoute: typeof AdminPermissionMatrixRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/permissions': {
+      id: '/admin/permissions'
+      path: '/permissions'
+      fullPath: '/admin/permissions'
+      preLoaderRoute: typeof AdminPermissionsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/profile': {
+      id: '/admin/profile'
+      path: '/profile'
+      fullPath: '/admin/profile'
+      preLoaderRoute: typeof AdminProfileRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/projects': {
+      id: '/admin/projects'
+      path: '/projects'
+      fullPath: '/admin/projects'
+      preLoaderRoute: typeof AdminProjectsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/roles': {
+      id: '/admin/roles'
+      path: '/roles'
+      fullPath: '/admin/roles'
+      preLoaderRoute: typeof AdminRolesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/settings': {
+      id: '/admin/settings'
+      path: '/settings'
+      fullPath: '/admin/settings'
+      preLoaderRoute: typeof AdminSettingsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/states': {
+      id: '/admin/states'
+      path: '/states'
+      fullPath: '/admin/states'
+      preLoaderRoute: typeof AdminStatesRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/system-monitor': {
+      id: '/admin/system-monitor'
+      path: '/system-monitor'
+      fullPath: '/admin/system-monitor'
+      preLoaderRoute: typeof AdminSystemMonitorRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/user-activity': {
+      id: '/admin/user-activity'
+      path: '/user-activity'
+      fullPath: '/admin/user-activity'
+      preLoaderRoute: typeof AdminUserActivityRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users': {
+      id: '/admin/users'
+      path: '/users'
+      fullPath: '/admin/users'
+      preLoaderRoute: typeof AdminUsersRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/users-new': {
+      id: '/admin/users-new'
+      path: '/users-new'
+      fullPath: '/admin/users-new'
+      preLoaderRoute: typeof AdminUsersNewRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/admin/workflows': {
+      id: '/admin/workflows'
+      path: '/workflows'
+      fullPath: '/admin/workflows'
+      preLoaderRoute: typeof AdminWorkflowsRouteImport
+      parentRoute: typeof AdminRoute
+    }
+    '/approver/': {
+      id: '/approver/'
+      path: '/'
+      fullPath: '/approver/'
+      preLoaderRoute: typeof ApproverIndexRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/all': {
+      id: '/approver/all'
+      path: '/all'
+      fullPath: '/approver/all'
+      preLoaderRoute: typeof ApproverAllRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/approved': {
+      id: '/approver/approved'
+      path: '/approved'
+      fullPath: '/approver/approved'
+      preLoaderRoute: typeof ApproverApprovedRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/audit': {
+      id: '/approver/audit'
+      path: '/audit'
+      fullPath: '/approver/audit'
+      preLoaderRoute: typeof ApproverAuditRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/compensation': {
+      id: '/approver/compensation'
+      path: '/compensation'
+      fullPath: '/approver/compensation'
+      preLoaderRoute: typeof ApproverCompensationRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/contested': {
+      id: '/approver/contested'
+      path: '/contested'
+      fullPath: '/approver/contested'
+      preLoaderRoute: typeof ApproverContestedRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/dashboard': {
+      id: '/approver/dashboard'
+      path: '/dashboard'
+      fullPath: '/approver/dashboard'
+      preLoaderRoute: typeof ApproverDashboardRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/docket': {
+      id: '/approver/docket'
+      path: '/docket'
+      fullPath: '/approver/docket'
+      preLoaderRoute: typeof ApproverDocketRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/notices': {
+      id: '/approver/notices'
+      path: '/notices'
+      fullPath: '/approver/notices'
+      preLoaderRoute: typeof ApproverNoticesRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/objections': {
+      id: '/approver/objections'
+      path: '/objections'
+      fullPath: '/approver/objections'
+      preLoaderRoute: typeof ApproverObjectionsRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/pending': {
+      id: '/approver/pending'
+      path: '/pending'
+      fullPath: '/approver/pending'
+      preLoaderRoute: typeof ApproverPendingRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/possession': {
+      id: '/approver/possession'
+      path: '/possession'
+      fullPath: '/approver/possession'
+      preLoaderRoute: typeof ApproverPossessionRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/powers': {
+      id: '/approver/powers'
+      path: '/powers'
+      fullPath: '/approver/powers'
+      preLoaderRoute: typeof ApproverPowersRouteImport
+      parentRoute: typeof ApproverRoute
+    }
+    '/approver/stayed': {
+      id: '/approver/stayed'
+      path: '/stayed'
+      fullPath: '/approver/stayed'
+      preLoaderRoute: typeof ApproverStayedRouteImport
+      parentRoute: typeof ApproverRoute
     }
     '/citizen/': {
       id: '/citizen/'
@@ -607,8 +2030,474 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CitizenSupportRouteImport
       parentRoute: typeof CitizenRoute
     }
+    '/desk-validator/': {
+      id: '/desk-validator/'
+      path: '/'
+      fullPath: '/desk-validator/'
+      preLoaderRoute: typeof DeskValidatorIndexRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/assigned': {
+      id: '/desk-validator/assigned'
+      path: '/assigned'
+      fullPath: '/desk-validator/assigned'
+      preLoaderRoute: typeof DeskValidatorAssignedRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/audit': {
+      id: '/desk-validator/audit'
+      path: '/audit'
+      fullPath: '/desk-validator/audit'
+      preLoaderRoute: typeof DeskValidatorAuditRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/dashboard': {
+      id: '/desk-validator/dashboard'
+      path: '/dashboard'
+      fullPath: '/desk-validator/dashboard'
+      preLoaderRoute: typeof DeskValidatorDashboardRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/dossier': {
+      id: '/desk-validator/dossier'
+      path: '/dossier'
+      fullPath: '/desk-validator/dossier'
+      preLoaderRoute: typeof DeskValidatorDossierRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/field': {
+      id: '/desk-validator/field'
+      path: '/field'
+      fullPath: '/desk-validator/field'
+      preLoaderRoute: typeof DeskValidatorFieldRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/notifications': {
+      id: '/desk-validator/notifications'
+      path: '/notifications'
+      fullPath: '/desk-validator/notifications'
+      preLoaderRoute: typeof DeskValidatorNotificationsRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/profile': {
+      id: '/desk-validator/profile'
+      path: '/profile'
+      fullPath: '/desk-validator/profile'
+      preLoaderRoute: typeof DeskValidatorProfileRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/queue': {
+      id: '/desk-validator/queue'
+      path: '/queue'
+      fullPath: '/desk-validator/queue'
+      preLoaderRoute: typeof DeskValidatorQueueRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/returned': {
+      id: '/desk-validator/returned'
+      path: '/returned'
+      fullPath: '/desk-validator/returned'
+      preLoaderRoute: typeof DeskValidatorReturnedRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/validated': {
+      id: '/desk-validator/validated'
+      path: '/validated'
+      fullPath: '/desk-validator/validated'
+      preLoaderRoute: typeof DeskValidatorValidatedRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/desk-validator/workspace': {
+      id: '/desk-validator/workspace'
+      path: '/workspace'
+      fullPath: '/desk-validator/workspace'
+      preLoaderRoute: typeof DeskValidatorWorkspaceRouteImport
+      parentRoute: typeof DeskValidatorRoute
+    }
+    '/executive/': {
+      id: '/executive/'
+      path: '/'
+      fullPath: '/executive/'
+      preLoaderRoute: typeof ExecutiveIndexRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/alerts': {
+      id: '/executive/alerts'
+      path: '/alerts'
+      fullPath: '/executive/alerts'
+      preLoaderRoute: typeof ExecutiveAlertsRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/bottlenecks': {
+      id: '/executive/bottlenecks'
+      path: '/bottlenecks'
+      fullPath: '/executive/bottlenecks'
+      preLoaderRoute: typeof ExecutiveBottlenecksRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/comparison': {
+      id: '/executive/comparison'
+      path: '/comparison'
+      fullPath: '/executive/comparison'
+      preLoaderRoute: typeof ExecutiveComparisonRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/compensation': {
+      id: '/executive/compensation'
+      path: '/compensation'
+      fullPath: '/executive/compensation'
+      preLoaderRoute: typeof ExecutiveCompensationRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/corridors': {
+      id: '/executive/corridors'
+      path: '/corridors'
+      fullPath: '/executive/corridors'
+      preLoaderRoute: typeof ExecutiveCorridorsRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/dashboard': {
+      id: '/executive/dashboard'
+      path: '/dashboard'
+      fullPath: '/executive/dashboard'
+      preLoaderRoute: typeof ExecutiveDashboardRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/districts': {
+      id: '/executive/districts'
+      path: '/districts'
+      fullPath: '/executive/districts'
+      preLoaderRoute: typeof ExecutiveDistrictsRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/gis': {
+      id: '/executive/gis'
+      path: '/gis'
+      fullPath: '/executive/gis'
+      preLoaderRoute: typeof ExecutiveGisRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/national': {
+      id: '/executive/national'
+      path: '/national'
+      fullPath: '/executive/national'
+      preLoaderRoute: typeof ExecutiveNationalRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/possession': {
+      id: '/executive/possession'
+      path: '/possession'
+      fullPath: '/executive/possession'
+      preLoaderRoute: typeof ExecutivePossessionRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/predictive': {
+      id: '/executive/predictive'
+      path: '/predictive'
+      fullPath: '/executive/predictive'
+      preLoaderRoute: typeof ExecutivePredictiveRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/profile': {
+      id: '/executive/profile'
+      path: '/profile'
+      fullPath: '/executive/profile'
+      preLoaderRoute: typeof ExecutiveProfileRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/program': {
+      id: '/executive/program'
+      path: '/program'
+      fullPath: '/executive/program'
+      preLoaderRoute: typeof ExecutiveProgramRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/reports': {
+      id: '/executive/reports'
+      path: '/reports'
+      fullPath: '/executive/reports'
+      preLoaderRoute: typeof ExecutiveReportsRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/rr': {
+      id: '/executive/rr'
+      path: '/rr'
+      fullPath: '/executive/rr'
+      preLoaderRoute: typeof ExecutiveRrRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/states': {
+      id: '/executive/states'
+      path: '/states'
+      fullPath: '/executive/states'
+      preLoaderRoute: typeof ExecutiveStatesRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/executive/timeline': {
+      id: '/executive/timeline'
+      path: '/timeline'
+      fullPath: '/executive/timeline'
+      preLoaderRoute: typeof ExecutiveTimelineRouteImport
+      parentRoute: typeof ExecutiveRoute
+    }
+    '/field-officer/': {
+      id: '/field-officer/'
+      path: '/'
+      fullPath: '/field-officer/'
+      preLoaderRoute: typeof FieldOfficerIndexRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/assignments': {
+      id: '/field-officer/assignments'
+      path: '/assignments'
+      fullPath: '/field-officer/assignments'
+      preLoaderRoute: typeof FieldOfficerAssignmentsRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/completed': {
+      id: '/field-officer/completed'
+      path: '/completed'
+      fullPath: '/field-officer/completed'
+      preLoaderRoute: typeof FieldOfficerCompletedRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/dashboard': {
+      id: '/field-officer/dashboard'
+      path: '/dashboard'
+      fullPath: '/field-officer/dashboard'
+      preLoaderRoute: typeof FieldOfficerDashboardRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/map': {
+      id: '/field-officer/map'
+      path: '/map'
+      fullPath: '/field-officer/map'
+      preLoaderRoute: typeof FieldOfficerMapRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/mismatches': {
+      id: '/field-officer/mismatches'
+      path: '/mismatches'
+      fullPath: '/field-officer/mismatches'
+      preLoaderRoute: typeof FieldOfficerMismatchesRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/notifications': {
+      id: '/field-officer/notifications'
+      path: '/notifications'
+      fullPath: '/field-officer/notifications'
+      preLoaderRoute: typeof FieldOfficerNotificationsRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/profile': {
+      id: '/field-officer/profile'
+      path: '/profile'
+      fullPath: '/field-officer/profile'
+      preLoaderRoute: typeof FieldOfficerProfileRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/sync': {
+      id: '/field-officer/sync'
+      path: '/sync'
+      fullPath: '/field-officer/sync'
+      preLoaderRoute: typeof FieldOfficerSyncRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/field-officer/verify': {
+      id: '/field-officer/verify'
+      path: '/verify'
+      fullPath: '/field-officer/verify'
+      preLoaderRoute: typeof FieldOfficerVerifyRouteImport
+      parentRoute: typeof FieldOfficerRoute
+    }
+    '/pia/': {
+      id: '/pia/'
+      path: '/'
+      fullPath: '/pia/'
+      preLoaderRoute: typeof PiaIndexRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/cases': {
+      id: '/pia/cases'
+      path: '/cases'
+      fullPath: '/pia/cases'
+      preLoaderRoute: typeof PiaCasesRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/dashboard': {
+      id: '/pia/dashboard'
+      path: '/dashboard'
+      fullPath: '/pia/dashboard'
+      preLoaderRoute: typeof PiaDashboardRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/documents': {
+      id: '/pia/documents'
+      path: '/documents'
+      fullPath: '/pia/documents'
+      preLoaderRoute: typeof PiaDocumentsRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/gis': {
+      id: '/pia/gis'
+      path: '/gis'
+      fullPath: '/pia/gis'
+      preLoaderRoute: typeof PiaGisRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/help': {
+      id: '/pia/help'
+      path: '/help'
+      fullPath: '/pia/help'
+      preLoaderRoute: typeof PiaHelpRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/milestones': {
+      id: '/pia/milestones'
+      path: '/milestones'
+      fullPath: '/pia/milestones'
+      preLoaderRoute: typeof PiaMilestonesRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/notifications': {
+      id: '/pia/notifications'
+      path: '/notifications'
+      fullPath: '/pia/notifications'
+      preLoaderRoute: typeof PiaNotificationsRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/officer': {
+      id: '/pia/officer'
+      path: '/officer'
+      fullPath: '/pia/officer'
+      preLoaderRoute: typeof PiaOfficerRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/profile': {
+      id: '/pia/profile'
+      path: '/profile'
+      fullPath: '/pia/profile'
+      preLoaderRoute: typeof PiaProfileRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/projects': {
+      id: '/pia/projects'
+      path: '/projects'
+      fullPath: '/pia/projects'
+      preLoaderRoute: typeof PiaProjectsRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/proposal': {
+      id: '/pia/proposal'
+      path: '/proposal'
+      fullPath: '/pia/proposal'
+      preLoaderRoute: typeof PiaProposalRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/reports': {
+      id: '/pia/reports'
+      path: '/reports'
+      fullPath: '/pia/reports'
+      preLoaderRoute: typeof PiaReportsRouteImport
+      parentRoute: typeof PiaRoute
+    }
+    '/pia/workflow': {
+      id: '/pia/workflow'
+      path: '/workflow'
+      fullPath: '/pia/workflow'
+      preLoaderRoute: typeof PiaWorkflowRouteImport
+      parentRoute: typeof PiaRoute
+    }
   }
 }
+
+interface AdminRouteChildren {
+  AdminAuditLogsRoute: typeof AdminAuditLogsRoute
+  AdminDashboardRoute: typeof AdminDashboardRoute
+  AdminDepartmentsRoute: typeof AdminDepartmentsRoute
+  AdminDistrictsRoute: typeof AdminDistrictsRoute
+  AdminDocumentsRoute: typeof AdminDocumentsRoute
+  AdminIntegrationsRoute: typeof AdminIntegrationsRoute
+  AdminJurisdictionsRoute: typeof AdminJurisdictionsRoute
+  AdminNotificationsRoute: typeof AdminNotificationsRoute
+  AdminPermissionMatrixRoute: typeof AdminPermissionMatrixRoute
+  AdminPermissionsRoute: typeof AdminPermissionsRoute
+  AdminProfileRoute: typeof AdminProfileRoute
+  AdminProjectsRoute: typeof AdminProjectsRoute
+  AdminRolesRoute: typeof AdminRolesRoute
+  AdminSettingsRoute: typeof AdminSettingsRoute
+  AdminStatesRoute: typeof AdminStatesRoute
+  AdminSystemMonitorRoute: typeof AdminSystemMonitorRoute
+  AdminUserActivityRoute: typeof AdminUserActivityRoute
+  AdminUsersRoute: typeof AdminUsersRoute
+  AdminUsersNewRoute: typeof AdminUsersNewRoute
+  AdminWorkflowsRoute: typeof AdminWorkflowsRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+}
+
+const AdminRouteChildren: AdminRouteChildren = {
+  AdminAuditLogsRoute: AdminAuditLogsRoute,
+  AdminDashboardRoute: AdminDashboardRoute,
+  AdminDepartmentsRoute: AdminDepartmentsRoute,
+  AdminDistrictsRoute: AdminDistrictsRoute,
+  AdminDocumentsRoute: AdminDocumentsRoute,
+  AdminIntegrationsRoute: AdminIntegrationsRoute,
+  AdminJurisdictionsRoute: AdminJurisdictionsRoute,
+  AdminNotificationsRoute: AdminNotificationsRoute,
+  AdminPermissionMatrixRoute: AdminPermissionMatrixRoute,
+  AdminPermissionsRoute: AdminPermissionsRoute,
+  AdminProfileRoute: AdminProfileRoute,
+  AdminProjectsRoute: AdminProjectsRoute,
+  AdminRolesRoute: AdminRolesRoute,
+  AdminSettingsRoute: AdminSettingsRoute,
+  AdminStatesRoute: AdminStatesRoute,
+  AdminSystemMonitorRoute: AdminSystemMonitorRoute,
+  AdminUserActivityRoute: AdminUserActivityRoute,
+  AdminUsersRoute: AdminUsersRoute,
+  AdminUsersNewRoute: AdminUsersNewRoute,
+  AdminWorkflowsRoute: AdminWorkflowsRoute,
+  AdminIndexRoute: AdminIndexRoute,
+}
+
+const AdminRouteWithChildren = AdminRoute._addFileChildren(AdminRouteChildren)
+
+interface ApproverRouteChildren {
+  ApproverAllRoute: typeof ApproverAllRoute
+  ApproverApprovedRoute: typeof ApproverApprovedRoute
+  ApproverAuditRoute: typeof ApproverAuditRoute
+  ApproverCompensationRoute: typeof ApproverCompensationRoute
+  ApproverContestedRoute: typeof ApproverContestedRoute
+  ApproverDashboardRoute: typeof ApproverDashboardRoute
+  ApproverDocketRoute: typeof ApproverDocketRoute
+  ApproverNoticesRoute: typeof ApproverNoticesRoute
+  ApproverObjectionsRoute: typeof ApproverObjectionsRoute
+  ApproverPendingRoute: typeof ApproverPendingRoute
+  ApproverPossessionRoute: typeof ApproverPossessionRoute
+  ApproverPowersRoute: typeof ApproverPowersRoute
+  ApproverStayedRoute: typeof ApproverStayedRoute
+  ApproverIndexRoute: typeof ApproverIndexRoute
+}
+
+const ApproverRouteChildren: ApproverRouteChildren = {
+  ApproverAllRoute: ApproverAllRoute,
+  ApproverApprovedRoute: ApproverApprovedRoute,
+  ApproverAuditRoute: ApproverAuditRoute,
+  ApproverCompensationRoute: ApproverCompensationRoute,
+  ApproverContestedRoute: ApproverContestedRoute,
+  ApproverDashboardRoute: ApproverDashboardRoute,
+  ApproverDocketRoute: ApproverDocketRoute,
+  ApproverNoticesRoute: ApproverNoticesRoute,
+  ApproverObjectionsRoute: ApproverObjectionsRoute,
+  ApproverPendingRoute: ApproverPendingRoute,
+  ApproverPossessionRoute: ApproverPossessionRoute,
+  ApproverPowersRoute: ApproverPowersRoute,
+  ApproverStayedRoute: ApproverStayedRoute,
+  ApproverIndexRoute: ApproverIndexRoute,
+}
+
+const ApproverRouteWithChildren = ApproverRoute._addFileChildren(
+  ApproverRouteChildren,
+)
 
 interface CitizenRouteChildren {
   CitizenAcquisitionRoute: typeof CitizenAcquisitionRoute
@@ -669,11 +2558,163 @@ const CitizenRouteChildren: CitizenRouteChildren = {
 const CitizenRouteWithChildren =
   CitizenRoute._addFileChildren(CitizenRouteChildren)
 
+interface DeskValidatorRouteChildren {
+  DeskValidatorAssignedRoute: typeof DeskValidatorAssignedRoute
+  DeskValidatorAuditRoute: typeof DeskValidatorAuditRoute
+  DeskValidatorDashboardRoute: typeof DeskValidatorDashboardRoute
+  DeskValidatorDossierRoute: typeof DeskValidatorDossierRoute
+  DeskValidatorFieldRoute: typeof DeskValidatorFieldRoute
+  DeskValidatorNotificationsRoute: typeof DeskValidatorNotificationsRoute
+  DeskValidatorProfileRoute: typeof DeskValidatorProfileRoute
+  DeskValidatorQueueRoute: typeof DeskValidatorQueueRoute
+  DeskValidatorReturnedRoute: typeof DeskValidatorReturnedRoute
+  DeskValidatorValidatedRoute: typeof DeskValidatorValidatedRoute
+  DeskValidatorWorkspaceRoute: typeof DeskValidatorWorkspaceRoute
+  DeskValidatorIndexRoute: typeof DeskValidatorIndexRoute
+}
+
+const DeskValidatorRouteChildren: DeskValidatorRouteChildren = {
+  DeskValidatorAssignedRoute: DeskValidatorAssignedRoute,
+  DeskValidatorAuditRoute: DeskValidatorAuditRoute,
+  DeskValidatorDashboardRoute: DeskValidatorDashboardRoute,
+  DeskValidatorDossierRoute: DeskValidatorDossierRoute,
+  DeskValidatorFieldRoute: DeskValidatorFieldRoute,
+  DeskValidatorNotificationsRoute: DeskValidatorNotificationsRoute,
+  DeskValidatorProfileRoute: DeskValidatorProfileRoute,
+  DeskValidatorQueueRoute: DeskValidatorQueueRoute,
+  DeskValidatorReturnedRoute: DeskValidatorReturnedRoute,
+  DeskValidatorValidatedRoute: DeskValidatorValidatedRoute,
+  DeskValidatorWorkspaceRoute: DeskValidatorWorkspaceRoute,
+  DeskValidatorIndexRoute: DeskValidatorIndexRoute,
+}
+
+const DeskValidatorRouteWithChildren = DeskValidatorRoute._addFileChildren(
+  DeskValidatorRouteChildren,
+)
+
+interface ExecutiveRouteChildren {
+  ExecutiveAlertsRoute: typeof ExecutiveAlertsRoute
+  ExecutiveBottlenecksRoute: typeof ExecutiveBottlenecksRoute
+  ExecutiveComparisonRoute: typeof ExecutiveComparisonRoute
+  ExecutiveCompensationRoute: typeof ExecutiveCompensationRoute
+  ExecutiveCorridorsRoute: typeof ExecutiveCorridorsRoute
+  ExecutiveDashboardRoute: typeof ExecutiveDashboardRoute
+  ExecutiveDistrictsRoute: typeof ExecutiveDistrictsRoute
+  ExecutiveGisRoute: typeof ExecutiveGisRoute
+  ExecutiveNationalRoute: typeof ExecutiveNationalRoute
+  ExecutivePossessionRoute: typeof ExecutivePossessionRoute
+  ExecutivePredictiveRoute: typeof ExecutivePredictiveRoute
+  ExecutiveProfileRoute: typeof ExecutiveProfileRoute
+  ExecutiveProgramRoute: typeof ExecutiveProgramRoute
+  ExecutiveReportsRoute: typeof ExecutiveReportsRoute
+  ExecutiveRrRoute: typeof ExecutiveRrRoute
+  ExecutiveStatesRoute: typeof ExecutiveStatesRoute
+  ExecutiveTimelineRoute: typeof ExecutiveTimelineRoute
+  ExecutiveIndexRoute: typeof ExecutiveIndexRoute
+}
+
+const ExecutiveRouteChildren: ExecutiveRouteChildren = {
+  ExecutiveAlertsRoute: ExecutiveAlertsRoute,
+  ExecutiveBottlenecksRoute: ExecutiveBottlenecksRoute,
+  ExecutiveComparisonRoute: ExecutiveComparisonRoute,
+  ExecutiveCompensationRoute: ExecutiveCompensationRoute,
+  ExecutiveCorridorsRoute: ExecutiveCorridorsRoute,
+  ExecutiveDashboardRoute: ExecutiveDashboardRoute,
+  ExecutiveDistrictsRoute: ExecutiveDistrictsRoute,
+  ExecutiveGisRoute: ExecutiveGisRoute,
+  ExecutiveNationalRoute: ExecutiveNationalRoute,
+  ExecutivePossessionRoute: ExecutivePossessionRoute,
+  ExecutivePredictiveRoute: ExecutivePredictiveRoute,
+  ExecutiveProfileRoute: ExecutiveProfileRoute,
+  ExecutiveProgramRoute: ExecutiveProgramRoute,
+  ExecutiveReportsRoute: ExecutiveReportsRoute,
+  ExecutiveRrRoute: ExecutiveRrRoute,
+  ExecutiveStatesRoute: ExecutiveStatesRoute,
+  ExecutiveTimelineRoute: ExecutiveTimelineRoute,
+  ExecutiveIndexRoute: ExecutiveIndexRoute,
+}
+
+const ExecutiveRouteWithChildren = ExecutiveRoute._addFileChildren(
+  ExecutiveRouteChildren,
+)
+
+interface FieldOfficerRouteChildren {
+  FieldOfficerAssignmentsRoute: typeof FieldOfficerAssignmentsRoute
+  FieldOfficerCompletedRoute: typeof FieldOfficerCompletedRoute
+  FieldOfficerDashboardRoute: typeof FieldOfficerDashboardRoute
+  FieldOfficerMapRoute: typeof FieldOfficerMapRoute
+  FieldOfficerMismatchesRoute: typeof FieldOfficerMismatchesRoute
+  FieldOfficerNotificationsRoute: typeof FieldOfficerNotificationsRoute
+  FieldOfficerProfileRoute: typeof FieldOfficerProfileRoute
+  FieldOfficerSyncRoute: typeof FieldOfficerSyncRoute
+  FieldOfficerVerifyRoute: typeof FieldOfficerVerifyRoute
+  FieldOfficerIndexRoute: typeof FieldOfficerIndexRoute
+}
+
+const FieldOfficerRouteChildren: FieldOfficerRouteChildren = {
+  FieldOfficerAssignmentsRoute: FieldOfficerAssignmentsRoute,
+  FieldOfficerCompletedRoute: FieldOfficerCompletedRoute,
+  FieldOfficerDashboardRoute: FieldOfficerDashboardRoute,
+  FieldOfficerMapRoute: FieldOfficerMapRoute,
+  FieldOfficerMismatchesRoute: FieldOfficerMismatchesRoute,
+  FieldOfficerNotificationsRoute: FieldOfficerNotificationsRoute,
+  FieldOfficerProfileRoute: FieldOfficerProfileRoute,
+  FieldOfficerSyncRoute: FieldOfficerSyncRoute,
+  FieldOfficerVerifyRoute: FieldOfficerVerifyRoute,
+  FieldOfficerIndexRoute: FieldOfficerIndexRoute,
+}
+
+const FieldOfficerRouteWithChildren = FieldOfficerRoute._addFileChildren(
+  FieldOfficerRouteChildren,
+)
+
+interface PiaRouteChildren {
+  PiaCasesRoute: typeof PiaCasesRoute
+  PiaDashboardRoute: typeof PiaDashboardRoute
+  PiaDocumentsRoute: typeof PiaDocumentsRoute
+  PiaGisRoute: typeof PiaGisRoute
+  PiaHelpRoute: typeof PiaHelpRoute
+  PiaMilestonesRoute: typeof PiaMilestonesRoute
+  PiaNotificationsRoute: typeof PiaNotificationsRoute
+  PiaOfficerRoute: typeof PiaOfficerRoute
+  PiaProfileRoute: typeof PiaProfileRoute
+  PiaProjectsRoute: typeof PiaProjectsRoute
+  PiaProposalRoute: typeof PiaProposalRoute
+  PiaReportsRoute: typeof PiaReportsRoute
+  PiaWorkflowRoute: typeof PiaWorkflowRoute
+  PiaIndexRoute: typeof PiaIndexRoute
+}
+
+const PiaRouteChildren: PiaRouteChildren = {
+  PiaCasesRoute: PiaCasesRoute,
+  PiaDashboardRoute: PiaDashboardRoute,
+  PiaDocumentsRoute: PiaDocumentsRoute,
+  PiaGisRoute: PiaGisRoute,
+  PiaHelpRoute: PiaHelpRoute,
+  PiaMilestonesRoute: PiaMilestonesRoute,
+  PiaNotificationsRoute: PiaNotificationsRoute,
+  PiaOfficerRoute: PiaOfficerRoute,
+  PiaProfileRoute: PiaProfileRoute,
+  PiaProjectsRoute: PiaProjectsRoute,
+  PiaProposalRoute: PiaProposalRoute,
+  PiaReportsRoute: PiaReportsRoute,
+  PiaWorkflowRoute: PiaWorkflowRoute,
+  PiaIndexRoute: PiaIndexRoute,
+}
+
+const PiaRouteWithChildren = PiaRoute._addFileChildren(PiaRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRouteWithChildren,
+  ApproverRoute: ApproverRouteWithChildren,
   CitizenRoute: CitizenRouteWithChildren,
+  DeskValidatorRoute: DeskValidatorRouteWithChildren,
+  ExecutiveRoute: ExecutiveRouteWithChildren,
+  FieldOfficerRoute: FieldOfficerRouteWithChildren,
   FindMyLandRoute: FindMyLandRoute,
   GisRoute: GisRoute,
+  PiaRoute: PiaRouteWithChildren,
   UploadsRoute: UploadsRoute,
 }
 export const routeTree = rootRouteImport

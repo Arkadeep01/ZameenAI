@@ -1,0 +1,109 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "MULTILINGUAL",
+  "record_id": "LR-2026-000152",
+  "document_id": "DOC-2026-000116",
+  "language": {
+    "primary": "en",
+    "confidence": 0.8378,
+    "alternatives": [
+      {
+        "language": "bn",
+        "confidence": 0.5833
+      },
+      {
+        "language": "hi",
+        "confidence": 0.5389
+      }
+    ]
+  },
+  "script": {
+    "primary": "Latin",
+    "confidence": 0.8378,
+    "alternatives": [
+      {
+        "script": "Bengali",
+        "confidence": 0.5833
+      },
+      {
+        "script": "Devanagari",
+        "confidence": 0.5389
+      }
+    ]
+  },
+  "multilingual": true,
+  "detected_languages": [
+    {
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.8378
+    },
+    {
+      "language": "bn",
+      "script": "Bengali",
+      "confidence": 0.5833
+    },
+    {
+      "language": "hi",
+      "script": "Devanagari",
+      "confidence": 0.5389
+    }
+  ],
+  "ocr_routing": {
+    "language_codes": [
+      "eng",
+      "ben",
+      "hin"
+    ],
+    "preferred_language": "MULTILINGUAL",
+    "script": "MIXED",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.8378,
+      "sample": "page_001_original.png",
+      "detail": "image_located size=464x354 preview=provisional_ocr[eng+hin+ben] fused=en/Latin"
+    },
+    {
+      "source": "unicode_script_analysis",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.8278,
+      "sample": "Ps Record of Rights (RoR) i and and | ond दा हा wares Note — हि Mw 5 Kenting - পা, % दर 4 0७... : 4: 4 4 ne OR Awe a ১ (ges 2 Neto Reet Ye Rammed (সপ লন जा চলনব",
+      "detail": "script_counts={'Latin': 118, 'Devanagari': 14, 'Bengali': 30}"
+    },
+    {
+      "source": "terminology_match",
+      "language": "en",
+      "script": "Latin",
+      "confidence": 0.6,
+      "sample": "Ps Record of Rights (RoR) i and and | ond दा हा wares Note — हि Mw 5 Kenting - পা, % दर 4 0७... : 4: 4 4 ne OR Awe a ১ (ges 2 Neto Reet Ye Rammed (সপ লন जा চলনব",
+      "detail": "terminology_hits={'en': 1}"
+    },
+    {
+      "source": "classification_context",
+      "language": "und",
+      "script": "Unknown",
+      "confidence": 0.0,
+      "sample": "UNKNOWN",
+      "detail": "zero_weight_context_only"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-29T23:20:15.604393",
+    "completed_at": "2026-09-29T23:20:18.712353"
+  },
+  "processing_time_seconds": 3.108,
+  "ingestion_id": "ING-2026-000064",
+  "document_type": "UNKNOWN",
+  "classification_confidence": 0.0
+}

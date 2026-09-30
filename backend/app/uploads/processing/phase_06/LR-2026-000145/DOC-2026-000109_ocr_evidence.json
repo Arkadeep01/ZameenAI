@@ -1,0 +1,65 @@
+{
+  "phase": "OCR",
+  "record_id": "LR-2026-000145",
+  "document_id": "DOC-2026-000109",
+  "input": {
+    "type": "IMAGE",
+    "original_path": "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000057.png",
+    "processed_path": null,
+    "input_paths": [
+      "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000057.png"
+    ]
+  },
+  "language": {
+    "language": "en",
+    "script": "Latin",
+    "confidence": 0.8378,
+    "multilingual": true,
+    "tesseract_codes": [
+      "eng",
+      "ben",
+      "hin"
+    ]
+  },
+  "engines": {
+    "tesseract": "SUCCESS",
+    "surya": "UNAVAILABLE",
+    "roboflow": "UNAVAILABLE"
+  },
+  "surya": {
+    "status": "UNAVAILABLE",
+    "reason": "surya_not_installed"
+  },
+  "roboflow": {
+    "status": "UNAVAILABLE",
+    "model_id": "stamp-and-signature-detection-xqk9l-p0rwh/1",
+    "reason": "roboflow_not_configured",
+    "artifacts": 0
+  },
+  "qr_status": "NOT_IMPLEMENTED",
+  "warnings": [],
+  "pages": [
+    {
+      "page_number": 1,
+      "layout_source": "geometry_prior",
+      "table_structure_status": "UNRESOLVED",
+      "government_document_evidence": {
+        "header_detected": true,
+        "department_detected": false,
+        "government_terminology": [
+          "record of rights"
+        ],
+        "document_title_detected": true,
+        "emblem_region_detected": false,
+        "seal_detected": false,
+        "signature_detected": false,
+        "footer_legal_text_detected": false,
+        "evidence_score": 0.2857,
+        "matched_signals": [
+          "header",
+          "title"
+        ]
+      }
+    }
+  ]
+}

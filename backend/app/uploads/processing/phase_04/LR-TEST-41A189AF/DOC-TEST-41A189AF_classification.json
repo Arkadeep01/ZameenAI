@@ -1,0 +1,33 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-41A189AF",
+  "document_id": "DOC-TEST-41A189AF",
+  "ingestion_id": "ING-TEST-41A189AF",
+  "predicted_document_type": "KHATIAN",
+  "confidence": 0.48,
+  "classification_status": "LOW_CONFIDENCE",
+  "evidence": [
+    "Title: KHATIAN",
+    "KHATIAN NO",
+    "PLOT NO",
+    "AREA"
+  ],
+  "alternative_predictions": [
+    {
+      "document_type": "RECORD_OF_RIGHTS",
+      "confidence": 0.24,
+      "evidence": [
+        "KHATIAN",
+        "KHATIAN NO",
+        "PLOT NO",
+        "AREA"
+      ]
+    }
+  ],
+  "timestamps": {
+    "started_at": "2026-09-30T02:03:26.142847",
+    "completed_at": "2026-09-30T02:03:26.143034"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

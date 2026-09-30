@@ -160,8 +160,8 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T05:48:35.784036",
-    "completed_at": "2026-09-29T05:48:35.838014"
+    "started_at": "2026-09-30T03:41:49.336649",
+    "completed_at": "2026-09-30T03:41:49.372177"
   },
   "source_checksum": "3d2f2e4ad1bec4a4940005be91b07a04f37fdb13c3eb39e8703e260d99d02e75",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-TINY-001"

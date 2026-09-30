@@ -11,7 +11,8 @@ import StakeholderPathways from '../components/common/StakeholderPathways';
 import TransparencyStats from '../components/common/TransparencyStats';
 import Footer from '../components/common/Footer';
 import OfficialLoginModal from '../components/common/OfficialLoginModal';
-import { PERSONA_TO_PORTAL } from '../utils/portals';
+import { useAuth } from '../auth/AuthProvider';
+import { roleHome } from '../auth/permissions';
 import { KeyModuleInfo } from '../utils/types';
 
 export const Route = createFileRoute("/")({
@@ -20,6 +21,7 @@ export const Route = createFileRoute("/")({
 
 function HomePage() {
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [lang, setLang] = useState<'en' | 'hi' | 'bn'>('en');
   const [selectedModule, setSelectedModule] = useState<KeyModuleInfo | null>(null);
 
@@ -35,16 +37,20 @@ function HomePage() {
     setAuthModalOpen(true);
   };
 
-  const handleAuthSuccess = (userType: "government" | "citizen") => {
-    // Demo login succeeded — route to the selected role's own dashboard.
-    // Every portal shares the same light citizen-style theme.
+  const handleAuthSuccess = (userType: "government" | "citizen", role?: string) => {
+    // Route to the AUTHENTICATED user's own portal. The persona picked on the
+    // landing page is a display hint only — it must never decide navigation,
+    // otherwise a user could be pushed toward another role's portal.
+    //
+    // `role` comes from the sign-in response. `user` from the auth context is
+    // not yet refreshed at this point in the same tick, so it is only a
+    // fallback for callers that cannot supply the role.
     setAuthModalOpen(false);
-    if (pendingRoleId && PERSONA_TO_PORTAL[pendingRoleId]) {
-      navigate({ to: PERSONA_TO_PORTAL[pendingRoleId] });
-      setPendingRoleId(null);
-      return;
-    }
-    if (userType === 'citizen') {
+    const authenticatedRole = role ?? user?.role;
+    const home = roleHome(authenticatedRole);
+    if (home) {
+      navigate({ to: home });
+    } else if (userType === 'citizen') {
       navigate({ to: '/citizen/dashboard' });
     } else {
       navigate({ to: '/desk-validator' });

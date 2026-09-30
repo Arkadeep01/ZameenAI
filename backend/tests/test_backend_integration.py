@@ -8,16 +8,21 @@ by exercising ingestion-only jobs plus unit-level service predicates.
 """
 from fastapi.testclient import TestClient
 
+import os
+
 from app.database.session import init_domain_db
 from app.main import app
 from app.workflow import state_machine as sm
+
+# Dev seed password is supplied by tests/conftest.py (never hardcoded in source).
+DEV_PASSWORD = os.environ.get("DEV_USERS_PASSWORD", "")
 
 init_domain_db()
 client = TestClient(app, raise_server_exceptions=False)
 
 
 def _token(username):
-    r = client.post("/api/auth/login", json={"username": username, "password": "password123"})
+    r = client.post("/api/auth/login", json={"username": username, "password": DEV_PASSWORD})
     assert r.status_code == 200, r.text
     return r.json()["access_token"]
 
@@ -27,7 +32,7 @@ def _h(username):
 
 
 def test_login_me_roles():
-    r = client.post("/api/auth/login", json={"username": "validator", "password": "password123"})
+    r = client.post("/api/auth/login", json={"username": "validator", "password": DEV_PASSWORD})
     assert r.status_code == 200 and r.json()["access_token"]
     me = client.get("/api/auth/me", headers=_h("validator"))
     assert me.json()["role"] == "desk_validator"
@@ -90,7 +95,11 @@ def test_gis_capability_honest_and_links_require_db_or_explicit():
                     json={"record_id": "LR-TEST", "match_method": "SPATIAL"},
                     headers=_h("pia"))
     assert r.status_code == 400 and r.json()["error_code"] == "SPATIAL_MATCH_UNSUPPORTED"
-    demo = client.get("/api/gis/parcels").json()
+    # GIS demo parcels are authenticated (GIS.READ) since the RBAC hardening:
+    # anonymous reads are 401, authorized reads keep the demo isolation flag.
+    anon = client.get("/api/gis/parcels")
+    assert anon.status_code == 401
+    demo = client.get("/api/gis/parcels", headers=_h("pia")).json()
     assert demo.get("demo") is True  # mock isolation flag
 
 
@@ -99,5 +108,5 @@ def test_audit_and_providers():
     ocr = client.get("/api/providers/ocr").json()
     assert "available" in ocr and isinstance(ocr["installed_languages"], list)
     a = client.get("/api/workflow/audit", headers=_h("system_admin") if False else _h("pia"))
-    # pia lacks WORKFLOW.READ? pia has WORKFLOW.READ per matrix -> 200
+    # audit now requires AUDIT.READ (admin/approver/validator/executive): pia -> 403
     assert a.status_code in (200, 403)

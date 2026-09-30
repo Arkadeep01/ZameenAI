@@ -1,0 +1,34 @@
+{
+  "record_id": "LR-2026-000150",
+  "document_id": "DOC-2026-000114",
+  "ingestion_id": "ING-2026-000062",
+  "document": {
+    "document_title": "Record of Rights (RoR)",
+    "department": "Land and Land Reforms Department",
+    "document_date": "2023-07-15"
+  },
+  "owner": {
+    "father_husband_name": "Late Haripada Saha 5",
+    "recorded_tenant": "Ramesh Chandra Saha"
+  },
+  "land": {
+    "plot_number": "112",
+    "area": 0.32,
+    "area_unit": "ACRE",
+    "nature_of_land": "AGRICULTURAL"
+  },
+  "location": {
+    "state": "West Bengal",
+    "district": "Nadia",
+    "block": "Krishnanagar - I",
+    "mouza": "Krishnanagar"
+  },
+  "registration": {},
+  "mutation": {
+    "mutation_number": "1023",
+    "mutation_date": "2018-06-12"
+  },
+  "additional": {
+    "remarks": "we ee P< eee"
+  }
+}

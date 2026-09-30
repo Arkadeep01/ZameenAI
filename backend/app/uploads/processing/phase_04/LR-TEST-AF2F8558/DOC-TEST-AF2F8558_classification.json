@@ -1,0 +1,29 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-AF2F8558",
+  "document_id": "DOC-TEST-AF2F8558",
+  "ingestion_id": "ING-TEST-AF2F8558",
+  "predicted_document_type": "KHATIAN",
+  "confidence": 0.36,
+  "classification_status": "LOW_CONFIDENCE",
+  "evidence": [
+    "Title: KHATIAN",
+    "KHATIAN NO"
+  ],
+  "alternative_predictions": [
+    {
+      "document_type": "RECORD_OF_RIGHTS",
+      "confidence": 0.18,
+      "evidence": [
+        "KHATIAN",
+        "KHATIAN NO"
+      ]
+    }
+  ],
+  "timestamps": {
+    "started_at": "2026-09-30T03:43:44.956124",
+    "completed_at": "2026-09-30T03:43:44.956377"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

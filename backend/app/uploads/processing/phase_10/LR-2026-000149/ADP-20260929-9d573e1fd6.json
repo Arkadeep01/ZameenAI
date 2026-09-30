@@ -1,0 +1,31 @@
+{
+  "phase": "ANOMALY_DUPLICATE_DETECTION",
+  "status": "SUCCESS",
+  "stage_id": "ADP-20260929-9d573e1fd6",
+  "record_id": "LR-2026-000149",
+  "document_id": "DOC-2026-000113",
+  "ingestion_id": "ING-2026-000061",
+  "validation_run_id": "VLD-20260929-3b1ee1739b",
+  "source": "VALIDATION_RUN",
+  "anomalies": [],
+  "duplicates": {
+    "status": "CLEAR",
+    "scope": "LOCAL_DATASET",
+    "matched_records": []
+  },
+  "summary": {
+    "anomaly_count": 0,
+    "anomaly_severities": {},
+    "duplicate_status": "CLEAR",
+    "duplicate_matches": 0,
+    "duplicate_scope": "LOCAL_DATASET"
+  },
+  "workflow_state": "CLEAR",
+  "next_phase": "PHASE_11_HITL_1",
+  "needs_review": false,
+  "timestamps": {
+    "started_at": "2026-09-29T17:49:57.283834+00:00",
+    "completed_at": "2026-09-29T17:49:57.306458+00:00"
+  },
+  "processing_time_seconds": 0.0226
+}

@@ -1,8 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router'
 import GisMap from '../features/gis/GisMap'
+import { ProtectedRoute } from '../auth/guards'
 
 export const Route = createFileRoute('/gis')({
-  component: GisPage,
+  component: () => (
+    <ProtectedRoute>
+      <GisPage />
+    </ProtectedRoute>
+  ),
 })
 
 function GisPage() {

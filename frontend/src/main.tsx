@@ -7,6 +7,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./index.css"; // eslint-disable-line
 
 import { routeTree } from "./routeTree.gen";
+import { AuthProvider } from "./auth/AuthProvider";
 
 // 1. Initialize the QueryClient
 const queryClient = new QueryClient();
@@ -31,7 +32,9 @@ ReactDOM.createRoot(rootElement).render(
   <StrictMode>
     {/* 2. Wrap the RouterProvider */}
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
     </QueryClientProvider>
   </StrictMode>,
 );

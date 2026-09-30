@@ -1,9 +1,39 @@
 from pydantic_settings import BaseSettings
 
 
+def _resolve_secret_key(raw: str) -> str:
+    """Resolve the signing key.
+
+    Development (DEBUG) gets a per-process random key so nothing is ever
+    committed. Production must supply its own key: the value is returned
+    empty on purpose so ``assert_secure_secret()`` can fail closed at boot
+    instead of silently signing tokens with an invisible ephemeral key.
+    """
+    import logging
+    import secrets
+
+    value = (raw or "").strip().strip('"').strip("'")
+    if value:
+        return value
+    if not DEBUG:
+        logging.getLogger("zameenai.security").error(
+            "SECRET_KEY is not set. Set SECRET_KEY in the environment before "
+            "running with DEBUG=false.")
+        return ""
+    ephemeral = secrets.token_urlsafe(48)
+    logging.getLogger("zameenai.security").warning(
+        "SECRET_KEY not set; generated an ephemeral development key. "
+        "Set SECRET_KEY in the environment for any shared deployment.")
+    return ephemeral
+
+
 class Settings(BaseSettings):
-    DEBUG: bool = True
-    SECRET_KEY: str = "change-me"
+    # Fail closed: a deployment that forgets DEBUG=false must not silently
+    # enable the development identity store or debug error output.
+    DEBUG: bool = False
+    # No hardcoded default: production MUST provide a real secret, and local
+    # development gets a per-process random key so nothing is ever committed.
+    SECRET_KEY: str = ""
 
     DB_NAME: str = "zameenai"
     DB_USER: str = "postgres"
@@ -27,6 +57,16 @@ class Settings(BaseSettings):
     # --- auth ---
     JWT_ALGORITHM: str = "HS256"
     JWT_ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 8
+    JWT_REFRESH_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7
+    OTP_EXPIRE_MINUTES: int = 5
+    OTP_MAX_ATTEMPTS: int = 5
+    LOGIN_RATE_LIMIT: int = 10
+    LOGIN_RATE_WINDOW_SECONDS: int = 60
+
+    # Dev-only seed identities. The password is never hardcoded: provide it via
+    # the environment, otherwise a random per-process password is generated and
+    # logged so local debugging still works without a committed credential.
+    DEV_USERS_PASSWORD: str = ""
 
     # --- storage ---
     UPLOAD_DIR: str = "./app/uploads"
@@ -50,3 +90,5 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+DEBUG = settings.DEBUG
+settings.SECRET_KEY = _resolve_secret_key(settings.SECRET_KEY)

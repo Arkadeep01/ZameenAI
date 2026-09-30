@@ -1,0 +1,443 @@
+{
+  "phase": "ANOMALY_DUPLICATE_DETECTION",
+  "status": "SUCCESS",
+  "stage_id": "ADP-20260929-346ca95bb2",
+  "record_id": "LR-2026-000154",
+  "document_id": "DOC-2026-000118",
+  "ingestion_id": "ING-2026-000066",
+  "validation_run_id": "VLD-20260929-649cf5428b",
+  "source": "VALIDATION_RUN",
+  "anomalies": [
+    {
+      "category": "MUTATION_CONFLICT",
+      "severity": "WARNING",
+      "explanation": "A mutation is recorded but the owning party's name is not available; the mutation cannot be attributed.",
+      "field": "mutation.mutation_number",
+      "evidence": [
+        {
+          "mutation.mutation_number": "1023",
+          "owner.name": null
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000001 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000002 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000003 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000004 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000044 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000144 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000147 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000148 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000150 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_RECORD",
+      "severity": "ERROR",
+      "explanation": "Matched local record LR-2026-000151 (RECORD, confidence 0.88).",
+      "evidence": [
+        {
+          "identifier": "land.khata_number",
+          "value": "45",
+          "matched_value": "45"
+        },
+        {
+          "identifier": "land.plot_number",
+          "value": "112",
+          "matched_value": "112"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000153 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "CONFLICTING_OCR_CANDIDATES",
+      "severity": "WARNING",
+      "explanation": "The extracted value was chosen from competing OCR candidates of near-equal confidence.",
+      "field": "land.nature_of_land",
+      "evidence": [
+        {
+          "chosen_value": "AGRICULTURAL",
+          "chosen_confidence": 0.7238,
+          "conflict_alternatives": [
+            {
+              "field": "land.nature_of_land",
+              "value": "HOMESTEAD",
+              "confidence": 0.9593
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "CONFLICTING_SEMANTIC_CANDIDATES",
+      "severity": "WARNING",
+      "explanation": "A same-line semantic interpretation still surfaced conflicting candidates (Phase 08 flagged the field).",
+      "field": "owner.father_husband_name",
+      "evidence": [
+        {
+          "chosen_value": "Haripada Saha",
+          "chosen_confidence": 0.8507,
+          "conflict_alternatives": [
+            {
+              "field": "owner.father_husband_name",
+              "value": "Pemty Conereted",
+              "confidence": 0.6942
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "duplicates": {
+    "status": "SUSPECTED",
+    "scope": "LOCAL_DATASET",
+    "matched_records": [
+      {
+        "matched_record_id": "LR-2026-000001",
+        "matched_document_id": "DOC-2026-000001",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000002",
+        "matched_document_id": "DOC-2026-000002",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000003",
+        "matched_document_id": "DOC-2026-000003",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000004",
+        "matched_document_id": "DOC-2026-000004",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000044",
+        "matched_document_id": "DOC-2026-000033",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000144",
+        "matched_document_id": "DOC-2026-000108",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000147",
+        "matched_document_id": "DOC-2026-000111",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000148",
+        "matched_document_id": "DOC-2026-000112",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000150",
+        "matched_document_id": "DOC-2026-000114",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000151",
+        "matched_document_id": "DOC-2026-000115",
+        "match_type": "RECORD",
+        "confidence": 0.88,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "land.khata_number",
+            "value": "45",
+            "matched_value": "45"
+          },
+          {
+            "identifier": "land.plot_number",
+            "value": "112",
+            "matched_value": "112"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000153",
+        "matched_document_id": "DOC-2026-000117",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "anomaly_count": 14,
+    "anomaly_severities": {
+      "WARNING": 8,
+      "ERROR": 6
+    },
+    "duplicate_status": "SUSPECTED",
+    "duplicate_matches": 11,
+    "duplicate_scope": "LOCAL_DATASET"
+  },
+  "workflow_state": "NEEDS_REVIEW",
+  "next_phase": "PHASE_11_HITL_1",
+  "needs_review": true,
+  "timestamps": {
+    "started_at": "2026-09-29T17:50:36.973996+00:00",
+    "completed_at": "2026-09-29T17:50:36.999808+00:00"
+  },
+  "processing_time_seconds": 0.0258
+}

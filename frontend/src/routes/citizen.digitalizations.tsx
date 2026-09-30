@@ -76,7 +76,8 @@ interface FileUpload {
   confidence?: number;
 }
 
-interface ExtractedField {
+/** Exported for shared adapters (utils/digitizationAdapters.ts). */
+export interface ExtractedField {
   id: string;
   label: string;
   value: string;

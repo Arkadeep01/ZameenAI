@@ -324,9 +324,9 @@
   "regions_detected": [],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:14.892690",
-    "completed_at": "2026-09-29T05:49:28.052729"
+    "started_at": "2026-09-30T03:43:23.613852",
+    "completed_at": "2026-09-30T03:43:35.868068"
   },
-  "source_checksum": "2d7fa1059193fa9524bab4d9992fe9583c41c780e01da17a068edcb9c847edda",
+  "source_checksum": "1ce7d7adff41bf5ecf8480c2543df11957ec69137839381db1a603e40dd214fa",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-MIX-001"
 }

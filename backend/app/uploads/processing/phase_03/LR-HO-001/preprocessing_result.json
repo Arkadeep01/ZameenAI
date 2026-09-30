@@ -597,8 +597,8 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:28.107152",
-    "completed_at": "2026-09-29T05:49:35.043896"
+    "started_at": "2026-09-30T03:43:35.920600",
+    "completed_at": "2026-09-30T03:43:41.813318"
   },
   "source_checksum": "0ee8da9e9dc03bbac8e16e543c2fe939909de354069fe9c6feb0da126ca6395c",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-HO-001"

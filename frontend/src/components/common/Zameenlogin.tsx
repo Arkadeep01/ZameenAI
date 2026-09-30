@@ -13,6 +13,7 @@ import {
   CheckCircle2,
   Sparkles,
 } from "lucide-react";
+import { useAuth } from "../../auth/AuthProvider";
 // Import the favicon logo from the assets folder (one level up from components/common)
 import favicon from "../../../assets/favicon.png";
 
@@ -20,8 +21,8 @@ type UserType = "government" | "citizen";
 
 interface LoginPageProps {
   onSwitchToSignup?: () => void;
-  /** Called after a (simulated) successful sign-in. */
-  onLoginSuccess?: (userType: UserType) => void;
+  /** Called after a successful sign-in with the authenticated canonical role. */
+  onLoginSuccess?: (userType: UserType, role?: string) => void;
 }
 
 // Demo credentials — supplied via Vite env (never hardcode secrets in source).
@@ -50,6 +51,11 @@ const LoginPage: React.FC<LoginPageProps> = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [success, setSuccess] = useState(false);
+  // Citizen OTP two-step state (real /api/auth/citizen/* flow).
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
+  const [devOtpHint, setDevOtpHint] = useState<string | null>(null);
+  const { login, requestOtp, verifyOtp } = useAuth();
 
   const fillDemoCredentials = () => {
     setEmail(DEMO_CREDENTIALS[userType].email);
@@ -57,47 +63,68 @@ const LoginPage: React.FC<LoginPageProps> = ({
     setError(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const finishSuccess = (role: string) => {
+    setIsSubmitting(false);
+    setSuccess(true);
+    // Hand the *authenticated* role to the parent. The parent cannot read it
+    // from the auth context here: React state is not updated until the next
+    // render, so `useAuth().user` is still the pre-login value in this tick.
+    onLoginSuccess?.(userType, role);
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    setDevOtpHint(null);
+
+    if (userType === "citizen") {
+      // Citizens authenticate with OTP only (no passwords).
+      if (!email.trim()) {
+        setError("Enter your registered username to receive an OTP.");
+        return;
+      }
+      setIsSubmitting(true);
+      try {
+        if (!otpSent) {
+          const res = await requestOtp(email.trim());
+          setOtpSent(true);
+          if (res?.otp) setDevOtpHint(`Development OTP: ${res.otp}`);
+        } else {
+          if (!otp.trim()) {
+            setError("Enter the OTP sent to your registered channel.");
+            setIsSubmitting(false);
+            return;
+          }
+          const me = await verifyOtp(email.trim(), otp.trim());
+          finishSuccess(me.role);
+          return;
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : "OTP request failed.");
+      } finally {
+        setIsSubmitting(false);
+      }
+      return;
+    }
 
     if (!email.trim() || !password.trim()) {
       setError("Please enter both email/user ID and password.");
       return;
     }
 
-    // Citizen / Landowner must use ONLY the configured credentials.
-    const citizenEmail = DEMO_CREDENTIALS.citizen.email.toLowerCase();
-    const citizenPassword = DEMO_CREDENTIALS.citizen.password;
-    if (
-      userType === "citizen" &&
-      (email.trim().toLowerCase() !== citizenEmail ||
-        password !== citizenPassword)
-    ) {
-      setError("Invalid Citizen / Landowner email or password.");
-      return;
-    }
-
     setIsSubmitting(true);
-
-    // Keep the existing demo login behavior.
-    setTimeout(() => {
+    try {
+      // Real backend authentication — no mocked success path.
+      const me = await login(email.trim(), password);
+      finishSuccess(me.role);
+    } catch (err) {
       setIsSubmitting(false);
-      setSuccess(true);
-
-      setTimeout(() => {
-        onLoginSuccess?.(userType);
-      }, 700);
-    }, 900);
+      setError(err instanceof Error ? err.message : "Sign in failed.");
+    }
   };
   const handleNicSso = () => {
-    setError(null);
-    setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSuccess(true);
-      setTimeout(() => onLoginSuccess?.("government"), 700);
-    }, 900);
+    // No SSO backend is configured; never fake a success.
+    setError("NIC SSO is not configured in this environment. Sign in with official credentials.");
   };
 
   return (
@@ -271,7 +298,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
                       htmlFor="email"
                       className="block text-sm font-medium text-slate-700 mb-1.5"
                     >
-                      Official Email / User ID
+                      {userType === "citizen" ? "Registered Username" : "Official Email / User ID"}
                     </label>
                     <div className="relative">
                       <Mail className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -287,6 +314,7 @@ const LoginPage: React.FC<LoginPageProps> = ({
                     </div>
                   </div>
 
+                  {userType === "government" && (
                   <div>
                     <label
                       htmlFor="password"
@@ -321,6 +349,31 @@ const LoginPage: React.FC<LoginPageProps> = ({
                       </button>
                     </div>
                   </div>
+                  )}
+
+                  {userType === "citizen" && otpSent && (
+                    <div>
+                      <label
+                        htmlFor="otp"
+                        className="block text-sm font-medium text-slate-700 mb-1.5"
+                      >
+                        One-Time Password (OTP)
+                      </label>
+                      <input
+                        id="otp"
+                        type="text"
+                        inputMode="numeric"
+                        value={otp}
+                        onChange={(e) => setOtp(e.target.value)}
+                        placeholder="Enter 6-digit OTP"
+                        disabled={isSubmitting}
+                        className="w-full rounded-lg border border-slate-300 bg-white py-2.5 px-3 text-sm text-slate-800 placeholder:text-slate-400 focus:border-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-100 disabled:bg-slate-50"
+                      />
+                      {devOtpHint && (
+                        <p className="mt-1 text-xs text-slate-500">{devOtpHint}</p>
+                      )}
+                    </div>
+                  )}
 
                   {error && (
                     <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700 border border-red-200">
@@ -354,11 +407,11 @@ const LoginPage: React.FC<LoginPageProps> = ({
                     {isSubmitting ? (
                       <>
                         <Loader2 className="h-4 w-4 animate-spin" />
-                        Signing in…
+                        {userType === "citizen" ? (otpSent ? "Verifying OTP…" : "Sending OTP…") : "Signing in…"}
                       </>
                     ) : (
                       <>
-                        Sign In
+                        {userType === "citizen" ? (otpSent ? "Verify OTP & Sign In" : "Send OTP") : "Sign In"}
                         <span aria-hidden>→</span>
                       </>
                     )}

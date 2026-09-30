@@ -7,3 +7,14 @@ from app.database.models.hitl_review import HitlReview
 from app.database.models.audit_event import AuditEvent
 from app.database.models.notification import Notification
 from app.database.models.parcel_link import LandRecordParcelLink
+from app.database.models.auth_token import RevokedToken
+from app.database.models.acquisition import (
+    AcquisitionCase,
+    AcquisitionNotice,
+    AcquisitionProject,
+    Compensation,
+    Objection,
+    Possession,
+    RecordFreeze,
+    RnrPackage,
+)

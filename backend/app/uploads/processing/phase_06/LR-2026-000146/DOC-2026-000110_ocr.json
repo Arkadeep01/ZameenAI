@@ -1,0 +1,3430 @@
+{
+  "phase": "OCR",
+  "status": "SUCCESS",
+  "record_id": "LR-2026-000146",
+  "document_id": "DOC-2026-000110",
+  "ingestion_id": "ING-2026-000058",
+  "engine": "TESSERACT",
+  "language": {
+    "language": "en",
+    "script": "Latin",
+    "confidence": 0.8378,
+    "multilingual": true,
+    "tesseract_codes": [
+      "eng",
+      "ben",
+      "hin"
+    ]
+  },
+  "input": {
+    "type": "IMAGE",
+    "original_path": "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000058.png",
+    "processed_path": null,
+    "input_paths": [
+      "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000058.png"
+    ]
+  },
+  "engines": {
+    "tesseract": "SUCCESS",
+    "surya": "UNAVAILABLE",
+    "roboflow": "UNAVAILABLE"
+  },
+  "qr_status": "NOT_IMPLEMENTED",
+  "surya": {
+    "status": "UNAVAILABLE",
+    "reason": "surya_not_installed"
+  },
+  "roboflow": {
+    "status": "UNAVAILABLE",
+    "model_id": "stamp-and-signature-detection-xqk9l-p0rwh/1",
+    "reason": "roboflow_not_configured",
+    "artifacts": 0
+  },
+  "pages": [
+    {
+      "page": 1,
+      "page_number": 1,
+      "text": "Ps Record of Rights (RoR)\ni and and | ond Ketorme Depertaernt\nwares Nate we\nbe Mw 5 Kenting =j\nNe ln % .\nBe) tase a\n4 me ‘\n7 Nanare of Land (ges\n2 Neto Reet Ye Rammed Chaat s Sade\nPater’ /thchan» Name : Late Margate Saha eaves\nFF ec — 5s vice eee\no'er ot bao epee\n; Reereenes 12-06-2018 set ae 4\ncat gee 2 ogee |",
+      "words": [
+        {
+          "text": "of",
+          "confidence": 0.96,
+          "confidence_raw": 96.0,
+          "bbox": {
+            "x": 217,
+            "y": 31,
+            "width": 10,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-R0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 3,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "Rights",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 233,
+            "y": 31,
+            "width": 33,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-R0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 4,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "4",
+          "confidence": 0.95,
+          "confidence_raw": 95.0,
+          "bbox": {
+            "x": 11,
+            "y": 165,
+            "width": 3,
+            "height": 4
+          },
+          "page": 1,
+          "line_id": "1-R2-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Record",
+          "confidence": 0.9,
+          "confidence_raw": 90.0,
+          "bbox": {
+            "x": 172,
+            "y": 38,
+            "width": 133,
+            "height": 13
+          },
+          "page": 1,
+          "line_id": "1-R0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 2,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "of",
+          "confidence": 0.85,
+          "confidence_raw": 85.0,
+          "bbox": {
+            "x": 61,
+            "y": 182,
+            "width": 9,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "12-06-2018",
+          "confidence": 0.7,
+          "confidence_raw": 70.0,
+          "bbox": {
+            "x": 125,
+            "y": 303,
+            "width": 63,
+            "height": 31
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 3,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": false
+        },
+        {
+          "text": "Late",
+          "confidence": 0.7,
+          "confidence_raw": 70.0,
+          "bbox": {
+            "x": 169,
+            "y": 218,
+            "width": 23,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 5,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "a",
+          "confidence": 0.62,
+          "confidence_raw": 62.0,
+          "bbox": {
+            "x": 446,
+            "y": 176,
+            "width": 18,
+            "height": 13
+          },
+          "page": 1,
+          "line_id": "1-R2-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "ond",
+          "confidence": 0.6,
+          "confidence_raw": 60.0,
+          "bbox": {
+            "x": 199,
+            "y": 52,
+            "width": 19,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 5,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": false
+        },
+        {
+          "text": "ae",
+          "confidence": 0.59,
+          "confidence_raw": 59.0,
+          "bbox": {
+            "x": 368,
+            "y": 304,
+            "width": 58,
+            "height": 45
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 5,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": ":",
+          "confidence": 0.57,
+          "confidence_raw": 57.0,
+          "bbox": {
+            "x": 158,
+            "y": 218,
+            "width": 3,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 4,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "|",
+          "confidence": 0.57,
+          "confidence_raw": 57.0,
+          "bbox": {
+            "x": 190,
+            "y": 52,
+            "width": 5,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 4,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "we",
+          "confidence": 0.57,
+          "confidence_raw": 57.0,
+          "bbox": {
+            "x": 360,
+            "y": 76,
+            "width": 59,
+            "height": 17
+          },
+          "page": 1,
+          "line_id": "1-R1-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Land",
+          "confidence": 0.56,
+          "confidence_raw": 56.0,
+          "bbox": {
+            "x": 74,
+            "y": 182,
+            "width": 27,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 4,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Name",
+          "confidence": 0.55,
+          "confidence_raw": 55.0,
+          "bbox": {
+            "x": 128,
+            "y": 218,
+            "width": 25,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "(RoR)",
+          "confidence": 0.51,
+          "confidence_raw": 51.0,
+          "bbox": {
+            "x": 273,
+            "y": 31,
+            "width": 35,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-R0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 5,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Nate",
+          "confidence": 0.5,
+          "confidence_raw": 50.0,
+          "bbox": {
+            "x": 120,
+            "y": 76,
+            "width": 35,
+            "height": 30
+          },
+          "page": 1,
+          "line_id": "1-R1-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "—",
+          "confidence": 0.49,
+          "confidence_raw": 49.0,
+          "bbox": {
+            "x": 110,
+            "y": 245,
+            "width": 4,
+            "height": 1
+          },
+          "page": 1,
+          "line_id": "1-R2-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Sade",
+          "confidence": 0.47,
+          "confidence_raw": 47.0,
+          "bbox": {
+            "x": 259,
+            "y": 201,
+            "width": 27,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 8,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "and",
+          "confidence": 0.46,
+          "confidence_raw": 46.0,
+          "bbox": {
+            "x": 166,
+            "y": 52,
+            "width": 19,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 3,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ot",
+          "confidence": 0.45,
+          "confidence_raw": 45.0,
+          "bbox": {
+            "x": 256,
+            "y": 268,
+            "width": 29,
+            "height": 30
+          },
+          "page": 1,
+          "line_id": "1-R3-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 2,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Neto",
+          "confidence": 0.45,
+          "confidence_raw": 45.0,
+          "bbox": {
+            "x": 27,
+            "y": 194,
+            "width": 36,
+            "height": 36
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Reet",
+          "confidence": 0.43,
+          "confidence_raw": 43.0,
+          "bbox": {
+            "x": 72,
+            "y": 194,
+            "width": 36,
+            "height": 36
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Ye",
+          "confidence": 0.43,
+          "confidence_raw": 43.0,
+          "bbox": {
+            "x": 120,
+            "y": 194,
+            "width": 30,
+            "height": 36
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 4,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ec",
+          "confidence": 0.41,
+          "confidence_raw": 41.0,
+          "bbox": {
+            "x": 26,
+            "y": 241,
+            "width": 45,
+            "height": 7
+          },
+          "page": 1,
+          "line_id": "1-R2-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "me",
+          "confidence": 0.41,
+          "confidence_raw": 41.0,
+          "bbox": {
+            "x": 65,
+            "y": 156,
+            "width": 16,
+            "height": 9
+          },
+          "page": 1,
+          "line_id": "1-R2-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "wares",
+          "confidence": 0.4,
+          "confidence_raw": 40.0,
+          "bbox": {
+            "x": 20,
+            "y": 76,
+            "width": 44,
+            "height": 31
+          },
+          "page": 1,
+          "line_id": "1-R1-1-3",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 3,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Ps",
+          "confidence": 0.38,
+          "confidence_raw": 38.0,
+          "bbox": {
+            "x": 1,
+            "y": 34,
+            "width": 12,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-R0-1-1",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 1,
+          "word_num": 1,
+          "region": "HEADER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Be)",
+          "confidence": 0.37,
+          "confidence_raw": 37.0,
+          "bbox": {
+            "x": 2,
+            "y": 154,
+            "width": 61,
+            "height": 38
+          },
+          "page": 1,
+          "line_id": "1-R2-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "5",
+          "confidence": 0.37,
+          "confidence_raw": 37.0,
+          "bbox": {
+            "x": 104,
+            "y": 129,
+            "width": 2,
+            "height": 2
+          },
+          "page": 1,
+          "line_id": "1-R2-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "4",
+          "confidence": 0.36,
+          "confidence_raw": 36.0,
+          "bbox": {
+            "x": 436,
+            "y": 316,
+            "width": 28,
+            "height": 11
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 6,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "ln",
+          "confidence": 0.34,
+          "confidence_raw": 34.0,
+          "bbox": {
+            "x": 23,
+            "y": 138,
+            "width": 121,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-R2-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "tase",
+          "confidence": 0.34,
+          "confidence_raw": 34.0,
+          "bbox": {
+            "x": 124,
+            "y": 172,
+            "width": 48,
+            "height": 11
+          },
+          "page": 1,
+          "line_id": "1-R2-1-7",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 7,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Rammed",
+          "confidence": 0.34,
+          "confidence_raw": 34.0,
+          "bbox": {
+            "x": 164,
+            "y": 201,
+            "width": 44,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 5,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "vice",
+          "confidence": 0.34,
+          "confidence_raw": 34.0,
+          "bbox": {
+            "x": 325,
+            "y": 245,
+            "width": 43,
+            "height": 2
+          },
+          "page": 1,
+          "line_id": "1-R2-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 5,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "ogee",
+          "confidence": 0.33,
+          "confidence_raw": 33.0,
+          "bbox": {
+            "x": 283,
+            "y": 332,
+            "width": 87,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R3-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 4,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "cat",
+          "confidence": 0.32,
+          "confidence_raw": 32.0,
+          "bbox": {
+            "x": 9,
+            "y": 325,
+            "width": 13,
+            "height": 29
+          },
+          "page": 1,
+          "line_id": "1-R3-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 1,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Mw",
+          "confidence": 0.32,
+          "confidence_raw": 32.0,
+          "bbox": {
+            "x": 24,
+            "y": 120,
+            "width": 41,
+            "height": 15
+          },
+          "page": 1,
+          "line_id": "1-R2-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "‘",
+          "confidence": 0.32,
+          "confidence_raw": 32.0,
+          "bbox": {
+            "x": 383,
+            "y": 161,
+            "width": 6,
+            "height": 4
+          },
+          "page": 1,
+          "line_id": "1-R2-1-6",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 6,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "|",
+          "confidence": 0.3,
+          "confidence_raw": 30.0,
+          "bbox": {
+            "x": 448,
+            "y": 330,
+            "width": 16,
+            "height": 24
+          },
+          "page": 1,
+          "line_id": "1-R3-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 5,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Saha",
+          "confidence": 0.3,
+          "confidence_raw": 30.0,
+          "bbox": {
+            "x": 245,
+            "y": 218,
+            "width": 27,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 7,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "eee",
+          "confidence": 0.3,
+          "confidence_raw": 30.0,
+          "bbox": {
+            "x": 382,
+            "y": 236,
+            "width": 80,
+            "height": 11
+          },
+          "page": 1,
+          "line_id": "1-R2-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 6,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "set",
+          "confidence": 0.28,
+          "confidence_raw": 28.0,
+          "bbox": {
+            "x": 315,
+            "y": 313,
+            "width": 25,
+            "height": 6
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 4,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "5s",
+          "confidence": 0.27,
+          "confidence_raw": 27.0,
+          "bbox": {
+            "x": 123,
+            "y": 240,
+            "width": 43,
+            "height": 8
+          },
+          "page": 1,
+          "line_id": "1-R2-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 4,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "eaves",
+          "confidence": 0.24,
+          "confidence_raw": 24.0,
+          "bbox": {
+            "x": 400,
+            "y": 221,
+            "width": 45,
+            "height": 7
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 8,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "2",
+          "confidence": 0.22,
+          "confidence_raw": 22.0,
+          "bbox": {
+            "x": 2,
+            "y": 198,
+            "width": 10,
+            "height": 28
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Kenting",
+          "confidence": 0.19,
+          "confidence_raw": 19.0,
+          "bbox": {
+            "x": 124,
+            "y": 122,
+            "width": 64,
+            "height": 11
+          },
+          "page": 1,
+          "line_id": "1-R2-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 4,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "2",
+          "confidence": 0.18,
+          "confidence_raw": 18.0,
+          "bbox": {
+            "x": 242,
+            "y": 338,
+            "width": 13,
+            "height": 9
+          },
+          "page": 1,
+          "line_id": "1-R3-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 3,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "FF",
+          "confidence": 0.17,
+          "confidence_raw": 17.0,
+          "bbox": {
+            "x": 3,
+            "y": 234,
+            "width": 10,
+            "height": 11
+          },
+          "page": 1,
+          "line_id": "1-R2-1-11",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 11,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "and",
+          "confidence": 0.17,
+          "confidence_raw": 17.0,
+          "bbox": {
+            "x": 130,
+            "y": 52,
+            "width": 32,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 2,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "gee",
+          "confidence": 0.15,
+          "confidence_raw": 15.0,
+          "bbox": {
+            "x": 59,
+            "y": 340,
+            "width": 2,
+            "height": 3
+          },
+          "page": 1,
+          "line_id": "1-R3-1-14",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 14,
+          "word_num": 2,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "%",
+          "confidence": 0.15,
+          "confidence_raw": 15.0,
+          "bbox": {
+            "x": 406,
+            "y": 145,
+            "width": 4,
+            "height": 6
+          },
+          "page": 1,
+          "line_id": "1-R2-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 3,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "i",
+          "confidence": 0.14,
+          "confidence_raw": 14.0,
+          "bbox": {
+            "x": 11,
+            "y": 54,
+            "width": 2,
+            "height": 3
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 1,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Ne",
+          "confidence": 0.08,
+          "confidence_raw": 8.0,
+          "bbox": {
+            "x": 2,
+            "y": 142,
+            "width": 10,
+            "height": 19
+          },
+          "page": 1,
+          "line_id": "1-R2-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Ketorme",
+          "confidence": 0.07,
+          "confidence_raw": 7.0,
+          "bbox": {
+            "x": 223,
+            "y": 52,
+            "width": 45,
+            "height": 22
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 6,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Margate",
+          "confidence": 0.05,
+          "confidence_raw": 5.0,
+          "bbox": {
+            "x": 194,
+            "y": 224,
+            "width": 73,
+            "height": 12
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 6,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "o'er",
+          "confidence": 0.02,
+          "confidence_raw": 2.0,
+          "bbox": {
+            "x": 22,
+            "y": 272,
+            "width": 146,
+            "height": 21
+          },
+          "page": 1,
+          "line_id": "1-R3-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 1,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "be",
+          "confidence": 0.02,
+          "confidence_raw": 2.0,
+          "bbox": {
+            "x": 2,
+            "y": 120,
+            "width": 12,
+            "height": 20
+          },
+          "page": 1,
+          "line_id": "1-R2-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Nanare",
+          "confidence": 0.02,
+          "confidence_raw": 2.0,
+          "bbox": {
+            "x": 24,
+            "y": 182,
+            "width": 31,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": ";",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 3,
+            "y": 326,
+            "width": 1,
+            "height": 3
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 1,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Reereenes",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 18,
+            "y": 292,
+            "width": 95,
+            "height": 42
+          },
+          "page": 1,
+          "line_id": "1-R3-1-13",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 13,
+          "word_num": 2,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "bao",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 302,
+            "y": 259,
+            "width": 58,
+            "height": 41
+          },
+          "page": 1,
+          "line_id": "1-R3-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 3,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "epee",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 369,
+            "y": 259,
+            "width": 88,
+            "height": 41
+          },
+          "page": 1,
+          "line_id": "1-R3-1-12",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 12,
+          "word_num": 4,
+          "region": "FOOTER",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "7",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 9,
+            "y": 186,
+            "width": 7,
+            "height": 18
+          },
+          "page": 1,
+          "line_id": "1-R2-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Pater’",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 20,
+            "y": 218,
+            "width": 39,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 1,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "/thchan»",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 67,
+            "y": 218,
+            "width": 55,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-10",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 10,
+          "word_num": 2,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "(ges",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 158,
+            "y": 191,
+            "width": 67,
+            "height": 12
+          },
+          "page": 1,
+          "line_id": "1-R2-1-8",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 8,
+          "word_num": 5,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "Chaat",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 213,
+            "y": 201,
+            "width": 34,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 6,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "s",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 250,
+            "y": 201,
+            "width": 3,
+            "height": 26
+          },
+          "page": 1,
+          "line_id": "1-R2-1-9",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 9,
+          "word_num": 7,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": "=j",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 435,
+            "y": 127,
+            "width": 26,
+            "height": 11
+          },
+          "page": 1,
+          "line_id": "1-R2-1-4",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 4,
+          "word_num": 5,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        },
+        {
+          "text": ".",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 461,
+            "y": 144,
+            "width": 3,
+            "height": 3
+          },
+          "page": 1,
+          "line_id": "1-R2-1-5",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 5,
+          "word_num": 4,
+          "region": "MAIN_TABLE",
+          "engine": "tesseract",
+          "script": "",
+          "needs_review": true
+        },
+        {
+          "text": "Depertaernt",
+          "confidence": 0.0,
+          "confidence_raw": 0.0,
+          "bbox": {
+            "x": 273,
+            "y": 56,
+            "width": 65,
+            "height": 12
+          },
+          "page": 1,
+          "line_id": "1-R1-1-2",
+          "block_num": 1,
+          "par_num": 1,
+          "line_num": 2,
+          "word_num": 7,
+          "region": "METADATA",
+          "engine": "tesseract",
+          "script": "Latin",
+          "needs_review": true
+        }
+      ],
+      "lines": [
+        {
+          "text": "Ps Record of Rights (RoR)",
+          "words": [
+            {
+              "text": "Ps",
+              "confidence": 0.38,
+              "confidence_raw": 38.0,
+              "bbox": {
+                "x": 1,
+                "y": 34,
+                "width": 12,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-R0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 1,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Record",
+              "confidence": 0.9,
+              "confidence_raw": 90.0,
+              "bbox": {
+                "x": 172,
+                "y": 38,
+                "width": 133,
+                "height": 13
+              },
+              "page": 1,
+              "line_id": "1-R0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 2,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "of",
+              "confidence": 0.96,
+              "confidence_raw": 96.0,
+              "bbox": {
+                "x": 217,
+                "y": 31,
+                "width": 10,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-R0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 3,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Rights",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 233,
+                "y": 31,
+                "width": 33,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-R0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 4,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "(RoR)",
+              "confidence": 0.51,
+              "confidence_raw": 51.0,
+              "bbox": {
+                "x": 273,
+                "y": 31,
+                "width": 35,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-R0-1-1",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 1,
+              "word_num": 5,
+              "region": "HEADER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 1,
+            "y": 31,
+            "width": 307,
+            "height": 28
+          },
+          "region": "HEADER",
+          "page": 1,
+          "confidence": 0.74,
+          "reading_order": 0
+        },
+        {
+          "text": "i and and | ond Ketorme Depertaernt",
+          "words": [
+            {
+              "text": "i",
+              "confidence": 0.14,
+              "confidence_raw": 14.0,
+              "bbox": {
+                "x": 11,
+                "y": 54,
+                "width": 2,
+                "height": 3
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "and",
+              "confidence": 0.17,
+              "confidence_raw": 17.0,
+              "bbox": {
+                "x": 130,
+                "y": 52,
+                "width": 32,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "and",
+              "confidence": 0.46,
+              "confidence_raw": 46.0,
+              "bbox": {
+                "x": 166,
+                "y": 52,
+                "width": 19,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "|",
+              "confidence": 0.57,
+              "confidence_raw": 57.0,
+              "bbox": {
+                "x": 190,
+                "y": 52,
+                "width": 5,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 4,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "ond",
+              "confidence": 0.6,
+              "confidence_raw": 60.0,
+              "bbox": {
+                "x": 199,
+                "y": 52,
+                "width": 19,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 5,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Ketorme",
+              "confidence": 0.07,
+              "confidence_raw": 7.0,
+              "bbox": {
+                "x": 223,
+                "y": 52,
+                "width": 45,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 6,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Depertaernt",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 273,
+                "y": 56,
+                "width": 65,
+                "height": 12
+              },
+              "page": 1,
+              "line_id": "1-R1-1-2",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 2,
+              "word_num": 7,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 11,
+            "y": 52,
+            "width": 327,
+            "height": 22
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.2871,
+          "reading_order": 1
+        },
+        {
+          "text": "wares Nate we",
+          "words": [
+            {
+              "text": "wares",
+              "confidence": 0.4,
+              "confidence_raw": 40.0,
+              "bbox": {
+                "x": 20,
+                "y": 76,
+                "width": 44,
+                "height": 31
+              },
+              "page": 1,
+              "line_id": "1-R1-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 1,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Nate",
+              "confidence": 0.5,
+              "confidence_raw": 50.0,
+              "bbox": {
+                "x": 120,
+                "y": 76,
+                "width": 35,
+                "height": 30
+              },
+              "page": 1,
+              "line_id": "1-R1-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 2,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "we",
+              "confidence": 0.57,
+              "confidence_raw": 57.0,
+              "bbox": {
+                "x": 360,
+                "y": 76,
+                "width": 59,
+                "height": 17
+              },
+              "page": 1,
+              "line_id": "1-R1-1-3",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 3,
+              "word_num": 3,
+              "region": "METADATA",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 20,
+            "y": 76,
+            "width": 399,
+            "height": 31
+          },
+          "region": "METADATA",
+          "page": 1,
+          "confidence": 0.49,
+          "reading_order": 2
+        },
+        {
+          "text": "be Mw 5 Kenting =j",
+          "words": [
+            {
+              "text": "be",
+              "confidence": 0.02,
+              "confidence_raw": 2.0,
+              "bbox": {
+                "x": 2,
+                "y": 120,
+                "width": 12,
+                "height": 20
+              },
+              "page": 1,
+              "line_id": "1-R2-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Mw",
+              "confidence": 0.32,
+              "confidence_raw": 32.0,
+              "bbox": {
+                "x": 24,
+                "y": 120,
+                "width": 41,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-R2-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "5",
+              "confidence": 0.37,
+              "confidence_raw": 37.0,
+              "bbox": {
+                "x": 104,
+                "y": 129,
+                "width": 2,
+                "height": 2
+              },
+              "page": 1,
+              "line_id": "1-R2-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "Kenting",
+              "confidence": 0.19,
+              "confidence_raw": 19.0,
+              "bbox": {
+                "x": 124,
+                "y": 122,
+                "width": 64,
+                "height": 11
+              },
+              "page": 1,
+              "line_id": "1-R2-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 4,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "=j",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 435,
+                "y": 127,
+                "width": 26,
+                "height": 11
+              },
+              "page": 1,
+              "line_id": "1-R2-1-4",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 4,
+              "word_num": 5,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 2,
+            "y": 120,
+            "width": 459,
+            "height": 20
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.18,
+          "reading_order": 3
+        },
+        {
+          "text": "Ne ln % .",
+          "words": [
+            {
+              "text": "Ne",
+              "confidence": 0.08,
+              "confidence_raw": 8.0,
+              "bbox": {
+                "x": 2,
+                "y": 142,
+                "width": 10,
+                "height": 19
+              },
+              "page": 1,
+              "line_id": "1-R2-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "ln",
+              "confidence": 0.34,
+              "confidence_raw": 34.0,
+              "bbox": {
+                "x": 23,
+                "y": 138,
+                "width": 121,
+                "height": 15
+              },
+              "page": 1,
+              "line_id": "1-R2-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "%",
+              "confidence": 0.15,
+              "confidence_raw": 15.0,
+              "bbox": {
+                "x": 406,
+                "y": 145,
+                "width": 4,
+                "height": 6
+              },
+              "page": 1,
+              "line_id": "1-R2-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": ".",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 461,
+                "y": 144,
+                "width": 3,
+                "height": 3
+              },
+              "page": 1,
+              "line_id": "1-R2-1-5",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 5,
+              "word_num": 4,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 2,
+            "y": 138,
+            "width": 462,
+            "height": 23
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.1425,
+          "reading_order": 4
+        },
+        {
+          "text": "Be) tase a",
+          "words": [
+            {
+              "text": "Be)",
+              "confidence": 0.37,
+              "confidence_raw": 37.0,
+              "bbox": {
+                "x": 2,
+                "y": 154,
+                "width": 61,
+                "height": 38
+              },
+              "page": 1,
+              "line_id": "1-R2-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "tase",
+              "confidence": 0.34,
+              "confidence_raw": 34.0,
+              "bbox": {
+                "x": 124,
+                "y": 172,
+                "width": 48,
+                "height": 11
+              },
+              "page": 1,
+              "line_id": "1-R2-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "a",
+              "confidence": 0.62,
+              "confidence_raw": 62.0,
+              "bbox": {
+                "x": 446,
+                "y": 176,
+                "width": 18,
+                "height": 13
+              },
+              "page": 1,
+              "line_id": "1-R2-1-7",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 7,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            }
+          ],
+          "bbox": {
+            "x": 2,
+            "y": 154,
+            "width": 462,
+            "height": 38
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.4433,
+          "reading_order": 5
+        },
+        {
+          "text": "4 me ‘",
+          "words": [
+            {
+              "text": "4",
+              "confidence": 0.95,
+              "confidence_raw": 95.0,
+              "bbox": {
+                "x": 11,
+                "y": 165,
+                "width": 3,
+                "height": 4
+              },
+              "page": 1,
+              "line_id": "1-R2-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "me",
+              "confidence": 0.41,
+              "confidence_raw": 41.0,
+              "bbox": {
+                "x": 65,
+                "y": 156,
+                "width": 16,
+                "height": 9
+              },
+              "page": 1,
+              "line_id": "1-R2-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "‘",
+              "confidence": 0.32,
+              "confidence_raw": 32.0,
+              "bbox": {
+                "x": 383,
+                "y": 161,
+                "width": 6,
+                "height": 4
+              },
+              "page": 1,
+              "line_id": "1-R2-1-6",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 6,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 11,
+            "y": 156,
+            "width": 378,
+            "height": 13
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.56,
+          "reading_order": 6
+        },
+        {
+          "text": "7 Nanare of Land (ges",
+          "words": [
+            {
+              "text": "7",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 9,
+                "y": 186,
+                "width": 7,
+                "height": 18
+              },
+              "page": 1,
+              "line_id": "1-R2-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "Nanare",
+              "confidence": 0.02,
+              "confidence_raw": 2.0,
+              "bbox": {
+                "x": 24,
+                "y": 182,
+                "width": 31,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "of",
+              "confidence": 0.85,
+              "confidence_raw": 85.0,
+              "bbox": {
+                "x": 61,
+                "y": 182,
+                "width": 9,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Land",
+              "confidence": 0.56,
+              "confidence_raw": 56.0,
+              "bbox": {
+                "x": 74,
+                "y": 182,
+                "width": 27,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 4,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "(ges",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 158,
+                "y": 191,
+                "width": 67,
+                "height": 12
+              },
+              "page": 1,
+              "line_id": "1-R2-1-8",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 8,
+              "word_num": 5,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 9,
+            "y": 182,
+            "width": 216,
+            "height": 26
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.286,
+          "reading_order": 7
+        },
+        {
+          "text": "2 Neto Reet Ye Rammed Chaat s Sade",
+          "words": [
+            {
+              "text": "2",
+              "confidence": 0.22,
+              "confidence_raw": 22.0,
+              "bbox": {
+                "x": 2,
+                "y": 198,
+                "width": 10,
+                "height": 28
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "Neto",
+              "confidence": 0.45,
+              "confidence_raw": 45.0,
+              "bbox": {
+                "x": 27,
+                "y": 194,
+                "width": 36,
+                "height": 36
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Reet",
+              "confidence": 0.43,
+              "confidence_raw": 43.0,
+              "bbox": {
+                "x": 72,
+                "y": 194,
+                "width": 36,
+                "height": 36
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Ye",
+              "confidence": 0.43,
+              "confidence_raw": 43.0,
+              "bbox": {
+                "x": 120,
+                "y": 194,
+                "width": 30,
+                "height": 36
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 4,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Rammed",
+              "confidence": 0.34,
+              "confidence_raw": 34.0,
+              "bbox": {
+                "x": 164,
+                "y": 201,
+                "width": 44,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 5,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Chaat",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 213,
+                "y": 201,
+                "width": 34,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 6,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "s",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 250,
+                "y": 201,
+                "width": 3,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 7,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Sade",
+              "confidence": 0.47,
+              "confidence_raw": 47.0,
+              "bbox": {
+                "x": 259,
+                "y": 201,
+                "width": 27,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-9",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 9,
+              "word_num": 8,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 2,
+            "y": 194,
+            "width": 284,
+            "height": 36
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.2925,
+          "reading_order": 8
+        },
+        {
+          "text": "Pater’ /thchan» Name : Late Margate Saha eaves",
+          "words": [
+            {
+              "text": "Pater’",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 20,
+                "y": 218,
+                "width": 39,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "/thchan»",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 67,
+                "y": 218,
+                "width": 55,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Name",
+              "confidence": 0.55,
+              "confidence_raw": 55.0,
+              "bbox": {
+                "x": 128,
+                "y": 218,
+                "width": 25,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": ":",
+              "confidence": 0.57,
+              "confidence_raw": 57.0,
+              "bbox": {
+                "x": 158,
+                "y": 218,
+                "width": 3,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 4,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "Late",
+              "confidence": 0.7,
+              "confidence_raw": 70.0,
+              "bbox": {
+                "x": 169,
+                "y": 218,
+                "width": 23,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 5,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": false
+            },
+            {
+              "text": "Margate",
+              "confidence": 0.05,
+              "confidence_raw": 5.0,
+              "bbox": {
+                "x": 194,
+                "y": 224,
+                "width": 73,
+                "height": 12
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 6,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "Saha",
+              "confidence": 0.3,
+              "confidence_raw": 30.0,
+              "bbox": {
+                "x": 245,
+                "y": 218,
+                "width": 27,
+                "height": 26
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 7,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "eaves",
+              "confidence": 0.24,
+              "confidence_raw": 24.0,
+              "bbox": {
+                "x": 400,
+                "y": 221,
+                "width": 45,
+                "height": 7
+              },
+              "page": 1,
+              "line_id": "1-R2-1-10",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 10,
+              "word_num": 8,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 20,
+            "y": 218,
+            "width": 425,
+            "height": 26
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.3013,
+          "reading_order": 9
+        },
+        {
+          "text": "FF ec — 5s vice eee",
+          "words": [
+            {
+              "text": "FF",
+              "confidence": 0.17,
+              "confidence_raw": 17.0,
+              "bbox": {
+                "x": 3,
+                "y": 234,
+                "width": 10,
+                "height": 11
+              },
+              "page": 1,
+              "line_id": "1-R2-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 1,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "ec",
+              "confidence": 0.41,
+              "confidence_raw": 41.0,
+              "bbox": {
+                "x": 26,
+                "y": 241,
+                "width": 45,
+                "height": 7
+              },
+              "page": 1,
+              "line_id": "1-R2-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 2,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "—",
+              "confidence": 0.49,
+              "confidence_raw": 49.0,
+              "bbox": {
+                "x": 110,
+                "y": 245,
+                "width": 4,
+                "height": 1
+              },
+              "page": 1,
+              "line_id": "1-R2-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 3,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "5s",
+              "confidence": 0.27,
+              "confidence_raw": 27.0,
+              "bbox": {
+                "x": 123,
+                "y": 240,
+                "width": 43,
+                "height": 8
+              },
+              "page": 1,
+              "line_id": "1-R2-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 4,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "vice",
+              "confidence": 0.34,
+              "confidence_raw": 34.0,
+              "bbox": {
+                "x": 325,
+                "y": 245,
+                "width": 43,
+                "height": 2
+              },
+              "page": 1,
+              "line_id": "1-R2-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 5,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "eee",
+              "confidence": 0.3,
+              "confidence_raw": 30.0,
+              "bbox": {
+                "x": 382,
+                "y": 236,
+                "width": 80,
+                "height": 11
+              },
+              "page": 1,
+              "line_id": "1-R2-1-11",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 11,
+              "word_num": 6,
+              "region": "MAIN_TABLE",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 3,
+            "y": 234,
+            "width": 459,
+            "height": 14
+          },
+          "region": "MAIN_TABLE",
+          "page": 1,
+          "confidence": 0.33,
+          "reading_order": 10
+        },
+        {
+          "text": "o'er ot bao epee",
+          "words": [
+            {
+              "text": "o'er",
+              "confidence": 0.02,
+              "confidence_raw": 2.0,
+              "bbox": {
+                "x": 22,
+                "y": 272,
+                "width": 146,
+                "height": 21
+              },
+              "page": 1,
+              "line_id": "1-R3-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 1,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "ot",
+              "confidence": 0.45,
+              "confidence_raw": 45.0,
+              "bbox": {
+                "x": 256,
+                "y": 268,
+                "width": 29,
+                "height": 30
+              },
+              "page": 1,
+              "line_id": "1-R3-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 2,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "bao",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 302,
+                "y": 259,
+                "width": 58,
+                "height": 41
+              },
+              "page": 1,
+              "line_id": "1-R3-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 3,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "epee",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 369,
+                "y": 259,
+                "width": 88,
+                "height": 41
+              },
+              "page": 1,
+              "line_id": "1-R3-1-12",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 12,
+              "word_num": 4,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 22,
+            "y": 259,
+            "width": 435,
+            "height": 41
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.1175,
+          "reading_order": 11
+        },
+        {
+          "text": "; Reereenes 12-06-2018 set ae 4",
+          "words": [
+            {
+              "text": ";",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 3,
+                "y": 326,
+                "width": 1,
+                "height": 3
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 1,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "Reereenes",
+              "confidence": 0.0,
+              "confidence_raw": 0.0,
+              "bbox": {
+                "x": 18,
+                "y": 292,
+                "width": 95,
+                "height": 42
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 2,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "12-06-2018",
+              "confidence": 0.7,
+              "confidence_raw": 70.0,
+              "bbox": {
+                "x": 125,
+                "y": 303,
+                "width": 63,
+                "height": 31
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 3,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": false
+            },
+            {
+              "text": "set",
+              "confidence": 0.28,
+              "confidence_raw": 28.0,
+              "bbox": {
+                "x": 315,
+                "y": 313,
+                "width": 25,
+                "height": 6
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 4,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "ae",
+              "confidence": 0.59,
+              "confidence_raw": 59.0,
+              "bbox": {
+                "x": 368,
+                "y": 304,
+                "width": 58,
+                "height": 45
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 5,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "4",
+              "confidence": 0.36,
+              "confidence_raw": 36.0,
+              "bbox": {
+                "x": 436,
+                "y": 316,
+                "width": 28,
+                "height": 11
+              },
+              "page": 1,
+              "line_id": "1-R3-1-13",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 13,
+              "word_num": 6,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 3,
+            "y": 292,
+            "width": 461,
+            "height": 57
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.3217,
+          "reading_order": 12
+        },
+        {
+          "text": "cat gee 2 ogee |",
+          "words": [
+            {
+              "text": "cat",
+              "confidence": 0.32,
+              "confidence_raw": 32.0,
+              "bbox": {
+                "x": 9,
+                "y": 325,
+                "width": 13,
+                "height": 29
+              },
+              "page": 1,
+              "line_id": "1-R3-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 1,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "gee",
+              "confidence": 0.15,
+              "confidence_raw": 15.0,
+              "bbox": {
+                "x": 59,
+                "y": 340,
+                "width": 2,
+                "height": 3
+              },
+              "page": 1,
+              "line_id": "1-R3-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 2,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "2",
+              "confidence": 0.18,
+              "confidence_raw": 18.0,
+              "bbox": {
+                "x": 242,
+                "y": 338,
+                "width": 13,
+                "height": 9
+              },
+              "page": 1,
+              "line_id": "1-R3-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 3,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            },
+            {
+              "text": "ogee",
+              "confidence": 0.33,
+              "confidence_raw": 33.0,
+              "bbox": {
+                "x": 283,
+                "y": 332,
+                "width": 87,
+                "height": 22
+              },
+              "page": 1,
+              "line_id": "1-R3-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 4,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "Latin",
+              "needs_review": true
+            },
+            {
+              "text": "|",
+              "confidence": 0.3,
+              "confidence_raw": 30.0,
+              "bbox": {
+                "x": 448,
+                "y": 330,
+                "width": 16,
+                "height": 24
+              },
+              "page": 1,
+              "line_id": "1-R3-1-14",
+              "block_num": 1,
+              "par_num": 1,
+              "line_num": 14,
+              "word_num": 5,
+              "region": "FOOTER",
+              "engine": "tesseract",
+              "script": "",
+              "needs_review": true
+            }
+          ],
+          "bbox": {
+            "x": 9,
+            "y": 325,
+            "width": 455,
+            "height": 29
+          },
+          "region": "FOOTER",
+          "page": 1,
+          "confidence": 0.256,
+          "reading_order": 13
+        }
+      ],
+      "mean_confidence": 0.3264,
+      "word_count": 72,
+      "character_count": 312,
+      "native_text_used": false,
+      "status": "SUCCESS",
+      "regions": [
+        {
+          "type": "HEADER",
+          "bbox": [
+            0,
+            0,
+            464,
+            53
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 0,
+            "width": 464,
+            "height": 53
+          },
+          "confidence": 0.3,
+          "source": "geometry_prior",
+          "page": 1
+        },
+        {
+          "type": "METADATA",
+          "bbox": [
+            0,
+            53,
+            464,
+            123
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 53,
+            "width": 464,
+            "height": 70
+          },
+          "confidence": 0.3,
+          "source": "geometry_prior",
+          "page": 1
+        },
+        {
+          "type": "MAIN_TABLE",
+          "bbox": [
+            0,
+            123,
+            464,
+            265
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 123,
+            "width": 464,
+            "height": 142
+          },
+          "confidence": 0.3,
+          "source": "geometry_prior",
+          "page": 1
+        },
+        {
+          "type": "FOOTER",
+          "bbox": [
+            0,
+            265,
+            464,
+            354
+          ],
+          "bbox_xywh": {
+            "x": 0,
+            "y": 265,
+            "width": 464,
+            "height": 89
+          },
+          "confidence": 0.3,
+          "source": "geometry_prior",
+          "page": 1
+        }
+      ],
+      "tables": [],
+      "table_structure_status": "UNRESOLVED",
+      "artifacts": [],
+      "candidate_texts": [],
+      "numeric_tokens": [
+        {
+          "text": "12-06-2018",
+          "confidence": 0.7,
+          "bbox": {
+            "x": 125,
+            "y": 303,
+            "width": 63,
+            "height": 31
+          },
+          "page": 1,
+          "region": "FOOTER",
+          "needs_review": false
+        }
+      ],
+      "scripts_present": [
+        "Latin"
+      ],
+      "layout_source": "geometry_prior",
+      "table_view_used": false,
+      "ocr": {
+        "text": "Ps Record of Rights (RoR)\ni and and | ond Ketorme Depertaernt\nwares Nate we\nbe Mw 5 Kenting =j\nNe ln % .\nBe) tase a\n4 me ‘\n7 Nanare of Land (ges\n2 Neto Reet Ye Rammed Chaat s Sade\nPater’ /thchan» Name : Late Margate Saha eaves\nFF ec — 5s vice eee\no'er ot bao epee\n; Reereenes 12-06-2018 set ae 4\ncat gee 2 ogee |",
+        "word_count": 72,
+        "mean_confidence": 0.3264
+      },
+      "government_document_evidence": {
+        "header_detected": true,
+        "department_detected": false,
+        "government_terminology": [
+          "record of rights"
+        ],
+        "document_title_detected": true,
+        "emblem_region_detected": false,
+        "seal_detected": false,
+        "signature_detected": false,
+        "footer_legal_text_detected": false,
+        "evidence_score": 0.2857,
+        "matched_signals": [
+          "header",
+          "title"
+        ]
+      },
+      "input_path": "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000058.png"
+    }
+  ],
+  "full_text": "Ps Record of Rights (RoR)\ni and and | ond Ketorme Depertaernt\nwares Nate we\nbe Mw 5 Kenting =j\nNe ln % .\nBe) tase a\n4 me ‘\n7 Nanare of Land (ges\n2 Neto Reet Ye Rammed Chaat s Sade\nPater’ /thchan» Name : Late Margate Saha eaves\nFF ec — 5s vice eee\no'er ot bao epee\n; Reereenes 12-06-2018 set ae 4\ncat gee 2 ogee |",
+  "next_phase": "PHASE_07_SEMANTIC_FIELD_EXTRACTION",
+  "timestamps": {
+    "started_at": "2026-09-29T23:19:33.192661"
+  },
+  "processing_time_seconds": 0.0,
+  "metrics": {
+    "mean_confidence": 0.3264,
+    "median_confidence": 0.325,
+    "low_confidence_word_count": 63,
+    "low_confidence_percentage": 87.5,
+    "total_words": 72,
+    "total_characters": 312,
+    "pages_processed": 1,
+    "pages_failed": 0
+  }
+}

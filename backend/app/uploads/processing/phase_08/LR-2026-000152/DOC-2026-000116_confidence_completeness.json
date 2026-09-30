@@ -1,0 +1,588 @@
+{
+  "phase": "CONFIDENCE_COMPLETENESS",
+  "status": "REMEDIATION_REQUIRED",
+  "record_id": "LR-2026-000152",
+  "document_id": "DOC-2026-000116",
+  "ingestion_id": "ING-2026-000064",
+  "document_type": "RECORD_OF_RIGHTS",
+  "confidence": {
+    "overall": 0.8941,
+    "band": "HIGH"
+  },
+  "completeness": {
+    "score": 0.1065,
+    "band": "LOW",
+    "applicable_fields": 25,
+    "present_fields": 2,
+    "missing_fields": 22,
+    "unreadable_fields": 1,
+    "not_applicable_fields": 3,
+    "critical_missing": [
+      "owner.recorded_tenant",
+      "land.plot_number",
+      "land.khata_number",
+      "land.area",
+      "land.area_unit",
+      "location.mouza",
+      "document.department",
+      "document.document_date"
+    ],
+    "important_missing": [
+      "land.nature_of_land",
+      "location.district",
+      "location.block"
+    ]
+  },
+  "fields": {
+    "owner.name": {
+      "field_name": "owner.name",
+      "value_status": "REQUIRED_BUT_UNREADABLE",
+      "confidence": 0.3,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "owner.father_husband_name": {
+      "field_name": "owner.father_husband_name",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.8874,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.843,
+        "ocr": 0.8599,
+        "evidence": 0.9,
+        "structural": 0.85,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Late Margate Saha Eaves",
+      "raw_value": "Late Margate Saha eaves",
+      "method": "LABEL_VALUE_SAME_LINE",
+      "source_page": 1,
+      "source_label": "Father Name"
+    },
+    "owner.recorded_tenant": {
+      "field_name": "owner.recorded_tenant",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "owner.co_owner": {
+      "field_name": "owner.co_owner",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.survey_number": {
+      "field_name": "land.survey_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.khasra_number": {
+      "field_name": "land.khasra_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.plot_number": {
+      "field_name": "land.plot_number",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.khata_number": {
+      "field_name": "land.khata_number",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.area": {
+      "field_name": "land.area",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.area_unit": {
+      "field_name": "land.area_unit",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.nature_of_land": {
+      "field_name": "land.nature_of_land",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "land.land_type": {
+      "field_name": "land.land_type",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.state": {
+      "field_name": "location.state",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.district": {
+      "field_name": "location.district",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.block": {
+      "field_name": "location.block",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.tehsil": {
+      "field_name": "location.tehsil",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "IMPORTANT",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.mouza": {
+      "field_name": "location.mouza",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "location.village": {
+      "field_name": "location.village",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.document_title": {
+      "field_name": "document.document_title",
+      "value_status": "REQUIRED_AND_PRESENT",
+      "confidence": 0.9007,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.81,
+        "ocr": 0.8262,
+        "evidence": 0.95,
+        "structural": 1.0,
+        "validation": 1.0,
+        "agreement": 1.0
+      },
+      "in_conflict": false,
+      "value": "Record of Rights (RoR)",
+      "raw_value": "Record of Rights (RoR)",
+      "method": "DETERMINISTIC",
+      "source_page": 1,
+      "source_label": "Record of Rights"
+    },
+    "document.department": {
+      "field_name": "document.department",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.document_date": {
+      "field_name": "document.document_date",
+      "value_status": "REQUIRED_BUT_MISSING",
+      "confidence": 0.0,
+      "priority": "CRITICAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "document.map_number": {
+      "field_name": "document.map_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "mutation.mutation_number": {
+      "field_name": "mutation.mutation_number",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "mutation.mutation_date": {
+      "field_name": "mutation.mutation_date",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.document_number": {
+      "field_name": "registration.document_number",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.registration_date": {
+      "field_name": "registration.registration_date",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "registration.issue_date": {
+      "field_name": "registration.issue_date",
+      "value_status": "NOT_APPLICABLE",
+      "confidence": 1.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    },
+    "additional.remarks": {
+      "field_name": "additional.remarks",
+      "value_status": "OPTIONAL_AND_MISSING",
+      "confidence": 0.0,
+      "priority": "OPTIONAL",
+      "confidence_factors": {
+        "semantic": 0.0,
+        "ocr": 0.0,
+        "evidence": 0.0,
+        "structural": 0.0,
+        "validation": 0.0,
+        "agreement": 0.0
+      },
+      "in_conflict": false
+    }
+  },
+  "missing_fields": [
+    "owner.recorded_tenant",
+    "owner.co_owner",
+    "land.survey_number",
+    "land.khasra_number",
+    "land.plot_number",
+    "land.khata_number",
+    "land.area",
+    "land.area_unit",
+    "land.nature_of_land",
+    "land.land_type",
+    "location.state",
+    "location.district",
+    "location.block",
+    "location.tehsil",
+    "location.mouza",
+    "location.village",
+    "document.department",
+    "document.document_date",
+    "document.map_number",
+    "mutation.mutation_number",
+    "mutation.mutation_date",
+    "additional.remarks"
+  ],
+  "unreadable_fields": [
+    "owner.name"
+  ],
+  "conflicting_fields": [],
+  "critical_issues": [
+    "Critical field 'owner.recorded_tenant' missing",
+    "Critical field 'land.plot_number' missing",
+    "Critical field 'land.khata_number' missing",
+    "Critical field 'land.area' missing",
+    "Critical field 'land.area_unit' missing",
+    "Critical field 'location.mouza' missing",
+    "Critical field 'document.department' missing",
+    "Critical field 'document.document_date' missing"
+  ],
+  "needs_review": true,
+  "next_phase": "PHASE_12_CORRECTION_REVALIDATION",
+  "models": {
+    "indicbart": "DISABLED",
+    "mistral": "UNAVAILABLE",
+    "ollama": "UNAVAILABLE"
+  },
+  "timestamps": {
+    "started_at": "2026-09-29T23:20:19.256182",
+    "completed_at": "2026-09-29T17:50:19.710317+00:00"
+  },
+  "processing_time_seconds": 0.0202,
+  "remediation": {
+    "required": true,
+    "reasons": [
+      {
+        "field": "owner.name",
+        "reason": "UNREADABLE_FIELD",
+        "message": "Label for 'owner.name' found in document but value could not be read."
+      },
+      {
+        "field": "owner.recorded_tenant",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'owner.recorded_tenant' has no extracted value."
+      },
+      {
+        "field": "land.plot_number",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'land.plot_number' has no extracted value."
+      },
+      {
+        "field": "land.khata_number",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'land.khata_number' has no extracted value."
+      },
+      {
+        "field": "land.area",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'land.area' has no extracted value."
+      },
+      {
+        "field": "land.area_unit",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'land.area_unit' has no extracted value."
+      },
+      {
+        "field": "land.nature_of_land",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'land.nature_of_land' has no extracted value."
+      },
+      {
+        "field": "location.state",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'location.state' has no extracted value."
+      },
+      {
+        "field": "location.district",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'location.district' has no extracted value."
+      },
+      {
+        "field": "location.block",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'location.block' has no extracted value."
+      },
+      {
+        "field": "location.mouza",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'location.mouza' has no extracted value."
+      },
+      {
+        "field": "document.department",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'document.department' has no extracted value."
+      },
+      {
+        "field": "document.document_date",
+        "reason": "MISSING_FIELD",
+        "message": "Required field 'document.document_date' has no extracted value."
+      }
+    ]
+  }
+}

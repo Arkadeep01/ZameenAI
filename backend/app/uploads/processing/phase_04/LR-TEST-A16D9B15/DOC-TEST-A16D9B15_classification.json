@@ -1,0 +1,19 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-A16D9B15",
+  "document_id": "DOC-TEST-A16D9B15",
+  "ingestion_id": "ING-TEST-A16D9B15",
+  "predicted_document_type": "RECORD_OF_RIGHTS",
+  "confidence": 0.7375,
+  "classification_status": "REVIEW_REQUIRED",
+  "evidence": [
+    "RECORD OF RIGHTS"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T03:20:37.377850",
+    "completed_at": "2026-09-30T03:20:37.378287"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

@@ -1,0 +1,19 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-E19E501F",
+  "document_id": "DOC-TEST-E19E501F",
+  "ingestion_id": "ING-TEST-E19E501F",
+  "predicted_document_type": "RECORD_OF_RIGHTS",
+  "confidence": 0.7375,
+  "classification_status": "REVIEW_REQUIRED",
+  "evidence": [
+    "RECORD OF RIGHTS"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T02:59:20.452232",
+    "completed_at": "2026-09-30T02:59:20.452647"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

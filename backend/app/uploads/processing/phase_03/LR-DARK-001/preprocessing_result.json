@@ -166,8 +166,8 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T05:48:35.869410",
-    "completed_at": "2026-09-29T05:48:36.043034"
+    "started_at": "2026-09-30T03:41:49.405742",
+    "completed_at": "2026-09-30T03:41:49.584028"
   },
   "source_checksum": "0e78e1e00e1b64efefcadff280b26c47573f6b85aa1a36b6d7773abfbc2088f9",
   "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DARK-001"

@@ -10,8 +10,10 @@ from __future__ import annotations
 
 from typing import Any, Dict, List, Optional
 
-from fastapi import APIRouter, File, Form, UploadFile
+from fastapi import APIRouter, Depends, File, Form, Request, UploadFile
 from fastapi.responses import JSONResponse
+
+from app.core.deps import get_current_user
 
 from app.ocr.anomaly.stage import get_anomaly_duplicate_stage_service
 from app.ocr.classification.service import DocumentClassificationService
@@ -61,7 +63,51 @@ from .schemas import (
     RetryRequest,
 )
 
-router = APIRouter(prefix="/digitization", tags=["digitization"])
+router = APIRouter(prefix="/digitization", tags=["digitization"],
+                     dependencies=[Depends(get_current_user)])
+
+
+def _need(user: dict, *permissions: str, request: Request | None = None) -> None:
+    """Canonical permission gate (any-of allow-list)."""
+    from app.core.permissions import has_permission, is_known_permission
+    from fastapi import HTTPException
+
+    for p in permissions:
+        if not is_known_permission(p):
+            raise HTTPException(status_code=500, detail={
+                "code": "UNKNOWN_PERMISSION", "message": f"Unknown permission: {p}",
+                "request_id": getattr(getattr(request, "state", None),
+                                      "request_id", None)})
+    if not any(has_permission(user.get("role", ""), p) for p in permissions):
+        raise HTTPException(status_code=403, detail={
+            "code": "PERMISSION_DENIED",
+            "message": f"Missing one of permissions: {', '.join(permissions)}",
+            "request_id": getattr(getattr(request, "state", None),
+                                  "request_id", None)})
+
+
+def _audit(request: Request | None, user: dict, action: str,
+           entity_type: str = "", entity_id: str = "",
+           new_state: str = "", meta: dict | None = None) -> None:
+    try:
+        from app.database.session import _SessionFactory
+        from app.services.audit_notification_service import AuditService
+
+        db = _SessionFactory()
+        try:
+            AuditService(db).log(
+                actor_id=user.get("id"), actor_role=user.get("role"), action=action,
+                entity_type=entity_type or None, entity_id=entity_id or None,
+                new_state=new_state or None,
+                request_id=getattr(getattr(request, "state", None), "request_id", None),
+                ip_address=request.client.host if request and request.client else None,
+                meta=meta or {})
+        finally:
+            db.close()
+    except Exception as exc:
+        from app.services.audit_notification_service import report_audit_failure
+
+        report_audit_failure(action, entity_type or "unknown", entity_id or "unknown", exc)
 
 
 def _missing(*values: Any) -> bool:
@@ -74,7 +120,9 @@ def _missing(*values: Any) -> bool:
 
 
 @router.post("/ingest")
-def ingest_document(file: UploadFile = File(...)) -> JSONResponse:
+def ingest_document(request: Request, file: UploadFile = File(...),
+                    user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DOCUMENT.UPLOAD", request=request)
     try:
         content = file.file.read()
     except Exception:
@@ -83,12 +131,17 @@ def ingest_document(file: UploadFile = File(...)) -> JSONResponse:
                              "message": "Could not read the uploaded file.",
                              "details": {"filename": file.filename}}, status_code=400)
     result = get_ingestion_service().ingest(content, file.filename or "document")
-    return JSONResponse(result.to_dict(),
+    body = result.to_dict()
+    _audit(request, user, "DOCUMENT_UPLOADED", "document",
+           str(body.get("document_id", "")), meta={"record_id": body.get("record_id")})
+    return JSONResponse(body,
                         status_code=200 if result.status == IngestionStatus.SUCCESS else 400)
 
 
 @router.post("/ingest/demo")
-def ingest_demo(payload: IngestDemoRequest) -> JSONResponse:
+def ingest_demo(payload: IngestDemoRequest, request: Request,
+                user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DOCUMENT.UPLOAD", request=request)
     from app.ocr.api.ingest_quality import DEMO_SAMPLES, _demo_sample_path
     sample = (payload.sample or "clear").strip().lower()
     if sample not in DEMO_SAMPLES:
@@ -117,7 +170,9 @@ def ingest_demo(payload: IngestDemoRequest) -> JSONResponse:
 
 
 @router.post("/quality-check")
-def quality_check(payload: QualityRequest) -> JSONResponse:
+def quality_check(payload: QualityRequest, request: Request,
+                  user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.PROCESS", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "DOCUMENT_QUALITY_COMPLETENESS_CHECK",
                              "status": "FAILED", "error_code": "MISSING_PARAMETERS",
@@ -130,7 +185,9 @@ def quality_check(payload: QualityRequest) -> JSONResponse:
 
 
 @router.post("/preprocess")
-def preprocess_document(payload: PreprocessRequest) -> JSONResponse:
+def preprocess_document(payload: PreprocessRequest, request: Request,
+                        user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.PROCESS", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "AI_DOCUMENT_PREPROCESSING", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -144,7 +201,9 @@ def preprocess_document(payload: PreprocessRequest) -> JSONResponse:
 
 
 @router.post("/classify")
-def classify_document(payload: ClassifyRequest) -> JSONResponse:
+def classify_document(payload: ClassifyRequest, request: Request,
+                      user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.PROCESS", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "DOCUMENT_CLASSIFICATION", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -163,7 +222,9 @@ def classify_document(payload: ClassifyRequest) -> JSONResponse:
 
 
 @router.get("/language-capabilities")
-def language_capabilities() -> JSONResponse:
+def language_capabilities(request: Request,
+                          user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.READ", "DIGITIZATION.READ", request=request)
     try:
         installed = probe_tesseract_installed()
         matrix = build_capability_matrix(tesseract_installed=installed, ollama_models=[])
@@ -177,7 +238,9 @@ def language_capabilities() -> JSONResponse:
 
 
 @router.post("/language-detection")
-def language_detection(payload: LanguageDetectionRequest) -> JSONResponse:
+def language_detection(payload: LanguageDetectionRequest, request: Request,
+                       user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.PROCESS", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id):
         return JSONResponse({"phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
                              "status": "FAILED", "error_code": "MISSING_PARAMETERS",
@@ -200,7 +263,9 @@ def language_detection(payload: LanguageDetectionRequest) -> JSONResponse:
 
 
 @router.post("/ocr-config")
-def ocr_config(payload: OcrConfigRequest) -> JSONResponse:
+def ocr_config(payload: OcrConfigRequest, request: Request,
+               user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.PROCESS", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "OCR_CONFIGURATION", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -219,7 +284,11 @@ def ocr_config(payload: OcrConfigRequest) -> JSONResponse:
 
 
 @router.post("/ocr")
-def perform_ocr(payload: OcrRequest) -> JSONResponse:
+def perform_ocr(payload: OcrRequest, request: Request,
+                user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.PROCESS", "DIGITIZATION.RUN", request=request)
+    _audit(request, user, "OCR_PROCESSED", "document",
+           str(payload.document_id or ""), meta={"record_id": payload.record_id})
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "OCR", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -247,7 +316,9 @@ def perform_ocr(payload: OcrRequest) -> JSONResponse:
 
 
 @router.post("/extract")
-def extract_fields(payload: ExtractRequest) -> JSONResponse:
+def extract_fields(payload: ExtractRequest, request: Request,
+                   user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "EXTRACTION.UPDATE", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "SEMANTIC_FIELD_EXTRACTION", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -261,7 +332,9 @@ def extract_fields(payload: ExtractRequest) -> JSONResponse:
 
 
 @router.post("/confidence-completeness")
-def confidence_completeness(payload: ConfidenceRequest) -> JSONResponse:
+def confidence_completeness(payload: ConfidenceRequest, request: Request,
+                            user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.VALIDATE", "DIGITIZATION.RUN", "DIGITIZATION.READ", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "CONFIDENCE_COMPLETENESS", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -276,7 +349,9 @@ def confidence_completeness(payload: ConfidenceRequest) -> JSONResponse:
 
 
 @router.post("/automated-validation")
-def automated_validation(payload: AutomatedValidationRequest) -> JSONResponse:
+def automated_validation(payload: AutomatedValidationRequest, request: Request,
+                         user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "LAND_RECORD.VALIDATE", "OCR.VALIDATE", "DIGITIZATION.RUN", request=request)
     if _missing(payload.record_id, payload.document_id, payload.ingestion_id):
         return JSONResponse({"phase": "AUTOMATED_VALIDATION", "status": "FAILED",
                              "error_code": "MISSING_PARAMETERS",
@@ -291,7 +366,9 @@ def automated_validation(payload: AutomatedValidationRequest) -> JSONResponse:
 
 
 @router.get("/validation/{validation_run_id}")
-def get_validation_run(validation_run_id: str) -> JSONResponse:
+def get_validation_run(validation_run_id: str, request: Request,
+                       user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", "OCR.READ", request=request)
     result = get_automated_validation_service().get_validation_run(validation_run_id)
     if result is None:
         return JSONResponse({"phase": "AUTOMATED_VALIDATION", "status": "FAILED",
@@ -302,14 +379,20 @@ def get_validation_run(validation_run_id: str) -> JSONResponse:
 
 
 @router.get("/records/{record_id}/validations")
-def get_record_validations(record_id: str) -> JSONResponse:
+def get_record_validations(record_id: str, request: Request,
+                           user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", "OCR.READ", request=request)
+    from app.core.scopes import ScopeService
+    ScopeService.check(user, record_id=record_id, request=request)
     return JSONResponse(
         get_automated_validation_service().get_record_validations(record_id),
         status_code=200)
 
 
 @router.post("/anomaly-duplicate")
-def anomaly_duplicate_stage(payload: AnomalyDuplicateRequest) -> JSONResponse:
+def anomaly_duplicate_stage(payload: AnomalyDuplicateRequest, request: Request,
+                            user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "OCR.VALIDATE", "DIGITIZATION.RUN", request=request)
     service = get_anomaly_duplicate_stage_service()
     if payload.validation_run_id:
         result = service.create_from_validation_run(payload.validation_run_id)
@@ -325,7 +408,9 @@ def anomaly_duplicate_stage(payload: AnomalyDuplicateRequest) -> JSONResponse:
 
 
 @router.get("/anomaly-duplicate/{stage_id}")
-def get_anomaly_duplicate_stage(stage_id: str) -> JSONResponse:
+def get_anomaly_duplicate_stage(stage_id: str, request: Request,
+                                user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", "OCR.READ", request=request)
     result = get_anomaly_duplicate_stage_service().get_stage(stage_id)
     if result is None:
         return JSONResponse({"phase": "ANOMALY_DUPLICATE_DETECTION", "status": "FAILED",
@@ -336,7 +421,9 @@ def get_anomaly_duplicate_stage(stage_id: str) -> JSONResponse:
 
 
 @router.post("/hitl-1/open")
-def hitl1_open(payload: OpenHitlRequest) -> JSONResponse:
+def hitl1_open(payload: OpenHitlRequest, request: Request,
+               user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "HITL.REVIEW", "LAND_RECORD.VALIDATE", request=request)
     session = get_hitl1_service().open_session(
         validation_run_id=payload.validation_run_id or "",
         reviewer=payload.reviewer or "")
@@ -351,7 +438,9 @@ def hitl1_open(payload: OpenHitlRequest) -> JSONResponse:
 
 
 @router.get("/hitl-1/{hitl1_id}")
-def hitl1_get(hitl1_id: str) -> JSONResponse:
+def hitl1_get(hitl1_id: str, request: Request,
+              user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "HITL.REVIEW", "DIGITIZATION.READ", request=request)
     result = get_hitl1_service().get_session(hitl1_id)
     if result is None:
         return JSONResponse({"phase": "HITL_1_VERIFICATION", "status": "FAILED",
@@ -362,7 +451,16 @@ def hitl1_get(hitl1_id: str) -> JSONResponse:
 
 
 @router.post("/hitl-1/{hitl1_id}/review-field")
-def hitl1_review_field(hitl1_id: str, payload: HitlReviewRequest) -> JSONResponse:
+def hitl1_review_field(hitl1_id: str, payload: HitlReviewRequest, request: Request,
+                       user: dict = Depends(get_current_user)) -> JSONResponse:
+    # Field-level review is part of the HITL decision flow: same guard as the
+    # canonical decision endpoint so the open path cannot bypass authorization.
+    _need(user, "HITL.REVIEW", request=request)
+    from app.workflow.authorization import WorkflowAuthorizationService
+    # review-field moves session toward UNDER_REVIEW decisions; authorize the
+    # implied field-review step for this role before touching file truth.
+    WorkflowAuthorizationService.authorize(source="READY_FOR_HITL", target="UNDER_REVIEW",
+                                           role=user.get("role", ""), request=request)
     session = get_hitl1_service().review_field(
         hitl1_id=hitl1_id, field=payload.field or "", action=payload.action or "",
         value=payload.value, note=payload.note or "", reviewer=payload.reviewer or "")
@@ -377,18 +475,36 @@ def hitl1_review_field(hitl1_id: str, payload: HitlReviewRequest) -> JSONRespons
 
 
 @router.post("/hitl-1/{hitl1_id}/submit")
-def hitl1_submit(hitl1_id: str, payload: HitlSubmitRequest) -> JSONResponse:
-    session = get_hitl1_service().submit(
-        hitl1_id=hitl1_id, decision=payload.decision or "",
-        reviewer=payload.reviewer or "", notes=payload.notes or "")
-    body = session.to_dict()
-    if session.error_code:
-        code = 404 if session.error_code == "SESSION_NOT_FOUND" else 400
-        return JSONResponse({"phase": "HITL_1_VERIFICATION", "status": "FAILED",
-                             "error_code": body.get("error_code"),
-                             "error_message": body.get("error_message")},
-                            status_code=code)
-    return JSONResponse(body, status_code=200)
+def hitl1_submit(hitl1_id: str, payload: HitlSubmitRequest, request: Request,
+                 user: dict = Depends(get_current_user)) -> JSONResponse:
+    # CLOSED BYPASS: route every HITL verdict through the canonical
+    # WorkflowService (permission + scope + state + role + audit). Direct
+    # file-truth mutation without authorization is no longer possible here.
+    _need(user, "HITL.REVIEW", request=request)
+    from app.database.session import _SessionFactory
+    from app.services.workflow_service import WorkflowService
+
+    db = _SessionFactory()
+    try:
+        svc = WorkflowService(db)
+        result = svc.hitl_decision(
+            hitl_id=hitl1_id, decision=payload.decision or "",
+            reviewer=user.get("username", ""), notes=payload.notes or "",
+            actor_role=user.get("role", ""), request_id=getattr(
+                getattr(request, "state", None), "request_id", None),
+            ip_address=request.client.host if request.client else None)
+    finally:
+        db.close()
+    if result.get("status") == "SUCCESS":
+        return JSONResponse({"phase": "HITL_1_VERIFICATION", "status": "SUCCESS",
+                             "hitl": result.get("hitl")}, status_code=200)
+    code = 404 if result.get("error_code") == "SESSION_NOT_FOUND" else 400
+    if result.get("error_code") == "INVALID_TRANSITION":
+        code = 422
+    return JSONResponse({"phase": "HITL_1_VERIFICATION", "status": "FAILED",
+                         "error_code": result.get("error_code"),
+                         "error_message": result.get("message")},
+                        status_code=code)
 
 
 # ---------------------------------------------------------------------------
@@ -397,7 +513,9 @@ def hitl1_submit(hitl1_id: str, payload: HitlSubmitRequest) -> JSONResponse:
 
 
 @router.post("/remediation")
-def create_remediation(payload: RemediationRequest) -> JSONResponse:
+def create_remediation(payload: RemediationRequest, request: Request,
+                       user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "WORKFLOW.RETURN", "LAND_RECORD.VALIDATE", request=request)
     if _missing(payload.record_id, payload.document_id):
         return JSONResponse({"phase": "UPLOADER_REMEDIATION", "status": "FAILED",
                              "error_code": RemediationErrorCode.MISSING_PARAMETERS.value,
@@ -414,16 +532,24 @@ def create_remediation(payload: RemediationRequest) -> JSONResponse:
 
 
 @router.get("/remediation/{record_id}")
-def get_remediation_by_record(record_id: str) -> JSONResponse:
+def get_remediation_by_record(record_id: str, request: Request,
+                              user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", request=request)
+    from app.core.scopes import ScopeService
+    ScopeService.check(user, record_id=record_id, request=request)
     return JSONResponse(
         get_uploader_remediation_service().get_remediation_by_record(record_id),
         status_code=200)
 
 
 @router.post("/remediation/{remediation_id}/submit")
-def submit_remediation(remediation_id: str, record_id: str = Form(""),
+def submit_remediation(remediation_id: str, request: Request, record_id: str = Form(""),
                        uploader: str = Form(""), resolution_notes: str = Form(""),
-                       files: List[UploadFile] = File([])) -> JSONResponse:
+                       files: List[UploadFile] = File([]),
+                       user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DOCUMENT.UPLOAD", request=request)
+    from app.core.scopes import ScopeService
+    ScopeService.check(user, record_id=record_id or None, request=request)
     if not record_id:
         return JSONResponse({"phase": "UPLOADER_REMEDIATION", "status": "FAILED",
                              "error_code": RemediationErrorCode.MISSING_PARAMETERS.value,
@@ -442,7 +568,16 @@ def submit_remediation(remediation_id: str, record_id: str = Form(""),
 
 
 @router.post("/resubmission")
-def create_resubmission(payload: ResubmissionRequest) -> JSONResponse:
+def create_resubmission(payload: ResubmissionRequest, request: Request,
+                        user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "FIELD_VERIFICATION.SUBMIT", "DOCUMENT.UPLOAD", "DIGITIZATION.RUN",
+          request=request)
+    from app.core.scopes import ScopeService
+    from app.workflow.authorization import WorkflowAuthorizationService
+    ScopeService.check(user, record_id=payload.record_id or None, request=request)
+    WorkflowAuthorizationService.authorize(source="CORRECTION_REQUIRED",
+                                           target="RESUBMITTED",
+                                           role=user.get("role", ""), request=request)
     if _missing(payload.record_id, payload.document_id, payload.remediation_id):
         return JSONResponse({"phase": "RESUBMISSION", "status": "FAILED",
                              "error_code": ResubmissionErrorCode.MISSING_PARAMETERS.value,
@@ -457,7 +592,9 @@ def create_resubmission(payload: ResubmissionRequest) -> JSONResponse:
 
 
 @router.get("/resubmission/{submission_id}")
-def get_resubmission(submission_id: str) -> JSONResponse:
+def get_resubmission(submission_id: str, request: Request,
+                     user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", request=request)
     result = get_resubmission_service().get_submission(submission_id)
     if result is None:
         return JSONResponse({"phase": "RESUBMISSION", "status": "FAILED",
@@ -468,13 +605,24 @@ def get_resubmission(submission_id: str) -> JSONResponse:
 
 
 @router.get("/records/{record_id}/submissions")
-def get_record_submissions(record_id: str) -> JSONResponse:
+def get_record_submissions(record_id: str, request: Request,
+                           user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", request=request)
+    from app.core.scopes import ScopeService
+    ScopeService.check(user, record_id=record_id, request=request)
     return JSONResponse(
         get_resubmission_service().get_record_submissions(record_id), status_code=200)
 
 
 @router.post("/reprocess")
-def reprocess_submission(payload: ReprocessRequest) -> JSONResponse:
+def reprocess_submission(payload: ReprocessRequest, request: Request,
+                         user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.RUN", "OCR.PROCESS", request=request)
+    from app.core.scopes import ScopeService
+    from app.workflow.authorization import WorkflowAuthorizationService
+    ScopeService.check(user, record_id=payload.record_id or None, request=request)
+    WorkflowAuthorizationService.authorize(source="RESUBMITTED", target="REPROCESSING",
+                                           role=user.get("role", ""), request=request)
     if _missing(payload.record_id, payload.submission_id):
         return JSONResponse({"phase": "REPROCESSING", "status": "FAILED",
                              "error_code": ReprocessingErrorCode.MISSING_PARAMETERS.value,
@@ -487,7 +635,9 @@ def reprocess_submission(payload: ReprocessRequest) -> JSONResponse:
 
 
 @router.get("/reprocess/{reprocessing_id}")
-def get_reprocessing(reprocessing_id: str) -> JSONResponse:
+def get_reprocessing(reprocessing_id: str, request: Request,
+                     user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", request=request)
     result = get_reprocessing_service().get_reprocessing(reprocessing_id)
     if result is None:
         return JSONResponse({"phase": "REPROCESSING", "status": "FAILED",
@@ -498,14 +648,20 @@ def get_reprocessing(reprocessing_id: str) -> JSONResponse:
 
 
 @router.get("/records/{record_id}/reprocessing-history")
-def get_record_reprocessing_history(record_id: str) -> JSONResponse:
+def get_record_reprocessing_history(record_id: str, request: Request,
+                                    user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.READ", request=request)
+    from app.core.scopes import ScopeService
+    ScopeService.check(user, record_id=record_id, request=request)
     return JSONResponse(
         get_reprocessing_service().get_record_reprocessing_history(record_id),
         status_code=200)
 
 
 @router.post("/reprocess/{reprocessing_id}/retry")
-def retry_reprocessing(reprocessing_id: str, payload: RetryRequest) -> JSONResponse:
+def retry_reprocessing(reprocessing_id: str, payload: RetryRequest, request: Request,
+                       user: dict = Depends(get_current_user)) -> JSONResponse:
+    _need(user, "DIGITIZATION.RUN", "OCR.PROCESS", request=request)
     result = get_reprocessing_service().retry(
         reprocessing_id=reprocessing_id, by=(payload.by if payload else None) or "SYSTEM")
     return JSONResponse(result, status_code=200 if result.get("status") != "FAILED" else 400)

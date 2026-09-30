@@ -12,6 +12,13 @@ from app.api.api_v1.api import api_router
 
 configure_logging()
 
+try:
+    from app.core.security import assert_secure_secret
+
+    assert_secure_secret()
+except RuntimeError:
+    raise
+
 app = FastAPI(
     title="ZameenAI",
     description=(
@@ -19,14 +26,18 @@ app = FastAPI(
         "Land Records Management System"
     ),
     version="1.0.0",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    openapi_url="/openapi.json",
 )
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.cors_origins,
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_credentials=False,
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "X-Request-ID"],
+    max_age=600,
 )
 
 # Mounted at /api so routes resolve as /api/upload, /api/gis/parcels, etc.,
@@ -41,6 +52,9 @@ async def _request_id(request: Request, call_next):
     request.state.request_id = str(uuid.uuid4())
     response = await call_next(request)
     response.headers["X-Request-ID"] = request.state.request_id
+    response.headers["X-Content-Type-Options"] = "nosniff"
+    response.headers["X-Frame-Options"] = "DENY"
+    response.headers["Referrer-Policy"] = "no-referrer"
     return response
 
 

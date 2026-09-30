@@ -1,0 +1,282 @@
+{
+  "phase": "ANOMALY_DUPLICATE_DETECTION",
+  "status": "SUCCESS",
+  "stage_id": "ADP-20260929-892936d2e6",
+  "record_id": "LR-2026-000150",
+  "document_id": "DOC-2026-000114",
+  "ingestion_id": "ING-2026-000062",
+  "validation_run_id": "VLD-20260929-dd6b75c1c7",
+  "source": "VALIDATION_RUN",
+  "anomalies": [
+    {
+      "category": "MUTATION_CONFLICT",
+      "severity": "WARNING",
+      "explanation": "A mutation is recorded but the owning party's name is not available; the mutation cannot be attributed.",
+      "field": "mutation.mutation_number",
+      "evidence": [
+        {
+          "mutation.mutation_number": "1023",
+          "owner.name": null
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000001 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000002 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000003 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000004 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000044 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000144 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000147 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "DUPLICATE_IDENTIFIER",
+      "severity": "WARNING",
+      "explanation": "Matched local record LR-2026-000148 (IDENTIFIER, confidence 0.70).",
+      "evidence": [
+        {
+          "identifier": "mutation.mutation_number",
+          "value": "1023",
+          "matched_value": "1023"
+        }
+      ]
+    },
+    {
+      "category": "CONFLICTING_OCR_CANDIDATES",
+      "severity": "WARNING",
+      "explanation": "The extracted value was chosen from competing OCR candidates of near-equal confidence.",
+      "field": "land.nature_of_land",
+      "evidence": [
+        {
+          "chosen_value": "AGRICULTURAL",
+          "chosen_confidence": 0.7238,
+          "conflict_alternatives": [
+            {
+              "field": "land.nature_of_land",
+              "value": "HOMESTEAD",
+              "confidence": 0.9593
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "duplicates": {
+    "status": "SUSPECTED",
+    "scope": "LOCAL_DATASET",
+    "matched_records": [
+      {
+        "matched_record_id": "LR-2026-000001",
+        "matched_document_id": "DOC-2026-000001",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000002",
+        "matched_document_id": "DOC-2026-000002",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000003",
+        "matched_document_id": "DOC-2026-000003",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000004",
+        "matched_document_id": "DOC-2026-000004",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000044",
+        "matched_document_id": "DOC-2026-000033",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000144",
+        "matched_document_id": "DOC-2026-000108",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000147",
+        "matched_document_id": "DOC-2026-000111",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      },
+      {
+        "matched_record_id": "LR-2026-000148",
+        "matched_document_id": "DOC-2026-000112",
+        "match_type": "IDENTIFIER",
+        "confidence": 0.7,
+        "scope": "LOCAL_DATASET",
+        "fuzzy": false,
+        "evidence": [
+          {
+            "identifier": "mutation.mutation_number",
+            "value": "1023",
+            "matched_value": "1023"
+          }
+        ]
+      }
+    ]
+  },
+  "summary": {
+    "anomaly_count": 10,
+    "anomaly_severities": {
+      "WARNING": 10
+    },
+    "duplicate_status": "SUSPECTED",
+    "duplicate_matches": 8,
+    "duplicate_scope": "LOCAL_DATASET"
+  },
+  "workflow_state": "NEEDS_REVIEW",
+  "next_phase": "PHASE_11_HITL_1",
+  "needs_review": true,
+  "timestamps": {
+    "started_at": "2026-09-29T17:50:06.765077+00:00",
+    "completed_at": "2026-09-29T17:50:06.789008+00:00"
+  },
+  "processing_time_seconds": 0.024
+}

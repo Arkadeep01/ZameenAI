@@ -1,0 +1,20 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-A1A778F7",
+  "document_id": "DOC-TEST-A1A778F7",
+  "ingestion_id": "ING-TEST-A1A778F7",
+  "predicted_document_type": "LAND_RECORD",
+  "confidence": 1.0,
+  "classification_status": "HIGH_CONFIDENCE",
+  "evidence": [
+    "LAND RECORD",
+    "LAND RECORD DOCUMENT"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T02:59:20.505807",
+    "completed_at": "2026-09-30T02:59:20.506214"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

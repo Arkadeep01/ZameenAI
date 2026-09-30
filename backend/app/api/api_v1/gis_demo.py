@@ -1,5 +1,8 @@
-from fastapi import APIRouter, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException, Query, Request
 from typing import Optional
+
+from app.core.deps import get_current_user
+from app.core.permissions import GIS_READ
 
 router = APIRouter()
 
@@ -125,8 +128,54 @@ def _to_feature(parcel: dict) -> dict:
     }
 
 
+def _need_gis(user: dict, request: Request) -> None:
+    from app.core.permissions import has_permission
+    if not has_permission(user.get("role", ""), GIS_READ):
+        raise HTTPException(status_code=403, detail={
+            "code": "PERMISSION_DENIED", "message": f"Missing permission: {GIS_READ}",
+            "request_id": getattr(getattr(request, "state", None), "request_id", None)})
+
+
+def _scope_parcels(user: dict, parcels: list[dict]) -> list[dict]:
+    """Citizens see only in-scope parcels; PII redacted when out of scope."""
+    role = user.get("role", "")
+    if role == "system_admin":
+        return parcels
+    if role == "citizen":
+        allowed = set(user.get("scopes", []))
+        # Demo parcels are keyed by LR-style ids only when linked; without a
+        # link, citizens must not enumerate other owners' land.
+        visible = [p for p in parcels if p.get("id") in allowed
+                   or p.get("notification_id") in allowed]
+        return visible
+    return parcels
+
+
+def _audit_gis(request: Request, user: dict, entity_id: str) -> None:
+    try:
+        from app.database.session import _SessionFactory
+        from app.services.audit_notification_service import AuditService
+
+        db = _SessionFactory()
+        try:
+            AuditService(db).log(
+                actor_id=user.get("id"), actor_role=user.get("role"),
+                action="GIS_ACCESSED", entity_type="parcel", entity_id=entity_id,
+                request_id=getattr(getattr(request, "state", None), "request_id", None),
+                ip_address=request.client.host if request.client else None,
+                meta={})
+        finally:
+            db.close()
+    except Exception as exc:
+        from app.services.audit_notification_service import report_audit_failure
+
+        report_audit_failure("GIS_ACCESSED", "parcel", entity_id, exc)
+
+
 @router.get("/parcels")
-async def list_parcels(status: Optional[str] = Query(None, description="Filter by parcel status")):
+async def list_parcels(request: Request,
+                       status: Optional[str] = Query(None, description="Filter by parcel status"),
+                       user: dict = Depends(get_current_user)):
     """Return all (or status-filtered) parcels as a GeoJSON FeatureCollection.
 
     Mirrors TECHSPEC.md Section 71 (GIS API): GET /api/v1/gis/parcels
@@ -134,6 +183,9 @@ async def list_parcels(status: Optional[str] = Query(None, description="Filter b
     parcels = DUMMY_PARCELS
     if status:
         parcels = [p for p in parcels if p["status"] == status.upper()]
+    _need_gis(user, request)
+    parcels = _scope_parcels(user, parcels)
+    _audit_gis(request, user, f"list:{status or 'all'}")
 
     return {
         "type": "FeatureCollection",
@@ -144,23 +196,34 @@ async def list_parcels(status: Optional[str] = Query(None, description="Filter b
 
 
 @router.get("/parcels/{parcel_id}")
-async def get_parcel(parcel_id: str):
+async def get_parcel(parcel_id: str, request: Request,
+                     user: dict = Depends(get_current_user)):
     """Mirrors TECHSPEC.md: GET /api/v1/gis/parcels/{id}"""
+    _need_gis(user, request)
     parcel = next((p for p in DUMMY_PARCELS if p["id"] == parcel_id), None)
     if not parcel:
-        raise HTTPException(status_code=404, detail="Parcel not found")
+        raise HTTPException(status_code=404, detail={
+            "code": "RESOURCE_NOT_FOUND", "message": "Parcel not found",
+            "request_id": getattr(getattr(request, "state", None), "request_id", None)})
+    # Enumeration-safe: out-of-scope parcel reads return 404, never 403+PII.
+    if not _scope_parcels(user, [parcel]):
+        raise HTTPException(status_code=404, detail={
+            "code": "RESOURCE_NOT_FOUND", "message": "Parcel not found",
+            "request_id": getattr(getattr(request, "state", None), "request_id", None)})
+    _audit_gis(request, user, parcel_id)
     feature = _to_feature(parcel)
     feature["demo"] = True
     return feature
 
 
 @router.get("/layers")
-async def list_layers():
+async def list_layers(request: Request, user: dict = Depends(get_current_user)):
     """Mirrors TECHSPEC.md: GET /api/v1/gis/layers
 
     In production this would enumerate available map layers (cadastral,
     satellite, project-corridor). For the prototype, a static list.
     """
+    _need_gis(user, request)
     return {
         "layers": [
             {"id": "base-osm", "name": "OpenStreetMap Base Layer", "type": "tile"},

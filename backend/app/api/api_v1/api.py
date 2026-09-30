@@ -9,6 +9,9 @@ from app.api.api_v1.jobs_routes import router as jobs_router
 from app.api.api_v1.workflow_routes import router as workflow_router
 from app.api.api_v1.gis_link_routes import router as gis_link_router
 from app.api.api_v1.system_routes import router as system_router
+from app.api.api_v1.acquisition_routes import router as acquisition_router
+from app.api.api_v1.admin_routes import router as admin_router
+from app.api.api_v1.records_routes import router as records_router
 
 api_router = APIRouter()
 
@@ -33,3 +36,10 @@ api_router.include_router(workflow_router)
 api_router.include_router(gis_link_router)
 # Health + provider availability (explicit, never mock).
 api_router.include_router(system_router)
+# Acquisition domain (projects/cases/compensation/R&R/notices/objections/
+# possession/freeze — permission + scope + workflow + audit gated).
+api_router.include_router(acquisition_router)
+# Platform administration (users/roles/permissions/config/audit — admin only).
+api_router.include_router(admin_router)
+# Canonical land-record + document access (LAND_RECORD.*/DOCUMENT.* gated).
+api_router.include_router(records_router)

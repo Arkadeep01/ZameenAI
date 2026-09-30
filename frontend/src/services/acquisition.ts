@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { apiClient } from "../api/client";
 
 /* ========================================================================== */
 /* TYPES                                                                      */
@@ -444,7 +444,7 @@ export function useCitizenAcquisitionCases() {
     queryKey: ["citizen", "acquisition-cases"],
     queryFn: async () => {
       try {
-        const response = await axios.get<AcquisitionCase[]>(
+        const response = await apiClient.get<AcquisitionCase[]>(
           "/api/citizen/acquisition-cases"
         );
         return Array.isArray(response.data) && response.data.length > 0
@@ -469,7 +469,7 @@ export function useCitizenAcquisitionCase(caseId?: string) {
         return MOCK_ACQUISITION_CASES[0];
       }
       try {
-        const response = await axios.get<AcquisitionCase>(
+        const response = await apiClient.get<AcquisitionCase>(
           `/api/citizen/acquisition-cases/${caseId}`
         );
         return response.data || MOCK_ACQUISITION_CASES[0];
