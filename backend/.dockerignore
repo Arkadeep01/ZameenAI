@@ -1,0 +1,15 @@
+# Keep the backend image lean and secret-free.
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.env
+.git/
+.gitignore
+tests/
+Dockerfile
+.dockerignore
