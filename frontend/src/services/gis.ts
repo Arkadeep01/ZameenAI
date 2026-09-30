@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { apiClient } from '../api/client'
 
 import type { Parcel, ParcelStatus } from '../types/gis'
 
@@ -28,14 +28,14 @@ export interface ParcelFeatureCollection {
 }
 
 export async function fetchParcels(status?: string): Promise<ParcelFeatureCollection> {
-  const { data } = await axios.get<ParcelFeatureCollection>('/api/gis/parcels', {
+  const { data } = await apiClient.get<ParcelFeatureCollection>('/api/gis/parcels', {
     params: status ? { status } : undefined,
   })
   return data
 }
 
 export async function fetchParcel(id: string): Promise<ParcelFeature> {
-  const { data } = await axios.get<ParcelFeature>(`/api/gis/parcels/${id}`)
+  const { data } = await apiClient.get<ParcelFeature>(`/api/gis/parcels/${id}`)
   return data
 }
 /* ========================================================================== */
@@ -104,7 +104,7 @@ export async function searchLandParcels(
     }
   }
 
-  const { data } = await axios.get<SearchParcelResponse>(SEARCH_ENDPOINT, {
+  const { data } = await apiClient.get<SearchParcelResponse>(SEARCH_ENDPOINT, {
     params: clean,
   })
 

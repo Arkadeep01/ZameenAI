@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { apiClient } from "../api/client";
 import { citizenInfo, gisParcels } from "../utils/gisMockData";
 import type { Parcel } from "../types/gis";
 
@@ -81,7 +81,7 @@ export function useCitizenProfile() {
     queryKey: ["citizen", "profile"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenProfile>("/api/citizen/profile");
+        const response = await apiClient.get<CitizenProfile>("/api/citizen/profile");
         return response.data;
       } catch {
         // Fallback to authenticated citizen metadata in utils
@@ -105,7 +105,7 @@ export function useCitizenLand() {
       let parcels: Parcel[] = [];
 
       try {
-        const response = await axios.get("/api/gis/parcels");
+        const response = await apiClient.get("/api/gis/parcels");
         if (response.data?.features && Array.isArray(response.data.features)) {
           // If backend returns national GeoJSON parcels, map them or merge with citizen's parcels
           parcels = gisParcels;
@@ -150,7 +150,7 @@ export function useCitizenApplications() {
     queryKey: ["citizen", "applications"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenApplication[]>(
+        const response = await apiClient.get<CitizenApplication[]>(
           "/api/citizen/applications",
         );
         return Array.isArray(response.data) ? response.data : [];
@@ -172,7 +172,7 @@ export function useCitizenNotifications() {
     queryKey: ["citizen", "notifications"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenNotification[]>(
+        const response = await apiClient.get<CitizenNotification[]>(
           "/api/citizen/notifications",
         );
         return Array.isArray(response.data) ? response.data : [];
@@ -222,7 +222,7 @@ export function useCitizenSchemes() {
     queryKey: ["citizen", "schemes"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenScheme[]>("/api/citizen/schemes");
+        const response = await apiClient.get<CitizenScheme[]>("/api/citizen/schemes");
         return Array.isArray(response.data) ? response.data : [];
       } catch {
         // Fallback to official central/state land schemes if backend endpoint not yet mounted
@@ -270,7 +270,7 @@ export function useCitizenPolicies() {
     queryKey: ["citizen", "policies"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenPolicy[]>("/api/citizen/policies");
+        const response = await apiClient.get<CitizenPolicy[]>("/api/citizen/policies");
         return Array.isArray(response.data) ? response.data : [];
       } catch {
         // Fallback to recent verified policy guidelines if endpoint not yet mounted
@@ -309,7 +309,7 @@ export function useCitizenActivity() {
     queryKey: ["citizen", "activity"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenActivityItem[]>(
+        const response = await apiClient.get<CitizenActivityItem[]>(
           "/api/citizen/activity",
         );
         return Array.isArray(response.data) ? response.data : [];

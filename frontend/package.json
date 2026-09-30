@@ -20,6 +20,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
+    "@tanstack/router-cli": "^1.167.39",
     "@tanstack/router-plugin": "^1.168.35",
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.5",

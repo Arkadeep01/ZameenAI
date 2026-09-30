@@ -1,4 +1,5 @@
 interface ImportMetaEnv {
+  readonly VITE_API_URL?: string;
   readonly VITE_DEMO_GOVERNMENT_EMAIL?: string;
   readonly VITE_DEMO_GOVERNMENT_PASSWORD?: string;
   readonly VITE_DEMO_CITIZEN_EMAIL?: string;

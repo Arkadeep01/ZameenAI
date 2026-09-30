@@ -76,7 +76,7 @@ interface FileUpload {
   confidence?: number;
 }
 
-interface ExtractedField {
+export interface ExtractedField {
   id: string;
   label: string;
   value: string;

@@ -1,7 +1,8 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { useMutation } from '@tanstack/react-query'
 import { useState, ChangeEvent, FormEvent } from 'react'
-import axios, { AxiosProgressEvent } from 'axios'
+import type { AxiosProgressEvent } from 'axios'
+import { apiClient } from '../api/client'
 
 export const Route = createFileRoute("/uploads")({
   component: FileUploadRoute,
@@ -19,7 +20,7 @@ const uploadFileAPI = async ({ file, onProgress }: UploadArgs) => {
   formData.append('file', file)
 
   // Replace '/api/upload' with your actual backend endpoint
-  const response = await axios.post('/api/upload', formData, {
+  const response = await apiClient.post('/api/upload', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
     },

@@ -1,7 +1,16 @@
 import axios, { AxiosError } from "axios";
 
-/** Shared axios instance for ZameenAI APIs (Vite proxies /api → :8000). */
+/** Shared axios instance for ZameenAI APIs.
+ *
+ * Production API origin comes from VITE_API_URL (e.g. the Render backend URL).
+ * When empty (local dev), paths stay relative ("/api/...") so the Vite dev
+ * proxy forwards them to http://localhost:8000. No secrets here — only the
+ * public backend origin.
+ */
+const API_ORIGIN = (import.meta.env.VITE_API_URL as string | undefined)?.replace(/\/$/, "") ?? "";
+
 export const apiClient = axios.create({
+  baseURL: API_ORIGIN || undefined,
   headers: { "Content-Type": "application/json" },
   timeout: 1000 * 60 * 10, // OCR/LLM phases can take minutes on real docs
 });
