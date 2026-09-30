@@ -1,0 +1,19 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-09378F65",
+  "document_id": "DOC-TEST-09378F65",
+  "ingestion_id": "ING-TEST-09378F65",
+  "predicted_document_type": "RECORD_OF_RIGHTS",
+  "confidence": 0.7375,
+  "classification_status": "REVIEW_REQUIRED",
+  "evidence": [
+    "RECORD OF RIGHTS"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:34:58.093034",
+    "completed_at": "2026-09-30T14:34:58.093114"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

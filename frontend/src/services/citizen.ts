@@ -70,28 +70,89 @@ export interface CitizenActivityItem {
 }
 
 /* -------------------------------------------------------------------------- */
+/* BACKEND WIRING                                                         */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * Served backend surface (see docs/backend_api_contract.md):
+ * - GET /api/auth/me → current user/role (Bearer JWT, optional)
+ * - GET /api/workflow/notifications/me → { notifications: [{id,type,title,message,read}] }
+ * - GET /api/gis/parcels → demo FeatureCollection
+ * There are NO /api/citizen/* routes — never call them (was proxy 404/ECONEFFUSED spam).
+ */
+function authHeaders(): Record<string, string> {
+  try {
+    const token =
+      localStorage.getItem("token") ?? localStorage.getItem("citizenToken");
+    return token ? { Authorization: `Bearer ${token}` } : {};
+  } catch {
+    return {};
+  }
+}
+
+const MOCK_NOTIFICATIONS: CitizenNotification[] = [
+  {
+    id: "notif-1",
+    title: "Gazette Notification Issued (NH-31)",
+    message:
+      "RFCTLARR Section 11 notice published for Khasra 342/2. Claims open until Oct 15.",
+    time: "2 hours ago",
+    unread: true,
+    type: "warning",
+  },
+  {
+    id: "notif-2",
+    title: "Cadastral Boundary Sync Complete",
+    message:
+      "Satellite boundary demarcation updated by Sadar Tehsil for Haripur village.",
+    time: "1 day ago",
+    unread: false,
+    type: "info",
+  },
+  {
+    id: "notif-3",
+    title: "Annual Lagaan Payment Receipt",
+    message: "₹105 payment receipt generated and logged for Khasra 342/1.",
+    time: "3 days ago",
+    unread: false,
+    type: "success",
+  },
+];
+
+/* -------------------------------------------------------------------------- */
 /* TANSTACK QUERY HOOKS                                                       */
 /* -------------------------------------------------------------------------- */
 
 /**
  * Hook to retrieve the authenticated Citizen's profile.
+ * Uses the real GET /api/auth/me when logged in, else local citizen metadata.
  */
 export function useCitizenProfile() {
   return useQuery<CitizenProfile>({
     queryKey: ["citizen", "profile"],
     queryFn: async () => {
+      const fallback = {
+        ...citizenInfo,
+        aadhaarLinked: true,
+      };
       try {
-        const response = await axios.get<CitizenProfile>("/api/citizen/profile");
-        return response.data;
-      } catch {
-        // Fallback to authenticated citizen metadata in utils
+        const headers = authHeaders();
+        if (!headers.Authorization) return fallback;
+        const response = await axios.get<{
+          username?: string;
+          role?: string;
+        }>("/api/auth/me", { headers });
+        const username = response.data?.username;
         return {
-          ...citizenInfo,
-          aadhaarLinked: true,
+          ...fallback,
+          ...(username ? { name: username } : {}),
         };
+      } catch {
+        return fallback;
       }
     },
     staleTime: 1000 * 60 * 5,
+    retry: false,
   });
 }
 
@@ -138,75 +199,61 @@ export function useCitizenLand() {
         totalArea,
       };
     },
+    retry: false,
     staleTime: 1000 * 60 * 5,
   });
 }
 
 /**
- * Hook to retrieve citizen applications from backend (fails gracefully to empty if API not present).
+ * Hook to retrieve citizen applications.
+ * No backend route serves this yet — return empty for clean empty-state
+ * handling WITHOUT an HTTP call (avoids proxy 404 spam).
  */
 export function useCitizenApplications() {
   return useQuery<CitizenApplication[]>({
     queryKey: ["citizen", "applications"],
-    queryFn: async () => {
-      try {
-        const response = await axios.get<CitizenApplication[]>(
-          "/api/citizen/applications",
-        );
-        return Array.isArray(response.data) ? response.data : [];
-      } catch {
-        // Backend endpoint does not exist yet; return empty array for clean empty-state handling
-        return [];
-      }
-    },
+    queryFn: async () => [],
     retry: false,
     staleTime: 1000 * 60 * 2,
   });
 }
 
 /**
- * Hook to retrieve citizen notifications from backend.
+ * Hook to retrieve citizen notifications.
+ * Uses real GET /api/workflow/notifications/me when logged in
+ * (shape: { notifications: [{id,type,title,message,read}] }),
+ * else falls back to recent cadastral updates. Never calls the
+ * non-existent /api/citizen/notifications.
  */
 export function useCitizenNotifications() {
   return useQuery<CitizenNotification[]>({
     queryKey: ["citizen", "notifications"],
     queryFn: async () => {
       try {
-        const response = await axios.get<CitizenNotification[]>(
-          "/api/citizen/notifications",
-        );
-        return Array.isArray(response.data) ? response.data : [];
+        const headers = authHeaders();
+        if (!headers.Authorization) return MOCK_NOTIFICATIONS;
+        const response = await axios.get<{
+          notifications?: Array<{
+            id: string | number;
+            type?: string;
+            title?: string;
+            message?: string;
+            read?: boolean;
+          }>;
+        }>("/api/workflow/notifications/me", { headers });
+        const items = response.data?.notifications;
+        if (!Array.isArray(items) || items.length === 0) return MOCK_NOTIFICATIONS;
+        return items.map((n) => ({
+          id: String(n.id),
+          title: n.title ?? "Notification",
+          message: n.message ?? "",
+          time: "",
+          unread: !n.read,
+          type:
+            n.type === "warning" || n.type === "success" ? n.type : ("info" as const),
+        }));
       } catch {
-        // Fallback to recent cadastral updates if backend endpoint is not yet mounted
-        return [
-          {
-            id: "notif-1",
-            title: "Gazette Notification Issued (NH-31)",
-            message:
-              "RFCTLARR Section 11 notice published for Khasra 342/2. Claims open until Oct 15.",
-            time: "2 hours ago",
-            unread: true,
-            type: "warning",
-          },
-          {
-            id: "notif-2",
-            title: "Cadastral Boundary Sync Complete",
-            message:
-              "Satellite boundary demarcation updated by Sadar Tehsil for Haripur village.",
-            time: "1 day ago",
-            unread: false,
-            type: "info",
-          },
-          {
-            id: "notif-3",
-            title: "Annual Lagaan Payment Receipt",
-            message:
-              "₹105 payment receipt generated and logged for Khasra 342/1.",
-            time: "3 days ago",
-            unread: false,
-            type: "success",
-          },
-        ];
+        return MOCK_NOTIFICATIONS;
       }
     },
     retry: false,
@@ -216,47 +263,41 @@ export function useCitizenNotifications() {
 
 /**
  * Hook to retrieve government schemes relevant to the citizen.
+ * No backend route serves this yet — serve official static list directly
+ * (no HTTP call, avoids proxy 404 spam).
  */
 export function useCitizenSchemes() {
   return useQuery<CitizenScheme[]>({
     queryKey: ["citizen", "schemes"],
-    queryFn: async () => {
-      try {
-        const response = await axios.get<CitizenScheme[]>("/api/citizen/schemes");
-        return Array.isArray(response.data) ? response.data : [];
-      } catch {
-        // Fallback to official central/state land schemes if backend endpoint not yet mounted
-        return [
-          {
-            id: "scheme-pmkisan",
-            name: "PM-Kisan Samman Nidhi",
-            description:
-              "Income support of ₹6,000 per year in three equal installments to all landholding farmers.",
-            eligibility: "Landholding farmer with cultivable land in RoR",
-            status: "Eligible / Registered",
-            category: "Financial Support",
-          },
-          {
-            id: "scheme-svamitva",
-            name: "SVAMITVA Scheme (Abadi Land)",
-            description:
-              "Drone-based cadastral survey of rural inhabited lands with property cards issuance.",
-            eligibility: "Rural residential / homestead land parcel owners",
-            status: "Survey Completed",
-            category: "Property Rights",
-          },
-          {
-            id: "scheme-rfctlarr",
-            name: "RFCTLARR Rehabilitation & Resettlement",
-            description:
-              "Comprehensive resettlement grant, annuity, and employment support for acquisition-affected families.",
-            eligibility: "Owners of land notified under NHAI / National corridors",
-            status: "Action Available",
-            category: "Compensation",
-          },
-        ];
-      }
-    },
+    queryFn: async () => [
+      {
+        id: "scheme-pmkisan",
+        name: "PM-Kisan Samman Nidhi",
+        description:
+          "Income support of ₹6,000 per year in three equal installments to all landholding farmers.",
+        eligibility: "Landholding farmer with cultivable land in RoR",
+        status: "Eligible / Registered",
+        category: "Financial Support",
+      },
+      {
+        id: "scheme-svamitva",
+        name: "SVAMITVA Scheme (Abadi Land)",
+        description:
+          "Drone-based cadastral survey of rural inhabited lands with property cards issuance.",
+        eligibility: "Rural residential / homestead land parcel owners",
+        status: "Survey Completed",
+        category: "Property Rights",
+      },
+      {
+        id: "scheme-rfctlarr",
+        name: "RFCTLARR Rehabilitation & Resettlement",
+        description:
+          "Comprehensive resettlement grant, annuity, and employment support for acquisition-affected families.",
+        eligibility: "Owners of land notified under NHAI / National corridors",
+        status: "Action Available",
+        category: "Compensation",
+      },
+    ],
     retry: false,
     staleTime: 1000 * 60 * 5,
   });
@@ -264,38 +305,31 @@ export function useCitizenSchemes() {
 
 /**
  * Hook to retrieve policy updates relevant to citizens.
+ * No backend route serves this yet — serve static guidelines directly.
  */
 export function useCitizenPolicies() {
   return useQuery<CitizenPolicy[]>({
     queryKey: ["citizen", "policies"],
-    queryFn: async () => {
-      try {
-        const response = await axios.get<CitizenPolicy[]>("/api/citizen/policies");
-        return Array.isArray(response.data) ? response.data : [];
-      } catch {
-        // Fallback to recent verified policy guidelines if endpoint not yet mounted
-        return [
-          {
-            id: "pol-1",
-            title: "Direct Benefit Transfer (PFMS) Mandate for Land Awards",
-            description:
-              "100% compensation awards must be directly disbursed into Aadhaar-seeded accounts within 30 days of award declaration.",
-            publishedDate: "15 Aug 2026",
-            status: "Active Guidelines",
-            category: "Acquisition",
-          },
-          {
-            id: "pol-2",
-            title: "Digital Cadastral Demarcation Standard Operating Procedure",
-            description:
-              "DGPS rover and drone surveyed maps officially accepted as legal evidence in civil revenue disputes.",
-            publishedDate: "28 Jul 2026",
-            status: "Implemented",
-            category: "Survey",
-          },
-        ];
-      }
-    },
+    queryFn: async () => [
+      {
+        id: "pol-1",
+        title: "Direct Benefit Transfer (PFMS) Mandate for Land Awards",
+        description:
+          "100% compensation awards must be directly disbursed into Aadhaar-seeded accounts within 30 days of award declaration.",
+        publishedDate: "15 Aug 2026",
+        status: "Active Guidelines",
+        category: "Acquisition",
+      },
+      {
+        id: "pol-2",
+        title: "Digital Cadastral Demarcation Standard Operating Procedure",
+        description:
+          "DGPS rover and drone surveyed maps officially accepted as legal evidence in civil revenue disputes.",
+        publishedDate: "28 Jul 2026",
+        status: "Implemented",
+        category: "Survey",
+      },
+    ],
     retry: false,
     staleTime: 1000 * 60 * 5,
   });
@@ -303,21 +337,12 @@ export function useCitizenPolicies() {
 
 /**
  * Hook to retrieve recent activity for the citizen.
+ * No backend route serves this yet — return empty WITHOUT an HTTP call.
  */
 export function useCitizenActivity() {
   return useQuery<CitizenActivityItem[]>({
     queryKey: ["citizen", "activity"],
-    queryFn: async () => {
-      try {
-        const response = await axios.get<CitizenActivityItem[]>(
-          "/api/citizen/activity",
-        );
-        return Array.isArray(response.data) ? response.data : [];
-      } catch {
-        // If no activity API exists, return empty array for clean empty state / graceful handling
-        return [];
-      }
-    },
+    queryFn: async () => [],
     retry: false,
     staleTime: 1000 * 60 * 2,
   });

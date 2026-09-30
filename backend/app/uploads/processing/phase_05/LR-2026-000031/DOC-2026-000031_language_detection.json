@@ -89,10 +89,10 @@
   ],
   "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:52.058530",
-    "completed_at": "2026-09-29T05:49:55.097374"
+    "started_at": "2026-09-30T14:38:59.721907",
+    "completed_at": "2026-09-30T14:39:01.271298"
   },
-  "processing_time_seconds": 3.0388,
+  "processing_time_seconds": 1.5494,
   "ingestion_id": "ING-2026-000031",
   "classification_confidence": 0.0
 }

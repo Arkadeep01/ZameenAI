@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-FF405F40",
+  "document_id": "DOC-TEST-FF405F40",
+  "ingestion_id": "ING-TEST-FF405F40",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:26:40.490418",
+    "completed_at": "2026-09-30T14:26:40.490463"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

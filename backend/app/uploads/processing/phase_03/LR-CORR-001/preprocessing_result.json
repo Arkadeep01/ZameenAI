@@ -120,9 +120,9 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T05:48:35.715509",
-    "completed_at": "2026-09-29T05:48:35.768451"
+    "started_at": "2026-09-30T14:38:25.654872",
+    "completed_at": "2026-09-30T14:38:25.657052"
   },
   "source_checksum": "e1f758202631fc504ba45119fea9742a614945f4ec4efa679f9713e84a20b700",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-CORR-001"
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-CORR-001"
 }

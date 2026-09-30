@@ -106,13 +106,13 @@
         "height": 3113
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-MIX-001\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-MIX-001\\before\\page_001.png",
-        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-MIX-001\\after\\page_001_upscaled.png",
-        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-MIX-001\\page_001_processed.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-MIX-001/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-MIX-001/before/page_001.png",
+        "evidence_after": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-MIX-001/after/page_001_upscaled.png",
+        "processed": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-MIX-001/page_001_processed.png"
       },
       "derivatives": {
-        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-MIX-001\\page_001_processed.png"
+        "upscaled": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-MIX-001/page_001_processed.png"
       },
       "selected_derivative": "upscaled",
       "improvement_score": -0.0068,
@@ -228,8 +228,8 @@
         "height": 1684
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-MIX-001\\page_002_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-MIX-001\\before\\page_002.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-MIX-001/page_002_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-MIX-001/before/page_002.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -324,9 +324,9 @@
   "regions_detected": [],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:14.892690",
-    "completed_at": "2026-09-29T05:49:28.052729"
+    "started_at": "2026-09-30T14:38:42.027896",
+    "completed_at": "2026-09-30T14:38:50.920842"
   },
-  "source_checksum": "2d7fa1059193fa9524bab4d9992fe9583c41c780e01da17a068edcb9c847edda",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-MIX-001"
+  "source_checksum": "4a131a14e727cda4668ea9a75a179ed960accd02d435f9ab9111985af3d6e323",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-MIX-001"
 }

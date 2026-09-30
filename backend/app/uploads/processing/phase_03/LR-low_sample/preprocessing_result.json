@@ -105,8 +105,8 @@
         "height": 354
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-low_sample\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-low_sample\\before\\page_001.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-low_sample/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-low_sample/before/page_001.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -162,9 +162,9 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T05:49:43.793328",
-    "completed_at": "2026-09-29T05:49:44.047058"
+    "started_at": "2026-09-30T14:38:58.112206",
+    "completed_at": "2026-09-30T14:38:58.145373"
   },
   "source_checksum": "8668245c71cd23077ca2ff4afc96daeb41a17a63b24b709a1f89309b02258aaf",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-low_sample"
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-low_sample"
 }

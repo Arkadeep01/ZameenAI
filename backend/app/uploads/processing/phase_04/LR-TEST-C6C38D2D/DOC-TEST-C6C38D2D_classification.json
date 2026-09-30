@@ -1,0 +1,31 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-C6C38D2D",
+  "document_id": "DOC-TEST-C6C38D2D",
+  "ingestion_id": "ING-TEST-C6C38D2D",
+  "predicted_document_type": "KHATIAN",
+  "confidence": 0.42,
+  "classification_status": "LOW_CONFIDENCE",
+  "evidence": [
+    "Title: KHATIAN",
+    "KHATIAN NO",
+    "PLOT NO"
+  ],
+  "alternative_predictions": [
+    {
+      "document_type": "RECORD_OF_RIGHTS",
+      "confidence": 0.21,
+      "evidence": [
+        "KHATIAN",
+        "KHATIAN NO",
+        "PLOT NO"
+      ]
+    }
+  ],
+  "timestamps": {
+    "started_at": "2026-09-30T14:38:59.241566",
+    "completed_at": "2026-09-30T14:38:59.241619"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

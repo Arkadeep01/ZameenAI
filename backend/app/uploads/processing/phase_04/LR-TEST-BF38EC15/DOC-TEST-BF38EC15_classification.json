@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-BF38EC15",
+  "document_id": "DOC-TEST-BF38EC15",
+  "ingestion_id": "ING-TEST-BF38EC15",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:25:34.428904",
+    "completed_at": "2026-09-30T14:25:34.429022"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

@@ -438,22 +438,14 @@ export const MOCK_ACQUISITION_CASES: AcquisitionCase[] = [
 
 /**
  * Hook to retrieve all acquisition cases for the authenticated citizen.
+ * No backend route serves this yet — serve mock cases directly
+ * (no HTTP call; /api/citizen/* does not exist).
  */
 export function useCitizenAcquisitionCases() {
   return useQuery<AcquisitionCase[]>({
     queryKey: ["citizen", "acquisition-cases"],
-    queryFn: async () => {
-      try {
-        const response = await axios.get<AcquisitionCase[]>(
-          "/api/citizen/acquisition-cases"
-        );
-        return Array.isArray(response.data) && response.data.length > 0
-          ? response.data
-          : MOCK_ACQUISITION_CASES;
-      } catch {
-        return MOCK_ACQUISITION_CASES;
-      }
-    },
+    queryFn: async () => MOCK_ACQUISITION_CASES,
+    retry: false,
     staleTime: 1000 * 60 * 5,
   });
 }
@@ -468,16 +460,10 @@ export function useCitizenAcquisitionCase(caseId?: string) {
       if (!caseId) {
         return MOCK_ACQUISITION_CASES[0];
       }
-      try {
-        const response = await axios.get<AcquisitionCase>(
-          `/api/citizen/acquisition-cases/${caseId}`
-        );
-        return response.data || MOCK_ACQUISITION_CASES[0];
-      } catch {
-        const found = MOCK_ACQUISITION_CASES.find((c) => c.id === caseId);
-        return found || MOCK_ACQUISITION_CASES[0];
-      }
+      const found = MOCK_ACQUISITION_CASES.find((c) => c.id === caseId);
+      return found || MOCK_ACQUISITION_CASES[0];
     },
+    retry: false,
     staleTime: 1000 * 60 * 5,
   });
 }

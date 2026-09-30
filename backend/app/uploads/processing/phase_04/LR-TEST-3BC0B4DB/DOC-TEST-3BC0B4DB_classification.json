@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-3BC0B4DB",
+  "document_id": "DOC-TEST-3BC0B4DB",
+  "ingestion_id": "ING-TEST-3BC0B4DB",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:38:59.255973",
+    "completed_at": "2026-09-30T14:38:59.256016"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

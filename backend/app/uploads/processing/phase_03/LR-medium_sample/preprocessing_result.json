@@ -163,7 +163,7 @@
             0,
             555,
             1117,
-            778
+            755
           ],
           "confidence": 0.7
         },
@@ -196,8 +196,8 @@
           "type": "TEXT_REGION",
           "page": 1,
           "bbox": [
-            0,
-            349,
+            24,
+            381,
             246,
             423
           ],
@@ -209,7 +209,7 @@
           "page": 1,
           "bbox": [
             256,
-            252,
+            247,
             717,
             294
           ],
@@ -282,7 +282,7 @@
           "bbox": [
             80,
             26,
-            180,
+            181,
             129
           ],
           "confidence": 0.7
@@ -338,18 +338,18 @@
         "contrast_normalized": 0.4353,
         "brightness_normalized": 0.8424,
         "skew_angle_degrees": 0.0,
-        "blur_score": 84.22,
+        "blur_score": 84.27,
         "width": 1117,
         "height": 887
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-medium_sample\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-medium_sample\\before\\page_001.png",
-        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-medium_sample\\after\\page_001_upscaled.png",
-        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-medium_sample\\page_001_processed.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-medium_sample/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-medium_sample/before/page_001.png",
+        "evidence_after": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-medium_sample/after/page_001_upscaled.png",
+        "processed": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-medium_sample/page_001_processed.png"
       },
       "derivatives": {
-        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-medium_sample\\page_001_processed.png"
+        "upscaled": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-medium_sample/page_001_processed.png"
       },
       "selected_derivative": "upscaled",
       "improvement_score": -0.0563,
@@ -368,13 +368,13 @@
           "name": "upscaled",
           "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
           "readability": {
-            "local_contrast": 0.2914,
-            "text_region_contrast": 0.1279,
-            "character_like_ratio": 0.4516,
-            "component_density": 0.9032,
+            "local_contrast": 0.2913,
+            "text_region_contrast": 0.1278,
+            "character_like_ratio": 0.4517,
+            "component_density": 0.9034,
             "stroke_width_quality": 0.2709,
             "noise_free_ratio": 0.9991,
-            "background_uniformity": 0.8971,
+            "background_uniformity": 0.8973,
             "structure_preservation": 1.0,
             "information_preservation": 1.0,
             "overall": 0.7049
@@ -511,7 +511,7 @@
         0,
         555,
         1117,
-        778
+        755
       ],
       "confidence": 0.7
     },
@@ -544,8 +544,8 @@
       "type": "TEXT_REGION",
       "page": 1,
       "bbox": [
-        0,
-        349,
+        24,
+        381,
         246,
         423
       ],
@@ -557,7 +557,7 @@
       "page": 1,
       "bbox": [
         256,
-        252,
+        247,
         717,
         294
       ],
@@ -630,7 +630,7 @@
       "bbox": [
         80,
         26,
-        180,
+        181,
         129
       ],
       "confidence": 0.7
@@ -674,9 +674,9 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:40.640187",
-    "completed_at": "2026-09-29T05:49:43.716898"
+    "started_at": "2026-09-30T14:38:57.012634",
+    "completed_at": "2026-09-30T14:38:58.097581"
   },
   "source_checksum": "b80ad9680f864b9ae30226c031293b688f5f80d44b20dbc165188bbcd7f23f68",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-medium_sample"
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-medium_sample"
 }

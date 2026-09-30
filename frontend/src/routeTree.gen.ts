@@ -10,9 +10,15 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ApproverRouteImport } from './routes/approver'
 import { Route as CitizenRouteImport } from './routes/citizen'
+import { Route as DeskValidatorRouteImport } from './routes/desk-validator'
+import { Route as ExecutiveRouteImport } from './routes/executive'
+import { Route as FieldOfficerRouteImport } from './routes/field-officer'
 import { Route as FindMyLandRouteImport } from './routes/find-my-land'
 import { Route as GisRouteImport } from './routes/gis'
+import { Route as PiaRouteImport } from './routes/pia'
 import { Route as UploadsRouteImport } from './routes/uploads'
 import { Route as CitizenIndexRouteImport } from './routes/citizen.index'
 import { Route as CitizenAcquisitionRouteImport } from './routes/citizen.acquisition'
@@ -45,9 +51,34 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApproverRoute = ApproverRouteImport.update({
+  id: '/approver',
+  path: '/approver',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CitizenRoute = CitizenRouteImport.update({
   id: '/citizen',
   path: '/citizen',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DeskValidatorRoute = DeskValidatorRouteImport.update({
+  id: '/desk-validator',
+  path: '/desk-validator',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExecutiveRoute = ExecutiveRouteImport.update({
+  id: '/executive',
+  path: '/executive',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FieldOfficerRoute = FieldOfficerRouteImport.update({
+  id: '/field-officer',
+  path: '/field-officer',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FindMyLandRoute = FindMyLandRouteImport.update({
@@ -58,6 +89,11 @@ const FindMyLandRoute = FindMyLandRouteImport.update({
 const GisRoute = GisRouteImport.update({
   id: '/gis',
   path: '/gis',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PiaRoute = PiaRouteImport.update({
+  id: '/pia',
+  path: '/pia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UploadsRoute = UploadsRouteImport.update({
@@ -195,9 +231,15 @@ const CitizenSupportRoute = CitizenSupportRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/approver': typeof ApproverRoute
   '/citizen': typeof CitizenRouteWithChildren
+  '/desk-validator': typeof DeskValidatorRoute
+  '/executive': typeof ExecutiveRoute
+  '/field-officer': typeof FieldOfficerRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
+  '/pia': typeof PiaRoute
   '/uploads': typeof UploadsRoute
   '/citizen/acquisition': typeof CitizenAcquisitionRoute
   '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
@@ -227,8 +269,14 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/approver': typeof ApproverRoute
+  '/desk-validator': typeof DeskValidatorRoute
+  '/executive': typeof ExecutiveRoute
+  '/field-officer': typeof FieldOfficerRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
+  '/pia': typeof PiaRoute
   '/uploads': typeof UploadsRoute
   '/citizen/acquisition': typeof CitizenAcquisitionRoute
   '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
@@ -259,9 +307,15 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/approver': typeof ApproverRoute
   '/citizen': typeof CitizenRouteWithChildren
+  '/desk-validator': typeof DeskValidatorRoute
+  '/executive': typeof ExecutiveRoute
+  '/field-officer': typeof FieldOfficerRoute
   '/find-my-land': typeof FindMyLandRoute
   '/gis': typeof GisRoute
+  '/pia': typeof PiaRoute
   '/uploads': typeof UploadsRoute
   '/citizen/acquisition': typeof CitizenAcquisitionRoute
   '/citizen/acquisition-status': typeof CitizenAcquisitionStatusRoute
@@ -293,9 +347,15 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/admin'
+    | '/approver'
     | '/citizen'
+    | '/desk-validator'
+    | '/executive'
+    | '/field-officer'
     | '/find-my-land'
     | '/gis'
+    | '/pia'
     | '/uploads'
     | '/citizen/acquisition'
     | '/citizen/acquisition-status'
@@ -325,8 +385,14 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/admin'
+    | '/approver'
+    | '/desk-validator'
+    | '/executive'
+    | '/field-officer'
     | '/find-my-land'
     | '/gis'
+    | '/pia'
     | '/uploads'
     | '/citizen/acquisition'
     | '/citizen/acquisition-status'
@@ -356,9 +422,15 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/admin'
+    | '/approver'
     | '/citizen'
+    | '/desk-validator'
+    | '/executive'
+    | '/field-officer'
     | '/find-my-land'
     | '/gis'
+    | '/pia'
     | '/uploads'
     | '/citizen/acquisition'
     | '/citizen/acquisition-status'
@@ -389,9 +461,15 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  ApproverRoute: typeof ApproverRoute
   CitizenRoute: typeof CitizenRouteWithChildren
+  DeskValidatorRoute: typeof DeskValidatorRoute
+  ExecutiveRoute: typeof ExecutiveRoute
+  FieldOfficerRoute: typeof FieldOfficerRoute
   FindMyLandRoute: typeof FindMyLandRoute
   GisRoute: typeof GisRoute
+  PiaRoute: typeof PiaRoute
   UploadsRoute: typeof UploadsRoute
 }
 
@@ -404,11 +482,46 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/approver': {
+      id: '/approver'
+      path: '/approver'
+      fullPath: '/approver'
+      preLoaderRoute: typeof ApproverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/citizen': {
       id: '/citizen'
       path: '/citizen'
       fullPath: '/citizen'
       preLoaderRoute: typeof CitizenRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/desk-validator': {
+      id: '/desk-validator'
+      path: '/desk-validator'
+      fullPath: '/desk-validator'
+      preLoaderRoute: typeof DeskValidatorRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/executive': {
+      id: '/executive'
+      path: '/executive'
+      fullPath: '/executive'
+      preLoaderRoute: typeof ExecutiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/field-officer': {
+      id: '/field-officer'
+      path: '/field-officer'
+      fullPath: '/field-officer'
+      preLoaderRoute: typeof FieldOfficerRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/find-my-land': {
@@ -423,6 +536,13 @@ declare module '@tanstack/react-router' {
       path: '/gis'
       fullPath: '/gis'
       preLoaderRoute: typeof GisRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pia': {
+      id: '/pia'
+      path: '/pia'
+      fullPath: '/pia'
+      preLoaderRoute: typeof PiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/uploads': {
@@ -671,9 +791,15 @@ const CitizenRouteWithChildren =
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  ApproverRoute: ApproverRoute,
   CitizenRoute: CitizenRouteWithChildren,
+  DeskValidatorRoute: DeskValidatorRoute,
+  ExecutiveRoute: ExecutiveRoute,
+  FieldOfficerRoute: FieldOfficerRoute,
   FindMyLandRoute: FindMyLandRoute,
   GisRoute: GisRoute,
+  PiaRoute: PiaRoute,
   UploadsRoute: UploadsRoute,
 }
 export const routeTree = rootRouteImport

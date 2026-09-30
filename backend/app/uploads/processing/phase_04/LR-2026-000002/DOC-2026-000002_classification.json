@@ -14,8 +14,8 @@
   ],
   "alternative_predictions": [],
   "timestamps": {
-    "started_at": "2026-09-29T05:49:47.855582",
-    "completed_at": "2026-09-29T05:49:48.410203"
+    "started_at": "2026-09-30T14:38:59.347525",
+    "completed_at": "2026-09-30T14:38:59.529594"
   },
   "processing_time_seconds": 0.0,
   "next_phase": "OCR_CONFIGURATION"

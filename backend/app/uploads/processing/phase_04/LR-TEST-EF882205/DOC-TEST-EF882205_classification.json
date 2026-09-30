@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-EF882205",
+  "document_id": "DOC-TEST-EF882205",
+  "ingestion_id": "ING-TEST-EF882205",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:26:40.504257",
+    "completed_at": "2026-09-30T14:26:40.504402"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

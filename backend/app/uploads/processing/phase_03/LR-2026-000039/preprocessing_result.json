@@ -107,8 +107,8 @@
         "height": 1684
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000039\\before\\page_001.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-2026-000039/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-2026-000039/before/page_001.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -202,8 +202,8 @@
         "height": 1684
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039\\page_002_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000039\\before\\page_002.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-2026-000039/page_002_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-2026-000039/before/page_002.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -297,8 +297,8 @@
         "height": 1684
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039\\page_003_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-2026-000039\\before\\page_003.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-2026-000039/page_003_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-2026-000039/before/page_003.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -428,9 +428,9 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T06:00:53.415009",
-    "completed_at": "2026-09-29T06:00:58.264963"
+    "started_at": "2026-09-30T14:39:16.076677",
+    "completed_at": "2026-09-30T14:39:17.178526"
   },
-  "source_checksum": "9cec49ea4c283f2e513325c5cb98d2035d80ab18534fa807ec8bd23c183ff6b3",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-2026-000039"
+  "source_checksum": "2848054c81128d36ce324b5f929c75853d24df7d7e29e4332f2556b3b7a3d155",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-2026-000039"
 }

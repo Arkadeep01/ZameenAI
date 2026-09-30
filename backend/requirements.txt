@@ -4,6 +4,7 @@ sqlalchemy>=2.0.0
 psycopg2-binary>=2.9.0
 geoalchemy2>=0.6.0
 pydantic>=2.8.0
+pydantic-settings>=2.0.0
 python-multipart>=0.0.6
 redis>=5.0.0
 celery>=5.6.0
@@ -18,3 +19,13 @@ pymupdf>=1.28.2
 scipy>=1.18.1
 sentencepiece>=0.2.2
 google-genai>=2.22.0
+# --- OCR / image pipeline (actually imported by app/ocr, previously missing) ---
+numpy>=1.26.0
+Pillow>=10.0.0
+opencv-python-headless>=4.8.0
+scikit-image>=0.22.0
+# --- legacy Flask reference API (app/ocr/api, tests/conftest) ---
+flask>=3.0.0
+flask-cors>=4.0.0
+# --- system dependency (not pip): tesseract-ocr + tesseract-ocr-hin + tesseract-ocr-ben
+# macOS: brew install tesseract tesseract-lang | Ubuntu: apt install tesseract-ocr tesseract-ocr-hin tesseract-ocr-ben

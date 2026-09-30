@@ -109,8 +109,8 @@
         "height": 600
       },
       "output_files": {
-        "original": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000043\\page_001_original.png",
-        "evidence_before": "D:\\Land Digitization\\uploads\\processing\\phase_03_evidence\\LR-2026-000043\\before\\page_001.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-2026-000043/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-2026-000043/before/page_001.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -166,9 +166,9 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-20T15:56:27.850950",
-    "completed_at": "2026-09-20T15:56:28.145680"
+    "started_at": "2026-09-30T14:25:44.489661",
+    "completed_at": "2026-09-30T14:25:44.518318"
   },
-  "source_checksum": "0e78e1e00e1b64efefcadff280b26c47573f6b85aa1a36b6d7773abfbc2088f9",
-  "output_directory": "D:\\Land Digitization\\uploads\\processing\\phase_03\\LR-2026-000043"
+  "source_checksum": "8686a2f2382e12c27c75cbcccf2e1671e142f53047ccce78f0f43c2fbd809c66",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-2026-000043"
 }

@@ -543,9 +543,9 @@
   },
   "timestamps": {
     "started_at": "2026-09-22T07:37:30.838930",
-    "completed_at": "2026-09-29T00:30:26.247416+00:00"
+    "completed_at": "2026-09-30T09:09:11.025928+00:00"
   },
-  "processing_time_seconds": 0.015,
+  "processing_time_seconds": 0.0003,
   "remediation": {
     "required": false,
     "reasons": [

@@ -1,0 +1,22 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-A5A7D7C1",
+  "document_id": "DOC-TEST-A5A7D7C1",
+  "ingestion_id": "ING-TEST-A5A7D7C1",
+  "predicted_document_type": "RECORD_OF_RIGHTS",
+  "confidence": 1.0,
+  "classification_status": "HIGH_CONFIDENCE",
+  "evidence": [
+    "RECORD OF RIGHTS",
+    "RECORD OF RIGHTS (RoR)",
+    "LAND AND LAND REFORMS",
+    "LAND AND LAND REFORMS DEPARTMENT"
+  ],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:31:09.152742",
+    "completed_at": "2026-09-30T14:31:09.152786"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

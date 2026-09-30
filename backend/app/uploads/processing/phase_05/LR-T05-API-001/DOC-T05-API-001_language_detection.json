@@ -61,10 +61,10 @@
   ],
   "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:51.981228",
-    "completed_at": "2026-09-29T05:49:51.982113"
+    "started_at": "2026-09-30T14:38:59.718542",
+    "completed_at": "2026-09-30T14:38:59.718709"
   },
-  "processing_time_seconds": 0.0009,
+  "processing_time_seconds": 0.0002,
   "document_type": "RECORD_OF_RIGHTS",
   "classification_confidence": 0.85
 }

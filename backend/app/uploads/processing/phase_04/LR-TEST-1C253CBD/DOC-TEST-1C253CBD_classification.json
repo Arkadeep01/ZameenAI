@@ -1,0 +1,29 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-1C253CBD",
+  "document_id": "DOC-TEST-1C253CBD",
+  "ingestion_id": "ING-TEST-1C253CBD",
+  "predicted_document_type": "KHATIAN",
+  "confidence": 0.36,
+  "classification_status": "LOW_CONFIDENCE",
+  "evidence": [
+    "Title: KHATIAN",
+    "KHATIAN NO"
+  ],
+  "alternative_predictions": [
+    {
+      "document_type": "RECORD_OF_RIGHTS",
+      "confidence": 0.18,
+      "evidence": [
+        "KHATIAN",
+        "KHATIAN NO"
+      ]
+    }
+  ],
+  "timestamps": {
+    "started_at": "2026-09-30T14:34:58.014680",
+    "completed_at": "2026-09-30T14:34:58.014732"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

@@ -1,0 +1,51 @@
+{
+  "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
+  "status": "SUCCESS",
+  "detection_status": "UNCERTAIN",
+  "record_id": "LR-2026-000145",
+  "document_id": "DOC-2026-000109",
+  "language": {
+    "primary": "und",
+    "confidence": 0.0,
+    "alternatives": []
+  },
+  "script": {
+    "primary": "Unknown",
+    "confidence": 0.0,
+    "alternatives": []
+  },
+  "multilingual": false,
+  "detected_languages": [],
+  "ocr_routing": {
+    "language_codes": [
+      "eng"
+    ],
+    "preferred_language": "REVIEW_REQUIRED",
+    "script": "Unknown",
+    "engine_preferences": [
+      "TESSERACT",
+      "SURYA"
+    ]
+  },
+  "evidence": [
+    {
+      "source": "document_visual_analysis",
+      "language": "und",
+      "script": "Unknown",
+      "confidence": 0.0,
+      "sample": "ING-2026-000061.png",
+      "detail": "image_located size=447x355 preview=provisional_ocr_empty"
+    }
+  ],
+  "next_phase": "OCR_VISUAL_TEXT_RECOGNITION",
+  "timestamps": {
+    "started_at": "2026-09-30T14:26:58.967853",
+    "completed_at": "2026-09-30T14:26:58.997449"
+  },
+  "processing_time_seconds": 0.0296,
+  "ingestion_id": "ING-2026-000061",
+  "classification_confidence": 0.0,
+  "warnings": [
+    "insufficient_text_evidence"
+  ]
+}

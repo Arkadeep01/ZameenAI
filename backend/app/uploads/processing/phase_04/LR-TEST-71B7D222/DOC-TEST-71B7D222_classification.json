@@ -1,0 +1,17 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-71B7D222",
+  "document_id": "DOC-TEST-71B7D222",
+  "ingestion_id": "ING-TEST-71B7D222",
+  "predicted_document_type": "UNKNOWN",
+  "confidence": 0.0,
+  "classification_status": "AMBIGUOUS",
+  "evidence": [],
+  "alternative_predictions": [],
+  "timestamps": {
+    "started_at": "2026-09-30T14:34:58.021638",
+    "completed_at": "2026-09-30T14:34:58.021757"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

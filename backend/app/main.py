@@ -1,4 +1,5 @@
 import uuid
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
@@ -12,6 +13,18 @@ from app.api.api_v1.api import api_router
 
 configure_logging()
 
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    try:
+        from app.database.session import init_domain_db
+        init_domain_db()
+    except Exception:
+        import logging
+        logging.getLogger(__name__).warning("domain DB init failed", exc_info=True)
+    yield
+
+
 app = FastAPI(
     title="ZameenAI",
     description=(
@@ -19,6 +32,7 @@ app = FastAPI(
         "Land Records Management System"
     ),
     version="1.0.0",
+    lifespan=lifespan,
 )
 
 app.add_middleware(
@@ -42,16 +56,6 @@ async def _request_id(request: Request, call_next):
     response = await call_next(request)
     response.headers["X-Request-ID"] = request.state.request_id
     return response
-
-
-@app.on_event("startup")
-def _init_domain_db() -> None:
-    try:
-        from app.database.session import init_domain_db
-        init_domain_db()
-    except Exception:
-        import logging
-        logging.getLogger(__name__).warning("domain DB init failed", exc_info=True)
 
 
 try:  # Ensure tables exist even when lifespan events are skipped (tests).

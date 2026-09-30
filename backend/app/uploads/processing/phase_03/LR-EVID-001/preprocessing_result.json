@@ -96,186 +96,6 @@
       ],
       "regions_detected": [
         {
-          "region_id": "TEXT-001",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            615,
-            1187,
-            954,
-            1243
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-002",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            1187,
-            613,
-            1243
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-003",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            1087,
-            613,
-            1143
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-004",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            615,
-            987,
-            954,
-            1043
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-005",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            987,
-            613,
-            1043
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-006",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            887,
-            1210,
-            958
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-007",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            787,
-            1210,
-            858
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-008",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            610,
-            687,
-            1210,
-            758
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-009",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            687,
-            613,
-            743
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-010",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            587,
-            1210,
-            658
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-011",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            487,
-            1210,
-            558
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-012",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            387,
-            1210,
-            458
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-013",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            287,
-            1210,
-            358
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-014",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            90,
-            187,
-            1210,
-            258
-          ],
-          "confidence": 0.7
-        },
-        {
-          "region_id": "TEXT-015",
-          "type": "TEXT_REGION",
-          "page": 1,
-          "bbox": [
-            670,
-            87,
-            1210,
-            158
-          ],
-          "confidence": 0.7
-        },
-        {
           "region_id": "HEADER-001",
           "type": "HEADER",
           "page": 1,
@@ -289,62 +109,62 @@
         }
       ],
       "metrics_before": {
-        "sharpness_normalized": 0.8823,
-        "contrast_normalized": 0.9608,
-        "brightness_normalized": 0.9405,
+        "sharpness_normalized": 0.8351,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 0.9914,
         "skew_angle_degrees": 0.0,
-        "blur_score": 4838.4,
+        "blur_score": 3072.35,
         "width": 800,
         "height": 600
       },
       "metrics_after": {
-        "sharpness_normalized": 0.5491,
-        "contrast_normalized": 0.9765,
-        "brightness_normalized": 0.9396,
+        "sharpness_normalized": 0.5108,
+        "contrast_normalized": 0.0549,
+        "brightness_normalized": 0.9908,
         "skew_angle_degrees": 0.0,
-        "blur_score": 195.29,
+        "blur_score": 134.91,
         "width": 2000,
         "height": 1500
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-EVID-001\\before\\page_001.png",
-        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-EVID-001\\after\\page_001_upscaled.png",
-        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001\\page_001_processed.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-EVID-001/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-EVID-001/before/page_001.png",
+        "evidence_after": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-EVID-001/after/page_001_upscaled.png",
+        "processed": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-EVID-001/page_001_processed.png"
       },
       "derivatives": {
-        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001\\page_001_processed.png"
+        "upscaled": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-EVID-001/page_001_processed.png"
       },
       "selected_derivative": "upscaled",
-      "improvement_score": -0.0155,
+      "improvement_score": -0.0159,
       "processing_improvement_sufficient": true,
       "table_detected": false,
       "table_bbox": null,
-      "readability_before": 0.8265,
-      "readability_after": 0.811,
+      "readability_before": 0.6172,
+      "readability_after": 0.6013,
       "candidate_evaluations": [
         {
           "name": "upscaled",
           "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
           "readability": {
-            "local_contrast": 0.6811,
-            "text_region_contrast": 0.1805,
-            "character_like_ratio": 0.8108,
-            "component_density": 1.0,
-            "stroke_width_quality": 0.2047,
+            "local_contrast": 0.5129,
+            "text_region_contrast": 0.0646,
+            "character_like_ratio": 0.0,
+            "component_density": 0.0,
+            "stroke_width_quality": 0.0,
             "noise_free_ratio": 1.0,
             "background_uniformity": 1.0,
             "structure_preservation": 1.0,
             "information_preservation": 1.0,
-            "overall": 0.811
+            "overall": 0.6013
           },
-          "readability_delta": -0.0155,
+          "readability_delta": -0.0159,
           "operations_applied": [
             "UPSCALE"
           ],
           "is_binary": false,
           "is_selected": true,
-          "improvement_score": -0.0155
+          "improvement_score": -0.0159
         }
       ],
       "rejected_candidates": []
@@ -403,186 +223,6 @@
   ],
   "regions_detected": [
     {
-      "region_id": "TEXT-001",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        615,
-        1187,
-        954,
-        1243
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-002",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        1187,
-        613,
-        1243
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-003",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        1087,
-        613,
-        1143
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-004",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        615,
-        987,
-        954,
-        1043
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-005",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        987,
-        613,
-        1043
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-006",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        887,
-        1210,
-        958
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-007",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        787,
-        1210,
-        858
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-008",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        610,
-        687,
-        1210,
-        758
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-009",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        687,
-        613,
-        743
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-010",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        587,
-        1210,
-        658
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-011",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        487,
-        1210,
-        558
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-012",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        387,
-        1210,
-        458
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-013",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        287,
-        1210,
-        358
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-014",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        90,
-        187,
-        1210,
-        258
-      ],
-      "confidence": 0.7
-    },
-    {
-      "region_id": "TEXT-015",
-      "type": "TEXT_REGION",
-      "page": 1,
-      "bbox": [
-        670,
-        87,
-        1210,
-        158
-      ],
-      "confidence": 0.7
-    },
-    {
       "region_id": "HEADER-001",
       "type": "HEADER",
       "page": 1,
@@ -597,9 +237,9 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:07.897245",
-    "completed_at": "2026-09-29T05:49:14.873297"
+    "started_at": "2026-09-30T14:38:38.187061",
+    "completed_at": "2026-09-30T14:38:42.022758"
   },
-  "source_checksum": "0ee8da9e9dc03bbac8e16e543c2fe939909de354069fe9c6feb0da126ca6395c",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-EVID-001"
+  "source_checksum": "baf4e51c87e201892c77b7e1ad016ba5da01c61f472113e0fb2ed0e35ca8811e",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-EVID-001"
 }

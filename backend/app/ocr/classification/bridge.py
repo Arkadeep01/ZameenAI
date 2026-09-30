@@ -88,6 +88,28 @@ def _read_title_band_text(
     """
     try:
         candidate_paths: List[Path] = []
+
+        def _resolve_portable(p: str, record_id: str) -> List[Path]:
+            """Resolve a stored path portably.
+
+            Phase 03 decision records may contain absolute paths from another
+            machine (e.g. Windows ``D:\\...``). Prefer the stored path when it
+            exists, otherwise fall back to the same basename inside this
+            repo's Phase 03 record directory.
+            """
+            out: List[Path] = []
+            raw = Path(p)
+            if raw.exists():
+                out.append(raw)
+                return out
+            phase_dir = APP_DIR / "uploads" / "processing" / "phase_03" / record_id
+            if phase_dir.exists():
+                base = raw.name
+                local = phase_dir / base
+                if local.exists():
+                    out.append(local)
+            return out
+
         data = _load_phase03_result(record_id, document_id, ingestion_id)
         if data:
             pages = data.get("pages", []) or []
@@ -96,7 +118,17 @@ def _read_title_band_text(
                 for key in ("processed", "upscaled", "original"):
                     p = output_files.get(key)
                     if p:
-                        candidate_paths.append(Path(p))
+                        candidate_paths.extend(_resolve_portable(str(p), record_id))
+            # Portable fallback: glob the Phase 03 record dir directly so a
+            # stale absolute path in the JSON never blocks title evidence.
+            phase_dir = APP_DIR / "uploads" / "processing" / "phase_03" / record_id
+            if phase_dir.exists():
+                for pattern in ("page_*_processed.png", "page_*_upscaled.png", "page_*_original.png"):
+                    for found in sorted(phase_dir.glob(pattern)):
+                        if found.is_file() and found not in candidate_paths:
+                            candidate_paths.append(found)
+                    if candidate_paths:
+                        break
         originals_dir = (
             APP_DIR / "uploads" / "originals"
         )

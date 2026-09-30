@@ -1,0 +1,33 @@
+{
+  "phase": "DOCUMENT_CLASSIFICATION",
+  "record_id": "LR-TEST-EDC92363",
+  "document_id": "DOC-TEST-EDC92363",
+  "ingestion_id": "ING-TEST-EDC92363",
+  "predicted_document_type": "KHATIAN",
+  "confidence": 0.48,
+  "classification_status": "LOW_CONFIDENCE",
+  "evidence": [
+    "Title: KHATIAN",
+    "KHATIAN NO",
+    "PLOT NO",
+    "AREA"
+  ],
+  "alternative_predictions": [
+    {
+      "document_type": "RECORD_OF_RIGHTS",
+      "confidence": 0.24,
+      "evidence": [
+        "KHATIAN",
+        "KHATIAN NO",
+        "PLOT NO",
+        "AREA"
+      ]
+    }
+  ],
+  "timestamps": {
+    "started_at": "2026-09-30T14:31:09.241299",
+    "completed_at": "2026-09-30T14:31:09.241351"
+  },
+  "processing_time_seconds": 0.0,
+  "next_phase": "OCR_CONFIGURATION"
+}

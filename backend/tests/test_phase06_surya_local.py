@@ -166,8 +166,14 @@ class TestDockerIndependence:
 
     def test_runner_env_forces_llamacpp(self, monkeypatch):
         """Even a hostile outer env cannot route the runner to vLLM/Docker."""
+        import sys as _sys
+
         _clear_surya_env(monkeypatch)
         monkeypatch.setenv("ZAMEENAI_SURYA_LOCAL", "1")
+        # Provision a dummy local backend so the probe succeeds and the test
+        # exercises the hostile-env override (not the missing-binary guard).
+        monkeypatch.setenv("ZAMEENAI_LLAMA_SERVER", _sys.executable)
+        monkeypatch.setenv("ZAMEENAI_SURYA_PYTHON", _sys.executable)
         monkeypatch.setenv("SURYA_INFERENCE_BACKEND", "vllm")
         monkeypatch.setenv("SURYA_INFERENCE_URL", "http://evil:8000/v1")
 

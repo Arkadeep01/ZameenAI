@@ -5,18 +5,17 @@
   "document_id": "DOC-LARGE-001",
   "ingestion_id": "large_test",
   "pages_processed": 1,
-  "strategy": "LOW_QUALITY_RESTORATION",
-  "decision": "MODERATE",
-  "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
-  "quality_score": 46.22,
+  "strategy": "MODERATE",
+  "decision": "CLEAR",
+  "preprocessing_mode": "UPSCALE_ONLY",
+  "quality_score": 75.0,
   "quality_source": "phase02",
-  "operations_applied": [
-    "BRIGHTNESS_CORRECTION",
-    "CONTRAST_ENHANCEMENT"
-  ],
+  "operations_applied": [],
   "operations_skipped": [
     "UPSCALE",
     "DESKEW",
+    "BRIGHTNESS_CORRECTION",
+    "CONTRAST_ENHANCEMENT",
     "DENOISE",
     "SHARPEN"
   ],
@@ -27,10 +26,10 @@
     {
       "page_number": 1,
       "status": "SUCCESS",
-      "strategy": "LOW_QUALITY_RESTORATION",
-      "decision": "MODERATE",
-      "preprocessing_mode": "SELECTIVE_ENHANCEMENT",
-      "quality_score": 51.22,
+      "strategy": "MODERATE",
+      "decision": "CLEAR",
+      "preprocessing_mode": "UPSCALE_ONLY",
+      "quality_score": 75.0,
       "quality_source": "phase02",
       "rejection_reasons": [],
       "upscaled": false,
@@ -47,8 +46,8 @@
         {
           "operation": "preprocessing_decision",
           "applied": true,
-          "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=51.22",
-          "input_metric": 51.22,
+          "reason": "decision=CLEAR mode=UPSCALE_ONLY score=75.0",
+          "input_metric": 75.0,
           "confidence": 1.0
         },
         {
@@ -61,37 +60,27 @@
         {
           "operation": "DESKEW",
           "applied": false,
-          "reason": "skew=0.00deg threshold=1.5deg",
-          "input_metric": 0.0,
-          "threshold": 1.5
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
         },
         {
           "operation": "BRIGHTNESS_CORRECTION",
-          "applied": true,
-          "reason": "brightness=0.984 band=[0.1, 0.95]",
-          "input_metric": 0.9838,
-          "threshold": 0.95
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
         },
         {
           "operation": "CONTRAST_ENHANCEMENT",
-          "applied": true,
-          "reason": "contrast=0.212 threshold=0.4 (mild CLAHE 1.5)",
-          "input_metric": 0.2118,
-          "threshold": 0.4
+          "applied": false,
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
         },
         {
           "operation": "DENOISE",
           "applied": false,
-          "reason": "sharpness=0.747 threshold=0.55 (edge-preserving bilateral)",
-          "input_metric": 0.7471,
-          "threshold": 0.55
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
         },
         {
           "operation": "SHARPEN",
           "applied": false,
-          "reason": "sharpness=0.747 threshold=0.55 (conservative unsharp 0.35)",
-          "input_metric": 0.7471,
-          "threshold": 0.55
+          "reason": "CLEAR image: enhancement forbidden, upscale only"
         }
       ],
       "regions_detected": [
@@ -109,63 +98,60 @@
         }
       ],
       "metrics_before": {
-        "sharpness_normalized": 0.7471,
-        "contrast_normalized": 0.2118,
-        "brightness_normalized": 0.9838,
+        "sharpness_normalized": 0.6995,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 0.9977,
         "skew_angle_degrees": 0.0,
-        "blur_score": 1317.01,
+        "blur_score": 832.74,
         "width": 2500,
         "height": 1800
       },
       "metrics_after": {
-        "sharpness_normalized": 0.6986,
-        "contrast_normalized": 0.1961,
-        "brightness_normalized": 0.7478,
+        "sharpness_normalized": 0.6995,
+        "contrast_normalized": 0.0,
+        "brightness_normalized": 0.9977,
         "skew_angle_degrees": 0.0,
-        "blur_score": 825.51,
+        "blur_score": 832.74,
         "width": 2500,
         "height": 1800
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-LARGE-001\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-LARGE-001\\before\\page_001.png",
-        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-LARGE-001\\after\\page_001_selective_enhanced.png",
-        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-LARGE-001\\page_001_processed.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-LARGE-001/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-LARGE-001/before/page_001.png",
+        "evidence_after": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-LARGE-001/after/page_001_original_passthrough.png",
+        "processed": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-LARGE-001/page_001_processed.png"
       },
       "derivatives": {
-        "selective_enhanced": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-LARGE-001\\page_001_processed.png"
+        "original_passthrough": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-LARGE-001/page_001_processed.png"
       },
-      "selected_derivative": "selective_enhanced",
-      "improvement_score": -0.0026,
+      "selected_derivative": "original_passthrough",
+      "improvement_score": 0.0,
       "processing_improvement_sufficient": true,
       "table_detected": false,
       "table_bbox": null,
-      "readability_before": 0.6215,
-      "readability_after": 0.6189,
+      "readability_before": 0.617,
+      "readability_after": 0.617,
       "candidate_evaluations": [
         {
-          "name": "selective_enhanced",
-          "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
+          "name": "original_passthrough",
+          "description": "Decision-gated UPSCALE_ONLY output",
           "readability": {
-            "local_contrast": 0.7123,
-            "text_region_contrast": 0.0789,
+            "local_contrast": 0.6747,
+            "text_region_contrast": 0.0,
             "character_like_ratio": 0.0,
             "component_density": 0.0,
             "stroke_width_quality": 0.0,
-            "noise_free_ratio": 1.0,
-            "background_uniformity": 0.9539,
+            "noise_free_ratio": 0.9951,
+            "background_uniformity": 1.0,
             "structure_preservation": 1.0,
             "information_preservation": 1.0,
-            "overall": 0.6189
+            "overall": 0.617
           },
-          "readability_delta": -0.0026,
-          "operations_applied": [
-            "BRIGHTNESS_CORRECTION",
-            "CONTRAST_ENHANCEMENT"
-          ],
+          "readability_delta": 0.0,
+          "operations_applied": [],
           "is_binary": false,
           "is_selected": true,
-          "improvement_score": -0.0026
+          "improvement_score": 0.0
         }
       ],
       "rejected_candidates": []
@@ -175,8 +161,8 @@
     {
       "operation": "preprocessing_decision",
       "applied": true,
-      "reason": "decision=MODERATE mode=SELECTIVE_ENHANCEMENT score=51.22",
-      "input_metric": 51.22,
+      "reason": "decision=CLEAR mode=UPSCALE_ONLY score=75.0",
+      "input_metric": 75.0,
       "confidence": 1.0
     },
     {
@@ -189,37 +175,27 @@
     {
       "operation": "DESKEW",
       "applied": false,
-      "reason": "skew=0.00deg threshold=1.5deg",
-      "input_metric": 0.0,
-      "threshold": 1.5
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
     },
     {
       "operation": "BRIGHTNESS_CORRECTION",
-      "applied": true,
-      "reason": "brightness=0.984 band=[0.1, 0.95]",
-      "input_metric": 0.9838,
-      "threshold": 0.95
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
     },
     {
       "operation": "CONTRAST_ENHANCEMENT",
-      "applied": true,
-      "reason": "contrast=0.212 threshold=0.4 (mild CLAHE 1.5)",
-      "input_metric": 0.2118,
-      "threshold": 0.4
+      "applied": false,
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
     },
     {
       "operation": "DENOISE",
       "applied": false,
-      "reason": "sharpness=0.747 threshold=0.55 (edge-preserving bilateral)",
-      "input_metric": 0.7471,
-      "threshold": 0.55
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
     },
     {
       "operation": "SHARPEN",
       "applied": false,
-      "reason": "sharpness=0.747 threshold=0.55 (conservative unsharp 0.35)",
-      "input_metric": 0.7471,
-      "threshold": 0.55
+      "reason": "CLEAR image: enhancement forbidden, upscale only"
     }
   ],
   "regions_detected": [
@@ -238,9 +214,9 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:48:36.251142",
-    "completed_at": "2026-09-29T05:48:53.837237"
+    "started_at": "2026-09-30T14:38:25.740430",
+    "completed_at": "2026-09-30T14:38:30.077220"
   },
-  "source_checksum": "dbbc67d92164562303695b6011fdca81718c87d48d31e0905cdf8324bff88c92",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-LARGE-001"
+  "source_checksum": "e0d2635931d80cbff0a311bcbf339f030f8555ef99b2fcdd2ed90134a530f924",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-LARGE-001"
 }

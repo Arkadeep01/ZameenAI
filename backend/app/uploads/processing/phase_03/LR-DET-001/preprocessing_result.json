@@ -125,58 +125,58 @@
         "contrast_normalized": 0.4275,
         "brightness_normalized": 0.4881,
         "skew_angle_degrees": 0.0,
-        "blur_score": 16772.95,
+        "blur_score": 16848.99,
         "width": 800,
         "height": 600
       },
       "metrics_after": {
-        "sharpness_normalized": 0.6726,
+        "sharpness_normalized": 0.6729,
         "contrast_normalized": 0.3882,
-        "brightness_normalized": 0.4881,
+        "brightness_normalized": 0.4879,
         "skew_angle_degrees": 0.0,
-        "blur_score": 642.7,
+        "blur_score": 644.75,
         "width": 2000,
         "height": 1500
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-DET-001\\before\\page_001.png",
-        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-DET-001\\after\\page_001_upscaled.png",
-        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001\\page_001_processed.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-DET-001/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-DET-001/before/page_001.png",
+        "evidence_after": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-DET-001/after/page_001_upscaled.png",
+        "processed": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-DET-001/page_001_processed.png"
       },
       "derivatives": {
-        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001\\page_001_processed.png"
+        "upscaled": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-DET-001/page_001_processed.png"
       },
       "selected_derivative": "upscaled",
-      "improvement_score": 0.0295,
+      "improvement_score": 0.0262,
       "processing_improvement_sufficient": true,
       "table_detected": false,
       "table_bbox": null,
       "readability_before": 0.5367,
-      "readability_after": 0.5662,
+      "readability_after": 0.5629,
       "candidate_evaluations": [
         {
           "name": "upscaled",
           "description": "Decision-gated SELECTIVE_ENHANCEMENT output",
           "readability": {
-            "local_contrast": 0.3759,
-            "text_region_contrast": 0.3704,
-            "character_like_ratio": 0.0507,
-            "component_density": 0.1015,
+            "local_contrast": 0.3758,
+            "text_region_contrast": 0.3702,
+            "character_like_ratio": 0.0343,
+            "component_density": 0.0686,
             "stroke_width_quality": 0.1236,
-            "noise_free_ratio": 0.9989,
+            "noise_free_ratio": 0.999,
             "background_uniformity": 0.0,
             "structure_preservation": 1.0,
             "information_preservation": 1.0,
-            "overall": 0.5662
+            "overall": 0.5629
           },
-          "readability_delta": 0.0295,
+          "readability_delta": 0.0262,
           "operations_applied": [
             "UPSCALE"
           ],
           "is_binary": false,
           "is_selected": true,
-          "improvement_score": 0.0295
+          "improvement_score": 0.0262
         }
       ],
       "rejected_candidates": []
@@ -261,9 +261,9 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:00.857506",
-    "completed_at": "2026-09-29T05:49:07.794247"
+    "started_at": "2026-09-30T14:38:34.054501",
+    "completed_at": "2026-09-30T14:38:38.170815"
   },
-  "source_checksum": "e9cd981680ea5cc7bf9fa33dd1f6036a22378ef1ab8535fe6e0b8cf1448c64ee",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DET-001"
+  "source_checksum": "815e1f13acfd237fb57eb4bc31c9d4f5ed7791d6f0b35142fd700591a82b5b37",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-DET-001"
 }

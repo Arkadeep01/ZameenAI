@@ -109,8 +109,8 @@
         "height": 600
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DARK-001\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-DARK-001\\before\\page_001.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-DARK-001/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-DARK-001/before/page_001.png"
       },
       "derivatives": {},
       "selected_derivative": null,
@@ -166,9 +166,9 @@
   "regions_detected": [],
   "next_phase": null,
   "timestamps": {
-    "started_at": "2026-09-29T05:48:35.869410",
-    "completed_at": "2026-09-29T05:48:36.043034"
+    "started_at": "2026-09-30T14:38:25.664210",
+    "completed_at": "2026-09-30T14:38:25.691364"
   },
-  "source_checksum": "0e78e1e00e1b64efefcadff280b26c47573f6b85aa1a36b6d7773abfbc2088f9",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-DARK-001"
+  "source_checksum": "8686a2f2382e12c27c75cbcccf2e1671e142f53047ccce78f0f43c2fbd809c66",
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-DARK-001"
 }

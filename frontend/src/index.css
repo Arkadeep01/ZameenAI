@@ -1,5 +1,7 @@
 @import "tailwindcss";
-@import "leaflet/dist/leaflet.css";
+
+/* Leaflet stylesheet is imported via JS (main.tsx) so Vite can resolve
+   its image assets. Do not @import it here — that breaks image URLs. */
 
 /* ========================================================================== */
 /* DESIGN TOKENS — single source of truth for the Citizen Portal               */

@@ -2,12 +2,12 @@
   "phase": "PHASE_05_LANGUAGE_SCRIPT_DETECTION",
   "record_id": "LR-2026-000032",
   "document_id": "DOC-2026-000032",
-  "image_path": "D:\\ZameenAI\\backend\\app\\uploads\\originals\\ING-2026-000032.png",
+  "image_path": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/originals/ING-2026-000032.png",
   "detection_status": "DETECTED",
   "providers": [
     "local_script_detector"
   ],
   "gemini_live_translate_model": "gemini-3.5-live-translate-preview",
   "gemini_live_translate_note": "Audio-only modality; NOT_APPLICABLE_FOR_DOCUMENT_INPUT — never invoked with document images.",
-  "saved_at": "2026-09-29T05:49:58.499902"
+  "saved_at": "2026-09-30T14:39:02.905992"
 }

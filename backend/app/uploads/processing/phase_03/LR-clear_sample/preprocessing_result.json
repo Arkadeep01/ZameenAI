@@ -348,25 +348,25 @@
         "height": 348
       },
       "metrics_after": {
-        "sharpness_normalized": 0.6337,
-        "contrast_normalized": 0.7843,
-        "brightness_normalized": 0.9058,
+        "sharpness_normalized": 0.6336,
+        "contrast_normalized": 0.7882,
+        "brightness_normalized": 0.9056,
         "skew_angle_degrees": 0.0,
-        "blur_score": 442.14,
+        "blur_score": 441.79,
         "width": 1160,
         "height": 870
       },
       "output_files": {
-        "original": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-clear_sample\\page_001_original.png",
-        "evidence_before": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-clear_sample\\before\\page_001.png",
-        "evidence_after": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03_evidence\\LR-clear_sample\\after\\page_001_upscaled.png",
-        "processed": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-clear_sample\\page_001_processed.png"
+        "original": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-clear_sample/page_001_original.png",
+        "evidence_before": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-clear_sample/before/page_001.png",
+        "evidence_after": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03_evidence/LR-clear_sample/after/page_001_upscaled.png",
+        "processed": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-clear_sample/page_001_processed.png"
       },
       "derivatives": {
-        "upscaled": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-clear_sample\\page_001_processed.png"
+        "upscaled": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-clear_sample/page_001_processed.png"
       },
       "selected_derivative": "upscaled",
-      "improvement_score": -0.0452,
+      "improvement_score": -0.0446,
       "processing_improvement_sufficient": true,
       "table_detected": true,
       "table_bbox": [
@@ -376,30 +376,30 @@
         691
       ],
       "readability_before": 0.7736,
-      "readability_after": 0.7283,
+      "readability_after": 0.729,
       "candidate_evaluations": [
         {
           "name": "upscaled",
           "description": "Decision-gated UPSCALE_ONLY output",
           "readability": {
             "local_contrast": 0.4876,
-            "text_region_contrast": 0.1454,
-            "character_like_ratio": 0.4594,
-            "component_density": 0.9187,
+            "text_region_contrast": 0.1455,
+            "character_like_ratio": 0.4626,
+            "component_density": 0.9252,
             "stroke_width_quality": 0.2739,
             "noise_free_ratio": 1.0,
-            "background_uniformity": 0.9326,
+            "background_uniformity": 0.9323,
             "structure_preservation": 1.0,
             "information_preservation": 1.0,
-            "overall": 0.7283
+            "overall": 0.729
           },
-          "readability_delta": -0.0452,
+          "readability_delta": -0.0446,
           "operations_applied": [
             "UPSCALE"
           ],
           "is_binary": false,
           "is_selected": true,
-          "improvement_score": -0.0452
+          "improvement_score": -0.0446
         }
       ],
       "rejected_candidates": []
@@ -702,9 +702,9 @@
   ],
   "next_phase": "DOCUMENT_CLASSIFICATION",
   "timestamps": {
-    "started_at": "2026-09-29T05:49:38.515752",
-    "completed_at": "2026-09-29T05:49:40.586178"
+    "started_at": "2026-09-30T14:38:56.206874",
+    "completed_at": "2026-09-30T14:38:56.997846"
   },
   "source_checksum": "2941806151527c11e84d17b77a6b54511e49835989e635c75b3f947e48c69be5",
-  "output_directory": "D:\\ZameenAI\\backend\\app\\uploads\\processing\\phase_03\\LR-clear_sample"
+  "output_directory": "/Users/satyamkumar/Documents/ZameenAI/backend/app/uploads/processing/phase_03/LR-clear_sample"
 }

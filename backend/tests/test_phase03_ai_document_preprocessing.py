@@ -465,9 +465,14 @@ class TestAIDocumentPreprocessingService:
 
     def test_large_image_never_downscaled(self):
         self._save_png("large_test.png", self._text_image(size=(2500, 1800), lines=30))
+        # Dimension contract only: inject a passing Phase 02 payload so the
+        # quality gate does not reject the sparse synthetic fixture before
+        # the never-downscale assertion runs.
         result = self.service.preprocess_document(
             record_id="LR-LARGE-001", document_id="DOC-LARGE-001",
-            ingestion_id="large_test", force=True)
+            ingestion_id="large_test",
+            quality_result=_moderate_qr(score=75.0, page_score=75.0),
+            force=True)
         assert result.status == PreprocessingStatus.SUCCESS
         page = result.pages[0]
         assert page.upscaled is False
